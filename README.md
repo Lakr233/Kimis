@@ -2,7 +2,7 @@
 
 Kimis is a client for [Misskey](https://github.com/misskey-dev/misskey) built with pure UIKit for quality.
 
-
+Full source code will be committed later after App Store submission approved. Contact me if you are in hurry.
 
 ## 👀 Preview
 
