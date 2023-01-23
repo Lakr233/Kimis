@@ -18,6 +18,13 @@ BUILD_DIR="$WORKING_ROOT/.build/release/$TIMESTAMP/XcodeBuild"
 
 SIGNING_ENT="$WORKING_ROOT/Kimis/Kimis.entitlements"
 
+if [ -z "$BUNDLE_ID" ]; then
+    BUNDLE_ID="wiki.qaq.kimis"
+    echo "[*] bundle id not set, using default: $BUNDLE_ID"
+else
+    echo "[*] bundle id set to $BUNDLE_ID"
+fi
+
 echo "[*] build directory: $BUILD_DIR"
 mkdir -p "$BUILD_DIR"
 
@@ -40,6 +47,7 @@ xcodebuild \
     CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGN_ENTITLEMENTS="" CODE_SIGNING_ALLOWED="NO" \
     GCC_GENERATE_DEBUGGING_SYMBOLS=YES STRIP_INSTALLED_PRODUCT=NO \
     COPY_PHASE_STRIP=NO UNSTRIPPED_PRODUCT=NO \
+    PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
     | tee "$XCODEBUILD_LOG_FILE_MACOS" \
     | xcbeautify --is-ci --quiet
 
