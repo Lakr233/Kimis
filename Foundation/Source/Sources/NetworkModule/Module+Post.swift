@@ -5,19 +5,20 @@
 //  Created by Lakr Aream on 2023/1/2.
 //
 
+import BetterCodable
 import Foundation
 
 public struct NMPost: Codable {
-    public var text: String?
-    public var fileIds: [String]?
-    public var poll: Poll? = nil
-    public var cw: String?
+    @LossyOptional public var text: String?
+    @LossyOptional public var fileIds: [String]?
+    @LossyOptional public var poll: Poll?
+    @LossyOptional public var cw: String?
     public var localOnly: Bool = false
     public var visibility: String = "public"
-    public var visibleUserIds: [String]? = nil
+    @LossyOptional public var visibleUserIds: [String]?
 
     public struct Poll: Codable {
-        public var expiresAt: Int? // in ms, Date().timeIntervalSince1970 * 1000
+        @LossyOptional public var expiresAt: Int? // in ms, Date().timeIntervalSince1970 * 1000
         public var choices: [String]
         public var multiple: Bool
 
@@ -29,13 +30,13 @@ public struct NMPost: Codable {
     }
 
     public init(
-        text: String? = nil,
-        fileIds: [String]? = nil,
-        poll: NMPost.Poll? = nil,
-        cw: String? = nil,
+        text: String?,
+        fileIds: [String]?,
+        poll: NMPost.Poll?,
+        cw: String?,
         localOnly: Bool = false,
         visibility: String = "public",
-        visibleUserIds: [String]? = nil
+        visibleUserIds: [String]?
     ) {
         self.text = text
         self.fileIds = fileIds

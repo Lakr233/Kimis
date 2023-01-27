@@ -15,23 +15,28 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", allAvailable),
         .package(url: "https://github.com/malcommac/SwiftDate.git", allAvailable),
+        .package(url: "https://github.com/marksands/BetterCodable.git", allAvailable),
     ],
     targets: [
         .target(name: "Source", dependencies: ["Network", "Storage"]),
 
         // requesting data goes into
         .target(name: "Network", dependencies: ["ModuleBridge"]),
+
         // save data and load from database goes into
         .target(name: "Storage", dependencies: [
             "ModuleBridge",
             "LRUCache",
             .product(name: "SQLite", package: "SQLite.swift"),
         ]),
+
         .target(name: "LRUCache"),
 
         // define
         .target(name: "Module", dependencies: ["SwiftDate"]),
-        .target(name: "NetworkModule"),
+
+        .target(name: "NetworkModule", dependencies: ["BetterCodable"]),
+
         .target(name: "ModuleBridge", dependencies: [
             "Module",
             "NetworkModule",

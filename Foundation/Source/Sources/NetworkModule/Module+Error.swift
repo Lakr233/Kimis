@@ -5,14 +5,15 @@
 //  Created by Lakr Aream on 2022/5/7.
 //
 
+import BetterCodable
 import Foundation
 
 public struct NMError: Codable {
     public let error: ErrorMessage
 
     public var errorMessage: String {
-        if let reason = error.info?.reason {
-            return reason
+        if let info = error.info {
+            return "\(info.reason) \(info.param)"
         }
         return error.message
     }

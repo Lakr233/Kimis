@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2022/11/30.
 //
 
+import BetterCodable
 import Foundation
 
 public struct NMNotification: Codable {

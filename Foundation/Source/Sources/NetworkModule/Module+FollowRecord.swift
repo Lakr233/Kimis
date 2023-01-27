@@ -5,13 +5,14 @@
 //  Created by Lakr Aream on 2023/1/18.
 //
 
+import BetterCodable
 import Foundation
 
 public struct NMFollowRecord: Codable {
     public var id: String
     public var createdAt: String
-    public var followee: NMUserDetails?
-    public var follower: NMUserDetails?
-    public var followeeId: String?
-    public var followerId: String?
+    @LossyOptional public var followee: NMUserDetails?
+    @LossyOptional public var follower: NMUserDetails?
+    @LossyOptional public var followeeId: String?
+    @LossyOptional public var followerId: String?
 }

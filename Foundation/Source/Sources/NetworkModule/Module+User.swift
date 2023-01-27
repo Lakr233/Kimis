@@ -5,82 +5,83 @@
 //  Created by Lakr Aream on 2022/5/1.
 //
 
+import BetterCodable
 import Foundation
 
 public struct NMUserLite: Codable {
     public var id: String
-    public var name: String?
+    @LossyOptional public var name: String?
     public var username: String
-    public var host: String?
-    public var avatarUrl: String?
-    public var avatarBlurhash: String?
-    public var avatarColor: String?
-    public var emojis: [NMEmoji]?
-    public var onlineStatus: String?
-    public var isAdmin: Bool?
-    public var isBot: Bool?
-    public var isModerator: Bool?
-    public var isCat: Bool?
+    @LossyOptional public var host: String?
+    @LossyOptional public var avatarUrl: String?
+    @LossyOptional public var avatarBlurhash: String?
+    @LossyOptional public var avatarColor: String?
+    @LossyOptional public var emojis: [NMEmoji]?
+    @LossyOptional public var onlineStatus: String?
+    @LossyOptional public var isAdmin: Bool?
+    @LossyOptional public var isBot: Bool?
+    @LossyOptional public var isModerator: Bool?
+    @LossyOptional public var isCat: Bool?
 
-    public var instance: NMInstance?
+    @LossyOptional public var instance: NMInstance?
 }
 
 public struct NMUserDetails: Codable {
     public var id: String
 
-    public var name: String?
+    @LossyOptional public var name: String?
     public var username: String
-    public var host: String?
+    @LossyOptional public var host: String?
 
-    public var avatarUrl: String?
-    public var avatarBlurhash: String?
+    @LossyOptional public var avatarUrl: String?
+    @LossyOptional public var avatarBlurhash: String?
 
-    public var isAdmin: Bool?
-    public var isModerator: Bool?
-    public var isBot: Bool?
-    public var isCat: Bool?
+    @LossyOptional public var isAdmin: Bool?
+    @LossyOptional public var isModerator: Bool?
+    @LossyOptional public var isBot: Bool?
+    @LossyOptional public var isCat: Bool?
 
-    public var instance: NMInstance?
-    public var emojis: [NMEmoji]?
+    @LossyOptional public var instance: NMInstance?
+    @LossyOptional public var emojis: [NMEmoji]?
 
-    public var onlineStatus: String?
+    @LossyOptional public var onlineStatus: String?
 
-    public var url: String?
-    public var uri: String?
+    @LossyOptional public var url: String?
+    @LossyOptional public var uri: String?
 
     public var createdAt: String
 
-    public var bannerUrl: String?
-    public var bannerBlurhash: String?
+    @LossyOptional public var bannerUrl: String?
+    @LossyOptional public var bannerBlurhash: String?
 
-    public var description: String?
-    public var location: String?
-    public var birthday: String?
-    public var fields: [NMFields]?
+    @LossyOptional public var description: String?
+    @LossyOptional public var location: String?
+    @LossyOptional public var birthday: String?
+    @LossyOptional public var fields: [NMFields]?
 
-    public var followersCount: Int?
-    public var followingCount: Int?
-    public var notesCount: Int?
+    @LossyOptional public var followersCount: Int?
+    @LossyOptional public var followingCount: Int?
+    @LossyOptional public var notesCount: Int?
 
-    public var pinnedNoteIds: [String]?
-    public var pinnedNotes: [NMNote]?
+    @LossyOptional public var pinnedNoteIds: [String]?
+    @LossyOptional public var pinnedNotes: [NMNote]?
 
-    public var ffVisibility: String?
+    @LossyOptional public var ffVisibility: String?
 
-    public var isLocked: Bool?
+    @LossyOptional public var isLocked: Bool?
 
-    public var isFollowing: Bool?
-    public var isFollowed: Bool?
+    @LossyOptional public var isFollowing: Bool?
+    @LossyOptional public var isFollowed: Bool?
 
-    public var hasPendingFollowRequestFromYou: Bool?
-    public var hasPendingFollowRequestToYou: Bool?
+    @LossyOptional public var hasPendingFollowRequestFromYou: Bool?
+    @LossyOptional public var hasPendingFollowRequestToYou: Bool?
 
-    public var isBlocking: Bool?
-    public var isBlocked: Bool?
+    @LossyOptional public var isBlocking: Bool?
+    @LossyOptional public var isBlocked: Bool?
 
-    public var isMuted: Bool?
+    @LossyOptional public var isMuted: Bool?
 
-    public var mutedWords: [[String]]?
+    @LossyOptional public var mutedWords: [[String]]?
 }
 
 public struct NMFields: Codable {

@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2022/11/27.
 //
 
+import BetterCodable
 import Foundation
 
 public struct MKTrend: Codable {

@@ -5,30 +5,31 @@
 //  Created by Lakr Aream on 2022/5/1.
 //
 
+import BetterCodable
 import Foundation
 
 public struct NMDriveFile: Codable {
     public var id: String
-    public var createdAt: String?
+    @LossyOptional public var createdAt: String?
     public var name: String
     public var type: String
-    public var md5: String?
-    public var size: Int?
+    @LossyOptional public var md5: String?
+    @LossyOptional public var size: Int?
     public var isSensitive: Bool
-    public var blurhash: String?
-    public var properties: NMProperties?
+    @LossyOptional public var blurhash: String?
+    @LossyOptional public var properties: NMProperties?
     public var url: String
-    public var thumbnailUrl: String?
-    public var comment: String?
-    public var folderId: String?
-    public var userId: String?
-//        public var folder: NMUserLiteFolder?
-    public var user: NMUserLite?
+    @LossyOptional public var thumbnailUrl: String?
+    @LossyOptional public var comment: String?
+    @LossyOptional public var folderId: String?
+    @LossyOptional public var userId: String?
+//        @LossyOptional public var folder: NMUserLiteFolder?
+    @LossyOptional public var user: NMUserLite?
 }
 
 public struct NMProperties: Codable {
-    public var height: Int?
-    public var width: Int?
-    public var orientation: Int?
-    public var avgColor: String?
+    @LossyOptional public var height: Int?
+    @LossyOptional public var width: Int?
+    @LossyOptional public var orientation: Int?
+    @LossyOptional public var avgColor: String?
 }

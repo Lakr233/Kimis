@@ -215,12 +215,39 @@ extension Network {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
 
+    func cleaningJsonObjectByDeletingNullKeyValue(object: inout [AnyHashable: Any?]) {
+        var result = [AnyHashable: Any?]()
+        for (key, value) in object {
+            guard var value else { continue }
+            if var deep = value as? [AnyHashable: Any?] {
+                cleaningJsonObjectByDeletingNullKeyValue(object: &deep)
+                value = deep
+            }
+            result[key] = value
+        }
+        object = result
+    }
+
     func makeRequest(
         with request: URLRequest,
         with session: URLSession = .shared,
         setTask: (URLSessionDataTask) -> Void = { _ in },
         completion: @escaping (Data) -> Void
     ) {
+        var request = request
+        if request.httpMethod?.uppercased() == "POST",
+           let origJsonData = request.httpBody,
+           var object = try? JSONSerialization.jsonObject(
+               with: origJsonData,
+               options: .fragmentsAllowed
+           ) as? [AnyHashable: Any?]
+        {
+            cleaningJsonObjectByDeletingNullKeyValue(object: &object)
+            if let newData = try? JSONSerialization.data(withJSONObject: object, options: .fragmentsAllowed) {
+                request.httpBody = newData
+            }
+        }
+
         let sem = DispatchSemaphore(value: 0)
         let task = session.dataTask(with: request) { data, _, error in
             defer { sem.signal() }
