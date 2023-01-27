@@ -54,7 +54,7 @@ class UsersListTableView: TableView, UITableViewDelegate, UITableViewDataSource,
             }
             let context = input.0.map { UserCell.Context(user: $0) }
             let width = input.1
-            context.forEach { $0.renderLayout(usingWidth: width) }
+            context.forEach { $0.renderLayout(usingWidth: width - 2 * UserCell.padding) }
             withMainActor {
                 self._source = context
                 self.progressView.stopAnimate()
@@ -121,7 +121,7 @@ class UsersListTableView: TableView, UITableViewDelegate, UITableViewDataSource,
         let visibleIndexPaths = indexPathsForVisibleRows ?? []
         for indexPath in visibleIndexPaths {
             if let ctx = _source[safe: indexPath.row] {
-                ctx.renderLayout(usingWidth: bounds.width)
+                ctx.renderLayout(usingWidth: bounds.width - 2 * UserCell.padding)
             }
         }
         beginUpdates()

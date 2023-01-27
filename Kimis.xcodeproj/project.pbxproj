@@ -101,7 +101,7 @@
 		5065E4E429352B22001C540C /* TextParser+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065E4E329352B22001C540C /* TextParser+Email.swift */; };
 		5065E4E62935BA22001C540C /* UserViewController+LLNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065E4E52935BA22001C540C /* UserViewController+LLNav.swift */; };
 		5069EBAE295ED53200677A3F /* UsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBAD295ED53200677A3F /* UsersListController.swift */; };
-		5069EBB2295EDD3100677A3F /* SmallUseresListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBB1295EDD3100677A3F /* SmallUseresListController.swift */; };
+		5069EBB2295EDD3100677A3F /* SmallUsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBB1295EDD3100677A3F /* SmallUsersListController.swift */; };
 		5069EBB4295EDD3500677A3F /* LargeUsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBB3295EDD3500677A3F /* LargeUsersListController.swift */; };
 		5069EBB7295EE2B800677A3F /* UsersListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBB6295EE2B800677A3F /* UsersListTableView.swift */; };
 		5069EBBE295EEA1200677A3F /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBBD295EEA1200677A3F /* UserCell.swift */; };
@@ -244,7 +244,7 @@
 		50E8DFCA297AF29800657910 /* AppAvatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 50E8DFC9297AF29800657910 /* AppAvatar.png */; };
 		50E8DFCC297AF5A100657910 /* NoteSearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFCB297AF5A100657910 /* NoteSearchResultController.swift */; };
 		50E8DFCE297B0CF600657910 /* SearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFCD297B0CF600657910 /* SearchDelegate.swift */; };
-		50E8DFD1297B11D600657910 /* SafariController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFD0297B11D600657910 /* SafariController.swift */; };
+		50E8DFD1297B11D600657910 /* MisskeySafariController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFD0297B11D600657910 /* MisskeySafariController.swift */; };
 		50E8DFD5297B19C600657910 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFD4297B19C600657910 /* PaddedTextField.swift */; };
 		50E8DFD8297B433100657910 /* LicenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFD7297B433100657910 /* LicenseController.swift */; };
 		50E8DFDC297B43C500657910 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 50E8DFDB297B43C500657910 /* LICENSE */; };
@@ -350,7 +350,7 @@
 		5065E4E329352B22001C540C /* TextParser+Email.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextParser+Email.swift"; sourceTree = "<group>"; };
 		5065E4E52935BA22001C540C /* UserViewController+LLNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserViewController+LLNav.swift"; sourceTree = "<group>"; };
 		5069EBAD295ED53200677A3F /* UsersListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListController.swift; sourceTree = "<group>"; };
-		5069EBB1295EDD3100677A3F /* SmallUseresListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallUseresListController.swift; sourceTree = "<group>"; };
+		5069EBB1295EDD3100677A3F /* SmallUsersListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallUsersListController.swift; sourceTree = "<group>"; };
 		5069EBB3295EDD3500677A3F /* LargeUsersListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeUsersListController.swift; sourceTree = "<group>"; };
 		5069EBB6295EE2B800677A3F /* UsersListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListTableView.swift; sourceTree = "<group>"; };
 		5069EBBD295EEA1200677A3F /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -488,7 +488,7 @@
 		50E8DFC9297AF29800657910 /* AppAvatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppAvatar.png; sourceTree = "<group>"; };
 		50E8DFCB297AF5A100657910 /* NoteSearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchResultController.swift; sourceTree = "<group>"; };
 		50E8DFCD297B0CF600657910 /* SearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDelegate.swift; sourceTree = "<group>"; };
-		50E8DFD0297B11D600657910 /* SafariController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariController.swift; sourceTree = "<group>"; };
+		50E8DFD0297B11D600657910 /* MisskeySafariController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MisskeySafariController.swift; sourceTree = "<group>"; };
 		50E8DFD4297B19C600657910 /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		50E8DFD7297B433100657910 /* LicenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseController.swift; sourceTree = "<group>"; };
 		50E8DFDB297B43C500657910 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -815,7 +815,7 @@
 			isa = PBXGroup;
 			children = (
 				5069EBAD295ED53200677A3F /* UsersListController.swift */,
-				5069EBB1295EDD3100677A3F /* SmallUseresListController.swift */,
+				5069EBB1295EDD3100677A3F /* SmallUsersListController.swift */,
 				5069EBB3295EDD3500677A3F /* LargeUsersListController.swift */,
 			);
 			path = UsersListController;
@@ -1374,7 +1374,7 @@
 		50E8DFCF297B11C200657910 /* SafariController */ = {
 			isa = PBXGroup;
 			children = (
-				50E8DFD0297B11D600657910 /* SafariController.swift */,
+				50E8DFD0297B11D600657910 /* MisskeySafariController.swift */,
 			);
 			path = SafariController;
 			sourceTree = "<group>";
@@ -1569,7 +1569,7 @@
 				505E10CC292E1E49001F9141 /* NoteViewController.swift in Sources */,
 				508FE996292B5357005D1933 /* NoteCell+ContextRender.swift in Sources */,
 				50126243292F142B002E1636 /* NoteView.swift in Sources */,
-				50E8DFD1297B11D600657910 /* SafariController.swift in Sources */,
+				50E8DFD1297B11D600657910 /* MisskeySafariController.swift in Sources */,
 				50BED1F829277D0E00C9D7E2 /* AppDelegate.swift in Sources */,
 				50AFDFE129305E8300BEC741 /* NoteOperationStrip+Reply.swift in Sources */,
 				50BED1F129277D0E00C9D7E2 /* ControllerRouting.swift in Sources */,
@@ -1701,7 +1701,7 @@
 				50FF63EC2969A46700DBB4CA /* UIButton.swift in Sources */,
 				50443F8A2927D4E10077523F /* NoteCell+Context.swift in Sources */,
 				50BED1BF29277D0E00C9D7E2 /* AlignedCollectionViewFlowLayout.swift in Sources */,
-				5069EBB2295EDD3100677A3F /* SmallUseresListController.swift in Sources */,
+				5069EBB2295EDD3100677A3F /* SmallUsersListController.swift in Sources */,
 				50BED1C229277D0E00C9D7E2 /* TextView.swift in Sources */,
 				5065E4E429352B22001C540C /* TextParser+Email.swift in Sources */,
 				50BED20329277D0E00C9D7E2 /* TextParser+Body.swift in Sources */,
@@ -1864,7 +1864,7 @@
 				INFOPLIST_FILE = Kimis/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kimis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We will take photo with this permission when needed.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We will take photo with this permission when you asked to do, and we will attach picture to your post or request when possible.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We will take video or record audio with this post when you reuqested.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launcher;
@@ -1903,7 +1903,7 @@
 				INFOPLIST_FILE = Kimis/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kimis;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We will take photo with this permission when needed.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We will take photo with this permission when you asked to do, and we will attach picture to your post or request when possible.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We will take video or record audio with this post when you reuqested.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Launcher;

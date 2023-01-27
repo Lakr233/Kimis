@@ -50,7 +50,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         #if DEBUG
             ret.text = "social.qaq.wiki"
         #endif
-        ret.placeholder = "[Misskey Host] eg: misskey.io"
+        ret.placeholder = "[Host] eg: misskey.io (not username)"
         ret.textColor = .accent
         ret.returnKeyType = .done
         ret.layer.cornerRadius = 8
@@ -281,6 +281,20 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             assertionFailure() // checked host before
             return
         }
+
+        let alert = UIAlertController(
+            title: "You are connecting to\nhttps://\(challenge.requestHost)",
+            message: "Please sign in with your username and password there, and authorize this session with Misskey OAuth.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { [weak self] _ in
+            self?.processedToLogin(withSession: challenge)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
+    }
+
+    func processedToLogin(withSession challenge: LoginChallenge) {
         print("====== 🔒 ======")
         print("Begin Login")
         print("[i] Challenge \(challenge.requestSession)")
@@ -342,7 +356,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             .dataTask(with: request.requestURL) { _, _, _ in }
             .resume()
         let controller = SFSafariViewController(url: request.requestURL)
-        controller.prepareModalSheet()
+        controller.prepareModalSheet(style: .formSheet, preferredSize: nil)
         present(controller, animated: true)
         return controller
     }

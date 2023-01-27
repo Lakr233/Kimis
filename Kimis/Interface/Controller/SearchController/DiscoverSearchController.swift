@@ -46,9 +46,9 @@ class DiscoverSearchController: ViewController {
             }),
             .init(title: "Popular Users", icon: "person.2.fill", action: { anchor in
                 if let nav = anchor.navigationController {
-                    nav.pushViewController(SmallUseresListController(), animated: true)
+                    nav.pushViewController(SmallUsersListController(), animated: true)
                 } else {
-                    anchor.present(next: SmallUseresListController())
+                    anchor.present(next: SmallUsersListController())
                 }
             }),
         ]),

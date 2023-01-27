@@ -237,9 +237,9 @@ class SettingController: ViewController {
                 return cell
             } action: { tableView in
                 if let nav = tableView.parentViewController?.navigationController {
-                    nav.pushViewController(SafariController())
+                    nav.pushViewController(MisskeySafariController())
                 } else {
-                    tableView.parentViewController?.present(SafariController(), animated: true)
+                    tableView.parentViewController?.present(MisskeySafariController(), animated: true)
                 }
             },
             .init {

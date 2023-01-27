@@ -23,10 +23,17 @@ enum IH {
         return 0
     }
 
+    // for UI elements
     static func preferredPadding(usingWidth width: CGFloat) -> CGFloat {
 //        if width > 500 { return 20 }
         if width > 400 { return 16 }
         return 10
+    }
+
+    // for placing items into a contentView
+    static func preferredViewPadding(usingWidth width: CGFloat = 0) -> CGFloat {
+        if width > 400 { return 20 }
+        return 16
     }
 
     static func containerWidth(usingWidth width: CGFloat, maxWidth: CGFloat = IH.contentMaxWidth) -> CGFloat {

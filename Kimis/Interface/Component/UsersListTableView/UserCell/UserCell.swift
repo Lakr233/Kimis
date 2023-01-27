@@ -12,6 +12,8 @@ import UIKit
 class UserCell: TableViewCell {
     static let id = "UserCell"
 
+    static let padding: CGFloat = IH.preferredViewPadding()
+
     let container: UIView = .init()
 
     let preview = UserPreview()
@@ -35,11 +37,11 @@ class UserCell: TableViewCell {
         super.layoutSubviews()
         let bounds = contentView.bounds
         let width = IH.containerWidth(usingWidth: bounds.width)
-        let paddingInset = (bounds.width - width) / 2
+        let paddingInset = max(UserCell.padding, (bounds.width - width) / 2)
         container.frame = CGRect(
             x: paddingInset,
             y: 0,
-            width: width,
+            width: width - 2 * paddingInset,
             height: bounds.height
         )
         preview.frame = container.bounds

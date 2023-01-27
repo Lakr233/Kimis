@@ -141,13 +141,13 @@ extension UserPreview.Snapshot {
 
         let avatarSize = UserPreview.defaultAvatarSize + IH.preferredAvatarSizeOffset(usingWidth: width)
         let avatarFrame = CGRect(
-            x: padding,
+            x: 0, // paddings on the x-axis are handled in UserCell.swift
             y: padding,
             width: avatarSize,
             height: avatarSize
         )
         let contentAlign = avatarFrame.maxX + padding
-        let contentWidth = width - padding - contentAlign
+        let contentWidth = width - contentAlign
 
         let nameHeight = usernameText
             .measureHeight(usingWidth: contentWidth, lineLimit: UserPreview.usernameTextViewLimit)

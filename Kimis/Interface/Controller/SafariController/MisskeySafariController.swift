@@ -1,5 +1,5 @@
 //
-//  SafariController.swift
+//  MisskeySafariController.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/29.
@@ -9,7 +9,7 @@ import Combine
 import UIKit
 import WebKit
 
-class SafariController: ViewController, WKNavigationDelegate {
+class MisskeySafariController: ViewController, WKNavigationDelegate {
     var webView: WKWebView!
 
     let progressBar = UIProgressView()

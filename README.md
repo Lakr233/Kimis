@@ -2,6 +2,10 @@
 
 Kimis is a client for [Misskey](https://github.com/misskey-dev/misskey) built with pure UIKit for quality.
 
+![https://apps.apple.com/app/kimis-a-client-for-misskey/id1667275125](./Resource/Assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg)
+
+> Free until 2023/2/21, $49.99 later. After that you can either contact me for free promo code (if available), download from release, or compile yourself.
+
 ## 👀 Preview
 
 ![Preview](./Resource/Assets/Screenshot.png)

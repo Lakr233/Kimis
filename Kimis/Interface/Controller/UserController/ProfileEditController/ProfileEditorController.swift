@@ -27,7 +27,7 @@ class ProfileEditorController: UINavigationController {
     }
 }
 
-private class _ProfileEditorController: SafariController {
+private class _ProfileEditorController: MisskeySafariController {
     override init() {
         super.init()
         title = "Edit Profile"

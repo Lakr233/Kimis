@@ -107,8 +107,12 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
 
     let rightView = UIView()
 
-    let titleLineHeight: CGFloat = 50
-    let inset: CGFloat = 12
+    #if targetEnvironment(macCatalyst)
+        let titleLineHeight: CGFloat = 60
+    #else // iPadOS
+        let titleLineHeight: CGFloat = 50
+    #endif
+    var padding = IH.preferredViewPadding()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,13 +168,13 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
         rightView.snp.makeConstraints { make in
             make.centerY.equalTo(backButton.snp.centerY)
             make.height.equalTo(titleLineHeight)
-            make.right.equalTo(titleContainer.snp.right).offset(-inset)
+            make.right.equalTo(titleContainer.snp.right).offset(-padding)
             make.width.equalTo(0)
         }
 
         backButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.left.equalToSuperview().inset(inset)
+            make.left.equalToSuperview().inset(padding)
             make.top.bottom.equalToSuperview()
             make.width.equalTo(0)
         }
@@ -279,10 +283,13 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
             }
             defer { previousViewController = viewController }
 
+            // TODO: change padding based on NavController's width
+            // padding = IH.preferredViewPadding(usingWidth: view.bounds.width)
+
             var request = LayoutRequest.defaultAppearance
             request.title = viewController.title ?? ""
             request.backButtonWidth = viewControllers.count > 1 ? 24 : 0
-            request.titleInset = viewControllers.count > 1 ? inset : 0
+            request.titleInset = viewControllers.count > 1 ? padding : 0
 
             if previousViewController != viewController {
                 rightView.removeSubviews()

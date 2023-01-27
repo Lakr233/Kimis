@@ -7,8 +7,6 @@
 
 import UIKit
 
-private let padding: CGFloat = 8
-
 extension TrendingTableView {
     class ItemCell: TableViewCell {
         static let identifier = "cell"
@@ -26,6 +24,8 @@ extension TrendingTableView {
             contentView.addSubview(icon)
             contentView.addSubview(title)
             contentView.addSubview(subtitle)
+
+            let padding: CGFloat = IH.preferredViewPadding()
 
             icon.contentMode = .scaleAspectFit
             icon.tintColor = .accent
