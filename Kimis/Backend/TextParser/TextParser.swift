@@ -94,8 +94,9 @@ extension TextParser {
         attributeFullFill(string)
         replaceAllAttributeForMarkdownSyntax(with: string)
         replaceAttributeForHashtag(with: string)
+        replaceAttributeForUnifiedUsername(with: string)
         replaceAttributeForEmails(with: string)
-        replaceAttributeForUsername(with: string, defaultHost: defaultHost)
+        replaceAttributeForSimpleUsername(with: string, defaultHost: defaultHost)
         replaceAttributeForLinks(with: string)
         replaceTinyEmoji(from: string, defaultHost: defaultHost)
         while string.string.hasPrefix(" ") { string.deleteCharacters(in: NSRange(location: 0, length: 1)) }

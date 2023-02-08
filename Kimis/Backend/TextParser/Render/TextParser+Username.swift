@@ -9,12 +9,7 @@ import Foundation
 import UIKit
 
 extension TextParser {
-    func replaceAttributeForUsername(with string: NSMutableAttributedString, defaultHost: String? = nil) {
-        replaceAttributeForUnifiedUsername(with: string)
-        replaceAttributeForSimpleUsername(with: string, defaultHost: defaultHost)
-    }
-
-    private func replaceAttributeForSimpleUsername(with string: NSMutableAttributedString, defaultHost: String? = nil) {
+    func replaceAttributeForSimpleUsername(with string: NSMutableAttributedString, defaultHost: String? = nil) {
         enumeratedModifyingWithRegex(withinString: string, matching: .username) { string in
             guard !string.attributes.keys.contains(.link) else { return nil }
             var username = string.string
@@ -28,7 +23,7 @@ extension TextParser {
         }
     }
 
-    private func replaceAttributeForUnifiedUsername(with string: NSMutableAttributedString) {
+    func replaceAttributeForUnifiedUsername(with string: NSMutableAttributedString) {
         enumeratedModifyingWithRegex(withinString: string, matching: .unifiedUsername) { string in
             guard !string.attributes.keys.contains(.link) else { return nil }
             guard let message = string.string.base64Encoded else { return nil }

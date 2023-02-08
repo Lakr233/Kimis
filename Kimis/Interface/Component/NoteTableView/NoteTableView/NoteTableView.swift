@@ -59,6 +59,8 @@ class NoteTableView: TableView {
         if layoutWidth != bounds.width {
             renderVisibleCellAndUpdate()
             layoutWidth = bounds.width
+        } else {
+            reconfigureVisibleCells()
         }
         super.layoutSubviews()
     }
@@ -85,8 +87,13 @@ class NoteTableView: TableView {
         defer { if locked {
             dataUpdateLock.unlock()
         } }
-        let visibleIndexPaths = indexPathsForVisibleRows ?? []
         beginUpdates()
+        reconfigureVisibleCells()
+        endUpdates()
+    }
+
+    func reconfigureVisibleCells() {
+        let visibleIndexPaths = indexPathsForVisibleRows ?? []
         for indexPath in visibleIndexPaths {
             guard let cell = cellForRow(at: indexPath) as? NoteCell else {
                 continue
@@ -96,6 +103,5 @@ class NoteTableView: TableView {
             }
             cell.load(data: context)
         }
-        endUpdates()
     }
 }

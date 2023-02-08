@@ -138,7 +138,7 @@ public class Source: ObservableObject, Identifiable, Equatable {
         DispatchQueue.global().async {
             self.populateInstanceInfo()
         }
-        DispatchQueue.global().async {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
             self.timeline.requestUpdate(direction: .newer)
             self.bookmark.reloadBookmark()
             self.notifications.fetchNotification(direction: .new)

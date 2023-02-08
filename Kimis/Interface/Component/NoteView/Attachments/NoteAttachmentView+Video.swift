@@ -166,7 +166,6 @@ private final class VideoPreviewLoopedPlayerView: UIView {
     }
 
     func prepareVideo(_ videoURL: URL) {
-        requestMixWithOthers()
         let playerItem = AVPlayerItem(url: videoURL)
         self.queuePlayer = AVQueuePlayer(playerItem: playerItem)
         self.playerLayer = AVPlayerLayer(player: self.queuePlayer)
@@ -210,23 +209,5 @@ private final class VideoPreviewLoopedPlayerView: UIView {
 
     deinit {
         unload()
-    }
-
-    func requestMixWithOthers() {
-        // aviod block main thread when syscall is blocking by AirPlay using some kinda HomePod
-        DispatchQueue.global().async {
-            do {
-//                this may access microphone with pop up
-//                guard !AVAudioSession.sharedInstance().categoryOptions.contains(.mixWithOthers)
-//                else { return }
-                _ = try AVAudioSession.sharedInstance().setCategory(
-                    .playback,
-                    mode: .default,
-                    options: .mixWithOthers
-                )
-            } catch {
-                print(error.localizedDescription)
-            }
-        }
     }
 }

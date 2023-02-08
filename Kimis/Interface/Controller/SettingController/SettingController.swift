@@ -125,6 +125,9 @@ class SettingController: ViewController {
             } action: { tableView in
                 let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to sign out?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive) { _ in
+                    if let id = Account.shared.source?.receiptId {
+                        Account.shared.delete(receiptID: id)
+                    }
                     Account.shared.deactivateCurrent()
                 })
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

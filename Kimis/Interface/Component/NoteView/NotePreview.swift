@@ -10,6 +10,8 @@ import Source
 import UIKit
 
 class NotePreview: UIView {
+    // # line 325, reason icon height = text height
+    static let hintTextLimit = 1 // <- must be 1
     static let userTextLimit = 2
     static let mainTextLimit = 8
     static let verticalSpacing: CGFloat = 8
@@ -43,7 +45,7 @@ class NotePreview: UIView {
     init() {
         super.init(frame: .zero)
 
-        previewReason.textContainer.maximumNumberOfLines = Self.userTextLimit
+        previewReason.textContainer.maximumNumberOfLines = Self.hintTextLimit
         userText.textContainer.maximumNumberOfLines = Self.userTextLimit
         mainText.textContainer.maximumNumberOfLines = Self.mainTextLimit
 
@@ -315,7 +317,7 @@ extension NotePreview.Snapshot {
 
         var previewResaonRect: CGRect = .zero
         let previewReasonHeight = previewReasonText
-            .measureHeight(usingWidth: contentWidth, lineLimit: NotePreview.userTextLimit)
+            .measureHeight(usingWidth: contentWidth, lineLimit: NotePreview.hintTextLimit)
         previewResaonRect = .init(
             x: contentLeftAlign,
             y: 0,

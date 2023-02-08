@@ -6,7 +6,6 @@
 //
 
 import BackgroundTasks
-import Bugsnag
 import Foundation
 import UIKit
 
@@ -24,9 +23,6 @@ enum AppTask: String, CaseIterable, Codable {
             print("[*] success fully scheduled task \(AppTask.fetchNotifications.rawValue)")
         } catch {
             print("[?] could not schedule app refresh: \(error)")
-            #if !DEBUG
-                Bugsnag.notifyError(error)
-            #endif
         }
     }
 

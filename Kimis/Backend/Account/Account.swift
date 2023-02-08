@@ -94,6 +94,7 @@ final class Account {
     func delete(receiptID: LoginChallengeReceipt.ID) {
         assert(Thread.isMainThread)
         accounts.removeValue(forKey: receiptID)
+        cleanUp()
         if source?.receiptId == receiptID { deactivateCurrent() }
     }
 

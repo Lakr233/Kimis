@@ -88,8 +88,8 @@ extension NoteTableView {
             get { _realCount }
         }
 
-        func setCountMax(_ cnt: Int) {
-            _realCount = cnt
+        func setCountMax(_ cnt: Int, appending: Bool = false) {
+            _realCount = cnt + (appending ? _realCount : 0)
         }
 
         override init(frame _: CGRect) {

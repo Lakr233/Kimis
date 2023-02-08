@@ -51,6 +51,7 @@ class TextView: SubviewAttachingTextView, UITextViewDelegate {
         textContainerInset = .zero
         textContainer.lineBreakMode = .byTruncatingTail
         isScrollEnabled = false
+        clipsToBounds = false
 
         textDragInteraction?.isEnabled = false
 

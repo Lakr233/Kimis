@@ -59,6 +59,7 @@ extension TimelineTableView {
         assert(DispatchQueue.isCurrent(_dataBuildQueue))
 
         var insertContentHeight = false
+        var resetToTop = false
         let ctx = Self.translate(rawNodes: patch.nodes)
 
         switch patch.kind {
@@ -67,6 +68,7 @@ extension TimelineTableView {
                 order: patch.order,
                 context: ctx
             )
+            resetToTop = true
         case .insert:
             patchContainer = .init(
                 order: patch.order,
@@ -90,7 +92,8 @@ extension TimelineTableView {
         let item = DispatchWorkItem {
             self.applyDataSource(
                 result,
-                insertContentHeight: insertContentHeight
+                insertContentHeight: insertContentHeight,
+                resetToTop: resetToTop
             )
         }
         DispatchQueue.main.asyncAndWait(execute: item)
@@ -180,7 +183,7 @@ extension TimelineTableView {
                 .count
             let newNotesCount = currentNotes - previousNotes
             if newNotesCount > 0 {
-                guider?.setCountMax(newNotesCount)
+                guider?.setCountMax(newNotesCount, appending: true)
                 presentNewItemGuider()
             }
         }
