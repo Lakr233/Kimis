@@ -42,7 +42,7 @@ extension ReactionStrip {
                 : UIColor.gray.withAlphaComponent(0.1)
             addSubview(label)
             addSubview(image)
-            label.text = "x\(count)"
+            label.text = " \(count)"
         }
 
         override func layoutSubviews() {

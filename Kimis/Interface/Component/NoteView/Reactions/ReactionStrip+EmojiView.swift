@@ -33,7 +33,7 @@ extension ReactionStrip {
                 ? UIColor.accent.withAlphaComponent(0.1)
                 : UIColor.gray.withAlphaComponent(0.1)
             addSubview(label)
-            label.text = "\(emoji) x\(count)"
+            label.text = "\(emoji) \(count)"
         }
 
         @available(*, unavailable)

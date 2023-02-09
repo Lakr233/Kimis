@@ -59,6 +59,7 @@ public class Network {
         case notes_timeline
         case notes_global_timeline
         case notes_hybrid_timeline
+        case notes_recommended_timeline
         case notes_local_timeline
         case notes_reactions
         case notes_reactions_create
@@ -135,6 +136,7 @@ public class Network {
         .notes_timeline: .init(path: "/notes/timeline", method: .post),
         .notes_global_timeline: .init(path: "/notes/global-timeline", method: .post),
         .notes_hybrid_timeline: .init(path: "/notes/hybrid-timeline", method: .post),
+        .notes_recommended_timeline: .init(path: "/notes/recommended-timeline", method: .post),
         .notes_local_timeline: .init(path: "/notes/local-timeline", method: .post),
         .notes_reactions: .init(path: "/notes/reactions", method: .post),
         .notes_reactions_create: .init(path: "/notes/reactions/create", method: .post),

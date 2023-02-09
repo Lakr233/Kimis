@@ -11,6 +11,7 @@ public extension TimelineSource {
     enum Endpoint: String, Codable, CaseIterable {
         case home
         case local
+        case recommended
         case hybrid
         case global
     }

@@ -33,6 +33,8 @@ public extension Network {
             request = prepareRequest(for: .notes_global_timeline)
         case "hybrid":
             request = prepareRequest(for: .notes_hybrid_timeline)
+        case "recommended":
+            request = prepareRequest(for: .notes_recommended_timeline)
         case "local":
             request = prepareRequest(for: .notes_local_timeline)
         default:

@@ -188,10 +188,11 @@ extension EndpointSwitchPopover {
 private extension TimelineSource.Endpoint {
     var representedIcon: UIImage {
         switch self {
-        case .home: return .fluent(.reading_list_filled)
-        case .local: return .fluent(.city_filled)
-        case .hybrid: return .fluent(.cloud_swap_filled)
-        case .global: return .fluent(.gantt_chart_filled)
+        case .home: return .fluent(.home_filled)
+        case .local: return .fluent(.people_filled)
+        case .recommended: return .fluent(.shield_globe_filled)
+        case .hybrid: return .fluent(.handshake_filled)
+        case .global: return .fluent(.globe_filled)
         }
     }
 
@@ -199,17 +200,19 @@ private extension TimelineSource.Endpoint {
         switch self {
         case .home: return "Home"
         case .local: return "Local"
-        case .hybrid: return "Hybrid"
+        case .recommended: return "Recommended"
+        case .hybrid: return "Social"
         case .global: return "Global"
         }
     }
 
     var explanation: String {
         switch self {
-        case .home: return "Your main timeline at a glance, with posts from the people you follow."
-        case .local: return "Notes on your server."
-        case .hybrid: return "Notes on local and remote servers."
-        case .global: return "Everything you need to know about everything."
+        case .home: return "People you follow"
+        case .local: return "People from your instance"
+        case .recommended: return: "People from recommended instances"
+        case .hybrid: return "People on your instance and who you follow"
+        case .global: return "People across the Fediverse"
         }
     }
 }
