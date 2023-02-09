@@ -35,7 +35,7 @@ Previously, Kimis supports all instance from Misskey 12+, but due to the change 
 
 ## 🧑‍⚖️ License
 
-[MIT License - Kimis Edition](./LICENSE) 
+[Kimis License](./LICENSE) 
 
 TLDR:
 
