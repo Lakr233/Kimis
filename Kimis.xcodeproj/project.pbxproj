@@ -256,6 +256,7 @@
 		50FE1B1B2933B14D000CE139 /* ProgressFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE1B1A2933B14D000CE139 /* ProgressFooterView.swift */; };
 		50FF63EC2969A46700DBB4CA /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FF63EB2969A46700DBB4CA /* UIButton.swift */; };
 		6D5F0E2853D934189A820863 /* NoteOperationStrip+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5F025346910655C39C5208 /* NoteOperationStrip+Animation.swift */; };
+		6D5F0E650140F26130266FF6 /* UIButton+DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5F0C40B2D3A839F26E4524 /* UIButton+DefaultButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -501,6 +502,7 @@
 		50FEC5BA2927B90B00AC1D1A /* Source */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Source; path = Foundation/Source; sourceTree = "<group>"; };
 		50FF63EB2969A46700DBB4CA /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		6D5F025346910655C39C5208 /* NoteOperationStrip+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NoteOperationStrip+Animation.swift"; sourceTree = "<group>"; };
+		6D5F0C40B2D3A839F26E4524 /* UIButton+DefaultButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+DefaultButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1059,6 +1061,7 @@
 				50BEA3B2293E09C00043EA61 /* UITableView.swift */,
 				50BED15A29277D0E00C9D7E2 /* UIFont.swift */,
 				50BED15B29277D0E00C9D7E2 /* Haptic.swift */,
+				6D5F0C40B2D3A839F26E4524 /* UIButton+DefaultButton.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1728,6 +1731,7 @@
 				50BED1E429277D0E00C9D7E2 /* EmojiPicker.swift in Sources */,
 				50BED1BB29277D0E00C9D7E2 /* Atomic.swift in Sources */,
 				6D5F0E2853D934189A820863 /* NoteOperationStrip+Animation.swift in Sources */,
+				6D5F0E650140F26130266FF6 /* UIButton+DefaultButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1857,7 +1861,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1875,7 +1879,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.kimis.inhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1896,7 +1900,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1914,7 +1918,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = as.wiki.qaq.kimis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

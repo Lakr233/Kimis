@@ -50,6 +50,10 @@ extension PostEditorToolbarView {
             self.toolEnabled = toolEnabled
 
             super.init(frame: .zero)
+
+//          conflict with UIContextMenuInteraction
+//          isPointerInteractionEnabled = true
+
             imageView?.contentMode = .scaleAspectFit
             addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 

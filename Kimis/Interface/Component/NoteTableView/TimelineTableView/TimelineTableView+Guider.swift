@@ -12,6 +12,7 @@ import UIKit
 extension TimelineTableView {
     func presentNewItemGuider() {
         if guider?.button.allTargets.isEmpty ?? false {
+            guider?.button.defaultButton()
             guider?.button.addTarget(self, action: #selector(guiderButtonTapped), for: .touchUpInside)
         }
         withMainActor(delay: 0.2) { self.guider?.present() }

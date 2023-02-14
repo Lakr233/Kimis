@@ -50,10 +50,9 @@ class HashtagTrendController: ViewController {
 
 extension HashtagTrendController: LLNavControllerAttachable {
     func createRightBarView() -> UIView? {
-        let button = UIButton()
+        @DefaultButton(icon: .fluent(.search_filled))
+        var button: UIButton
         button.imageView?.tintColor = .accent
-        button.imageView?.contentMode = .scaleAspectFit
-        button.setImage(.fluent(.search_filled), for: .normal)
         button.snp.makeConstraints { make in
             make.width.equalTo(30)
         }

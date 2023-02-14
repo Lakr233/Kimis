@@ -14,7 +14,8 @@ class SearchController: ViewController {
     let searchBar = UISearchBar()
     let circle = UIView()
     let arrow = UIImageView()
-    let searchButton = UIButton()
+    @DefaultButton
+    var searchButton: UIButton
 
     let searchDelegate = SearchDelegate()
 

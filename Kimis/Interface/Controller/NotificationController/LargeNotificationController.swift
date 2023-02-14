@@ -10,7 +10,10 @@ import UIKit
 
 class LargeNotificationController: NotificationController, LLNavControllerAttachable {
     let indicator = UIActivityIndicatorView()
-    let checker = UIButton()
+
+    @DefaultButton(icon: .fluent(.checkmark_filled))
+    var checker: UIButton
+
     let barView = UIView()
 
     override func viewDidLoad() {
@@ -20,8 +23,6 @@ class LargeNotificationController: NotificationController, LLNavControllerAttach
         barView.addSubview(indicator)
         barView.addSubview(checker)
 
-        checker.imageView?.contentMode = .scaleAspectFit
-        checker.setImage(.fluent(.checkmark_filled), for: .normal)
         checker.addTarget(self, action: #selector(markNewestAsRead), for: .touchUpInside)
         checker.tintColor = .accent
 

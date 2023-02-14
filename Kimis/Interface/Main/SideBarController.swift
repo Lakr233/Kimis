@@ -248,7 +248,8 @@ private extension SideBarControlPanelView {
         }
 
         let target: () -> (UIViewController)
-        let button = UIButton()
+        @DefaultButton
+        var button: UIButton
         let displaying: UIView
 
         convenience init(target: @escaping () -> (UIViewController), image: UIImage) {

@@ -86,6 +86,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let buttonBeginLogin: UIButton = {
         let button = UIButton()
+        button.isPointerInteractionEnabled = true
         button.tintColor = .accent
         let largeConfig = UIImage.SymbolConfiguration(
             pointSize: 32,

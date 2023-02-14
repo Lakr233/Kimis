@@ -156,7 +156,7 @@ extension EndpointSwitchPopover {
 
         init() {
             super.init(frame: .zero)
-            imageView?.contentMode = .scaleAspectFit
+            defaultButton()
             addTarget(self, action: #selector(openEndpointSelector), for: .touchUpInside)
             setTitleColor(.accent, for: .normal)
             tintColor = .accent

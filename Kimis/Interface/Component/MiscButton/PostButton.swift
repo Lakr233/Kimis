@@ -8,7 +8,8 @@
 import UIKit
 
 class PostButton: UIView {
-    let button = UIButton()
+    @DefaultButton
+    var button: UIButton
     let imageView = UIImageView()
 
     init() {

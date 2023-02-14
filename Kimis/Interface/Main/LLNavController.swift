@@ -86,22 +86,17 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
         return view
     }()
 
-    let backButton: UIButton = {
-        let button = UIButton()
+    @DefaultButton(icon: {
         let configure = UIImage.SymbolConfiguration(
             pointSize: 24,
             weight: .semibold
         )
-        let image = UIImage(
+        return UIImage(
             systemName: "arrow.left",
             withConfiguration: configure
         )
-        button.setImage(image, for: .normal)
-        button.alpha = 0
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageView?.tintColor = .systemBlackAndWhite
-        return button
-    }()
+    }())
+    var backButton: UIButton
 
     let dragableArea = UIView()
 
@@ -178,7 +173,10 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
             make.top.bottom.equalToSuperview()
             make.width.equalTo(0)
         }
+        backButton.alpha = 0
+        backButton.imageView?.tintColor = .systemBlackAndWhite
         backButton.addTarget(self, action: #selector(popCurrent), for: .touchUpInside)
+        backButton.isPointerInteractionEnabled = true
 
         associatedNavigationController.view.clipsToBounds = false
         associatedNavigationController.view.snp.makeConstraints { make in

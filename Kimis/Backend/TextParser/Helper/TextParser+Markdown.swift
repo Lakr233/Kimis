@@ -61,7 +61,7 @@ extension TextParser {
             string.addAttributes([
                 .font: UIFont.systemFont(ofSize: fontSize, weight: .bold),
             ], range: string.full)
-            if string.string.hasPrefix("**"), string.string.hasSuffix("**") {
+            if string.length > 4, string.string.hasPrefix("**"), string.string.hasSuffix("**") {
                 string.deleteCharacters(in: NSRange(location: 0, length: 2))
                 string.deleteCharacters(in: NSRange(location: string.length - 2, length: 2))
             }
@@ -75,7 +75,7 @@ extension TextParser {
                 .strikethroughColor: (string.attributes[.foregroundColor] as? UIColor) ?? UIColor.systemBlackAndWhite,
                 .strikethroughStyle: 2,
             ], range: string.full)
-            if string.string.hasPrefix("~~"), string.string.hasSuffix("~~") {
+            if string.length > 4, string.string.hasPrefix("~~"), string.string.hasSuffix("~~") {
                 string.deleteCharacters(in: NSRange(location: 0, length: 2))
                 string.deleteCharacters(in: NSRange(location: string.length - 2, length: 2))
             }
@@ -90,7 +90,7 @@ extension TextParser {
             string.addAttributes([
                 .font: UIFont.monospacedSystemFont(ofSize: fontSize, weight: fontWeight),
             ], range: string.full)
-            if string.string.hasPrefix("`"), string.string.hasSuffix("`") {
+            if string.length >= 2, string.string.hasPrefix("`"), string.string.hasSuffix("`") {
                 string.deleteCharacters(in: NSRange(location: 0, length: 1))
                 string.deleteCharacters(in: NSRange(location: string.length - 1, length: 1))
             }
@@ -105,7 +105,7 @@ extension TextParser {
             string.addAttributes([
                 .font: UIFont.monospacedSystemFont(ofSize: fontSize, weight: fontWeight),
             ], range: string.full)
-            if string.string.hasPrefix("```\n"), string.string.hasSuffix("\n```") {
+            if string.length >= 8, string.string.hasPrefix("```\n"), string.string.hasSuffix("\n```") {
                 string.deleteCharacters(in: NSRange(location: 0, length: 4))
                 string.deleteCharacters(in: NSRange(location: string.length - 4, length: 4))
             }

@@ -48,6 +48,7 @@ private class NextButton: UIButton {
         super.init(frame: .zero)
         layer.cornerRadius = 8
         titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        isPointerInteractionEnabled = true
         addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         switchStyle()
     }
@@ -146,6 +147,7 @@ private class WelcomeController: WelcomeStackController {
         view.translatesAutoresizingMaskIntoConstraints = true
         view.sizeToFit()
         view.isScrollEnabled = false
+        view.isSelectable = false
         return view
     }()
 
@@ -161,6 +163,7 @@ private class WelcomeController: WelcomeStackController {
         view.translatesAutoresizingMaskIntoConstraints = true
         view.sizeToFit()
         view.isScrollEnabled = false
+        view.isSelectable = false
         return view
     }()
 
@@ -218,6 +221,7 @@ private class FinalController: WelcomeStackController {
         view.translatesAutoresizingMaskIntoConstraints = true
         view.sizeToFit()
         view.isScrollEnabled = false
+        view.isSelectable = false
         return view
     }()
 
@@ -233,6 +237,7 @@ private class FinalController: WelcomeStackController {
         view.translatesAutoresizingMaskIntoConstraints = true
         view.sizeToFit()
         view.isScrollEnabled = false
+        view.isSelectable = false
         return view
     }()
 

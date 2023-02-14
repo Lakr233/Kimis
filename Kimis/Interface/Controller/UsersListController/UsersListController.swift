@@ -14,7 +14,10 @@ class UsersListController: ViewController {
     @Published var isLoading: Bool = false
 
     let refreshBarItem = UIView()
-    let refreshButton = UIButton()
+
+    @DefaultButton(icon: .fluent(.arrow_counterclockwise_filled))
+    var refreshButton: UIButton
+
     let refreshIndicator = UIActivityIndicatorView()
 
     init() {
@@ -35,8 +38,6 @@ class UsersListController: ViewController {
         }
 
         refreshButton.imageView?.tintColor = .accent
-        refreshButton.imageView?.contentMode = .scaleAspectFit
-        refreshButton.setImage(.fluent(.arrow_counterclockwise_filled), for: .normal)
         refreshButton.snp.makeConstraints { make in
             make.width.equalTo(30)
         }

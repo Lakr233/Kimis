@@ -18,44 +18,34 @@ class NoteOperationStrip: UIView {
 
     @propertyWrapper
     struct OperationButton {
-        private var button: TapAreaEnlargedButton
-        private var icon: UIImage
+        var wrappedValue = TapAreaEnlargedButton()
 
-        var wrappedValue: TapAreaEnlargedButton { button }
+        init(icon: UIImage) {
+            wrappedValue.defaultButton(icon: icon)
 
-        init(icon: UIImage, action: Selector) {
-            button = TapAreaEnlargedButton()
-            self.icon = icon
+            wrappedValue.tintColor = buttonColor
 
-            button.addTarget(self, action: action, for: .touchUpInside)
-
-            button.tintColor = buttonColor
-            button.imageView?.contentMode = .scaleAspectFit
-
-            button.setImage(icon, for: .normal)
-            button.isPointerInteractionEnabled = true
-
-            let hover = UIHoverGestureRecognizer(target: button, action: #selector(TapAreaEnlargedButton.buttonHoverAnimation(_:)))
-            button.addGestureRecognizer(hover)
+            let hover = UIHoverGestureRecognizer(target: wrappedValue, action: #selector(TapAreaEnlargedButton.buttonHoverAnimation(_:)))
+            wrappedValue.addGestureRecognizer(hover)
         }
     }
 
-    @OperationButton(icon: .fluent(.comment_arrow_left), action: #selector(replyButtonTapped))
+    @OperationButton(icon: .fluent(.comment_arrow_left))
     var replyButton: TapAreaEnlargedButton
 
-    @OperationButton(icon: .fluent(.square_arrow_forward), action: #selector(renoteButtonTapped))
+    @OperationButton(icon: .fluent(.square_arrow_forward))
     var renoteButton: TapAreaEnlargedButton
 
     // reaction button could change
-    private static var reactButtonAddIcon = UIImage.fluent(.emoji_add)
-    private static let reactButtonDeleteIcon = UIImage.fluent(.subtract_square)
-    @OperationButton(icon: reactButtonAddIcon, action: #selector(reactButtonTapped))
+    private let reactButtonAddIcon = UIImage.fluent(.emoji_add)
+    private let reactButtonDeleteIcon = UIImage.fluent(.subtract_square)
+    @OperationButton
     var reactButton: TapAreaEnlargedButton
 
-    @OperationButton(icon: .fluent(.share_ios), action: #selector(shareButtonTapped))
+    @OperationButton(icon: .fluent(.share_ios))
     var shareButton: TapAreaEnlargedButton
 
-    @OperationButton(icon: .fluent(.more_horizontal), action: #selector(moreButtonTapped))
+    @OperationButton(icon: .fluent(.more_horizontal))
     var moreButton: TapAreaEnlargedButton
 
     var maxWidth: CGFloat = 400 {
@@ -83,6 +73,8 @@ class NoteOperationStrip: UIView {
     var cancellable: Set<AnyCancellable> = []
 
     init() {
+        _reactButton = .init(icon: reactButtonAddIcon)
+
         super.init(frame: .zero)
 
         addSubview(moreButtonMenuPresenter)
@@ -95,6 +87,12 @@ class NoteOperationStrip: UIView {
         addSubview(moreOptionIndicator)
 
         restoreDefaultAppearance()
+
+        replyButton.addTarget(self, action: #selector(replyButtonTapped), for: .touchUpInside)
+        renoteButton.addTarget(self, action: #selector(renoteButtonTapped), for: .touchUpInside)
+        reactButton.addTarget(self, action: #selector(reactButtonTapped), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
 
         source?.notesChange
             .filter { [weak self] value in
@@ -138,7 +136,7 @@ class NoteOperationStrip: UIView {
     }
 
     func restoreDefaultAppearance() {
-        reactButton.setImage(NoteOperationStrip.reactButtonAddIcon, for: .normal)
+        reactButton.setImage(reactButtonAddIcon, for: .normal)
         reactButton.alpha = 1
         reactButton.isUserInteractionEnabled = true
         reactButton.isPointerInteractionEnabled = true
@@ -164,7 +162,7 @@ class NoteOperationStrip: UIView {
 
         // reaction button could change
         if !note.userReaction.isEmpty {
-            reactButton.setImage(NoteOperationStrip.reactButtonDeleteIcon, for: .normal)
+            reactButton.setImage(reactButtonDeleteIcon, for: .normal)
         }
     }
 }

@@ -17,7 +17,8 @@ extension TextParser {
             enumeratedModifyingWithRegex(withinString: string, matching: .dollarAttribute) { string in
                 guard string.string.hasPrefix("$["),
                       string.string.hasSuffix("]"),
-                      string.string.contains(" ")
+                      string.string.contains(" "),
+                      string.length > 3
                 else {
                     return nil
                 }

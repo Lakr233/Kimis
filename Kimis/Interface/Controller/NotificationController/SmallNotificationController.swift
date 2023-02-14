@@ -10,7 +10,10 @@ import UIKit
 
 class SmallNotificationController: NotificationController {
     let indicator = UIActivityIndicatorView()
-    let checker = UIButton()
+
+    @DefaultButton(icon: .fluent(.checkmark_filled))
+    var checker: UIButton
+
     let rightBarView = UIView()
 
     override func viewDidLoad() {
@@ -19,8 +22,6 @@ class SmallNotificationController: NotificationController {
         rightBarView.addSubview(indicator)
         rightBarView.addSubview(checker)
 
-        checker.imageView?.contentMode = .scaleAspectFit
-        checker.setImage(.fluent(.checkmark_filled), for: .normal)
         checker.addTarget(self, action: #selector(markNewestAsRead), for: .touchUpInside)
         checker.tintColor = .accent
 
