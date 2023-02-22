@@ -55,9 +55,17 @@ extension EmojiPickerView {
         }
 
         if !instanceEmojis.isEmpty {
-            let emojis = instanceEmojis.map { EmojiElement(emoji: $0) }
-            let section = EmojiSection(sectionTitle: "Instance Emojis", emojis: emojis)
-            dataSource.append(section)
+            var build: [String: [EmojiElement]] = [:]
+            instanceEmojis.forEach {
+                build[$0.category, default: []].append(.init(emoji: $0))
+            }
+            for key in build.keys.sorted() {
+                guard let section = build[key] else { continue }
+                dataSource.append(.init(
+                    sectionTitle: key.isEmpty ? "Instance Emoji" : key,
+                    emojis: section.sorted { a, b in a.emoji.emoji < b.emoji.emoji }
+                ))
+            }
         }
 
         let keys = staticEmojis.keys.sorted()

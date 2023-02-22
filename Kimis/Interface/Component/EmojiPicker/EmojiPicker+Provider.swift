@@ -51,7 +51,7 @@ class EmojiProvider {
             let emoji = Emoji(
                 emoji: ":\(key):",
                 description: url.absoluteString,
-                category: "",
+                category: source.emojis[key]?.category ?? "",
                 aliases: [],
                 tags: [],
                 unicodeVersion: nil,
@@ -59,7 +59,9 @@ class EmojiProvider {
             )
             build.append(emoji)
         }
-        return build
+        return build.sorted { a, b in
+            a.emoji < b.emoji
+        }
     }
 
     func obtainRecentUsed() -> [String] {
