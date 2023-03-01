@@ -80,7 +80,7 @@ public class Post: Equatable, Hashable {
         }
     }
 
-    public enum Visibility: String, Codable, Equatable, Hashable {
+    public enum Visibility: String, Codable, Equatable, Hashable, CaseIterable {
         case `public`
         case home
         case followers
@@ -94,7 +94,7 @@ public class Post: Equatable, Hashable {
         cw: String? = nil,
         localOnly: Bool = false,
         visibility: Visibility = .public,
-        visibleUserIds: [NoteID] = []
+        visibleUserIds: [UserID] = []
     ) {
         self.text = text
         self.attachments = attachments

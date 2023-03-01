@@ -133,22 +133,6 @@ public extension Network {
         return requestForNote(with: noteId)
     }
 
-    func requestForReactionDetails(with noteId: String, reaction: String) -> [NMNoteReaction]? {
-        var request = prepareRequest(for: .notes_reactions_delete)
-        injectBodyForPost(for: &request, with: [
-            "noteId": noteId,
-            "limit": 64,
-            "type": reaction,
-        ])
-        var ans: [NMNoteReaction]?
-        makeRequest(with: request) { data in
-            if let ret = try? decoder.decode([NMNoteReaction].self, from: data) {
-                ans = ret
-            }
-        }
-        return ans
-    }
-
     /// get replies for this note
     /// - Parameter noteId: id
     /// - Returns: replies and extracted notes for cache

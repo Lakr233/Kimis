@@ -215,12 +215,15 @@ extension Network {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
 
-    func cleaningJsonObjectByDeletingNullKeyValue(object: inout [AnyHashable: Any?]) {
+    func cleaningJsonObjectByDeletingSpecialEmptyKeyValue(
+        object: inout [AnyHashable: Any?]
+    ) {
         var result = [AnyHashable: Any?]()
         for (key, value) in object {
             guard var value else { continue }
+            if let value = value as? String, value.isEmpty { continue }
             if var deep = value as? [AnyHashable: Any?] {
-                cleaningJsonObjectByDeletingNullKeyValue(object: &deep)
+                cleaningJsonObjectByDeletingSpecialEmptyKeyValue(object: &deep)
                 value = deep
             }
             result[key] = value
@@ -242,7 +245,7 @@ extension Network {
                options: .fragmentsAllowed
            ) as? [AnyHashable: Any?]
         {
-            cleaningJsonObjectByDeletingNullKeyValue(object: &object)
+            cleaningJsonObjectByDeletingSpecialEmptyKeyValue(object: &object)
             if let newData = try? JSONSerialization.data(withJSONObject: object, options: .fragmentsAllowed) {
                 request.httpBody = newData
             }

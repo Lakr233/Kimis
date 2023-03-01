@@ -48,6 +48,13 @@ public struct LoginChallenge {
     public let requestSession: String
     public let requestRecipeCheck: URLRequest
 
+    public init(requestHost: String, requestURL: URL, requestSession: String, requestRecipeCheck: URLRequest) {
+        self.requestHost = requestHost
+        self.requestURL = requestURL
+        self.requestSession = requestSession
+        self.requestRecipeCheck = requestRecipeCheck
+    }
+
     public init?(host: String) {
         let session = "AAA6969A-85A9-49CE-92F3-5815E52B88F5-" + UUID().uuidString
         // let's use a magic here

@@ -56,7 +56,7 @@ public extension Network {
         return searchNoteWithUserDetailed(data: responseData)
     }
 
-    enum UserNoteFetchType {
+    enum UserNoteFetchType: CaseIterable {
         case notes
         case replies
         case attachments

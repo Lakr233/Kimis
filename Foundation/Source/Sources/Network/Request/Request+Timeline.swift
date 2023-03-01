@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftDate
 
 public extension Network {
     /// 请求时间线的数据
@@ -45,12 +46,12 @@ public extension Network {
         injectBodyForPost(for: &request, with: ["limit": limit])
         if let sinceDate {
             injectBodyForPost(for: &request, with: [
-                "sinceDate": String(Int(sinceDate.timeIntervalSince1970)),
+                "sinceDate": Int(sinceDate.timeIntervalSince1970) * 1000,
             ])
         }
         if let untilDate {
             injectBodyForPost(for: &request, with: [
-                "untilDate": String(Int(untilDate.timeIntervalSince1970)),
+                "untilDate": Int(untilDate.timeIntervalSince1970) * 1000,
             ])
         }
         if let sinceId {

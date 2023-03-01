@@ -20,13 +20,13 @@ public class Source: ObservableObject, Identifiable, Equatable {
 
     public let storeRoot: URL
 
-    internal let network: Network
+    public let network: Network
+    public private(set) var req: NetworkWrapper!
+
     internal let database: Connection
     internal let spider: Spider
 
     public let properties: Properties
-
-    public private(set) var req: NetworkWrapper!
 
     public let notes: KVStorage<Note>
     public let notesChange = PassthroughSubject<Note.ID, Never>()
@@ -69,16 +69,20 @@ public class Source: ObservableObject, Identifiable, Equatable {
 
     public var cancellable = Set<AnyCancellable>()
 
-    public init(withLoginChallengeRecipe receipt: LoginChallengeReceipt, storageLocation: URL) {
+    public convenience init(withLoginChallengeRecipe receipt: LoginChallengeReceipt, storageLocation: URL) {
+        guard let base = URL(string: "https://\(receipt.host)") else {
+            fatalError()
+        }
+        self.init(withLoginChallengeRecipe: receipt, baseEndpoint: base, storageLocation: storageLocation)
+    }
+
+    public init(withLoginChallengeRecipe receipt: LoginChallengeReceipt, baseEndpoint base: URL, storageLocation: URL) {
         assert(Thread.isMainThread)
 
         print("[*] initializing source for \(receipt.universalIdentifier)")
 
         self.receipt = receipt
 
-        guard let base = URL(string: "https://\(receipt.host)") else {
-            fatalError()
-        }
         network = .init(base: base, credential: receipt.token)
 
         let storage = Self.storeRoot(forReceipt: receipt, atRoot: storageLocation)

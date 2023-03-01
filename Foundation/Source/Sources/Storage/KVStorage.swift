@@ -67,7 +67,7 @@ public class KVStorage<T: Codable & Identifiable & Equatable> where T.ID == Stri
             let data = try encoder.encode(object)
             try db.run(table.insert(or: .replace, id <- object.id, content <- data))
         } catch {
-            assertionFailure(error.localizedDescription)
+            print(error.localizedDescription)
             return
         }
         publisher?.send(object.id)

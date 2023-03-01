@@ -10,6 +10,7 @@ let package = Package(
     platforms: [
         .iOS(.v14),
         .macCatalyst(.v14),
+        .macOS(.v10_15),
     ],
     products: [.library(name: "Source", targets: ["Source"])],
     dependencies: [
@@ -40,6 +41,10 @@ let package = Package(
         .target(name: "ModuleBridge", dependencies: [
             "Module",
             "NetworkModule",
+        ]),
+
+        .testTarget(name: "SourceTest", dependencies: [
+            "Source",
         ]),
     ]
 )

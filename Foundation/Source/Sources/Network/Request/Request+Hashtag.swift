@@ -20,7 +20,7 @@ public extension Network {
 }
 
 public extension Network {
-    func requestForHashtagsNotes(tag: String, limit: Int = 20, untilId: String?) -> NoteFetchResult<[NMNote]>? {
+    func requestForHashtagsNotes(tag: String, limit: Int = 20, untilId: String? = nil) -> NoteFetchResult<[NMNote]>? {
         var tag = tag.trimmingCharacters(in: .whitespacesAndNewlines)
         if tag.hasPrefix("#") { tag.removeFirst() }
 
