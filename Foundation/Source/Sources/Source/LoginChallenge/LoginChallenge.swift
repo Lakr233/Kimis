@@ -92,6 +92,8 @@ public struct LoginChallenge {
             timeoutInterval: 10
         )
         checkerRequest.httpMethod = "POST"
+        checkerRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        checkerRequest.httpBody = "{}".data(using: .utf8)
         requestRecipeCheck = checkerRequest
     }
 

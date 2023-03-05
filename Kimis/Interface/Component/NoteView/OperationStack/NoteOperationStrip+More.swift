@@ -98,6 +98,27 @@ extension NoteOperationStrip {
                     },
                 ])
             }
+            if note.userId != source.user.userId {
+                actions.append([
+                    UIAction(title: "Report Abuse", image: .init(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
+                        let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to report this note?", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Report", style: .destructive, handler: { _ in
+                            alert.dismiss(animated: true) {
+                                let alert = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                                DispatchQueue.global().async {
+                                    defer { withMainActor {
+                                        alert.dismiss(animated: true)
+                                    } }
+                                    source.req.requestForReportAbuse(note: note.noteId)
+                                }
+                                self?.anchor?.parentViewController?.present(alert, animated: true)
+                            }
+                        }))
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                        self?.anchor?.parentViewController?.present(alert, animated: true)
+                    },
+                ])
+            }
             if note.userId == source.user.userId {
                 actions.append([
                     UIAction(title: "Delete", image: .init(systemName: "trash"), attributes: .destructive) { [weak self] _ in

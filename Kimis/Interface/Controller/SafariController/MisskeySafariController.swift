@@ -20,13 +20,42 @@ class MisskeySafariController: ViewController, WKNavigationDelegate {
         let config = WKWebViewConfiguration()
         config.websiteDataStore = .nonPersistent()
         let contentController = WKUserContentController()
-        let js = "localStorage['account'] = JSON.stringify({'token' : '\(source?.receipt.token ?? "")'})"
-        let userScript = WKUserScript(
-            source: js,
+
+        let tokenInjector = """
+        localStorage['account'] = JSON.stringify({
+            'token' : '\(source?.receipt.token ?? "")'
+        })
+        """
+        let tokenInjectorScript = WKUserScript(
+            source: tokenInjector,
             injectionTime: .atDocumentStart,
             forMainFrameOnly: false
         )
-        contentController.addUserScript(userScript)
+        contentController.addUserScript(tokenInjectorScript)
+
+        let langOverride = """
+        Object.defineProperties(Navigator.prototype, {
+                language: {
+                        value: 'en',
+                        configurable: false,
+                        enumerable: true,
+                        writable: false
+                },
+                languages: {
+                        value: ['en'],
+                        configurable: false,
+                        enumerable: true,
+                        writable: false
+                }
+        });
+        """
+        let langOverrideScript = WKUserScript(
+            source: langOverride,
+            injectionTime: .atDocumentStart,
+            forMainFrameOnly: false
+        )
+        contentController.addUserScript(langOverrideScript)
+
         config.userContentController = contentController
         let cookie = HTTPCookie(properties: [
             .domain: source?.receipt.host ?? "localhost",

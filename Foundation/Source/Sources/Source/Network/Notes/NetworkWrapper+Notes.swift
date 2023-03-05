@@ -187,4 +187,13 @@ public extension Source.NetworkWrapper {
         let check = requestNoteState(withID: note)
         return !check.isFavorited ? check : nil
     }
+
+    func requestForReportAbuse(note: NoteID) {
+        guard let ctx else { return }
+        guard let note = ctx.notes.retain(note) else { return }
+        guard let link = note.url ?? URL(string: "https://\(ctx.user.host)/notes/\(note.noteId)")
+        else { return }
+        let comment = "Note: \(link.absoluteString)\n-----\n"
+        ctx.network.requestForReportAbuse(userId: note.userId, comment: comment)
+    }
 }

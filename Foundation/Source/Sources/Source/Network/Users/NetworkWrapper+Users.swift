@@ -111,4 +111,9 @@ public extension Source.NetworkWrapper {
             .converting($0, defaultHost: ctx.user.host)
         }
     }
+
+    func requestReportUser(userId: String) {
+        guard let ctx else { return }
+        ctx.network.requestForReportAbuse(userId: userId, comment: "The user was reported by \(ctx.user.absoluteUsername)")
+    }
 }

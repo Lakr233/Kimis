@@ -248,4 +248,38 @@ extension SourceTest {
             }
         }
     }
+
+    func checkApi_UserReportAbuse() {
+        var user2: UserProfile?
+        dispatchAndWait {
+            let ans = source.network.requestForUserDetails(userIdOrName: "@test2")
+            unwrapOrFail(ans.result) {
+                user2 = .converting($0, defaultHost: "localhost")
+            }
+        }
+        guard let user2 else {
+            XCTFail("unable to locate test users")
+            return
+        }
+        dispatchAndWait {
+            let comment = UUID().uuidString
+            source.network.requestForReportAbuse(userId: user2.userId, comment: comment)
+            let url = source.network.base
+                .appendingPathComponent("api")
+                .appendingPathComponent("admin")
+                .appendingPathComponent("abuse-user-reports")
+            requestAndWait(
+                url: url.absoluteString,
+                allowFailure: false,
+                data: "{\"i\":\"\(source.receipt.token)\"}".data(using: .utf8),
+                method: "POST"
+            ) { data in
+                guard let data, let str = String(data: data, encoding: .utf8) else {
+                    XCTFail("failed to get json str")
+                    return
+                }
+                XCTAssert(str.contains(comment))
+            }
+        }
+    }
 }

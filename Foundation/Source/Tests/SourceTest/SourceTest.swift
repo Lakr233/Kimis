@@ -111,12 +111,16 @@ class SourceTest: XCTestCase {
         checkApi_NotesPollVote()
     }
 
-    func test_212_hashtag_trand() {
+    func test_213_hashtag_trand() {
         checkApi_Trend()
     }
 
-    func test_213_drive_file() {
+    func test_214_drive_file() {
         checkApi_DriveFile()
+    }
+
+    func test_215_report_abuse() {
+        checkApi_UserReportAbuse()
     }
 
     // MARK: - Tear Down

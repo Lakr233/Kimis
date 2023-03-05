@@ -257,4 +257,11 @@ public extension Network {
         }
         return decodeRequest(with: responseData) ?? []
     }
+
+    func requestForReportAbuse(userId: String, comment: String) {
+        var request = prepareRequest(for: .users_report_abuse)
+        injectBodyForPost(for: &request, with: ["userId": userId])
+        injectBodyForPost(for: &request, with: ["comment": comment])
+        makeRequest(with: request) { _ in }
+    }
 }

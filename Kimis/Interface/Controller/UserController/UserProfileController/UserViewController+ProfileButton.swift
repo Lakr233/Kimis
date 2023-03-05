@@ -367,6 +367,25 @@ extension UserViewController.ProfileView.ProfileButton {
                 } qualification: { source, profile in
                     profile.isFollowed && profile.absoluteUsername.lowercased() != source.user.absoluteUsername.lowercased()
                 },
+                UserMenuAction(title: "Report", image: "exclamationmark.bubble", attributes: [.destructive]) { source, profile, anchor in
+                    let name = TextParser().trimToPlainText(from: profile.name)
+                    let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to report \(name)?", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Report", style: .destructive, handler: { _ in
+                        let progress = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                        anchor.parentViewController?.present(progress, animated: true)
+                        DispatchQueue.global().async {
+                            defer { withMainActor {
+                                progress.dismiss(animated: true)
+                                UserViewController.reload(userId: profile.userId)
+                            }}
+                            source.req.requestReportUser(userId: profile.userId)
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    anchor.parentViewController?.present(alert, animated: true)
+                } qualification: { source, profile in
+                    profile.absoluteUsername.lowercased() != source.user.absoluteUsername.lowercased()
+                },
             ],
         ]
 

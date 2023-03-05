@@ -61,6 +61,7 @@ private extension Network.RequestTarget {
         case .following_invalidate: return SourceTest.test_204_api_following.self
 
         case .users: return SourceTest.test_204_api_following.self
+        case .users_report_abuse: return SourceTest.test_215_report_abuse.self
         case .user_show: return SourceTest.test_204_api_following.self
         case .users_followers: return SourceTest.test_204_api_following.self
         case .users_following: return SourceTest.test_204_api_following.self
@@ -92,11 +93,11 @@ private extension Network.RequestTarget {
         case .notes_polls_vote: return SourceTest.test_212_notes_polls_vote.self
         case .notes_search: return SourceTest.test_211_notes_search.self
 
-        case .hashtags_trend: return SourceTest.test_212_hashtag_trand.self
+        case .hashtags_trend: return SourceTest.test_213_hashtag_trand.self
 
-        case .drive_files: return SourceTest.test_213_drive_file.self
-        case .drive_files_create: return SourceTest.test_213_drive_file.self
-        case .drive_files_update: return SourceTest.test_213_drive_file.self
+        case .drive_files: return SourceTest.test_214_drive_file.self
+        case .drive_files_create: return SourceTest.test_214_drive_file.self
+        case .drive_files_update: return SourceTest.test_214_drive_file.self
 
 //        @unknown default: return nil
         }

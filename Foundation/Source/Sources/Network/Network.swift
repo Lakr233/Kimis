@@ -43,11 +43,13 @@ public class Network {
         case following_invalidate
 
         case users
+        case users_report_abuse
+        case users_followers
+        case users_following
 
         case user_show
         case user_notes
-        case users_followers
-        case users_following
+
         case blocking_create
         case blocking_delete
 
@@ -109,10 +111,12 @@ public class Network {
         // MARK: - USER
 
         .users: .init(path: "/users", method: .post),
-        .user_show: .init(path: "/users/show", method: .post),
-        .user_notes: .init(path: "/users/notes", method: .post),
+        .users_report_abuse: .init(path: "/users/report-abuse", method: .post),
         .users_followers: .init(path: "/users/followers", method: .post),
         .users_following: .init(path: "/users/following", method: .post),
+
+        .user_show: .init(path: "/users/show", method: .post),
+        .user_notes: .init(path: "/users/notes", method: .post),
 
         .blocking_create: .init(path: "blocking/create", method: .post),
         .blocking_delete: .init(path: "blocking/delete", method: .post),
@@ -167,7 +171,7 @@ public extension Network {
 internal var decoder = JSONDecoder()
 internal var encoder = JSONEncoder()
 
-extension Network {
+public extension Network {
     func obtainEndpointInfo(for target: RequestTarget) -> EndpointInfo {
         guard let info = endpointInfo[target] else {
             return .init(path: "/unavailable", method: .undefined)
@@ -249,6 +253,15 @@ extension Network {
             if let newData = try? JSONSerialization.data(withJSONObject: object, options: .fragmentsAllowed) {
                 request.httpBody = newData
             }
+        }
+
+        // 💩
+        if request.httpMethod?.uppercased() == "POST",
+           let header = request.value(forHTTPHeaderField: "Content-Type"),
+           header.lowercased() == "application/json",
+           request.httpBody?.count ?? 0 <= 0
+        {
+            request.httpBody = "{}".data(using: .utf8)
         }
 
         let sem = DispatchSemaphore(value: 0)
