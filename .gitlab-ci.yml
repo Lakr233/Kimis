@@ -1,0 +1,56 @@
+stages:
+  - TestSourceModule
+  - CompilePackageOSX
+  - CompilePackageMobile
+
+before_script:
+  - export LANG=en_US.UTF-8
+  - export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+  - export PATH=/usr/local/bin/:$PATH
+  - export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
+
+TestSourceModule:
+  tags:
+    - m1
+  only:
+    variables:
+    - $CI_PIPELINE_SOURCE == "web"
+    - $CI_COMMIT_REF_NAME == "main"
+    - $CI_COMMIT_REF_NAME == "test"
+  stage: TestSourceModule
+  script:
+    - Resource/ApiTest/main.sh
+
+CompilePackageMobile:
+  tags:
+    - m1
+  only:
+    variables:
+    - $CI_PIPELINE_SOURCE == "web"
+    - $CI_COMMIT_REF_NAME == "main"
+  stage: CompilePackageMobile
+  needs:
+    - TestSourceModule
+  artifacts:
+    name: Kimis.ipa
+    paths:
+      - Kimis.ipa
+  script:
+    - Resource/Script/compile.release.mobile.ci.sh
+
+CompilePackageOSX:
+  tags:
+    - m1
+  only:
+    variables:
+    - $CI_PIPELINE_SOURCE == "web"
+    - $CI_COMMIT_REF_NAME == "main"
+  stage: CompilePackageOSX
+  needs:
+    - TestSourceModule
+  artifacts:
+    name: Kimis.app
+    paths:
+      - Kimis.app
+  script:
+    - Resource/Script/compile.release.macOS.ci.sh

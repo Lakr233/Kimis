@@ -234,6 +234,33 @@ extension SourceTest {
     }
 
     func checkApi_Timeline() {
+        var anchorA: NMNote?
+        var anchorB: NMNote?
+        var anchorC: NMNote?
+        dispatchAndWait {
+            anchorA = source.network.requestForNoteCreate(
+                with: NMPost.converting(Post(text: "anchorA"))!,
+                renoteId: nil,
+                replyId: nil
+            )?.result
+            sleep(3)
+            anchorB = source.network.requestForNoteCreate(
+                with: NMPost.converting(Post(text: "anchorB"))!,
+                renoteId: nil,
+                replyId: nil
+            )?.result
+            sleep(3)
+            anchorC = source.network.requestForNoteCreate(
+                with: NMPost.converting(Post(text: "anchorC"))!,
+                renoteId: nil,
+                replyId: nil
+            )?.result
+        }
+        guard let anchorA, let anchorB, let anchorC else {
+            XCTFail("failed to create anchor notes")
+            return
+        }
+        print("[+] anchor created A \(anchorA.id) B \(anchorB.id) C \(anchorC.id)")
         dispatchAndWait {
             for timelineEndpoint in TimelineSource.Endpoint.allCases {
                 let fetch = source.network.requestForUserTimeline(
@@ -250,9 +277,9 @@ extension SourceTest {
                 }
             }
         }
-        let uid = "01GTDW96B5AKKXQ1FB22XCXYB7"
-        // find = "01GTDT6PRZ8X66W18PWZGP66JP"
-        let sid = "01GTDT6BGKDB7M4N9F2VXNKX8K"
+        let uid = anchorC.id
+        // find = anchorB.id
+        let sid = anchorA.id
         dispatchAndWait {
             for timelineEndpoint in TimelineSource.Endpoint.allCases {
                 let fetch = source.network.requestForUserTimeline(
@@ -346,7 +373,8 @@ extension SourceTest {
     func checkApi_NotesSearch() {
         dispatchAndWait {
             let hashtag = "#test\(Int.random(in: 10_000_000 ... 20_000_000))"
-            let post = Post(text: hashtag)
+            let searchKey = "绝对清澈，绝对透明，绝对空灵，就是深邃。"
+            let post = Post(text: hashtag + "\n" + searchKey)
             let ans = source.network.requestForNoteCreate(
                 with: NMPost.converting(post)!,
                 renoteId: nil,
@@ -359,7 +387,8 @@ extension SourceTest {
             defer {
                 _ = source.network.requestForReactionDelete(with: ans.id)
             }
-            let search = source.network.requestForNoteSearch(query: hashtag)
+            sleep(5) // wait for index
+            let search = source.network.requestForNoteSearch(query: searchKey)
             unwrapOrFail(search)
             unwrapOrFail(search.result) {
                 unwrapOrFail($0) { XCTAssert($0.map(\.id).contains(ans.id)) }
