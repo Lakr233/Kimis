@@ -222,6 +222,10 @@ extension NoteView {
 }
 
 extension NoteView.Snapshot {
+    // NoteView does not pay attention to Context Variant:
+    // - disableOperationStrip
+    // - disablePreviewReason
+
     struct RenderHint {
         let avatarSize: CGFloat
         weak var context: NoteCell.Context?
@@ -257,8 +261,8 @@ extension NoteView.Snapshot {
             parser.options.fontSizeOffset = IH.preferredFontSizeOffset(usingWidth: width)
             parser.options.compactPreview = false
             parser.paragraphStyle.lineSpacing = IH.preferredParagraphStyleLineSpacing
-            parser.paragraphStyle.paragraphSpacing = verticalSpacing
-                - parser.paragraphStyle.lineSpacing
+            parser.paragraphStyle.paragraphSpacing = 0 // verticalSpacing
+            // - parser.paragraphStyle.lineSpacing
             return parser
         }()
 

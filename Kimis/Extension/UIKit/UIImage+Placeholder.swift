@@ -12,7 +12,7 @@ extension UIImage {
         let size = CGSize(width: 1, height: 1)
         return UIGraphicsImageRenderer(size: size)
             .image { rendererContext in
-                UIColor.systemGray4.setFill()
+                UIColor.systemGray5.setFill()
                 rendererContext.fill(CGRect(origin: .zero, size: size))
             }
     }

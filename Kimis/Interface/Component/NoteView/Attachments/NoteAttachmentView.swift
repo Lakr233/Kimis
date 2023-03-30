@@ -33,6 +33,8 @@ class NoteAttachmentView: UIView {
     static let spacing: CGFloat = 2
     static let defaultCorner: CGFloat = IH.contentCornerRadius
 
+    var disableRadius = false
+
     init() {
         super.init(frame: .zero)
         layer.borderWidth = 0.5
@@ -41,6 +43,7 @@ class NoteAttachmentView: UIView {
         clipsToBounds = true
         addSubview(moreLabel)
         moreLabel.layer.maskedCorners = [.layerMinXMinYCorner]
+        backgroundColor = .systemGray5
     }
 
     @available(*, unavailable)
@@ -53,12 +56,12 @@ class NoteAttachmentView: UIView {
 
         if isHidden { return }
 
-        layer.borderColor = UIColor.systemBlackAndWhite
-            .withAlphaComponent(0.1)
-            .cgColor
+        layer.borderColor = UIColor.systemGray5.cgColor
 
-        if let superCorner = superview?.layer.cornerRadius, superCorner > 0,
-           let superWidth = superview?.frame.width, superWidth > 0
+        if disableRadius {
+            layer.cornerRadius = 0
+        } else if let superCorner = superview?.layer.cornerRadius, superCorner > 0,
+                  let superWidth = superview?.frame.width, superWidth > 0
         {
             let padding = (superWidth - bounds.width) / 2
             layer.cornerRadius = max(superCorner - padding, 0)

@@ -85,7 +85,7 @@ extension NoteTableView: UITableViewDelegate, UITableViewDataSource {
         if count > 0 {
             footer.set(title: "\(count) note(s)")
         } else {
-            footer.set(title: "Empty Note List")
+            footer.set(title: "🥲 Nothing Here")
         }
         return footer
     }

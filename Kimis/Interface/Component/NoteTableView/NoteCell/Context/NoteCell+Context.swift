@@ -22,6 +22,8 @@ extension NoteCell {
         var connectors: Set<ConnectorDirection>
         var disablePaddingAfter: Bool = false
         var disableRenoteOptomization: Bool = false
+        var disableOperationStrip: Bool = false
+        var disablePreviewReason: Bool = false
 
         var cellHeight: CGFloat = 0
 

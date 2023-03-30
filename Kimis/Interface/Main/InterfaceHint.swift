@@ -42,9 +42,10 @@ enum IH {
     }
 
     static func preferredAvatarSizeOffset(usingWidth width: CGFloat) -> CGFloat {
-        if width < 200 { return -18 }
-        if width < 300 { return -12 }
-        if width < 400 { return -6 }
+        if width < 200 { return -24 }
+        if width < 300 { return -20 }
+        if width < 400 { return -16 }
+        if width < 500 { return -12 }
         return 0
     }
 }

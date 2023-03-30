@@ -133,7 +133,7 @@ extension NoteCell.ReplyPaddedCell.Snapshot {
 
         let padding = IH.preferredPadding(usingWidth: width)
         let avatarSize = NotePreview.smallerAvatarSize
-        let rightShift = padding + NotePreview.defaultAvatarSize / 2
+        let rightShift = padding + (NotePreview.defaultAvatarSize + IH.preferredAvatarSizeOffset(usingWidth: width)) / 2
         let contentWidth = width - padding * 2 - rightShift
         let noteSnapshot = NotePreview.Snapshot(usingWidth: contentWidth, avatarSize: avatarSize, context: context)
         let previewRect = CGRect(

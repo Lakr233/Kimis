@@ -46,6 +46,7 @@ class NotePreviewSimple: UIView {
         addSubviews(views)
 
         coverButton.addTarget(self, action: #selector(coverButtonTouched), for: .touchUpInside)
+        attachments.disableRadius = true
     }
 
     @available(*, unavailable)
@@ -81,9 +82,7 @@ class NotePreviewSimple: UIView {
 
         coverButton.frame = bounds
 
-        layer.borderColor = UIColor.systemBlackAndWhite
-            .withAlphaComponent(0.1)
-            .cgColor
+        layer.borderColor = UIColor.systemGray5.cgColor
     }
 
     func clear() {
@@ -281,28 +280,35 @@ extension NotePreviewSimple.Snapshot {
         }
 
         let attachmentElements = NoteCell.Context.createAttachmentElements(withNote: targetNote)
-        let attachmentSnapshot = NoteAttachmentView.Snapshot(usingWidth: contentWidth, elements: attachmentElements, limit: 4)
+        let attachmentSnapshot = NoteAttachmentView.Snapshot(usingWidth: width, elements: attachmentElements, limit: 4)
         let attachmentHeight = attachmentSnapshot.height
         let attachmentsRect = CGRect(
-            x: spacing,
+            x: 0,
             y: pollViewRect.origin.y + pollViewRect.size.height + spacing,
-            width: contentWidth,
+            width: width,
             height: attachmentHeight > 0 ? attachmentHeight : -spacing
         )
+
+        var renoteHintRect: CGRect = .zero
+        let finalHeight: CGFloat
 
         let renoteHintText = textParser.compileRenoteHint(
             withRenote: context?.source?.notes.retain(targetNote.renoteId)
         )
-        let renoteHintHeight = renoteHintText
-            .measureHeight(usingWidth: contentWidth)
-        let renoteHintRect = CGRect(
-            x: spacing,
-            y: attachmentsRect.origin.y + attachmentsRect.size.height + spacing,
-            width: contentWidth,
-            height: renoteHintText.length > 0 ? renoteHintHeight : -spacing
-        )
-
-        let finalHeight = renoteHintRect.origin.y + renoteHintRect.size.height + spacing
+        if renoteHintText.length > 0 {
+            let renoteHintHeight = renoteHintText
+                .measureHeight(usingWidth: contentWidth)
+            renoteHintRect = CGRect(
+                x: spacing,
+                y: attachmentsRect.origin.y + attachmentsRect.size.height + spacing,
+                width: contentWidth,
+                height: renoteHintText.length > 0 ? renoteHintHeight : -spacing
+            )
+            finalHeight = renoteHintRect.origin.y + renoteHintRect.size.height + spacing
+        } else {
+            finalHeight = attachmentsRect.origin.y + attachmentsRect.size.height +
+                (attachmentsRect.size.height > 0 ? 0 : spacing)
+        }
 
         self.width = width
         height = finalHeight

@@ -46,8 +46,16 @@ extension TextParser {
                     .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
                 ]
             ),
+            NSMutableAttributedString(
+                string: user.absoluteUsername,
+                attributes: [
+                    .font: getFont(size: size.title, weight: weight.base),
+                    .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
+                    .foregroundColor: color.secondary,
+                ]
+            ),
         ]
-        let ans = connect(strings: strings, separator: nil)
+        let ans = connect(strings: strings, separator: " ")
         decodingIDNAIfNeeded(modifyingStringInPlace: ans)
         return finalize(ans, defaultHost: user.host)
     }
@@ -103,9 +111,9 @@ extension TextParser {
     func compileUserDescriptionSimple(with profile: UserProfile) -> NSMutableAttributedString {
         var desc = profile.description
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        while desc.contains("\n\n") {
-            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
-        }
+//        while desc.contains("\n\n") {
+//            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
+//        }
         if desc.isEmpty { desc = "This user did not provide a self introduction." }
         let items: [NSMutableAttributedString] = [
             NSMutableAttributedString(string: "\(desc)"),
@@ -122,9 +130,9 @@ extension TextParser {
         // Description
         var desc = profile.description
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        while desc.contains("\n\n") {
-            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
-        }
+//        while desc.contains("\n\n") {
+//            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
+//        }
         if desc.isEmpty, profile.fields.isEmpty {
             desc = "This user did not provide a self introduction."
         }

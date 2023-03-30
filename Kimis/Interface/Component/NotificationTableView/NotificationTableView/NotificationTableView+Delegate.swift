@@ -82,7 +82,7 @@ extension NotificationTableView: UITableViewDelegate, UITableViewDataSource {
         if count > 0 {
             footer.set(title: "\(count) notification(s)")
         } else {
-            footer.set(title: "Empty Notification List")
+            footer.set(title: "🥲 Nothing Here")
         }
         return footer
     }

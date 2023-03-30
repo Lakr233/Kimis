@@ -116,11 +116,11 @@ extension NoteAttachmentView {
             for view in subviews {
                 view.isHidden = true
             }
+            label.text = ""
             if let element {
                 activatePreview(forElement: element)
             } else {
                 imageView.loadImage(with: nil)
-                label.text = ""
             }
         }
 

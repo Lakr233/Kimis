@@ -53,7 +53,7 @@ extension NoteCell {
             super.layoutSubviews()
             let bounds = container.bounds
             let padding = IH.preferredPadding(usingWidth: bounds.width)
-            let rightShift = padding + NotePreview.defaultAvatarSize / 2
+            let rightShift = padding + (NotePreview.defaultAvatarSize + IH.preferredAvatarSizeOffset(usingWidth: width)) / 2
             let ballSize: CGFloat = 4
             let avatarSize = NotePreview.defaultAvatarSize + IH.preferredAvatarSizeOffset(usingWidth: width)
             let smallerAvatarSize = NotePreview.smallerAvatarSize

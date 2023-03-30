@@ -17,11 +17,7 @@ extension TextParser {
         if let cw = note.contentWarning {
             texts.append("\(cw)")
         }
-        var noteText = note.text
-        while noteText.contains("\n\n") {
-            noteText = noteText.replacingOccurrences(of: "\n\n", with: "\n")
-        }
-        texts.append(noteText)
+        texts.append(note.text)
 
         let text = texts.joined(separator: "\n")
         let ans = NSMutableAttributedString(string: text)

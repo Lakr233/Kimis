@@ -102,6 +102,7 @@ class NotePreview: UIView {
             reactions.isHidden = snapshot.reactionsRect.size.height <= 0
             footerText.frame = snapshot.footerTextRect
             operations.frame = snapshot.operationsRect
+            operations.isHidden = snapshot.operationsRect.height <= 0
         } else {
             previewReasonIcon.frame = .zero
             previewReason.frame = .zero
@@ -304,7 +305,9 @@ extension NotePreview.Snapshot {
         var previewReasonIcon: UIImage?
         var previewReasonText = NSMutableAttributedString()
 
-        if !context.disableRenoteOptomization, let renote = note.renoteId, note.justRenote {
+        if context.disablePreviewReason {
+            // pass!
+        } else if !context.disableRenoteOptomization, let renote = note.renoteId, note.justRenote {
             previewReasonText = textParser.compilePreviewReasonForRenote(withUser: user)
             previewReasonIcon = .fluent(.arrow_reply_filled)
 
@@ -439,12 +442,22 @@ extension NotePreview.Snapshot {
             height: reactionHeight > 0 ? reactionHeight : -verticalSpacing
         )
 
-        let operationRect = CGRect(
-            x: contentLeftAlign,
-            y: reactionRect.origin.y + reactionRect.size.height + verticalSpacing,
-            width: contentWidth,
-            height: NoteOperationStrip.contentHeight
-        )
+        let operationRect: CGRect
+        if context.disableOperationStrip {
+            operationRect = CGRect(
+                x: contentLeftAlign,
+                y: reactionRect.origin.y + reactionRect.size.height,
+                width: contentWidth,
+                height: 0
+            )
+        } else {
+            operationRect = CGRect(
+                x: contentLeftAlign,
+                y: reactionRect.origin.y + reactionRect.size.height + verticalSpacing,
+                width: contentWidth,
+                height: NoteOperationStrip.contentHeight
+            )
+        }
 
         height = operationRect.maxY
         self.note = note

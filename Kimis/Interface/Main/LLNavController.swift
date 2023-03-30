@@ -314,13 +314,13 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
                 request.transparentTitle = !attachable.determineTitleShouldShow()
             }
 
-            if self.blurBackgroundColor.alpha > 0 {
+            if blurBackgroundColor.alpha > 0 {
                 withMainActor(delay: 0.5) {
                     withUIKitAnimation { self.blurBackgroundColor.alpha = 0 }
                 }
             }
 
-            self.layout(request: request) { sem.signal() }
+            layout(request: request) { sem.signal() }
         }
         sem.wait()
     }

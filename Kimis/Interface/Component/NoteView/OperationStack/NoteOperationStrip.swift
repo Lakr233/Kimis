@@ -13,7 +13,7 @@ class NoteOperationStrip: UIView {
     var noteId: NoteID? { didSet { updateDataSource() } }
 
     static let contentHeight: CGFloat = 24
-    let buttonSize = CGSize(width: 22, height: 22)
+    let buttonSize = CGSize(width: 20, height: 20)
     static let buttonColor = UIColor.systemGray.withAlphaComponent(0.65)
 
     @propertyWrapper

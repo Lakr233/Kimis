@@ -57,6 +57,13 @@ extension NoteNode {
                     noteId: repliesCtx[0].noteId,
                     connectors: repliesCtx[0].connectors
                 )
+            } else if repliesCtx.count >= 3 {
+                // 有太多的回复 大概率是关注的 po 主回复了一堆人 实测两条已经很顶了 所以加一层处理
+                // 关闭 operation button 和 header
+                repliesCtx.forEach {
+                    $0.disableOperationStrip = true
+                    $0.disablePreviewReason = true
+                }
             }
             repliesCtx.sort { $0.noteId ?? "" < $1.noteId ?? "" }
             repliesCtx.last?.connectors.remove(.pass)
@@ -117,11 +124,14 @@ extension NoteNode {
         var nextLevelSet: Set<NoteID> = []
         for reply in replies {
             if let note = reply.list[safe: nextLevel], !nextLevelSet.contains(note) {
-                build.append(.init(
+                let context = NoteCell.Context(
                     kind: .replyPadded,
                     noteId: note,
                     connectors: [.attach, .pass]
-                ))
+                )
+                context.disableOperationStrip = true
+                context.disablePreviewReason = true
+                build.append(context)
                 nextLevelSet.insert(note)
             }
         }
