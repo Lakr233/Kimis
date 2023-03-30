@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension TextParser {
-    func compileNoteBody(withNote note: Note?) -> NSMutableAttributedString {
+    func compileNoteBody(withNote note: Note?, removeDuplicatedNewLines: Bool = false) -> NSMutableAttributedString {
         guard let note else { return .init(string: "") }
         guard let user = source?.users.retain(note.userId) else { return .init(string: "") }
 
@@ -17,7 +17,11 @@ extension TextParser {
         if let cw = note.contentWarning {
             texts.append("\(cw)")
         }
-        texts.append(note.text)
+        var content = note.text
+        while removeDuplicatedNewLines, content.contains("\n\n") {
+            content = content.replacingOccurrences(of: "\n\n", with: "\n")
+        }
+        texts.append(content)
 
         let text = texts.joined(separator: "\n")
         let ans = NSMutableAttributedString(string: text)

@@ -212,7 +212,7 @@ extension NotificationCell.MainCell.Snapshot {
 
         let padding = IH.preferredPadding(usingWidth: width)
         let tintSize = CGSize(width: 24, height: 24)
-        let avatarR = 42 + IH.preferredAvatarSizeOffset(usingWidth: width)
+        let avatarR = 40 + IH.preferredAvatarSizeOffset(usingWidth: width)
         let avatarSize = CGSize(width: avatarR, height: avatarR) // two line of text ~= 41 point so
         let horizontalSpacing: CGFloat = 8
         let verticalSpacing: CGFloat = 8
@@ -256,16 +256,27 @@ extension NotificationCell.MainCell.Snapshot {
             width: avatarSize.width,
             height: avatarSize.height
         )
-        titleText = textParser.compileUserHeader(with: user, lineBreak: true)
         let titleWidth = contentWidth - avatarViewRect.width - horizontalSpacing
-        let titleHeight = titleText
-            .measureHeight(usingWidth: titleWidth, lineLimit: NotificationCell.MainCell.titleLineLimit)
+
+        titleText = textParser.compileUserHeader(with: user, lineBreak: true)
+        var titleHeight: CGFloat = 0
+        titleHeight = titleText.measureHeight(
+            usingWidth: titleWidth,
+            lineLimit: NotificationCell.MainCell.titleLineLimit
+        )
+
         if titleHeight > avatarViewRect.height {
             titleViewRect = CGRect(
                 x: avatarViewRect.maxX + horizontalSpacing,
                 y: avatarViewRect.minY,
                 width: titleWidth,
                 height: titleHeight
+            )
+            avatarViewRect = CGRect(
+                x: avatarViewRect.minX,
+                y: avatarViewRect.minY + (titleViewRect.height - avatarViewRect.height) / 2,
+                width: avatarViewRect.size.width,
+                height: avatarViewRect.size.height
             )
         } else {
             titleViewRect = CGRect(
@@ -279,7 +290,7 @@ extension NotificationCell.MainCell.Snapshot {
 
         var noteBody: [NSMutableAttributedString] = []
         if let note = source.notes.retain(notification.noteId) {
-            let body = textParser.compileNoteBody(withNote: note)
+            let body = textParser.compileNoteBody(withNote: note, removeDuplicatedNewLines: true)
             noteBody.append(body)
 
             let attachmentCount = note.attachments.count
@@ -288,7 +299,7 @@ extension NotificationCell.MainCell.Snapshot {
                let renoteId = note.renoteId,
                let renote = source.notes.retain(renoteId)
             {
-                let body = textParser.compileNoteBody(withNote: renote)
+                let body = textParser.compileNoteBody(withNote: renote, removeDuplicatedNewLines: true)
                 noteBody.append(body)
             }
         }
