@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bugsnag/bugsnag-cocoa",
       "state" : {
-        "revision" : "b260ddb5570883ee8fd35860d8d7ff381250d4a1",
-        "version" : "6.25.2"
+        "revision" : "5be1c4c544752c90774cf5b464683064a5bb1015",
+        "version" : "6.26.1"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/Wevah/IDNA-Cocoa.git",
       "state" : {
         "branch" : "master",
-        "revision" : "f41c84c2f97c6de137aa36f450defdefd229360e"
+        "revision" : "96de66e18f27edd40e41321f63637fbf2a83eb41"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hackiftekhar/IQKeyboardManager",
       "state" : {
-        "revision" : "9ab144a1a6c6ae8dad25840610c072709b15d8b5",
-        "version" : "6.5.10"
+        "revision" : "0ea3febb36cfcec2afb5841fd8809a9c0fa545b3",
+        "version" : "6.5.11"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
       "state" : {
-        "revision" : "6c6b951845a520fa7e8356e28adb5339c0f008d3",
-        "version" : "5.15.0"
+        "revision" : "fb50c1d20f24db5322b2f8f379de3618f75fe08e",
+        "version" : "5.15.5"
       }
     },
     {

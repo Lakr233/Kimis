@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UINavigationBar.appearance().tintColor = .accent
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.disabledDistanceHandlingClasses.append(PostEditorController.self)
         prepareAppTasks()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { result, error in
             print("[*] request notification permission result \(result) \(error?.localizedDescription ?? "nil")")

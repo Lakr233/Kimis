@@ -18,7 +18,7 @@ class NotePreviewSimple: UIView {
 
     static let spacing: CGFloat = 8
     static let mainTextLimit: Int = 8
-    static let userTextLimit: Int = 2
+    static let userTextLimit: Int = 1
 
     let avatar = AvatarView()
     let userText = TextView(editable: false, selectable: false)
@@ -37,7 +37,6 @@ class NotePreviewSimple: UIView {
         clipsToBounds = true
 
         mainText.textContainer.maximumNumberOfLines = Self.mainTextLimit
-
         userText.textContainer.maximumNumberOfLines = Self.userTextLimit
 
         let views: [UIView] = [

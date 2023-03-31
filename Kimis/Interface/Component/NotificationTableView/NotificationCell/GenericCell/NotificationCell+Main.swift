@@ -212,8 +212,8 @@ extension NotificationCell.MainCell.Snapshot {
 
         let padding = IH.preferredPadding(usingWidth: width)
         let tintSize = CGSize(width: 24, height: 24)
-        let avatarR = 40 + IH.preferredAvatarSizeOffset(usingWidth: width)
-        let avatarSize = CGSize(width: avatarR, height: avatarR) // two line of text ~= 41 point so
+        let avatarR = NotePreview.defaultAvatarSize + IH.preferredAvatarSizeOffset(usingWidth: width)
+        let avatarSize = CGSize(width: avatarR, height: avatarR)
         let horizontalSpacing: CGFloat = 8
         let verticalSpacing: CGFloat = 8
 
