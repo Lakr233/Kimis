@@ -6,6 +6,7 @@
 //
 
 import Combine
+import IQKeyboardManagerSwift
 import Source
 import UIKit
 import UniformTypeIdentifiers
@@ -173,6 +174,19 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         view.addSubview(toolbar)
 
         updateSendButtonAvailability()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(notification:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide(notification:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 
     override func viewWillLayoutSubviews() {
@@ -283,7 +297,9 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
             renotePreview.isHidden = true
         }
 
-        container.contentSize = CGSize(width: 0, height: heightAnchor + 50)
+        container.contentSize = (keyboardVisible && IQKeyboardManager.shared.keyboardFrame.height > 0)
+            ? CGSize(width: 0, height: heightAnchor + 50 + IQKeyboardManager.shared.keyboardFrame.height)
+            : CGSize(width: 0, height: heightAnchor + 50)
     }
 
     func updateSendButtonAvailability() {
@@ -312,6 +328,14 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         } else {
             editor.activateFocus()
         }
+    }
+
+    @objc func keyboardWillShow(notification _: NSNotification) {
+        keyboardVisible = true
+    }
+
+    @objc func keyboardWillHide(notification _: NSNotification) {
+        keyboardVisible = false
     }
 
     @objc func cancelButtonTapped() {

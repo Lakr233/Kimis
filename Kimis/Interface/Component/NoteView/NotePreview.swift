@@ -13,7 +13,7 @@ class NotePreview: UIView {
     // # line 325, reason icon height = text height
     static let hintTextLimit = 1 // <- must be 1
     static let userTextLimit = 2
-    static let mainTextLimit = 8
+    static let mainTextLimit = 12
     static let verticalSpacing: CGFloat = 8
     static let defaultAvatarSize: CGFloat = 54
     static let smallerAvatarSize: CGFloat = 30
