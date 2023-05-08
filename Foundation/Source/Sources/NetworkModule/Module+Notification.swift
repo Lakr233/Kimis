@@ -11,7 +11,7 @@ import Foundation
 public struct NMNotification: Codable {
     public let id: String
     public let createdAt: String
-    public let isRead: Bool
+    public let isRead: Bool?
     public let type: NotificationType
 
     public enum NotificationType: String, Codable {

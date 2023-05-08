@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bugsnag/bugsnag-cocoa",
       "state" : {
-        "revision" : "5be1c4c544752c90774cf5b464683064a5bb1015",
-        "version" : "6.26.1"
+        "revision" : "c730af7a4676617d82394782300df997d9a356cd",
+        "version" : "6.26.2"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
       "state" : {
-        "revision" : "fb50c1d20f24db5322b2f8f379de3618f75fe08e",
-        "version" : "5.15.5"
+        "revision" : "3289629ef6cbf1ad8c3d1dccf0cf09ac97547cd6",
+        "version" : "5.15.7"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ivanvorobei/SPIndicator",
       "state" : {
-        "revision" : "43600857729d9efff046dc6673e6f94e095882c7",
-        "version" : "1.6.4"
+        "revision" : "e8a045f91757b32bb29c6feff1644ef79c8daedf",
+        "version" : "1.6.5"
       }
     },
     {

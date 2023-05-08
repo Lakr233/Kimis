@@ -71,12 +71,12 @@ class SourceTest: XCTestCase {
         checkApi_Favorite()
     }
 
-    func test_203_api_i_notification() {
-        checkApi_Notification()
+    func test_203_api_following() {
+        checkApi_Following()
     }
 
-    func test_204_api_following() {
-        checkApi_Following()
+    func test_204_api_i_notification() {
+        checkApi_Notification()
     }
 
     func test_205_api_user() {

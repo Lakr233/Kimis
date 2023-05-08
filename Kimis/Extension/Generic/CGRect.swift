@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2022/11/24.
 //
 
+import CoreGraphics
 import Foundation
 
 extension CGRect: Hashable {

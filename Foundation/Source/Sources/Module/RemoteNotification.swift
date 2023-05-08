@@ -22,7 +22,7 @@ public class RemoteNotification: Codable, Identifiable, Hashable, Equatable {
     public let noteId: String?
     public let reaction: String?
 
-    public init(notificationId: String, createdAt: Date, isRead: Bool, type: RemoteNotification.Kind, userId: String? = nil, noteId: String? = nil, reaction: String? = nil) {
+    public init(notificationId: String, createdAt: Date, isRead: Bool = false, type: RemoteNotification.Kind, userId: String? = nil, noteId: String? = nil, reaction: String? = nil) {
         self.notificationId = notificationId
         self.createdAt = createdAt
         self.isRead = isRead

@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2023/1/2.
 //
 
+import CoreGraphics
 import Foundation
 
 extension CGSize: Hashable {

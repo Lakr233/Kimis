@@ -21,7 +21,7 @@ public extension RemoteNotification {
         return RemoteNotification(
             notificationId: notification.id,
             createdAt: date,
-            isRead: notification.isRead,
+            isRead: notification.isRead ?? false,
             type: type,
             userId: notification.userId,
             noteId: notification.note?.id,

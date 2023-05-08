@@ -51,20 +51,20 @@ private extension Network.RequestTarget {
         case .account_i: return SourceTest.test_201_api_user.self
 
         case .i_favorites: return SourceTest.test_202_api_i_favorites.self
-        case .i_notification: return SourceTest.test_203_api_i_notification.self
+        case .i_notification: return SourceTest.test_204_api_i_notification.self
 
-        case .following_create: return SourceTest.test_204_api_following.self
-        case .following_delete: return SourceTest.test_204_api_following.self
-        case .following_requests_accept: return SourceTest.test_204_api_following.self
-        case .following_requests_reject: return SourceTest.test_204_api_following.self
-        case .following_requests_cancel: return SourceTest.test_204_api_following.self
-        case .following_invalidate: return SourceTest.test_204_api_following.self
+        case .following_create: return SourceTest.test_203_api_following.self
+        case .following_delete: return SourceTest.test_203_api_following.self
+        case .following_requests_accept: return SourceTest.test_203_api_following.self
+        case .following_requests_reject: return SourceTest.test_203_api_following.self
+        case .following_requests_cancel: return SourceTest.test_203_api_following.self
+        case .following_invalidate: return SourceTest.test_203_api_following.self
 
-        case .users: return SourceTest.test_204_api_following.self
+        case .users: return SourceTest.test_203_api_following.self
         case .users_report_abuse: return SourceTest.test_215_report_abuse.self
-        case .user_show: return SourceTest.test_204_api_following.self
-        case .users_followers: return SourceTest.test_204_api_following.self
-        case .users_following: return SourceTest.test_204_api_following.self
+        case .user_show: return SourceTest.test_203_api_following.self
+        case .users_followers: return SourceTest.test_203_api_following.self
+        case .users_following: return SourceTest.test_203_api_following.self
 
         case .user_notes: return SourceTest.test_205_api_user.self
 

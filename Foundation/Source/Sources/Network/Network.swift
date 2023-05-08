@@ -237,7 +237,7 @@ public extension Network {
 
     func makeRequest(
         with request: URLRequest,
-        with session: URLSession = .shared,
+        with session: URLSession = .newEphemeral(),
         setTask: (URLSessionDataTask) -> Void = { _ in },
         completion: @escaping (Data) -> Void
     ) {
@@ -294,5 +294,13 @@ public extension Network {
             return nil
         }
         return object
+    }
+}
+
+public extension URLSession {
+    static func newEphemeral() -> URLSession {
+        let config = URLSessionConfiguration.ephemeral
+        let session = URLSession(configuration: config)
+        return session
     }
 }

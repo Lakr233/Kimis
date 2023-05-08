@@ -102,7 +102,7 @@ extension SourceTest {
                 "session": challenge.requestSession,
                 "permission": permission,
                 "i": firstToken,
-            ]) else {
+            ] as [String: Any]) else {
                 XCTFail("unable to create data")
                 return nil
             }
