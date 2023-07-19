@@ -17,7 +17,7 @@ extension ReactionStrip {
         var height: CGFloat = 0
 
         var viewRects: [CGRect] = []
-        var viewElements: [ReactionStrip.Element] = []
+        var viewElements: [ReactionStrip.ReactionElement] = []
         var limitation: Int = 0
 
         func hash(into hasher: inout Hasher) {
@@ -32,16 +32,16 @@ extension ReactionStrip {
 
 extension ReactionStrip.Snapshot {
     struct RenderHint {
-        let viewElements: [ReactionStrip.Element]
+        let viewElements: [ReactionStrip.ReactionElement]
         let limitation: Int
     }
 
-    convenience init(usingWidth width: CGFloat, viewElements: [ReactionStrip.Element], limitation: Int) {
+    convenience init(usingWidth width: CGFloat, viewElements: [ReactionStrip.ReactionElement], limitation: Int) {
         self.init()
         render(usingWidth: width, viewElements: viewElements, limitation: limitation)
     }
 
-    func render(usingWidth width: CGFloat, viewElements: [ReactionStrip.Element], limitation: Int) {
+    func render(usingWidth width: CGFloat, viewElements: [ReactionStrip.ReactionElement], limitation: Int) {
         renderHint = RenderHint(viewElements: viewElements, limitation: limitation)
         render(usingWidth: width)
     }

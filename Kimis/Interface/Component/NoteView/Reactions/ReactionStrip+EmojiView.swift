@@ -8,7 +8,7 @@
 import UIKit
 
 extension ReactionStrip {
-    class EmojiView: UIView {
+    class EmojiView: ElementBaseView {
         let emoji: String
         let count: Int
 
@@ -32,8 +32,9 @@ extension ReactionStrip {
             backgroundColor = highlight
                 ? UIColor.accent.withAlphaComponent(0.1)
                 : UIColor.gray.withAlphaComponent(0.1)
-            addSubview(label)
-            label.text = "\(emoji) x\(count)"
+            emojiContainer.addSubview(label)
+            label.text = emoji
+            countView.text = "x\(count)"
         }
 
         @available(*, unavailable)
@@ -43,7 +44,7 @@ extension ReactionStrip {
 
         override func layoutSubviews() {
             super.layoutSubviews()
-            label.frame = bounds
+            label.frame = emojiContainer.bounds
         }
     }
 }

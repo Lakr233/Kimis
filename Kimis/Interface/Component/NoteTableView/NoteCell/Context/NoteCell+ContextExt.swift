@@ -29,9 +29,9 @@ extension NoteCell.Context {
         note.attachments.map { .init(with: $0) }
     }
 
-    static func createReactionStripElemetns(withNote note: Note, source: Source?) -> [ReactionStrip.Element] {
+    static func createReactionStripElemetns(withNote note: Note, source: Source?) -> [ReactionStrip.ReactionElement] {
         guard let source else { return [] }
-        var buildReactions = [ReactionStrip.Element]()
+        var buildReactions = [ReactionStrip.ReactionElement]()
         for (key, value) in note.reactions {
             if key.hasPrefix(":"), key.hasSuffix(":") {
                 let name = String(key.dropFirst().dropLast())
@@ -39,14 +39,27 @@ extension NoteCell.Context {
                     .appendingPathComponent("emoji")
                     .appendingPathComponent(name)
                     .appendingPathExtension("webp")
-                buildReactions.append(.init(text: nil, url: url, count: value, highlight: note.userReaction == key))
+                buildReactions.append(.init(
+                    noteId: note.noteId,
+                    text: nil,
+                    url: url,
+                    count: value,
+                    highlight: note.userReaction == key,
+                    representReaction: name
+                ))
             } else {
-                buildReactions.append(.init(text: key, url: nil, count: value, highlight: note.userReaction == key))
+                buildReactions.append(.init(
+                    noteId: note.noteId,
+                    text: key,
+                    url: nil,
+                    count: value,
+                    highlight: note.userReaction == key
+                ))
             }
         }
         buildReactions.sort {
-            if $0.highlight { return true }
-            if $1.highlight { return false }
+            if $0.isUserReaction { return true }
+            if $1.isUserReaction { return false }
             return ($0.text ?? $0.url?.absoluteString ?? "")
                 < ($1.text ?? $1.url?.absoluteString ?? "")
         }

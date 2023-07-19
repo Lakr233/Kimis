@@ -5,10 +5,11 @@
 //  Created by Lakr Aream on 2022/11/24.
 //
 
+import Source
 import UIKit
 
 extension ReactionStrip {
-    class ImageView: UIView {
+    class ImageView: ElementBaseView {
         let url: URL
         let count: Int
 
@@ -16,19 +17,6 @@ extension ReactionStrip {
             let view = UIImageView()
             view.layer.magnificationFilter = .trilinear
             view.contentMode = .scaleAspectFit
-            return view
-        }()
-
-        let label: UILabel = {
-            let view = UILabel()
-            view.textAlignment = .center
-            view.layer.cornerRadius = 6
-            view.clipsToBounds = true
-            view.layer.masksToBounds = true
-            view.numberOfLines = 1
-            view.minimumScaleFactor = 0.5
-            view.adjustsFontSizeToFitWidth = true
-            view.font = .rounded(ofSize: 16, weight: .regular)
             return view
         }()
 
@@ -40,29 +28,13 @@ extension ReactionStrip {
             backgroundColor = highlight
                 ? UIColor.accent.withAlphaComponent(0.1)
                 : UIColor.gray.withAlphaComponent(0.1)
-            addSubview(label)
-            addSubview(image)
-            label.text = "x\(count)"
+            countView.text = "x\(count)"
+            emojiContainer.addSubview(image)
         }
 
         override func layoutSubviews() {
             super.layoutSubviews()
-
-            let this = self
-            let bounds = this.bounds
-
-            label.frame = CGRect(
-                x: bounds.width / 2,
-                y: 0,
-                width: bounds.width / 2,
-                height: bounds.height
-            )
-            image.frame = CGRect(
-                x: 0,
-                y: 0,
-                width: bounds.width / 2,
-                height: bounds.height
-            ).inset(by: .init(inset: 4))
+            image.frame = emojiContainer.bounds
         }
 
         override func didMoveToWindow() {

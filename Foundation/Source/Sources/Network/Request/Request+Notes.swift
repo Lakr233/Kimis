@@ -133,6 +133,25 @@ public extension Network {
         return requestForNote(with: noteId)
     }
 
+    func requestForReactionUserList(with noteId: String, reaction: String, limit: Int) -> [NMUserLite]? {
+        var request = prepareRequest(for: .notes_reactions)
+        injectBodyForPost(for: &request, with: ["noteId": noteId])
+        injectBodyForPost(for: &request, with: ["type": reaction])
+        injectBodyForPost(for: &request, with: ["limit": limit])
+        var responseData: Data?
+        makeRequest(with: request) { data in
+            responseData = data
+        }
+        guard let responseData else { return nil }
+        guard let firstDecode = (
+            try? JSONSerialization.jsonObject(with: responseData)
+        ) as? [[String: Any]] else { return nil }
+        let list = firstDecode.compactMap { $0["user"] }
+        return list.compactMap { element in // get key inside user
+            decodeRequest(with: try? JSONSerialization.data(withJSONObject: element))
+        }
+    }
+
     /// get replies for this note
     /// - Parameter noteId: id
     /// - Returns: replies and extracted notes for cache

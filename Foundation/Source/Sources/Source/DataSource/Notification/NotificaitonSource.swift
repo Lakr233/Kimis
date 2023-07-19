@@ -24,7 +24,8 @@ public class NotificationSource: ObservableObject {
         }
     }
 
-    @Published public internal(set) var badge: Int = 0
+    @Published public internal(set) var badgeCount: Int = 0
+    @Published public internal(set) var badge: Bool = false
 
     @Published public internal(set) var readDate = Date(timeIntervalSince1970: 0) {
         didSet {
@@ -82,10 +83,11 @@ public class NotificationSource: ObservableObject {
 
     func recalculateBadgeValueAndUpdate() {
         DispatchQueue.global().async {
-            self.badge = self.dataSource.filter {
+            let filteredList = self.dataSource.filter {
                 $0.createdAt > self.readDate
             }
-            .count
+            self.badgeCount = filteredList.count
+            self.badge = !filteredList.isEmpty
         }
     }
 }

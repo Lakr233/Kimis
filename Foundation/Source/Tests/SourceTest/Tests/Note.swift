@@ -192,6 +192,14 @@ extension SourceTest {
             }
         }
 
+        // check reaction
+        dispatchAndWait {
+            let ans = source.network.requestForReactionUserList(with: nid, reaction: emoji, limit: 100)
+            unwrapOrFail(ans) { lst in
+                XCTAssert(lst.count == 0)
+            }
+        }
+
         // reaction create
         dispatchAndWait {
             _ = source.network.requestForReactionCreate(with: nid, reaction: emoji)
@@ -202,6 +210,19 @@ extension SourceTest {
             }
         }
 
+        // check reaction
+        dispatchAndWait {
+            let ans = source.network.requestForReactionUserList(with: nid, reaction: emoji, limit: 100)
+            unwrapOrFail(ans) { reactionUserList in
+                XCTAssert(reactionUserList.count == 1)
+                let note = source.network.requestForNote(with: nid)
+                unwrapOrFail(note) { note in
+                    XCTAssert(note.user.username.count > 0)
+                    XCTAssert(note.user.username.lowercased() == reactionUserList.first?.username.lowercased())
+                }
+            }
+        }
+
         // reaction delete
         dispatchAndWait {
             _ = source.network.requestForReactionDelete(with: nid)
@@ -209,6 +230,14 @@ extension SourceTest {
             unwrapOrFail(ans) { note in
                 XCTAssert(note.id == nid)
                 XCTAssert(note.myReaction == nil)
+            }
+        }
+
+        // check reaction again
+        dispatchAndWait {
+            let ans = source.network.requestForReactionUserList(with: nid, reaction: emoji, limit: 100)
+            unwrapOrFail(ans) { lst in
+                XCTAssert(lst.count == 0)
             }
         }
 

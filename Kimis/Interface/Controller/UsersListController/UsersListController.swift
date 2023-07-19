@@ -51,15 +51,15 @@ class UsersListController: ViewController {
             .sink { [weak self] isLoading in
                 guard let self else { return }
                 if isLoading {
-                    self.refreshIndicator.startAnimating()
-                    self.refreshIndicator.isHidden = false
-                    self.refreshButton.isHidden = true
-                    self.tableView.progressView.animate()
+                    refreshIndicator.startAnimating()
+                    refreshIndicator.isHidden = false
+                    refreshButton.isHidden = true
+                    tableView.progressView.animate()
                 } else {
-                    self.refreshButton.isHidden = false
-                    self.refreshIndicator.stopAnimating()
-                    self.refreshIndicator.isHidden = true
-                    self.tableView.progressView.stopAnimate()
+                    refreshButton.isHidden = false
+                    refreshIndicator.stopAnimating()
+                    refreshIndicator.isHidden = true
+                    tableView.progressView.stopAnimate()
                 }
             }
             .store(in: &tableView.cancellable)

@@ -8,7 +8,7 @@
 import UIKit
 
 extension ReactionStrip {
-    class MoreView: UIView {
+    class MoreView: ElementBaseView {
         let label: UILabel = {
             let view = UILabel()
             view.textAlignment = .center
@@ -28,6 +28,7 @@ extension ReactionStrip {
             backgroundColor = UIColor.gray.withAlphaComponent(0.1)
             addSubview(label)
             label.text = "..."
+            isUserInteractionEnabled = false
         }
 
         @available(*, unavailable)

@@ -122,6 +122,16 @@ public extension Source.NetworkWrapper {
     }
 
     @discardableResult
+    func requestNoteReactionUserList(reactionIdentifier emoji: String?, forNote noteId: NoteID?) -> [User] {
+        guard let ctx, let noteId, let emoji else { return [] }
+        let result = ctx.network.requestForReactionUserList(with: noteId, reaction: emoji, limit: 100) ?? []
+        ctx.spider.spidering(result)
+        return result.map { userLite -> User in
+            User.converting(userLite, defaultHost: ctx.receipt.host)
+        }
+    }
+
+    @discardableResult
     func requestForUserNotes(userHandler: String, type: Network.UserNoteFetchType, untilId: String?) -> [NoteID] {
         guard let ctx else { return [] }
         let result = ctx.network.requestForUserNotes(

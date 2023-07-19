@@ -29,7 +29,6 @@ extension NoteCell {
             icon.contentMode = .scaleAspectFit
             icon.image = UIImage.fluent(.arrow_collapse_all_filled)
             label.text = "Load More Replies"
-            label.font = .systemFont(ofSize: CGFloat(AppConfig.current.defaultNoteFontSize), weight: .regular)
             label.textColor = .accent
             label.textAlignment = .left
             label.numberOfLines = 1
@@ -94,7 +93,6 @@ extension NoteCell {
             )
 
             let horizontalSpacing = padding
-
             label.frame = CGRect(
                 x: padding + avatarSize + horizontalSpacing,
                 y: 0,

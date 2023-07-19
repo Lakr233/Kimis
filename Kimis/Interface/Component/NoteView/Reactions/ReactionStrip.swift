@@ -54,10 +54,12 @@ class ReactionStrip: UIView {
             }
             let element = snapshot.viewElements[idx]
             if let text = element.text {
-                let view = ReactionStrip.EmojiView(emoji: text, count: element.count, highlight: element.highlight)
+                let view = ReactionStrip.EmojiView(emoji: text, count: element.count, highlight: element.isUserReaction)
+                view.representReaction = element
                 views.append(view)
             } else if let url = element.url {
-                let view = ReactionStrip.ImageView(url: url, count: element.count, highlight: element.highlight)
+                let view = ReactionStrip.ImageView(url: url, count: element.count, highlight: element.isUserReaction)
+                view.representReaction = element
                 views.append(view)
             }
         }

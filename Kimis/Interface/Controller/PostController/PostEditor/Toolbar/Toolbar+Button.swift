@@ -98,8 +98,8 @@ extension PostEditorToolbarView {
             let actions: [UIAction] = toolMenu.map { menuItem in
                 .init(title: menuItem.text, image: menuItem.icon) { [weak self] _ in
                     guard let self else { return }
-                    menuItem.action(self.post, self)
-                    self.isEnabled = self.toolEnabled(self.post)
+                    menuItem.action(post, self)
+                    isEnabled = toolEnabled(post)
                 }
             }
             let menu = UIMenu(children: actions)

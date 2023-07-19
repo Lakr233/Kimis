@@ -39,10 +39,10 @@ class BlurHashView: UIView {
         session = builderSession
         loadImage(forHash: hash) { [weak self] image in
             assert(Thread.isMainThread)
-            guard let self, self.session == builderSession else {
+            guard let self, session == builderSession else {
                 return
             }
-            self.imageView.image = image
+            imageView.image = image
         }
     }
 

@@ -102,11 +102,7 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
 
     let rightView = UIView()
 
-    #if targetEnvironment(macCatalyst)
-        let titleLineHeight: CGFloat = 60
-    #else // iPadOS
-        let titleLineHeight: CGFloat = 50
-    #endif
+    let titleLineHeight: CGFloat = 50
     var padding = IH.preferredViewPadding()
 
     override func viewDidLoad() {

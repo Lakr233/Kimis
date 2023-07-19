@@ -22,8 +22,8 @@ extension NoteOperationStrip {
 
     private func reactionCreate() {
         let picker = EmojiPickerViewController(sourceView: reactButton) { [weak self] emoji in
-            guard let self, let source = self.source, let noteId = self.noteId else { return }
-            self.callingReactionUpdate(source: source, onNote: noteId, emojiOrDelete: emoji.emoji)
+            guard let self, let source, let noteId else { return }
+            callingReactionUpdate(source: source, onNote: noteId, emojiOrDelete: emoji.emoji)
         }
         associatedControllers.append(picker)
         parentViewController?.present(picker, animated: true)

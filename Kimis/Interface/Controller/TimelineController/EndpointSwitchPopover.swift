@@ -27,6 +27,11 @@ class EndpointSwitchPopover: ViewController, UIPopoverPresentationControllerDele
         )
         popoverPresentationController?.permittedArrowDirections = .any
         view.addSubview(contentView)
+
+        contentView.snp.remakeConstraints { x in
+            x.left.right.equalToSuperview()
+            x.centerY.equalToSuperview()
+        }
     }
 
     let titleLabel = UILabel(text: "👉\nSwitch Endpoint")
@@ -68,15 +73,6 @@ class EndpointSwitchPopover: ViewController, UIPopoverPresentationControllerDele
         traitCollection _: UITraitCollection
     ) -> UIModalPresentationStyle {
         .none
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        contentView.snp.remakeConstraints { x in
-            x.left.right.equalToSuperview()
-            x.centerY.equalToSuperview()
-        }
     }
 }
 

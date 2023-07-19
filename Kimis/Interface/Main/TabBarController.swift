@@ -57,7 +57,7 @@ class TabBarController: UITabBarController {
         ]
 
         let notificationIdx = 3
-        source?.notifications.$badge
+        source?.notifications.$badgeCount
             .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] output in

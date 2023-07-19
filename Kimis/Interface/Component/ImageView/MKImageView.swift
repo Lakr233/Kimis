@@ -188,9 +188,9 @@ class MKImageRenderView: UIView {
             withMainActor { [weak self] in
                 assert(Thread.isMainThread)
                 if let self, ticket == self.ticket, let thumbnail {
-                    self.imageView.image = thumbnail
+                    imageView.image = thumbnail
                     self.imageData = imageData
-                    self.blurView.setImage(withBlurHash: nil)
+                    blurView.setImage(withBlurHash: nil)
                 }
             }
         }

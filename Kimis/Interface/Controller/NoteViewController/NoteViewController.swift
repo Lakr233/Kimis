@@ -182,16 +182,16 @@ class NoteViewController: ViewController, RouterDatable {
         source?.notesChange
             .filter { [weak self] output in
                 guard let self else { return false }
-                if self.trim == output { return true }
-                if self.chain.contains(output) { return true }
-                if self.main == output { return true }
-                if self.replies.contains(output) { return true }
+                if trim == output { return true }
+                if chain.contains(output) { return true }
+                if main == output { return true }
+                if replies.contains(output) { return true }
                 return false
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 guard let self else { return }
-                self.updateDataSource(canFetch: true)
+                updateDataSource(canFetch: true)
             }
             .store(in: &cancellable)
     }

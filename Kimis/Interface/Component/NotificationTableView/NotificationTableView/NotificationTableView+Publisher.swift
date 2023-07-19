@@ -26,8 +26,8 @@ extension NotificationTableView {
         .sink { [weak self] value in
             guard let self else { return }
             let ticket = UUID()
-            self.renderTicket = ticket
-            self.renderQueue.async {
+            renderTicket = ticket
+            renderQueue.async {
                 self.requestRenderUpdate(
                     target: value.0,
                     readAllBefore: value.1,

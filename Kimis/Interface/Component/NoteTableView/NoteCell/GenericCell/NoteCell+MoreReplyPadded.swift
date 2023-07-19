@@ -10,7 +10,6 @@ import UIKit
 
 extension NoteCell {
     class MoreReplyPaddedCell: NoteCell {
-        let label = UILabel()
         var connectorAttach: LeftBottomCurveLine!
         let connectorBall = UIView()
         let connectorDown = UIView()
@@ -25,12 +24,6 @@ extension NoteCell {
             container.addSubview(connectorAttach)
             container.addSubview(connectorDown)
             container.addSubview(connectorPass)
-            container.addSubview(label)
-
-            label.text = "Expend Collapsed Replies"
-            label.font = .systemFont(ofSize: CGFloat(AppConfig.current.defaultNoteFontSize), weight: .regular)
-            label.textColor = .accent
-            label.textAlignment = .left
 
             connectorBall.backgroundColor = .separator
             connectorDown.layer.maskedCorners = [
@@ -81,13 +74,6 @@ extension NoteCell {
                 y: 0,
                 width: connectorBall.frame.minX - 4 - connectorPass.frame.minX,
                 height: bounds.height / 2 + IH.connectorWidth / 2
-            )
-            let horizontalSpacing = padding
-            label.frame = CGRect(
-                x: connectorBall.frame.midX + smallerAvatarSize / 2 + horizontalSpacing,
-                y: 0,
-                width: 200,
-                height: bounds.height
             )
         }
     }

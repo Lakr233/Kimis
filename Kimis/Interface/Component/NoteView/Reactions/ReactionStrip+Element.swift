@@ -8,15 +8,35 @@
 import Foundation
 
 extension ReactionStrip {
-    struct Element: Hashable, Equatable {
+    struct ReactionElement: Hashable, Equatable {
+        let noteId: NoteID
+
         let text: String?
         let url: URL?
         let count: Int
-        let highlight: Bool
+        let isUserReaction: Bool
 
         var validated: Bool {
             if text == nil { return url != nil }
             else { return url == nil }
+        }
+
+        let representImageReaction: String?
+
+        init(
+            noteId: NoteID,
+            text: String? = nil,
+            url: URL? = nil,
+            count: Int,
+            highlight: Bool,
+            representReaction: String? = nil
+        ) {
+            self.noteId = noteId
+            self.text = text
+            self.url = url
+            self.count = count
+            isUserReaction = highlight
+            representImageReaction = representReaction
         }
     }
 }

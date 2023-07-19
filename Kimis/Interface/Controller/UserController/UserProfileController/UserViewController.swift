@@ -83,15 +83,15 @@ class UserViewController: ViewController, RouterDatable {
         NotificationCenter.default.publisher(for: .requestUserProfileUpdate)
             .filter { [weak self] notification in
                 guard let self else { return false }
-                guard !self.userHandler.isEmpty else { return false }
+                guard !userHandler.isEmpty else { return false }
                 guard let mathcer = notification.object as? String else {
                     assertionFailure()
                     return false
                 }
                 let isCurrentUser = false
-                    || mathcer == self.userHandler
-                    || mathcer == self.userProfile?.userId
-                    || mathcer == self.userProfile?.absoluteUsername
+                    || mathcer == userHandler
+                    || mathcer == userProfile?.userId
+                    || mathcer == userProfile?.absoluteUsername
                 return isCurrentUser
             }
             .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global())

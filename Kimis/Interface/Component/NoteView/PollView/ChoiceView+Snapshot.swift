@@ -81,7 +81,7 @@ extension PollView.ChoiceView.Snapshot {
 
         let verticalPadding: CGFloat = 4
         let horizontalPadding: CGFloat = 8
-        let iconSize: CGFloat = 24
+        let iconSize: CGFloat = 20
 
         var iconRect = CGRect(
             x: horizontalPadding,
@@ -142,11 +142,12 @@ extension PollView.ChoiceView.Snapshot {
             width: textRect.size.width,
             height: textRect.size.height
         )
+        let finalIconHeight = max(iconSize, textRect.size.height)
         iconRect = CGRect(
             x: iconRect.origin.x,
-            y: (height - textRect.size.height) / 2,
+            y: (height - finalIconHeight) / 2,
             width: iconSize,
-            height: textRect.size.height
+            height: finalIconHeight
         )
         countTextRect = CGRect(
             x: countTextRect.origin.x,

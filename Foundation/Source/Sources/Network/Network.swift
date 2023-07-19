@@ -285,6 +285,7 @@ public extension Network {
         setTask(task)
         task.resume()
         sem.wait()
+        session.finishTasksAndInvalidate()
     }
 
     func decodeRequest<T: Codable>(with data: Data?) -> T? {

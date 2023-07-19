@@ -22,10 +22,10 @@ extension NoteTableView {
         )
         .receive(on: DispatchQueue.main)
         .sink { [weak self] value in
-            guard let self, self.option.useBuiltinRender else { return }
+            guard let self, option.useBuiltinRender else { return }
             let ticket = UUID()
-            self.renderTicket = ticket
-            self.renderQueue.async {
+            renderTicket = ticket
+            renderQueue.async {
                 self.requestRenderUpdateReload(
                     target: value.0,
                     width: value.1,

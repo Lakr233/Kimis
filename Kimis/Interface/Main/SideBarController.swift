@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2022/5/8.
 //
 
+import Combine
 import UIKit
 
 class SideBarController: ViewController, UINavigationControllerDelegate {
@@ -128,7 +129,8 @@ private class SideBarControlPanelView: UIView {
                     left: LLNavController(rootViewController: LargeNotificationController()),
                     right: LLNavController(rootViewController: HashtagTrendController())
                 ) },
-                image: .fluent(.alert_filled)
+                image: .fluent(.alert_filled),
+                badgePublisher: Account.shared.source?.notifications.$badge
             ),
             .init(
                 target: { LLSplitController(
@@ -149,7 +151,9 @@ private class SideBarControlPanelView: UIView {
                 image: .fluent(.settings_filled)
             ),
         ]
+
         super.init(frame: .zero)
+
         backgroundColor = .accent.withAlphaComponent(0.05)
         addSubview(container)
         container.snp.makeConstraints { make in
@@ -252,14 +256,21 @@ private extension SideBarControlPanelView {
         var button: UIButton
         let displaying: UIView
 
-        convenience init(target: @escaping () -> (UIViewController), image: UIImage) {
+        let badgeView: UIView = .init()
+        var cancellable: Set<AnyCancellable> = .init()
+
+        convenience init(
+            target: @escaping () -> (UIViewController),
+            image: UIImage,
+            badgePublisher: Published<Bool>.Publisher? = nil
+        ) {
             let imageView = UIImageView()
             imageView.image = image
             imageView.contentMode = .scaleAspectFit
-            self.init(target: target, displayingView: imageView)
+            self.init(target: target, displayingView: imageView, badgePublisher: badgePublisher)
         }
 
-        init(target: @escaping () -> (UIViewController), displayingView: UIView) {
+        init(target: @escaping () -> (UIViewController), displayingView: UIView, badgePublisher: Published<Bool>.Publisher? = nil) {
             self.target = target
             displaying = displayingView
             super.init(frame: .zero)
@@ -277,6 +288,26 @@ private extension SideBarControlPanelView {
             snp.makeConstraints { make in
                 make.width.equalTo(50)
                 make.height.equalTo(50)
+            }
+
+            let badgeSize: CGFloat = 8
+            addSubview(badgeView)
+            badgeView.backgroundColor = .systemPink.withAlphaComponent(0.9)
+            badgeView.snp.makeConstraints { make in
+                make.top.right.equalTo(displayingView)
+                make.width.height.equalTo(badgeSize)
+            }
+            badgeView.layer.cornerRadius = badgeSize / 2
+
+            badgeView.isHidden = true
+
+            if let badgePublisher {
+                badgePublisher
+                    .receive(on: DispatchQueue.main)
+                    .sink { [weak self] output in
+                        self?.badgeView.isHidden = !output
+                    }
+                    .store(in: &cancellable)
             }
         }
 
