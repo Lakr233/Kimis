@@ -41,8 +41,8 @@ extension ReactionStrip {
 
             addSubview(button)
             button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
-            button.addGestureRecognizer(longPress)
+//            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
+//            button.addGestureRecognizer(longPress)
             button.addInteraction(UIContextMenuInteraction(delegate: self))
         }
 

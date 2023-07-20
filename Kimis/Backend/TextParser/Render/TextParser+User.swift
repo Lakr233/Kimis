@@ -37,7 +37,7 @@ extension TextParser {
         return finalize(ans, defaultHost: user.host)
     }
 
-    func compileRenoteUserHeader(with user: User) -> NSMutableAttributedString {
+    func compileRenoteUserHeader(with user: User, lineBreak: Bool = false) -> NSMutableAttributedString {
         let strings: [NSMutableAttributedString] = [
             NSMutableAttributedString(
                 string: user.name,
@@ -55,7 +55,7 @@ extension TextParser {
                 ]
             ),
         ]
-        let ans = connect(strings: strings, separator: " ")
+        let ans = connect(strings: strings, separator: lineBreak ? "\n" : " ")
         decodingIDNAIfNeeded(modifyingStringInPlace: ans)
         return finalize(ans, defaultHost: user.host)
     }

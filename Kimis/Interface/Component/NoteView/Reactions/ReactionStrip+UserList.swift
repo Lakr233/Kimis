@@ -21,7 +21,7 @@ extension ReactionStrip {
             reactionElement = representReaction
             super.init(nibName: nil, bundle: nil)
             modalPresentationStyle = .popover
-            preferredContentSize = CGSize(width: 400, height: 200)
+            preferredContentSize = CGSize(width: 400, height: 300)
             popoverPresentationController?.delegate = self
             popoverPresentationController?.sourceView = sourceView
             let padding: CGFloat = 4
@@ -66,10 +66,6 @@ extension ReactionStrip {
             .none
         }
 
-        override func viewDidLayoutSubviews() {
-            super.viewDidLayoutSubviews()
-        }
-
         func loadUserList() {
             var reactionIdentifier: String?
             if let representReaction = reactionElement.representImageReaction {
@@ -104,22 +100,41 @@ extension ReactionStrip {
 }
 
 extension ReactionStrip.UserListPopover {
-    class UserCollectionView: UIView {
+    class UserCollectionView: UIView, UICollectionViewDelegate {
         let collectionView: UICollectionView
+        let layout = AlignedCollectionViewFlowLayout(
+            horizontalAlignment: .left,
+            verticalAlignment: .center
+        )
         var userList: [User] = [] {
             didSet { applySnapshot() }
         }
 
+        static let inset: CGFloat = 4
+        let cellHeight: CGFloat = NSAttributedString(string: "M\nM", attributes: [
+            .font: UIFont.systemFont(ofSize: CGFloat(AppConfig.current.defaultNoteFontSize)),
+        ])
+        .measureHeight(usingWidth: 100, lineLimit: 2, lineBreakMode: .byWordWrapping)
+        + inset
+
+        var contentWidth: CGFloat {
+            collectionView.frame.width
+                - collectionView.contentInset.left
+                - collectionView.contentInset.right
+        }
+
+        var cellSize: CGSize {
+            .init(width: contentWidth, height: cellHeight)
+        }
+
         init() {
-            let layout = AlignedCollectionViewFlowLayout(
-                horizontalAlignment: .left,
-                verticalAlignment: .center
-            )
-            layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
             collectionView = .init(frame: .zero, collectionViewLayout: layout)
             super.init(frame: .zero)
             addSubview(collectionView)
+//            collectionView.register(SimpleSectionHeader.self, forCellWithReuseIdentifier: SimpleSectionHeader.headerId)
             collectionView.register(UserCollectionCellView.self, forCellWithReuseIdentifier: String(describing: UserCollectionCellView.self))
+            collectionView.contentInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            collectionView.delegate = self
         }
 
         @available(*, unavailable)
@@ -155,20 +170,25 @@ extension ReactionStrip.UserListPopover {
             dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
         }
 
+        var prevWidth: CGFloat = 0
         override func layoutSubviews() {
             super.layoutSubviews()
             collectionView.frame = bounds
-
-            let inset = IH.preferredPadding(usingWidth: bounds.width)
-            collectionView.contentInset = .init(top: inset, left: inset, bottom: inset, right: inset)
+            if prevWidth != collectionView.frame.width {
+                withUIKitAnimation {
+                    self.layout.estimatedItemSize = self.cellSize
+                    self.layout.itemSize = self.cellSize
+                    self.collectionView.performBatchUpdates(nil, completion: nil)
+                    self.collectionView.layoutIfNeeded()
+                }
+            }
         }
     }
 
     class UserCollectionCellView: UICollectionViewCell {
-        let avatarView = MKImageView()
+        let insetView = UIView()
+        let avatarView = AvatarView()
         let usernameView = TextView.noneInteractive()
-
-        static let cellHeight: CGFloat = 30
 
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -180,31 +200,61 @@ extension ReactionStrip.UserListPopover {
             setup()
         }
 
+        static let inset: CGFloat = 4
+
         func setup() {
-            contentView.addSubview(avatarView)
-            contentView.addSubview(usernameView)
-            avatarView.snp.makeConstraints { make in
-                make.left.top.bottom.equalToSuperview()
-                make.width.height.equalTo(Self.cellHeight)
-            }
+            contentView.addSubview(insetView)
+            insetView.addSubview(avatarView)
+            insetView.addSubview(usernameView)
             usernameView.textAlignment = .left
-            usernameView.textContainer.maximumNumberOfLines = 1
+            usernameView.textContainer.maximumNumberOfLines = 2
             usernameView.textContainer.lineBreakMode = .byTruncatingTail
-            usernameView.snp.makeConstraints { make in
-                make.left.equalTo(avatarView.snp.right).offset(8)
-                make.right.equalToSuperview().inset(8)
-                make.width.greaterThanOrEqualTo(Self.cellHeight)
-                make.centerY.equalToSuperview()
-            }
-            contentView.clipsToBounds = true
-            contentView.layer.cornerRadius = IH.contentMiniItemCornerRadius
-            contentView.backgroundColor = .accent.withAlphaComponent(0.1)
+            insetView.clipsToBounds = true
+            insetView.layer.cornerRadius = IH.contentMiniItemCornerRadius
+//            let thatColor = UIColor.accent.withAlphaComponent(0.1)
+//            insetView.backgroundColor = thatColor
+//            insetView.layer.borderColor = thatColor.cgColor
+//            insetView.layer.borderWidth = 1
         }
 
         override func prepareForReuse() {
             super.prepareForReuse()
             avatarView.clear()
             usernameView.text = ""
+        }
+
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            insetView.frame = contentView.bounds.inset(by: .init(
+                top: Self.inset, left: Self.inset, bottom: Self.inset, right: Self.inset
+            ))
+            avatarView.frame = .init(
+                x: 0,
+                y: 0,
+                width: insetView.bounds.height,
+                height: insetView.bounds.height
+            )
+            let nameContainerWidth = insetView.bounds.width - avatarView.frame.width - Self.inset * 3
+            let textHeight = usernameView.attributedText.measureHeight(
+                usingWidth: nameContainerWidth,
+                lineLimit: usernameView.textContainer.maximumNumberOfLines,
+                lineBreakMode: usernameView.textContainer.lineBreakMode
+            )
+            if textHeight > 0 {
+                usernameView.frame = .init(
+                    x: avatarView.frame.width + Self.inset * 2,
+                    y: (insetView.bounds.height - textHeight) / 2,
+                    width: nameContainerWidth,
+                    height: textHeight
+                )
+            } else {
+                usernameView.frame = .init(
+                    x: avatarView.frame.width + Self.inset * 2,
+                    y: 0,
+                    width: nameContainerWidth,
+                    height: insetView.bounds.height
+                )
+            }
         }
 
         func load(user: User) {
@@ -214,7 +264,50 @@ extension ReactionStrip.UserListPopover {
                 sensitive: false
             ))
             let textParser = TextParser()
-            usernameView.attributedText = textParser.compileRenoteUserHeader(with: user)
+            usernameView.attributedText = textParser.compileRenoteUserHeader(with: user, lineBreak: true)
+        }
+
+        func setWidth(_ width: CGFloat) {
+            insetView.snp.updateConstraints { make in
+                make.width.equalTo(width)
+            }
         }
     }
+
+//    class SimpleSectionHeader: UICollectionReusableView {
+//        let label = UILabel()
+//        let effect: UIView
+//
+//        static let headerId = "wiki.qaq.SimpleSectionHeader"
+//
+//        override init(frame: CGRect) {
+//            let blur = UIBlurEffect(style: .regular)
+//            let effect = UIVisualEffectView(effect: blur)
+//            self.effect = effect
+//
+//            label.textAlignment = .left
+//            label.font = .systemFont(ofSize: 12, weight: .semibold)
+//            label.alpha = 0.5
+//
+//            super.init(frame: frame)
+//
+//            addSubview(effect)
+//            addSubview(label)
+//        }
+//
+//        override func layoutSubviews() {
+//            super.layoutSubviews()
+//            label.frame = bounds.inset(by: UIEdgeInsets(horizontal: 4, vertical: 0))
+//            effect.frame = bounds.inset(by: UIEdgeInsets(horizontal: -50, vertical: 0))
+//        }
+//
+//        @available(*, unavailable)
+//        required init?(coder _: NSCoder) {
+//            fatalError()
+//        }
+//
+//        override func prepareForReuse() {
+//            label.text = ""
+//        }
+//    }
 }
