@@ -41,8 +41,8 @@ extension ReactionStrip {
 
             addSubview(button)
             button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-//            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
-//            button.addGestureRecognizer(longPress)
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(longPress(_:)))
+            button.addGestureRecognizer(longPress)
             button.addInteraction(UIContextMenuInteraction(delegate: self))
         }
 
@@ -125,7 +125,8 @@ extension ReactionStrip {
         }
 
         @objc func longPress(_ guesture: UILongPressGestureRecognizer) {
-            if guesture.state == .began { postLongPress() }
+            // eat this event, let context menu to handle
+//            if guesture.state == .began { postLongPress() }
         }
 
         public func contextMenuInteraction(_: UIContextMenuInteraction, configurationForMenuAtLocation _: CGPoint) -> UIContextMenuConfiguration? {
