@@ -56,6 +56,22 @@ public extension User {
 }
 
 public extension UserProfile {
+    static func converting(_ user: User?) -> UserProfile? {
+        guard let user else { return nil }
+        return UserProfile(
+            userId: user.userId,
+            name: user.name,
+            username: user.username,
+            host: user.host,
+            avatarUrl: user.avatarUrl,
+            avatarBlurhash: user.avatarBlurHash,
+            isAdmin: user.isAdmin,
+            isModerator: user.isModerator,
+            isBot: user.isBot,
+            isCat: user.isCat
+        )
+    }
+
     static func converting(_ userDetails: NMUserDetails?, defaultHost: String) -> UserProfile? {
         guard let userDetails else { return nil }
         guard let date = userDetails.createdAt.toISODate(nil, region: nil)?.date else {

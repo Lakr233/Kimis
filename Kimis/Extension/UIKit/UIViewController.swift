@@ -60,10 +60,7 @@ extension UIViewController {
     }
 
     func present(next: UIViewController) {
-        guard let presenter = topMostController else {
-            print("[E] failed to find top most controller for present")
-            return
-        }
+        guard let presenter = topMostController else { return }
         if let navigator = presenter.navigationController,
            !(next is UINavigationController),
            !(next is UIAlertController),
@@ -81,7 +78,8 @@ extension UIViewController {
         var result: UIViewController? = self
         while true {
             if let next = result?.presentedViewController,
-               !next.isBeingDismissed
+               !next.isBeingDismissed,
+               next as? UISearchController == nil
             {
                 result = next
                 continue
@@ -110,6 +108,16 @@ extension UIViewController {
             }
             if let target = result as? LLNavController {
                 result = target.associatedNavigationController
+                continue
+            }
+            if let target = result as? RootController,
+               let newTarget = target.controller
+            {
+                result = newTarget
+                continue
+            }
+            if let target = result as? SideBarController {
+                result = target.contentController
                 continue
             }
             break

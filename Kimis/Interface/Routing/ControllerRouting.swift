@@ -88,8 +88,12 @@ enum ControllerRouting {
     }
 
     private static func findPushTarget(referencer: UIViewController?) -> UIViewController? {
-        guard let from = referencer ?? UIWindow.mainWindow?.topController else {
+        guard var from = referencer ?? UIWindow.mainWindow?.topController else {
             return nil
+        }
+        while let pop = from.popoverPresentationController {
+            pop.presentedViewController.dismiss(animated: true)
+            from = pop.presentingViewController
         }
         var splitLookup: UIViewController? = from
         while let parent = splitLookup?.parent {

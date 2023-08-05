@@ -60,8 +60,8 @@ extension TextParser {
 
     class RemoteImageAttachment: SubviewTextAttachment {
         let provider: TextAttachedViewProvider
-        init(url: URL, size: CGSize) {
-            provider = RemoteImageAttachmentProvider(url: url, size: size)
+        init(url: URL, size: CGSize, cornerRadius: CGFloat = 0) {
+            provider = RemoteImageAttachmentProvider(url: url, size: size, cornerRadius: cornerRadius)
             super.init(viewProvider: provider)
         }
 
@@ -74,9 +74,12 @@ extension TextParser {
     private class RemoteImageAttachmentProvider: TextAttachedViewProvider {
         let url: URL
         let size: CGSize
-        init(url: URL, size: CGSize) {
+        let cornerRadius: CGFloat
+
+        init(url: URL, size: CGSize, cornerRadius: CGFloat = 0) {
             self.url = url
             self.size = size
+            self.cornerRadius = cornerRadius
         }
 
         @available(*, unavailable)
@@ -89,6 +92,8 @@ extension TextParser {
             view.contentMode = .scaleAspectFit
             view.layer.minificationFilter = .trilinear
             view.sd_setImage(with: url, placeholderImage: placeholder, options: [], completed: nil)
+            view.clipsToBounds = true
+            view.layer.cornerRadius = cornerRadius
             return view
         }
 

@@ -202,4 +202,27 @@ extension TextParser {
         decodingIDNAIfNeeded(modifyingStringInPlace: ans)
         return finalize(ans, defaultHost: user.host)
     }
+
+    func compileUserBanner(withUser user: User) -> NSMutableAttributedString {
+        var strings: [NSMutableAttributedString] = []
+        if let url = URL(string: user.avatarUrl) {
+            strings.append(
+                NSMutableAttributedString(
+                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size.base, height: size.base), cornerRadius: 8)
+                )
+            )
+        }
+        strings.append(
+            NSMutableAttributedString(
+                string: user.name,
+                attributes: [
+                    .font: getFont(size: size.base, weight: weight.base),
+                    .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
+                ]
+            )
+        )
+        let ans = connect(strings: strings, separator: " ")
+        decodingIDNAIfNeeded(modifyingStringInPlace: ans)
+        return finalize(ans, defaultHost: user.host)
+    }
 }

@@ -124,7 +124,7 @@ extension ReactionStrip {
             }
         }
 
-        @objc func longPress(_ guesture: UILongPressGestureRecognizer) {
+        @objc func longPress(_: UILongPressGestureRecognizer) {
             // eat this event, let context menu to handle
 //            if guesture.state == .began { postLongPress() }
         }

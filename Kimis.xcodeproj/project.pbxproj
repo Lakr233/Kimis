@@ -237,6 +237,11 @@
 		50BED2262927802700C9D7E2 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED2252927802700C9D7E2 /* SPIndicator */; };
 		50BED238292789FE00C9D7E2 /* NoteAttachmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BED22D292789FE00C9D7E2 /* NoteAttachmentView.swift */; };
 		50BED23A292789FE00C9D7E2 /* NoteAttachmentView+Elemet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BED22F292789FE00C9D7E2 /* NoteAttachmentView+Elemet.swift */; };
+		50CEBEBB2A6A455900484FD8 /* UserSimpleBannerListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CEBEB42A6A455900484FD8 /* UserSimpleBannerListTableView.swift */; };
+		50CEBEBC2A6A455900484FD8 /* UserSimpleBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CEBEB62A6A455900484FD8 /* UserSimpleBannerView.swift */; };
+		50CEBEBD2A6A455900484FD8 /* UserSimpleBannerCell+Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CEBEB82A6A455900484FD8 /* UserSimpleBannerCell+Render.swift */; };
+		50CEBEBE2A6A455900484FD8 /* UserSimpleBannerCell+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CEBEB92A6A455900484FD8 /* UserSimpleBannerCell+Context.swift */; };
+		50CEBEBF2A6A455900484FD8 /* UserSimpleBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CEBEBA2A6A455900484FD8 /* UserSimpleBannerCell.swift */; };
 		50D3CC8B295D831500D5CE6A /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3CC8A295D831500D5CE6A /* TableView.swift */; };
 		50D7B1722970FF3000E12904 /* PostEditorPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D7B1712970FF3000E12904 /* PostEditorPollView.swift */; };
 		50D7B17429710B5500E12904 /* PostEditorPollView+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D7B17329710B5500E12904 /* PostEditorPollView+Delegate.swift */; };
@@ -485,6 +490,11 @@
 		50BED1B529277D0E00C9D7E2 /* TextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextParser.swift; sourceTree = "<group>"; };
 		50BED22D292789FE00C9D7E2 /* NoteAttachmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteAttachmentView.swift; sourceTree = "<group>"; };
 		50BED22F292789FE00C9D7E2 /* NoteAttachmentView+Elemet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NoteAttachmentView+Elemet.swift"; sourceTree = "<group>"; };
+		50CEBEB42A6A455900484FD8 /* UserSimpleBannerListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSimpleBannerListTableView.swift; sourceTree = "<group>"; };
+		50CEBEB62A6A455900484FD8 /* UserSimpleBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSimpleBannerView.swift; sourceTree = "<group>"; };
+		50CEBEB82A6A455900484FD8 /* UserSimpleBannerCell+Render.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserSimpleBannerCell+Render.swift"; sourceTree = "<group>"; };
+		50CEBEB92A6A455900484FD8 /* UserSimpleBannerCell+Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserSimpleBannerCell+Context.swift"; sourceTree = "<group>"; };
+		50CEBEBA2A6A455900484FD8 /* UserSimpleBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSimpleBannerCell.swift; sourceTree = "<group>"; };
 		50D3CC8A295D831500D5CE6A /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		50D7B1712970FF3000E12904 /* PostEditorPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorPollView.swift; sourceTree = "<group>"; };
 		50D7B17329710B5500E12904 /* PostEditorPollView+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PostEditorPollView+Delegate.swift"; sourceTree = "<group>"; };
@@ -1133,6 +1143,7 @@
 				50BED16C29277D0E00C9D7E2 /* NoteTableView */,
 				504E87C42937594500BDE03C /* NotificationTableView */,
 				5069EBB5295EE2AC00677A3F /* UsersListTableView */,
+				50CEBEB22A6A455900484FD8 /* UserSimpleBannerListTableView */,
 				50FE1B132933A3E7000CE139 /* TrendingTableView */,
 				50BED18029277D0E00C9D7E2 /* EmojiPicker */,
 			);
@@ -1363,6 +1374,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		50CEBEB22A6A455900484FD8 /* UserSimpleBannerListTableView */ = {
+			isa = PBXGroup;
+			children = (
+				50CEBEB32A6A455900484FD8 /* UserSimpleBannerListTableView */,
+				50CEBEB52A6A455900484FD8 /* UserSimpleBannerView */,
+				50CEBEB72A6A455900484FD8 /* UserCell */,
+			);
+			name = UserSimpleBannerListTableView;
+			path = Kimis/Interface/Component/UserSimpleBannerListTableView;
+			sourceTree = SOURCE_ROOT;
+		};
+		50CEBEB32A6A455900484FD8 /* UserSimpleBannerListTableView */ = {
+			isa = PBXGroup;
+			children = (
+				50CEBEB42A6A455900484FD8 /* UserSimpleBannerListTableView.swift */,
+			);
+			path = UserSimpleBannerListTableView;
+			sourceTree = "<group>";
+		};
+		50CEBEB52A6A455900484FD8 /* UserSimpleBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				50CEBEB62A6A455900484FD8 /* UserSimpleBannerView.swift */,
+			);
+			path = UserSimpleBannerView;
+			sourceTree = "<group>";
+		};
+		50CEBEB72A6A455900484FD8 /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				50CEBEB82A6A455900484FD8 /* UserSimpleBannerCell+Render.swift */,
+				50CEBEB92A6A455900484FD8 /* UserSimpleBannerCell+Context.swift */,
+				50CEBEBA2A6A455900484FD8 /* UserSimpleBannerCell.swift */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
 		50D3CC84295D4D1500D5CE6A /* LoadingController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1528,6 +1576,7 @@
 				5020160329704EC600C57E39 /* PostEditorAttachmentView+Cell.swift in Sources */,
 				508FE99A292B54E9005D1933 /* NSAttributeString.swift in Sources */,
 				504519A3296D55EC009D613D /* Toolbar+File.swift in Sources */,
+				50CEBEBE2A6A455900484FD8 /* UserSimpleBannerCell+Context.swift in Sources */,
 				50BED1D529277D0E00C9D7E2 /* TimelineTableView.swift in Sources */,
 				502F6E582968738F003691BE /* ToolbarView.swift in Sources */,
 				50AFDFE929305E9B00BEC741 /* NoteOperationStrip+More.swift in Sources */,
@@ -1535,6 +1584,7 @@
 				50FAC1F32A651B4000125B2A /* ReactionStrip+BaseView.swift in Sources */,
 				504E87CE293779C200BDE03C /* NotificationTableView+Publisher.swift in Sources */,
 				504519A6296D55EC009D613D /* Toolbar+User.swift in Sources */,
+				50CEBEBD2A6A455900484FD8 /* UserSimpleBannerCell+Render.swift in Sources */,
 				50BED20129277D0E00C9D7E2 /* TextParser+TinyEmoji.swift in Sources */,
 				504E87D229377A3000BDE03C /* NotificationTableView+Delegate.swift in Sources */,
 				50BED20929277D0E00C9D7E2 /* Enumerator.swift in Sources */,
@@ -1567,6 +1617,7 @@
 				50A2F3792934B4B400DE9464 /* NoteCell+Pinned.swift in Sources */,
 				508FE98F292B3C40005D1933 /* NoteCell+ContextBuilder.swift in Sources */,
 				50BED1E729277D0E00C9D7E2 /* LargeTimelineController.swift in Sources */,
+				50CEBEBB2A6A455900484FD8 /* UserSimpleBannerListTableView.swift in Sources */,
 				50BED1FE29277D0E00C9D7E2 /* TextParser+Visibility.swift in Sources */,
 				50BED1BA29277D0E00C9D7E2 /* EncryptedCodableDefault.swift in Sources */,
 				5057A942296180C90088A6D4 /* PollView.swift in Sources */,
@@ -1680,6 +1731,7 @@
 				50FE1B192933AFF9000CE139 /* TrendingTableView+Cell.swift in Sources */,
 				505E10C9292E110D001F9141 /* NoteCell+Reply.swift in Sources */,
 				50AFDFE529305E9200BEC741 /* NoteOperationStrip+Reaction.swift in Sources */,
+				50CEBEBF2A6A455900484FD8 /* UserSimpleBannerCell.swift in Sources */,
 				5069EBC2295EEAB000677A3F /* UserCell+Context.swift in Sources */,
 				50D7B1722970FF3000E12904 /* PostEditorPollView.swift in Sources */,
 				50BED1D329277D0E00C9D7E2 /* NoteTableView.swift in Sources */,
@@ -1718,6 +1770,7 @@
 				50BED1C229277D0E00C9D7E2 /* TextView.swift in Sources */,
 				5065E4E429352B22001C540C /* TextParser+Email.swift in Sources */,
 				50BED20329277D0E00C9D7E2 /* TextParser+Body.swift in Sources */,
+				50CEBEBC2A6A455900484FD8 /* UserSimpleBannerView.swift in Sources */,
 				50126253292F7752002E1636 /* ReactionStrip+EmojiView.swift in Sources */,
 				50126247292F3945002E1636 /* NoteCell+Progress.swift in Sources */,
 				50BED1C629277D0E00C9D7E2 /* UIFont.swift in Sources */,
@@ -1871,7 +1924,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/KimisDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 151;
+				CURRENT_PROJECT_VERSION = 152;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1910,7 +1963,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 151;
+				CURRENT_PROJECT_VERSION = 152;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2040,9 +2093,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
 			requirement = {
-				kind = versionRange;
-				maximumVersion = 999.999.999;
-				minimumVersion = 0.0.0;
+				kind = exactVersion;
+				version = 6.5.11;
 			};
 		};
 		50BED2242927802700C9D7E2 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {

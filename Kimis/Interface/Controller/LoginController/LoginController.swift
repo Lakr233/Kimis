@@ -47,9 +47,6 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         ret.autocapitalizationType = .none
         ret.autocorrectionType = .no
         ret.textContentType = .URL
-        #if DEBUG
-            ret.text = "social.qaq.wiki"
-        #endif
         ret.placeholder = "[Host] eg: misskey.io (not username)"
         ret.textColor = .accent
         ret.returnKeyType = .done
@@ -385,7 +382,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
     @objc
     func openAcknowledge() {
         UIApplication.shared.open(
-            URL(string: "https://social.qaq.wiki/@Lakr233")!,
+            URL(string: "https://github.com/Lakr233/Kimis")!,
             options: [:],
             completionHandler: nil
         )
