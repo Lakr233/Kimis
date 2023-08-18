@@ -31,9 +31,6 @@ Previously, Kimis supports all instance from Misskey 12+, but due to the change 
 
 ~~No SwiftUI, No ChatGPT, you deserve better.~~
 
-![Not By AI](./Resource/Assets/painted-by-human-not-by-ai-white.svg)
-![Not By AI](./Resource/Assets/painted-by-human-not-by-ai-black.svg)
-
 ## 🧑‍⚖️ License
 
 [Kimis License](./LICENSE) 
