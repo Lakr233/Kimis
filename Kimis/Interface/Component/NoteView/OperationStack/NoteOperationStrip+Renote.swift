@@ -1,5 +1,5 @@
 //
-//  OperationStack+Renote.swift
+//  NoteOperationStrip+Renote.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/25.

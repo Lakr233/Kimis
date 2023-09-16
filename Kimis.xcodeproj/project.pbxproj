@@ -46,6 +46,10 @@
 		503809AD2977B7B3004C9438 /* FollowingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503809AC2977B7B3004C9438 /* FollowingController.swift */; };
 		503809AF2977BA46004C9438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503809AE2977BA46004C9438 /* ViewController.swift */; };
 		503809B12977D27E004C9438 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503809B02977D27E004C9438 /* CGPoint.swift */; };
+		503A833C2AB40DE500D240D3 /* ChidoriMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A83382AB40DE500D240D3 /* ChidoriMenu.swift */; };
+		503A833D2AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A83392AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift */; };
+		503A833E2AB40DE500D240D3 /* ChidoriAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A833A2AB40DE500D240D3 /* ChidoriAnimationController.swift */; };
+		503A833F2AB40DE500D240D3 /* ChidoriPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A833B2AB40DE500D240D3 /* ChidoriPresentationController.swift */; };
 		50443F862927B9190077523F /* Source in Frameworks */ = {isa = PBXBuildFile; productRef = 50443F852927B9190077523F /* Source */; };
 		50443F8A2927D4E10077523F /* NoteCell+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50443F892927D4E10077523F /* NoteCell+Context.swift */; };
 		50443F8F2927D5050077523F /* NotePreviewSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50443F8E2927D5050077523F /* NotePreviewSimple.swift */; };
@@ -305,6 +309,10 @@
 		503809AC2977B7B3004C9438 /* FollowingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingController.swift; sourceTree = "<group>"; };
 		503809AE2977BA46004C9438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		503809B02977D27E004C9438 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
+		503A83382AB40DE500D240D3 /* ChidoriMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriMenu.swift; sourceTree = "<group>"; };
+		503A83392AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriMenuTableViewCell.swift; sourceTree = "<group>"; };
+		503A833A2AB40DE500D240D3 /* ChidoriAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriAnimationController.swift; sourceTree = "<group>"; };
+		503A833B2AB40DE500D240D3 /* ChidoriPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriPresentationController.swift; sourceTree = "<group>"; };
 		50443F892927D4E10077523F /* NoteCell+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteCell+Context.swift"; sourceTree = "<group>"; };
 		50443F8E2927D5050077523F /* NotePreviewSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePreviewSimple.swift; sourceTree = "<group>"; };
 		50443F902927D78A0077523F /* NotePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePreview.swift; sourceTree = "<group>"; };
@@ -637,6 +645,17 @@
 				503809AC2977B7B3004C9438 /* FollowingController.swift */,
 			);
 			path = FollowingController;
+			sourceTree = "<group>";
+		};
+		503A83372AB40DDB00D240D3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				503A83382AB40DE500D240D3 /* ChidoriMenu.swift */,
+				503A83392AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift */,
+				503A833B2AB40DE500D240D3 /* ChidoriPresentationController.swift */,
+				503A833A2AB40DE500D240D3 /* ChidoriAnimationController.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		50443F8B2927D4E60077523F /* Abstract */ = {
@@ -1042,6 +1061,7 @@
 		50BED14829277D0D00C9D7E2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				503A83372AB40DDB00D240D3 /* Menu */,
 				50BED15E29277D0E00C9D7E2 /* Generic */,
 				508FE990292B43E8005D1933 /* Module */,
 				50BED14929277D0D00C9D7E2 /* Property */,
@@ -1665,6 +1685,7 @@
 				503809AB2977B7AC004C9438 /* FollowerController.swift in Sources */,
 				50BED1C029277D0E00C9D7E2 /* UIImage+Fluent.swift in Sources */,
 				50BED1DB29277D0E00C9D7E2 /* NoteCell+Full.swift in Sources */,
+				503A833F2AB40DE500D240D3 /* ChidoriPresentationController.swift in Sources */,
 				50126257292F78D6002E1636 /* Collection.swift in Sources */,
 				5045198F296C21F7009D613D /* AttachmentDrivePicker+Cell.swift in Sources */,
 				50BED1D829277D0E00C9D7E2 /* NoteCell+MoreHeader.swift in Sources */,
@@ -1672,6 +1693,7 @@
 				504519A5296D55EC009D613D /* Toolbar+Picture.swift in Sources */,
 				504519A7296D55EC009D613D /* Toolbar+Poll.swift in Sources */,
 				50BED1FA29277D0E00C9D7E2 /* SceneDelegate.swift in Sources */,
+				503A833D2AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift in Sources */,
 				50BED1BD29277D0E00C9D7E2 /* UIImage+BlurHash.swift in Sources */,
 				504E87D629377B4E00BDE03C /* NotificationCell+Kind.swift in Sources */,
 				50E8DFD8297B433100657910 /* LicenseController.swift in Sources */,
@@ -1765,9 +1787,11 @@
 				505826242935004700E72238 /* UserViewController+Scroll.swift in Sources */,
 				50FF63EC2969A46700DBB4CA /* UIButton.swift in Sources */,
 				50443F8A2927D4E10077523F /* NoteCell+Context.swift in Sources */,
+				503A833C2AB40DE500D240D3 /* ChidoriMenu.swift in Sources */,
 				50BED1BF29277D0E00C9D7E2 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				5069EBB2295EDD3100677A3F /* SmallUsersListController.swift in Sources */,
 				50BED1C229277D0E00C9D7E2 /* TextView.swift in Sources */,
+				503A833E2AB40DE500D240D3 /* ChidoriAnimationController.swift in Sources */,
 				5065E4E429352B22001C540C /* TextParser+Email.swift in Sources */,
 				50BED20329277D0E00C9D7E2 /* TextParser+Body.swift in Sources */,
 				50CEBEBC2A6A455900484FD8 /* UserSimpleBannerView.swift in Sources */,
@@ -1924,7 +1948,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/KimisDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 152;
+				CURRENT_PROJECT_VERSION = 164;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1942,7 +1966,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.15;
+				MARKETING_VERSION = 1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.kimis.inhouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1963,7 +1987,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 152;
+				CURRENT_PROJECT_VERSION = 164;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1981,7 +2005,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.15;
+				MARKETING_VERSION = 1.16;
 				PRODUCT_BUNDLE_IDENTIFIER = as.wiki.qaq.kimis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

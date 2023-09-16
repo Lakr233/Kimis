@@ -1,5 +1,5 @@
 //
-//  Configuration.swift
+//  AppConfig.swift
 //  mTale
 //
 //  Created by Lakr Aream on 2022/3/31.

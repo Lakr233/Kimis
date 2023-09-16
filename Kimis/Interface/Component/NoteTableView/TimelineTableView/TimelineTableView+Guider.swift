@@ -1,5 +1,5 @@
 //
-//  NoteTableView+Guider.swift
+//  TimelineTableView+Guider.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/12/5.

@@ -16,7 +16,7 @@ class NotificationTableView: TableView {
     public let refreshCaller = CurrentValueSubject<Bool, Never>(true)
 
     public let renderQueue = DispatchQueue(label: "wiki.qaq.notifications.render")
-    internal var renderTicket = UUID()
+    var renderTicket = UUID()
 
     public internal(set) var notifications: [NotificationCell.Context] = []
     let progressIndicator = ProgressFooterView()

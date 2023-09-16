@@ -1,5 +1,5 @@
 //
-//  TrendingTableView+Data.swift
+//  TrendingTableView+Delegate.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/27.

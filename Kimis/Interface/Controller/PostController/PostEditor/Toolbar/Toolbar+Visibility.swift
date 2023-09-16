@@ -1,5 +1,5 @@
 //
-//  TB+File.swift
+//  Toolbar+Visibility.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2023/1/10.

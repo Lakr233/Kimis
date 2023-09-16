@@ -1,5 +1,5 @@
 //
-//  NotificationTableView+Relaod.swift
+//  NotificationTableView+Reload.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/30.

@@ -1,5 +1,5 @@
 //
-//  SwiftConfettiView.swift
+//  ConfettiView.swift
 //  Pods
 //
 //  Created by Uğur Ethem AYDIN on 2019

@@ -1,5 +1,5 @@
 //
-//  TimelineTableView.swift
+//  NoteTableView.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/17.
@@ -18,7 +18,7 @@ class NoteTableView: TableView {
     public let refreshCaller = CurrentValueSubject<Bool, Never>(true)
 
     public let renderQueue = DispatchQueue(label: "wiki.qaq.timeline.render")
-    internal var renderTicket = UUID()
+    var renderTicket = UUID()
 
     public var context: [NoteCell.Context] = []
     let progressIndicator = ProgressFooterView()

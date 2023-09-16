@@ -1,5 +1,5 @@
 //
-//  TextParser+Text.swift
+//  TextParser+Footer.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/5/3.

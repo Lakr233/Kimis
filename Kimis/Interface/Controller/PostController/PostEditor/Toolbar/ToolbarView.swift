@@ -1,5 +1,5 @@
 //
-//  PostEditorToolbarView.swift
+//  ToolbarView.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2023/1/6.

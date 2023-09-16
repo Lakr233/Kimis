@@ -1,5 +1,5 @@
 //
-//  AvatarView.swift
+//  MKImageView+AvatarView.swift
 //  main
 //
 //  Created by Lakr Aream on 2022/5/14.

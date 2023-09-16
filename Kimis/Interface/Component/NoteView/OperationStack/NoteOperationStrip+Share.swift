@@ -1,5 +1,5 @@
 //
-//  OperationStack+Share.swift
+//  NoteOperationStrip+Share.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/25.

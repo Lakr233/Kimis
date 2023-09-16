@@ -72,7 +72,7 @@ public struct AES {
         }
     }
 
-    internal init?(key initKey: String, iv initIV: String) {
+    init?(key initKey: String, iv initIV: String) {
         if initKey.count < kCCKeySizeAES128 || initIV.count < kCCBlockSizeAES128 {
             return nil
         }

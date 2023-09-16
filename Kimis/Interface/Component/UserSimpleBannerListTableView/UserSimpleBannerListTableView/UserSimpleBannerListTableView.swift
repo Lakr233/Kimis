@@ -1,5 +1,5 @@
 //
-//  UsersListTableView.swift
+//  UserSimpleBannerListTableView.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/12/30.

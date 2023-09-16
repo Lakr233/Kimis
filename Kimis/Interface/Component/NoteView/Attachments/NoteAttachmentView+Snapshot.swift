@@ -1,5 +1,5 @@
 //
-//  AttachmentView+Snapshot.swift
+//  NoteAttachmentView+Snapshot.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/24.
