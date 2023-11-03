@@ -3,6 +3,9 @@ stages:
   - CompilePackageOSX
   - CompilePackageMobile
 
+variables:
+  LC_ALL: "en_US.UTF-8"
+
 before_script:
   - export LANG=en_US.UTF-8
   - export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
