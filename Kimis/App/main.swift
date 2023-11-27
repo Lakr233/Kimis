@@ -45,10 +45,6 @@ print("Temp Dir: \(temporaryDirectory.path)")
 AppDelegate.setupIDNADecoder()
 _ = Account.shared
 
-private let application = UIApplication.shared
-private let delegate = AppDelegate()
-application.delegate = delegate
-
 _ = UIApplicationMain(
     CommandLine.argc,
     CommandLine.unsafeArgv,
