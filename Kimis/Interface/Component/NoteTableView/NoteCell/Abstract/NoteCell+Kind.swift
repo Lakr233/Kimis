@@ -24,36 +24,36 @@ extension NoteCell {
         var cellId: String { rawValue }
         var cell: NoteCell.Type {
             switch self {
-            case .abstract: NoteCell.self
-            case .separator: NoteCell.Separator.self
-            case .progress: NoteCell.Progress.self
-            case .moreHeader: MoreHeaderCell.self
-            case .main: MainCell.self
-            case .pinned: PinnedCell.self
-            case .reply: ReplyCell.self
-            case .full: FullCell.self
-            case .moreReply: MoreReplyHeaderCell.self
-            case .moreReplyPadded: MoreReplyPaddedCell.self
-            case .replyPadded: ReplyPaddedCell.self
+            case .abstract: return NoteCell.self
+            case .separator: return NoteCell.Separator.self
+            case .progress: return NoteCell.Progress.self
+            case .moreHeader: return MoreHeaderCell.self
+            case .main: return MainCell.self
+            case .pinned: return PinnedCell.self
+            case .reply: return ReplyCell.self
+            case .full: return FullCell.self
+            case .moreReply: return MoreReplyHeaderCell.self
+            case .moreReplyPadded: return MoreReplyPaddedCell.self
+            case .replyPadded: return ReplyPaddedCell.self
             }
         }
 
         var designatedHeight: CGFloat? {
             switch self {
-            case .separator: 1
-            case .moreHeader, .moreReplyPadded, .moreReply, .progress: 30
-            default: nil
+            case .separator: return 1
+            case .moreHeader, .moreReplyPadded, .moreReply, .progress: return 30
+            default: return nil
             }
         }
 
         var isSupplymentKind: Bool {
             switch self {
-            case .abstract: true
-            case .separator: true
-            case .progress: true
-            case .moreHeader: true
-            case .moreReply: true
-            default: false
+            case .abstract: return true
+            case .separator: return true
+            case .progress: return true
+            case .moreHeader: return true
+            case .moreReply: return true
+            default: return false
             }
         }
     }

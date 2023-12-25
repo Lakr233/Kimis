@@ -78,11 +78,12 @@ extension TimelineSource {
             guard !downloadResult.isEmpty, !isCancelled else { return }
 
             let downloadAnchor = Anchor(dataset: downloadResult, ctx: base.ctx)
-            let inheritExists: Bool = switch direction {
+            let inheritExists: Bool
+            switch direction {
             case .older:
-                true
+                inheritExists = true
             case .newer:
-                downloadAnchor?.hasIntersection(to: base.anchor, withinCtx: base.ctx)
+                inheritExists = downloadAnchor?.hasIntersection(to: base.anchor, withinCtx: base.ctx)
                     ?? false
             }
 

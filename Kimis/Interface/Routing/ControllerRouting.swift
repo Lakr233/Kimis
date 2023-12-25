@@ -19,12 +19,12 @@ enum ControllerRouting {
 
         func constructController() -> UIViewController {
             switch self {
-            case .post: PostController()
-            case .user: UserViewController()
-            case .me: CurrentUserViewController()
-            case .note: NoteViewController()
-            case .hashtag: HashtagNoteController()
-            case .search: SearchController()
+            case .post: return PostController()
+            case .user: return UserViewController()
+            case .me: return CurrentUserViewController()
+            case .note: return NoteViewController()
+            case .hashtag: return HashtagNoteController()
+            case .search: return SearchController()
 //            @unknown default:
 //                let cont = UIViewController()
 //                cont.

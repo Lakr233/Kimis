@@ -22,10 +22,10 @@ extension PostEditorToolbarView {
             // TODO: mail to target
         ], toolIcon: { post in
             switch post.visibility {
-            case .public: .fluent(.globe_person_filled)
-            case .followers: .fluent(.checkbox_person_filled)
-            case .home: .fluent(.home_person_filled)
-            case .specified: .fluent(.person_mail_filled)
+            case .public: return .fluent(.globe_person_filled)
+            case .followers: return .fluent(.checkbox_person_filled)
+            case .home: return .fluent(.home_person_filled)
+            case .specified: return .fluent(.person_mail_filled)
             }
         }, toolEnabled: { _ in
             true

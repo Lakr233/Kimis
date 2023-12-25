@@ -96,15 +96,16 @@ extension PollView.ChoiceView.Snapshot {
         ]))
         let countTextWidth = countText.measureWidth()
         let countTextHeight = countText.measureHeight(usingWidth: .infinity)
-        var countTextRect = if countTextHeight < iconSize {
-            CGRect(
+        var countTextRect: CGRect
+        if countTextHeight < iconSize {
+            countTextRect = CGRect(
                 x: width - horizontalPadding - countTextWidth,
                 y: verticalPadding + (iconSize - countTextHeight) / 2,
                 width: countTextWidth,
                 height: countTextHeight
             )
         } else {
-            CGRect(
+            countTextRect = CGRect(
                 x: width - horizontalPadding - countTextWidth,
                 y: verticalPadding,
                 width: countTextWidth,
@@ -115,15 +116,16 @@ extension PollView.ChoiceView.Snapshot {
         let text = textParser.finalize(.init(string: element.text))
         let textWidth = countTextRect.minX - horizontalPadding - horizontalPadding - iconRect.maxX
         let textHeight = text.measureHeight(usingWidth: textWidth)
-        var textRect = if textHeight < iconSize {
-            CGRect(
+        var textRect: CGRect
+        if textHeight < iconSize {
+            textRect = CGRect(
                 x: iconRect.maxX + horizontalPadding,
                 y: verticalPadding + (iconSize - textHeight) / 2,
                 width: textWidth,
                 height: textHeight
             )
         } else {
-            CGRect(
+            textRect = CGRect(
                 x: iconRect.maxX + horizontalPadding,
                 y: verticalPadding,
                 width: textWidth,

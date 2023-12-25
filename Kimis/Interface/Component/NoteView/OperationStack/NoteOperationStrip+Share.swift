@@ -147,10 +147,11 @@ private class NoteShareItemSource: NSObject, UIActivityItemSource {
         if !note.attachments.isEmpty { items.append("📎x\(note.attachments.count)") }
 
         let buildBody = items.joined(separator: " ")
-        let build = if buildBody.isEmpty {
-            "\(name)"
+        let build: String
+        if buildBody.isEmpty {
+            build = "\(name)"
         } else {
-            "\(name): \(buildBody)"
+            build = "\(name): \(buildBody)"
         }
         linkMetadata.title = build
 

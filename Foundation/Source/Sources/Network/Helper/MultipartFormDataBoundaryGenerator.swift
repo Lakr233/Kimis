@@ -38,13 +38,14 @@ enum MultipartFormDataBoundaryGenerator {
     }
 
     static func boundary(forBoundaryType boundaryType: BoundaryType, boundaryKey: String) -> String {
-        let boundary = switch boundaryType {
+        let boundary: String
+        switch boundaryType {
         case .initial:
-            "--\(boundaryKey)\(EncodingCharacters.crlf)"
+            boundary = "--\(boundaryKey)\(EncodingCharacters.crlf)"
         case .encapsulated:
-            "\(EncodingCharacters.crlf)--\(boundaryKey)\(EncodingCharacters.crlf)"
+            boundary = "\(EncodingCharacters.crlf)--\(boundaryKey)\(EncodingCharacters.crlf)"
         case .final:
-            "\(EncodingCharacters.crlf)--\(boundaryKey)--\(EncodingCharacters.crlf)"
+            boundary = "\(EncodingCharacters.crlf)--\(boundaryKey)--\(EncodingCharacters.crlf)"
         }
         return boundary
     }

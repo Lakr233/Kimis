@@ -442,15 +442,16 @@ extension NotePreview.Snapshot {
             height: reactionHeight > 0 ? reactionHeight : -verticalSpacing
         )
 
-        let operationRect = if context.disableOperationStrip {
-            CGRect(
+        let operationRect: CGRect
+        if context.disableOperationStrip {
+            operationRect = CGRect(
                 x: contentLeftAlign,
                 y: reactionRect.origin.y + reactionRect.size.height,
                 width: contentWidth,
                 height: 0
             )
         } else {
-            CGRect(
+            operationRect = CGRect(
                 x: contentLeftAlign,
                 y: reactionRect.origin.y + reactionRect.size.height + verticalSpacing,
                 width: contentWidth,

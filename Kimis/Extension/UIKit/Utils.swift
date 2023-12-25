@@ -47,9 +47,9 @@ func presentError(_ error: String) {
         .enumerated()
         .map { idx, val -> String in
             if idx == 0 {
-                val.localizedCapitalized
+                return val.localizedCapitalized
             } else {
-                val
+                return val
             }
         }
         .joined(separator: " ")

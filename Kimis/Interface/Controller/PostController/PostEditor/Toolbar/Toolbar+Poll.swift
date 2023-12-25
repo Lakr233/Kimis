@@ -25,9 +25,9 @@ extension PostEditorToolbarView {
             }),
         ], toolIcon: { post in
             if post.poll == nil {
-                UIImage.fluent(.task_list_add_filled)
+                return UIImage.fluent(.task_list_add_filled)
             } else {
-                UIImage.fluent(.text_grammar_dismiss)
+                return UIImage.fluent(.text_grammar_dismiss)
             }
         }, toolEnabled: { _ in
             true
