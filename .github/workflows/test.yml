@@ -1,0 +1,21 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "4 5 * * *"
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+      - name: setup-docker
+        uses: docker-practice/actions-setup-docker@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run Test
+        run: |
+          Resource/ApiTest/main.sh
