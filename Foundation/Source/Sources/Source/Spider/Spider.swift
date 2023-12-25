@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Spider.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/16.
@@ -26,7 +26,7 @@ import Storage
 
  */
 
-internal class Spider {
+class Spider {
     let notes: KVStorage<Note>
     let users: KVStorage<User>
 

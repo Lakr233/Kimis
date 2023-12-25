@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Properties.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/15.
@@ -52,9 +52,9 @@ public class PropertyStorage<T: Codable> {
 }
 
 public class Properties {
-    internal let writeQueue = DispatchQueue(label: "wiki.qaq.properties.write.\(UUID().uuidString)")
+    let writeQueue = DispatchQueue(label: "wiki.qaq.properties.write.\(UUID().uuidString)")
 
-    internal let storeLocation: URL
+    let storeLocation: URL
 
     let storeSubject = PassthroughSubject<(Codable, URL), Never>()
     var cancellable = Set<AnyCancellable>()

@@ -184,28 +184,28 @@ extension EndpointSwitchPopover {
 private extension TimelineSource.Endpoint {
     var representedIcon: UIImage {
         switch self {
-        case .home: return .fluent(.reading_list_filled)
-        case .local: return .fluent(.city_filled)
-        case .hybrid: return .fluent(.cloud_swap_filled)
-        case .global: return .fluent(.gantt_chart_filled)
+        case .home: .fluent(.reading_list_filled)
+        case .local: .fluent(.city_filled)
+        case .hybrid: .fluent(.cloud_swap_filled)
+        case .global: .fluent(.gantt_chart_filled)
         }
     }
 
     var title: String {
         switch self {
-        case .home: return "Home"
-        case .local: return "Local"
-        case .hybrid: return "Hybrid"
-        case .global: return "Global"
+        case .home: "Home"
+        case .local: "Local"
+        case .hybrid: "Hybrid"
+        case .global: "Global"
         }
     }
 
     var explanation: String {
         switch self {
-        case .home: return "Your main timeline at a glance, with posts from the people you follow."
-        case .local: return "Notes on your server."
-        case .hybrid: return "Notes on local and remote servers."
-        case .global: return "Everything you need to know about everything."
+        case .home: "Your main timeline at a glance, with posts from the people you follow."
+        case .local: "Notes on your server."
+        case .hybrid: "Notes on local and remote servers."
+        case .global: "Everything you need to know about everything."
         }
     }
 }

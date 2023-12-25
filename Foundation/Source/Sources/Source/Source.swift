@@ -23,8 +23,8 @@ public class Source: ObservableObject, Identifiable, Equatable {
     public let network: Network
     public private(set) var req: NetworkWrapper!
 
-    internal let database: Connection
-    internal let spider: Spider
+    let database: Connection
+    let spider: Spider
 
     public let properties: Properties
 
@@ -39,25 +39,25 @@ public class Source: ObservableObject, Identifiable, Equatable {
 
     @Published public private(set) var user: UserProfile
     @PropertyStorage
-    internal var userProfile: UserProfile {
+    var userProfile: UserProfile {
         didSet {
             nextUserProfileUpdateDate = Date().addingTimeInterval(updateThrottle)
             user = userProfile
         }
     }
 
-    internal var nextUserProfileUpdateDate: Date = .init(timeIntervalSince1970: 0)
+    var nextUserProfileUpdateDate: Date = .init(timeIntervalSince1970: 0)
 
     @Published public private(set) var instance: Instance
     @PropertyStorage
-    internal var instanceProfile: Instance {
+    var instanceProfile: Instance {
         didSet {
             nextInstanceProfileUpdateDate = Date().addingTimeInterval(updateThrottle)
             instance = instanceProfile
         }
     }
 
-    internal var nextInstanceProfileUpdateDate: Date = .init(timeIntervalSince1970: 0)
+    var nextInstanceProfileUpdateDate: Date = .init(timeIntervalSince1970: 0)
 
     @PropertyStorage
     public var emojis: [String: Emoji] // without ::, eg: ytm_smile

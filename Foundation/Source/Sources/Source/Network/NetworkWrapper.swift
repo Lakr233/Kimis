@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  NetworkWrapper.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/24.
@@ -14,7 +14,7 @@ import Storage
 public extension Source {
     class NetworkWrapper {
         weak var ctx: Source?
-        internal init(ctx: Source) {
+        init(ctx: Source) {
             self.ctx = ctx
         }
     }

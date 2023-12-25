@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  LoginChallengeReceipt.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/15.
@@ -23,7 +23,7 @@ public struct LoginChallengeReceipt: Identifiable, Codable, Equatable, Hashable 
         "@\(username)@\(host)".lowercased()
     }
 
-    internal init(accountId: String, username: String, host: String, token: String, challenge: String) {
+    init(accountId: String, username: String, host: String, token: String, challenge: String) {
         self.accountId = accountId
         self.username = username
         self.host = host

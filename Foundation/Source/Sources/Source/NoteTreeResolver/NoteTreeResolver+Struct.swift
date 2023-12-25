@@ -1,5 +1,5 @@
 //
-//  TimelineResolver+Struct.swift
+//  NoteTreeResolver+Struct.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/4.

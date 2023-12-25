@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Codable.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/15.
@@ -7,5 +7,5 @@
 
 import Foundation
 
-internal let encoder = JSONEncoder()
-internal let decoder = JSONDecoder()
+let encoder = JSONEncoder()
+let decoder = JSONDecoder()

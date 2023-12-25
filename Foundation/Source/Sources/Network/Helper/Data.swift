@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal extension Data {
+extension Data {
     mutating func append(_ string: String, encoding: String.Encoding = .utf8) {
         if let data = string.data(using: encoding) {
             append(data)

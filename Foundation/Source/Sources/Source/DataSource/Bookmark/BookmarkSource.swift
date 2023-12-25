@@ -21,7 +21,7 @@ public class BookmarkSource: ObservableObject {
         }
     }
 
-    internal var throttle = Date(timeIntervalSince1970: 0)
+    var throttle = Date(timeIntervalSince1970: 0)
 
     private var ticket: UUID? {
         didSet { updating = ticket != nil }

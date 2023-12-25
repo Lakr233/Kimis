@@ -28,7 +28,7 @@ import Foundation
 
  */
 
-internal enum MultipartFormDataBoundaryGenerator {
+enum MultipartFormDataBoundaryGenerator {
     enum BoundaryType {
         case initial, encapsulated, final
     }
@@ -38,14 +38,13 @@ internal enum MultipartFormDataBoundaryGenerator {
     }
 
     static func boundary(forBoundaryType boundaryType: BoundaryType, boundaryKey: String) -> String {
-        let boundary: String
-        switch boundaryType {
+        let boundary = switch boundaryType {
         case .initial:
-            boundary = "--\(boundaryKey)\(EncodingCharacters.crlf)"
+            "--\(boundaryKey)\(EncodingCharacters.crlf)"
         case .encapsulated:
-            boundary = "\(EncodingCharacters.crlf)--\(boundaryKey)\(EncodingCharacters.crlf)"
+            "\(EncodingCharacters.crlf)--\(boundaryKey)\(EncodingCharacters.crlf)"
         case .final:
-            boundary = "\(EncodingCharacters.crlf)--\(boundaryKey)--\(EncodingCharacters.crlf)"
+            "\(EncodingCharacters.crlf)--\(boundaryKey)--\(EncodingCharacters.crlf)"
         }
         return boundary
     }

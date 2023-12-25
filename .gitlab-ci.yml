@@ -1,39 +1,22 @@
+image: ghcr.io/cirruslabs/macos-sonoma-xcode:15.1
+
 stages:
-  - TestSourceModule
   - CompilePackageOSX
   - CompilePackageMobile
 
-variables:
-  LC_ALL: "en_US.UTF-8"
-
 before_script:
   - export LANG=en_US.UTF-8
-  - export PATH=/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-  - export PATH=/usr/local/bin/:$PATH
-  - export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/opt/homebrew/bin:$PATH
-
-TestSourceModule:
-  tags:
-    - m1
-  only:
-    variables:
-    - $CI_PIPELINE_SOURCE == "web"
-    - $CI_COMMIT_REF_NAME == "main"
-    - $CI_COMMIT_REF_NAME == "test"
-  stage: TestSourceModule
-  script:
-    - Resource/ApiTest/main.sh
+  - uname -a
+  - brew install xcbeautify
 
 CompilePackageMobile:
   tags:
-    - m1
+    - xcode
   only:
     variables:
     - $CI_PIPELINE_SOURCE == "web"
     - $CI_COMMIT_REF_NAME == "main"
   stage: CompilePackageMobile
-  needs:
-    - TestSourceModule
   artifacts:
     name: Kimis.ipa
     paths:
@@ -43,14 +26,12 @@ CompilePackageMobile:
 
 CompilePackageOSX:
   tags:
-    - m1
+    - xcode
   only:
     variables:
     - $CI_PIPELINE_SOURCE == "web"
     - $CI_COMMIT_REF_NAME == "main"
   stage: CompilePackageOSX
-  needs:
-    - TestSourceModule
   artifacts:
     name: Kimis.app
     paths:

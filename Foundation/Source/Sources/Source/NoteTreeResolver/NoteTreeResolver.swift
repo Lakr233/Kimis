@@ -1,5 +1,5 @@
 //
-//  TimelineResolver.swift
+//  NoteTreeResolver.swift
 //  Kimis
 //
 //  Created by Lakr Aream on 2022/11/2.
@@ -8,11 +8,11 @@
 import Foundation
 import Storage
 
-internal class NoteTreeResolver {
-    internal let requirements: [NoteID]
-    internal let storage: KVStorage<Note>
+class NoteTreeResolver {
+    let requirements: [NoteID]
+    let storage: KVStorage<Note>
 
-    internal init(requirements: [NoteID], storage: KVStorage<Note>) {
+    init(requirements: [NoteID], storage: KVStorage<Note>) {
         self.requirements = requirements
         self.storage = storage
     }
@@ -59,7 +59,7 @@ internal class NoteTreeResolver {
     }
 
     private var builtBefore = false
-    internal func resolve() -> [NoteNode] {
+    func resolve() -> [NoteNode] {
         assert(!builtBefore, "resolve should be called only once per lifecycle")
         builtBefore = true
 

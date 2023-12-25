@@ -89,11 +89,10 @@ extension EmojiPickerView {
     }
 
     func buildSearchResultAndReload(for searchText: String) {
-        let newDataSource: [EmojiSection]
-        if searchText.isEmpty {
-            newDataSource = rawDataSource
+        let newDataSource: [EmojiSection] = if searchText.isEmpty {
+            rawDataSource
         } else {
-            newDataSource = searchFiltering(text: searchText)
+            searchFiltering(text: searchText)
         }
         reloadWithAnimation(with: newDataSource)
     }

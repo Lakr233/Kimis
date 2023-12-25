@@ -283,16 +283,15 @@ extension NoteView.Snapshot {
         let userTextX = avatarRect.maxX + horizontalSpacing
         let userTextWidth = width - avatarRect.width - horizontalSpacing
         let userTextHeight = userText.measureHeight(usingWidth: userTextWidth)
-        let userTextRect: CGRect
-        if userTextHeight > avatarRect.height {
-            userTextRect = CGRect(
+        let userTextRect = if userTextHeight > avatarRect.height {
+            CGRect(
                 x: userTextX,
                 y: avatarRect.minY,
                 width: userTextWidth,
                 height: userTextHeight
             )
         } else {
-            userTextRect = CGRect(
+            CGRect(
                 x: userTextX,
                 y: avatarRect.minY + (avatarRect.height - userTextHeight) / 2,
                 width: userTextWidth,

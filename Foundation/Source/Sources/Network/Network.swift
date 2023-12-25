@@ -168,8 +168,8 @@ public extension Network {
     ]
 }
 
-internal var decoder = JSONDecoder()
-internal var encoder = JSONEncoder()
+var decoder = JSONDecoder()
+var encoder = JSONEncoder()
 
 public extension Network {
     func obtainEndpointInfo(for target: RequestTarget) -> EndpointInfo {

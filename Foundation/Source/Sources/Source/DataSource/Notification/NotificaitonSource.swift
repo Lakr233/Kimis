@@ -1,5 +1,5 @@
 //
-//  NotificationSource.swift
+//  NotificaitonSource.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/30.
@@ -40,11 +40,11 @@ public class NotificationSource: ObservableObject {
         }
     }
 
-    internal var ticket: UUID? {
+    var ticket: UUID? {
         didSet { updating = ticket != nil }
     }
 
-    internal var throttle: Date = .init(timeIntervalSince1970: 0)
+    var throttle: Date = .init(timeIntervalSince1970: 0)
 
     init(context: Source) {
         ctx = context

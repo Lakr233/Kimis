@@ -59,14 +59,14 @@ extension NotificationTableView: UITableViewDelegate, UITableViewDataSource {
             .map(\.kind)
             .filter { value in
                 switch value {
-                case .main: return true
+                case .main: true
 //                case .note: return true
 //                case .reaction: return true
 //                case .follow: return true
 //                case .followRequest: return true
 //                case .followAccepted: return true
 //                case .vote: return true
-                default: return false
+                default: false
                 }
             }
             .count

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  TimelineSource.swift
 //
 //
 //  Created by Lakr Aream on 2022/11/16.
@@ -16,17 +16,17 @@ private let orderCounterStart = Int.min + 100
 public class TimelineSource: ObservableObject {
     weak var ctx: Source?
 
-    internal let fetcherQueue = OperationQueue()
-    internal let fetcherSenderLock = NSLock()
-    internal let transactionQueue = DispatchQueue(label: "wiki.qaq.timeline.transaction", attributes: .concurrent)
+    let fetcherQueue = OperationQueue()
+    let fetcherSenderLock = NSLock()
+    let transactionQueue = DispatchQueue(label: "wiki.qaq.timeline.transaction", attributes: .concurrent)
 
     // 保存一份缓存的 dataSource
-    internal var dataSource: DataSource = .init(orderEqualAndBefore: Int.min, nodes: [])
+    var dataSource: DataSource = .init(orderEqualAndBefore: Int.min, nodes: [])
 
     // 记录全部的 patch
     // UI 层拥有任意时刻的 dataSource 在请求 patches 之后都能构建出最新的 dataSource
-    internal var patches: [Patch] = [] { didSet { updateAvailable.send(true) } }
-    internal var patchOrderCounter: Int = orderCounterStart // 全局唯一自增 超过 Int.max 不如让程序崩溃
+    var patches: [Patch] = [] { didSet { updateAvailable.send(true) } }
+    var patchOrderCounter: Int = orderCounterStart // 全局唯一自增 超过 Int.max 不如让程序崩溃
 
     @Published public internal(set) var updating: Bool = false
     @Published public internal(set) var sourceEndpoint: Endpoint
@@ -36,7 +36,7 @@ public class TimelineSource: ObservableObject {
     public var pointOfInterest: NoteID?
 
     @PropertyStorage
-    internal var endpoint: Endpoint {
+    var endpoint: Endpoint {
         didSet {
             sourceEndpoint = endpoint
             requestUpdate(direction: .newer, reset: true)
@@ -44,7 +44,7 @@ public class TimelineSource: ObservableObject {
     }
 
     @PropertyStorage
-    internal var requestIR: Set<NoteID>
+    var requestIR: Set<NoteID>
     // 只保存请求的 note 稍后使用时间对新请求进行过滤时使用
 
     public enum FetchDirection: String {
@@ -80,7 +80,7 @@ public class TimelineSource: ObservableObject {
         self.endpoint = endpoint
     }
 
-    internal func isNoteNodeMuted(_ node: NoteNode) -> Bool {
+    func isNoteNodeMuted(_ node: NoteNode) -> Bool {
         guard let ctx else { return false }
         if ctx.isNoteMuted(noteId: node.main) { return true }
         for replySectin in node.replies {
@@ -91,7 +91,7 @@ public class TimelineSource: ObservableObject {
         return false
     }
 
-    internal func filteringMuted(nodes: [NoteNode]) -> [NoteNode] {
+    func filteringMuted(nodes: [NoteNode]) -> [NoteNode] {
         nodes.filter { !self.isNoteNodeMuted($0) }
     }
 
