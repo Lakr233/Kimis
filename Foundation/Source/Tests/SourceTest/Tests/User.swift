@@ -261,9 +261,43 @@ extension SourceTest {
             XCTFail("unable to locate test users")
             return
         }
+
+        let comment = UUID().uuidString
         dispatchAndWait {
-            let comment = UUID().uuidString
             source.network.requestForReportAbuse(userId: user2.userId, comment: comment)
+        }
+
+        var token: String?
+
+        dispatchAndWait {
+            let url = source.network.base
+                .appendingPathComponent("api")
+                .appendingPathComponent("signin")
+            requestAndWait(
+                url: url.absoluteString,
+                allowFailure: false,
+                data: #"{"username":"\#(testAccount)","password":"\#(testPassword)"}"#.data(using: .utf8),
+                method: "POST"
+            ) { data in
+                guard let data else {
+                    XCTFail("failed to get json data")
+                    return
+                }
+                let json = try? JSONSerialization.jsonObject(with: data, options: [])
+                guard let dict = json as? [String: Any] else {
+                    XCTFail("failed to get json dict")
+                    return
+                }
+                token = dict["i"] as? String
+            }
+        }
+
+        guard let token else {
+            XCTFail("failed to get token")
+            return
+        }
+
+        dispatchAndWait {
             let url = source.network.base
                 .appendingPathComponent("api")
                 .appendingPathComponent("admin")
@@ -271,7 +305,7 @@ extension SourceTest {
             requestAndWait(
                 url: url.absoluteString,
                 allowFailure: false,
-                data: "{\"i\":\"\(source.receipt.token)\"}".data(using: .utf8),
+                data: "{\"i\":\"\(token)\"}".data(using: .utf8),
                 method: "POST"
             ) { data in
                 guard let data, let str = String(data: data, encoding: .utf8) else {

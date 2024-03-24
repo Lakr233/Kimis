@@ -13,6 +13,9 @@ import XCTest
 let temp = URL(fileURLWithPath: NSTemporaryDirectory())
     .appendingPathComponent("wiki.qaq.Kimis.unit.test.\(UUID().uuidString)")
 
+let testAccount = "test"
+let testPassword = "test"
+
 var source: Source!
 
 class SourceTest: XCTestCase {
@@ -25,8 +28,8 @@ class SourceTest: XCTestCase {
             host: "127.0.0.1",
             port: 3555,
             secured: false,
-            username: "test",
-            password: "test",
+            username: testAccount,
+            password: testPassword,
             store: temp
         ) else {
             XCTFail("login failed")
