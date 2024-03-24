@@ -110,11 +110,10 @@ public extension Source.NetworkWrapper {
     @discardableResult
     func requestNoteReaction(reactionIdentifier emoji: String?, forNote noteId: NoteID?) -> Note? {
         guard let ctx, let noteId else { return nil }
-        let result: NMNote?
-        if let emoji {
-            result = ctx.network.requestForReactionCreate(with: noteId, reaction: emoji)
+        let result: NMNote? = if let emoji {
+            ctx.network.requestForReactionCreate(with: noteId, reaction: emoji)
         } else {
-            result = ctx.network.requestForReactionDelete(with: noteId)
+            ctx.network.requestForReactionDelete(with: noteId)
         }
         ctx.spider.spidering(result)
         if let result { return .converting(result) }

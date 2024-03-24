@@ -94,7 +94,7 @@ extension SourceTest {
             let ans = source.network.requestForUserFollowing(userId: userId)
             unwrapOrFail(ans) { item in
                 var found = false
-                item.forEach { record in
+                for record in item {
                     XCTAssertEqual(record.followerId, userId)
                     if record.followeeId == user2.userId { found = true }
                 }
@@ -107,7 +107,7 @@ extension SourceTest {
             let ans = source.network.requestForUserFollowing(userId: userId)
             unwrapOrFail(ans) { item in
                 var found = false
-                item.forEach { record in
+                for record in item {
                     XCTAssertEqual(record.followeeId, userId)
                     if record.followeeId == user2.userId { found = true }
                 }
@@ -162,7 +162,7 @@ extension SourceTest {
             let ans = source.network.requestForUserFollowers(userId: userId)
             unwrapOrFail(ans) { item in
                 var found = false
-                item.forEach { record in
+                for record in item {
                     XCTAssertEqual(record.followeeId, userId)
                     if record.followerId == user2.userId { found = true }
                 }
@@ -185,7 +185,7 @@ extension SourceTest {
             let ans = source.network.requestForUserFollowers(userId: userId)
             unwrapOrFail(ans) { item in
                 var found = false
-                item.forEach { record in
+                for record in item {
                     XCTAssertEqual(record.followeeId, userId)
                     if record.followerId == user3.userId { found = true }
                 }

@@ -17,8 +17,8 @@ extension ReactionStrip {
         let isUserReaction: Bool
 
         var validated: Bool {
-            if text == nil { return url != nil }
-            else { return url == nil }
+            if text == nil { url != nil }
+            else { url == nil }
         }
 
         let representImageReaction: String?

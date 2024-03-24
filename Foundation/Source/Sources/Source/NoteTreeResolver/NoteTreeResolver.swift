@@ -98,7 +98,9 @@ class NoteTreeResolver {
             let incompleteFather = iras.first?.incompleteFather
             // incomplete 标记位应该是全部都统一的 不然不会是一个 father
             #if DEBUG
-                for ira in iras { assert(ira.incompleteFather == incompleteFather) }
+                for ira in iras {
+                    assert(ira.incompleteFather == incompleteFather)
+                }
             #endif
             // 将所有路径混合添加
             let irb = IRB(father: fatherRoot, incompleteFather: incompleteFather)

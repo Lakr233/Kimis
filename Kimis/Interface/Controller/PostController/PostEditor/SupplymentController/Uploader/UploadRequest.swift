@@ -106,32 +106,32 @@ extension AttachUploadController.UploadRequest {
 extension AttachUploadController.UploadRequest.Status {
     var title: String {
         switch self {
-        case .pending: return "Pending"
-        case .uploading: return "Uploading"
-        case .done: return "Uploaded"
-        case .failed: return "Failed"
+        case .pending: "Pending"
+        case .uploading: "Uploading"
+        case .done: "Uploaded"
+        case .failed: "Failed"
         }
     }
 
     var color: UIColor? {
         switch self {
-        case .failed: return .systemPink
-        default: return nil
+        case .failed: .systemPink
+        default: nil
         }
     }
 
     var icon: UIImage? {
         switch self {
-        case .done: return .init(systemName: "checkmark.circle.fill")
-        case .failed: return .init(systemName: "xmark.circle.fill")
-        default: return nil
+        case .done: .init(systemName: "checkmark.circle.fill")
+        case .failed: .init(systemName: "xmark.circle.fill")
+        default: nil
         }
     }
 
     var iconColor: UIColor {
         switch self {
-        case .failed: return .systemPink
-        default: return .accent
+        case .failed: .systemPink
+        default: .accent
         }
     }
 }

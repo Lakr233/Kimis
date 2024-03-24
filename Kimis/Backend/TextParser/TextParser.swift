@@ -99,10 +99,18 @@ extension TextParser {
         replaceAttributeForSimpleUsername(with: string, defaultHost: defaultHost)
         replaceAttributeForLinks(with: string)
         replaceTinyEmoji(from: string, defaultHost: defaultHost)
-        while string.string.hasPrefix(" ") { string.deleteCharacters(in: NSRange(location: 0, length: 1)) }
-        while string.string.hasPrefix("\n") { string.deleteCharacters(in: NSRange(location: 0, length: 1)) }
-        while string.string.hasSuffix(" ") { string.deleteCharacters(in: NSRange(location: string.length - 1, length: 1)) }
-        while string.string.hasSuffix("\n") { string.deleteCharacters(in: NSRange(location: string.length - 1, length: 1)) }
+        while string.string.hasPrefix(" ") {
+            string.deleteCharacters(in: NSRange(location: 0, length: 1))
+        }
+        while string.string.hasPrefix("\n") {
+            string.deleteCharacters(in: NSRange(location: 0, length: 1))
+        }
+        while string.string.hasSuffix(" ") {
+            string.deleteCharacters(in: NSRange(location: string.length - 1, length: 1))
+        }
+        while string.string.hasSuffix("\n") {
+            string.deleteCharacters(in: NSRange(location: string.length - 1, length: 1))
+        }
         attributeFullFill(string)
         return string
     }

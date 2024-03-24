@@ -267,7 +267,9 @@ extension UserViewController.ProfileView {
     }
 
     func updateViewStatus() {
-        for view in subviews { view.isHidden = true }
+        for view in subviews {
+            view.isHidden = true
+        }
         bannerImageView.isHidden = false
         bannerImageBlur.isHidden = false
         avatarImageView.isHidden = false

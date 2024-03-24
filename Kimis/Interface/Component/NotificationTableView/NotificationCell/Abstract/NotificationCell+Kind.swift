@@ -37,27 +37,27 @@ extension NotificationCell.CellKind {
     var cellId: String { rawValue }
     var cell: NotificationCell.Type {
         switch self {
-        case .main: return NotificationCell.MainCell.self
+        case .main: NotificationCell.MainCell.self
 
-        case .progress: return NotificationCell.ProgressCell.self
-        case .separator: return NotificationCell.SeparatorCell.self
-        case .unsupported: return NotificationCell.UnsupportedCell.self
+        case .progress: NotificationCell.ProgressCell.self
+        case .separator: NotificationCell.SeparatorCell.self
+        case .unsupported: NotificationCell.UnsupportedCell.self
         }
     }
 
     var designatedHeight: CGFloat? {
         switch self {
-        case .separator: return 1
-        case .progress, .unsupported: return 30
-        default: return nil
+        case .separator: 1
+        case .progress, .unsupported: 30
+        default: nil
         }
     }
 
     var isSupplymentKind: Bool {
         switch self {
-        case .separator: return true
-        case .progress, .unsupported: return true
-        default: return false
+        case .separator: true
+        case .progress, .unsupported: true
+        default: false
         }
     }
 }

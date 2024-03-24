@@ -48,11 +48,10 @@ extension UserViewController {
                 }
                 self.tableView.footerProgressWorkingJobs -= 1
             } }
-            let type: Network.UserNoteFetchType
-            switch self.fetchEndpoint {
-            case .notes: type = .notes
-            case .notesWithReplies: type = .replies
-            case .media: type = .attachments
+            let type: Network.UserNoteFetchType = switch self.fetchEndpoint {
+            case .notes: .notes
+            case .notesWithReplies: .replies
+            case .media: .attachments
             }
             let notes = self.source?.req.requestForUserNotes(
                 userHandler: profile.userId,

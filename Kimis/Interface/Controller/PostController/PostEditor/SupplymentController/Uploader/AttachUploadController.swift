@@ -53,8 +53,8 @@ class AttachUploadController: ViewController {
 
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelUpload))
 
-        requests.forEach {
-            $0.updated
+        for request in requests {
+            request.updated
                 .sink { [weak self] _ in
                     self?.checkAndPopWhenComplete()
                 }

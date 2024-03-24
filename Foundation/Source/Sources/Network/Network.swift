@@ -207,7 +207,9 @@ public extension Network {
             return
         }
 
-        for (key, value) in dic { dictionaryBuilder[key] = value }
+        for (key, value) in dic {
+            dictionaryBuilder[key] = value
+        }
         guard let newData = try? JSONSerialization
             .data(withJSONObject: dictionaryBuilder, options: .fragmentsAllowed)
         else {

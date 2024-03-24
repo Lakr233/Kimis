@@ -120,7 +120,9 @@ class MKImageRenderView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         let bounds = bounds
-        for view in subviews { view.frame = bounds }
+        for view in subviews {
+            view.frame = bounds
+        }
     }
 
     @available(*, unavailable)

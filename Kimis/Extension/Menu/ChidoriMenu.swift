@@ -150,14 +150,14 @@ class ChidoriMenu: UIViewController {
             let menuChildren: [UIMenu] = [wrapperMenu]
             snapshot.appendSections(menuChildren)
 
-            menuChildren.forEach {
-                snapshot.appendItems($0.children as! [UIAction], toSection: $0)
+            for menuChild in menuChildren {
+                snapshot.appendItems(menuChild.children as! [UIAction], toSection: menuChild)
             }
         } else if let menuChildren = menu.children as? [UIMenu] {
             snapshot.appendSections(menuChildren)
 
-            menuChildren.forEach {
-                snapshot.appendItems($0.children as! [UIAction], toSection: $0)
+            for menuChild in menuChildren {
+                snapshot.appendItems(menuChild.children as! [UIAction], toSection: menuChild)
             }
         } else {
             preconditionFailure("Incorrect format. Do not mix UIAction and UIMenu in menu children for ChidoriMenu use.")

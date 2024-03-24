@@ -56,8 +56,8 @@ extension EmojiPickerView {
 
         if !instanceEmojis.isEmpty {
             var build: [String: [EmojiElement]] = [:]
-            instanceEmojis.forEach {
-                build[$0.category, default: []].append(.init(emoji: $0))
+            for instanceEmoji in instanceEmojis {
+                build[instanceEmoji.category, default: []].append(.init(emoji: instanceEmoji))
             }
             for key in build.keys.sorted() {
                 guard let section = build[key] else { continue }
@@ -89,11 +89,10 @@ extension EmojiPickerView {
     }
 
     func buildSearchResultAndReload(for searchText: String) {
-        let newDataSource: [EmojiSection]
-        if searchText.isEmpty {
-            newDataSource = rawDataSource
+        let newDataSource: [EmojiSection] = if searchText.isEmpty {
+            rawDataSource
         } else {
-            newDataSource = searchFiltering(text: searchText)
+            searchFiltering(text: searchText)
         }
         reloadWithAnimation(with: newDataSource)
     }

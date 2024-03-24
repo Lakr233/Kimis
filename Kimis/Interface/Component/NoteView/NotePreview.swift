@@ -124,7 +124,9 @@ class NotePreview: UIView {
         renotePreview.snapshot = snapshot?.renoteSnapshot
         attachments.snapshot = snapshot?.attachmentSnapshot
         reactions.snapshot = snapshot?.reactionSnapshot
-        for view in subviews { view.layoutSubviews() }
+        for view in subviews {
+            view.layoutSubviews()
+        }
     }
 
     func clear() {
@@ -442,16 +444,15 @@ extension NotePreview.Snapshot {
             height: reactionHeight > 0 ? reactionHeight : -verticalSpacing
         )
 
-        let operationRect: CGRect
-        if context.disableOperationStrip {
-            operationRect = CGRect(
+        let operationRect = if context.disableOperationStrip {
+            CGRect(
                 x: contentLeftAlign,
                 y: reactionRect.origin.y + reactionRect.size.height,
                 width: contentWidth,
                 height: 0
             )
         } else {
-            operationRect = CGRect(
+            CGRect(
                 x: contentLeftAlign,
                 y: reactionRect.origin.y + reactionRect.size.height + verticalSpacing,
                 width: contentWidth,

@@ -10,14 +10,15 @@ import Foundation
 @inline(__always)
 func debugPrint(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     #if DEBUG
-        items.forEach {
-            Swift.print($0, separator: separator, terminator: terminator)
+        for item in items {
+            Swift.print(item, separator: separator, terminator: terminator)
         }
     #endif
 }
 
 #if DEBUG
     import SDWebImage
+
     func clearSDWebImageCache() {
         SDImageCache.shared.clearMemory()
         SDImageCache.shared.clearDisk()

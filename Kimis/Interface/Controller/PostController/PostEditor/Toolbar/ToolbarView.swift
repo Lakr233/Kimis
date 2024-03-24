@@ -127,7 +127,7 @@ class PostEditorToolbarView: UIView {
     }
 
     func updateIcons() {
-        toolButtons.forEach { toolItem in
+        for toolItem in toolButtons {
             toolItem.updateAppearance()
         }
     }

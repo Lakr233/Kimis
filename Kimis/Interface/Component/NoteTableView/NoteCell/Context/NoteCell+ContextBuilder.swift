@@ -60,9 +60,9 @@ extension NoteNode {
             } else if repliesCtx.count >= 3 {
                 // 有太多的回复 大概率是关注的 po 主回复了一堆人 实测两条已经很顶了 所以加一层处理
                 // 关闭 operation button 和 header
-                repliesCtx.forEach {
-                    $0.disableOperationStrip = true
-                    $0.disablePreviewReason = true
+                for item in repliesCtx {
+                    item.disableOperationStrip = true
+                    item.disablePreviewReason = true
                 }
             }
             repliesCtx.sort { $0.noteId ?? "" < $1.noteId ?? "" }

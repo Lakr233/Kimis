@@ -297,12 +297,12 @@ private extension UICollectionViewLayoutAttributes {
     /// - Returns: `true` if the represented item is the first item in the line, else `false`.
     func isRepresentingFirstItemInLine(collectionViewLayout: AlignedCollectionViewFlowLayout) -> Bool {
         if currentItem <= 0 {
-            return true
+            true
         } else {
             if let layoutAttributesForPrecedingItem = collectionViewLayout.originalLayoutAttribute(forItemAt: precedingIndexPath) {
-                return !collectionViewLayout.isFrame(for: self, inSameLineAsFrameFor: layoutAttributesForPrecedingItem)
+                !collectionViewLayout.isFrame(for: self, inSameLineAsFrameFor: layoutAttributesForPrecedingItem)
             } else {
-                return true
+                true
             }
         }
     }

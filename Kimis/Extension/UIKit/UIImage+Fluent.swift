@@ -87,7 +87,9 @@ extension UIImage {
         #if DEBUG
             if !checked {
                 let items = FluentIcon.allCases.map(\.rawValue)
-                for item in items { assert(UIImage(named: item) != nil) }
+                for item in items {
+                    assert(UIImage(named: item) != nil)
+                }
                 checked = true
                 print("[*] FluentIcon Resources Checked!")
             }

@@ -70,17 +70,17 @@ class ImagePreviewController: QLPreviewController, QLPreviewControllerDataSource
 extension SDImageFormat {
     var possiblePathExtension: String {
         switch self {
-        case .undefined: return ""
-        case .JPEG: return "jpg"
-        case .PNG: return "png"
-        case .GIF: return "gif"
-        case .TIFF: return "tiff"
-        case .webP: return "webp"
-        case .HEIC: return "heic"
-        case .HEIF: return "heif"
-        case .PDF: return "pdf"
-        case .SVG: return "svg"
-        default: return ""
+        case .undefined: ""
+        case .JPEG: "jpg"
+        case .PNG: "png"
+        case .GIF: "gif"
+        case .TIFF: "tiff"
+        case .webP: "webp"
+        case .HEIC: "heic"
+        case .HEIF: "heif"
+        case .PDF: "pdf"
+        case .SVG: "svg"
+        default: ""
         }
 //        static const SDImageFormat SDImageFormatUndefined = -1;
 //        static const SDImageFormat SDImageFormatJPEG      = 0;
