@@ -10,13 +10,18 @@ on:
 
 jobs:
   test:
-    runs-on: macos-14-large
+    runs-on: macos-13
     steps:
+      - name: switch Xcode
+        run: sudo xcode-select -s /Applications/Xcode_15.2.app
+
       - name: setup-docker
         uses: docker-practice/actions-setup-docker@v1
         timeout-minutes: 30
+
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Run Test
         run: |
           Resource/ApiTest/main.sh
