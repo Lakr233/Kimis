@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
       - name: setup-docker
         uses: docker-practice/actions-setup-docker@v1
