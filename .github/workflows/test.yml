@@ -16,8 +16,7 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_15.2.app
 
       - name: setup-docker
-        uses: docker-practice/actions-setup-docker@v1
-        timeout-minutes: 30
+        uses: docker-practice/actions-setup-docker@master
 
       - name: Checkout
         uses: actions/checkout@v2
