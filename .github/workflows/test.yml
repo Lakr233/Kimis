@@ -16,7 +16,7 @@ jobs:
         run: sudo xcode-select -s /Applications/Xcode_15.2.app
 
       - name: setup-docker
-        uses: docker-practice/actions-setup-docker@master
+        uses: douglascamata/setup-docker-macos-action@main
 
       - name: Checkout
         uses: actions/checkout@v2
