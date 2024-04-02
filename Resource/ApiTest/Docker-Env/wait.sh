@@ -18,8 +18,8 @@ while true; do
     echo "[i] docker container is not ready $STATUS_CODE, retry in 10s"
     sleep 10
     COUNT=$((COUNT+1))
-    if [ $COUNT -eq 180 ]; then
-        echo "[!] docker container is not ready after 30 min, exit"
+    if [ $COUNT -eq 3600 ]; then
+        echo "[!] docker container is not ready for too long, exit"
         exit 1
     fi
 done
