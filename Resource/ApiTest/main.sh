@@ -51,6 +51,9 @@ echo "[+] starting docker env"
 cd "$PROJECT_ROOT/"
 ./Resource/ApiTest/Docker-Env/startup.sh
 
+echo "[+] waiting for log watcher"
+./Resource/ApiTest/Docker-Env/watch.sh &
+
 echo "[+] waiting for docker env to be ready"
 cd "$PROJECT_ROOT/"
 ./Resource/ApiTest/Docker-Env/wait.sh
