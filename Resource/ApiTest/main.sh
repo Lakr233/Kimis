@@ -49,10 +49,9 @@ function cleanup {
     if [ $TEST_RESULT -ne 0 ]; then
         echo "[-] ** test failed **"
         exit 1
-    else
-        echo "[+] ** test passed **"
-        exit 0
     fi
+
+    echo "[+] test passed"
 }
 
 trap cleanup EXIT
