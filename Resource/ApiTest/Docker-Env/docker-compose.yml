@@ -4,6 +4,7 @@ version: '3'
 services:
   misskey:
     image: misskey/misskey
+    restart: always
     volumes:
       - ./config:/misskey/.config/
     depends_on:
@@ -17,6 +18,7 @@ services:
 
   postgres:
     image: postgres:15.2 # latest
+    restart: always
     environment:
       POSTGRES_PASSWORD: misskey_api_test_stub_password
       POSTGRES_USER: misskey
@@ -26,6 +28,7 @@ services:
 
   redis:
     image: redis
+    restart: always
     command: redis-server --requirepass misskey_api_test_stub_password
     environment:
       - REDIS_PASSWORD=misskey_api_test_stub_password

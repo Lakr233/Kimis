@@ -16,6 +16,7 @@ git checkout -- .
 
 echo "[+] extract payload dir from payload.tar.gz"
 tar -xzf payload.tar.gz
+chmod -R 777 ./payload
 
 echo "[+] waiting for file system to get ready..."
 sleep 1
