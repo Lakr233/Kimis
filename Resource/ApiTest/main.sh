@@ -35,6 +35,8 @@ for binary in $REQUIRED_BINARIES; do
     fi
 done
 
+TEST_RESULT=-1
+
 function cleanup {
     echo "[+] cleaning up..."
 
@@ -43,6 +45,14 @@ function cleanup {
     ./Resource/ApiTest/Docker-Env/shutdown.sh
 
     echo "[+] cleanup done"
+
+    if [ $TEST_RESULT -ne 0 ]; then
+        echo "[-] ** test failed **"
+        exit 1
+    else
+        echo "[+] ** test passed **"
+        exit 0
+    fi
 }
 
 trap cleanup EXIT
@@ -82,6 +92,3 @@ if [ "$CI_CLEAN_DOCKER_BEFORE_EXIT" = "true" ]; then
     echo "[+] cleaning docker containers..."
     docker system prune --all -f
 fi
-
-
-echo "[+] done with result: $TEST_RESULT"
