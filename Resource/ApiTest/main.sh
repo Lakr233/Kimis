@@ -74,9 +74,14 @@ cd "$PROJECT_ROOT/"
 cd ./Foundation/Source
 swift test
 
+TEST_RESULT=$?
+
 echo "[+] test passed"
 
 if [ "$CI_CLEAN_DOCKER_BEFORE_EXIT" = "true" ]; then
     echo "[+] cleaning docker containers..."
     docker system prune --all -f
 fi
+
+
+echo "[+] done with result: $TEST_RESULT"
