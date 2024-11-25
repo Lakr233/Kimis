@@ -77,7 +77,7 @@ extension SourceTest {
                 return nil
             }
             requestAndWait(
-                url: "\(scheme)://\(host):\(port)/api/signin",
+                url: "\(scheme)://\(host):\(port)/api/signin-flow",
                 allowFailure: false,
                 data: payload,
                 method: "POST"

@@ -272,7 +272,7 @@ extension SourceTest {
         dispatchAndWait {
             let url = source.network.base
                 .appendingPathComponent("api")
-                .appendingPathComponent("signin")
+                .appendingPathComponent("signin-flow")
             requestAndWait(
                 url: url.absoluteString,
                 allowFailure: false,
