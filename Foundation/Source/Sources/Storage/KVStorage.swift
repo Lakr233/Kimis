@@ -6,8 +6,8 @@ import SQLite
 public class KVStorage<T: Codable & Identifiable & Equatable> where T.ID == String {
     let db: Connection
     let table: Table
-    let id = Expression<String>("id")
-    let content = Expression<Data>("content")
+    let id = SQLite.Expression<String>("id")
+    let content = SQLite.Expression<Data>("content")
 
     let publisher: PassthroughSubject<T.ID, Never>?
 

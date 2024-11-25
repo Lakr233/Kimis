@@ -293,3 +293,5 @@ extension TimelineSource {
         }
     }
 }
+
+extension TimelineSource.Fetcher: @unchecked Sendable {}

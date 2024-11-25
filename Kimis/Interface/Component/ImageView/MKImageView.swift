@@ -173,13 +173,14 @@ class MKImageRenderView: UIView {
 
         blurView.setImage(withBlurHash: request?.blurHash)
 
-        imageView.sd_setImage(with: url, placeholderImage: nil, options: [
-            .retryFailed,
-            .continueInBackground,
-            .avoidAutoSetImage,
-            .avoidDecodeImage,
-        ]) { [weak self] image, _, _, _ in
-            self?.finalizeImageRequst(withImage: image, ticket: ticket)
+        imageView.sd_setImage(
+            with: url,
+            placeholderImage: nil,
+            options: [.retryFailed, .continueInBackground, .avoidAutoSetImage],
+            context: [.imageForceDecodePolicy: SDImageForceDecodePolicy.never]
+        ) { _, _, _ in } completed: { [weak self] image, _, _, _ in
+            guard let self, let image else { return }
+            finalizeImageRequst(withImage: image, ticket: ticket)
         }
     }
 
