@@ -177,7 +177,7 @@ class MKImageRenderView: UIView {
             with: url,
             placeholderImage: nil,
             options: [.retryFailed, .continueInBackground, .avoidAutoSetImage],
-            context: [.imageForceDecodePolicy: SDImageForceDecodePolicy.never]
+            context: [.imageForceDecodePolicy: SDImageForceDecodePolicy.never.rawValue as NSNumber]
         ) { _, _, _ in } completed: { [weak self] image, _, _, _ in
             guard let self, let image else { return }
             finalizeImageRequst(withImage: image, ticket: ticket)
