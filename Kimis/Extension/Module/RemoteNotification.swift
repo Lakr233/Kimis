@@ -22,7 +22,6 @@ extension RemoteNotification.Kind {
         case .followRequestAccepted: UIImage(systemName: "person.crop.circle.badge.checkmark")
         case .groupInvited: UIImage(systemName: "person.fill.badge.plus")
         case .app: UIImage(systemName: "app.badge.fill")
-
         default: UIImage(systemName: "questionmark.circle")
         }
     }
@@ -41,7 +40,6 @@ extension RemoteNotification.Kind {
         case .followRequestAccepted: "Your follow request was accepted"
         case .groupInvited: "You are invited"
         case .app: "Application Message"
-
         default: "Unknown Message"
         }
     }

@@ -38,7 +38,6 @@ extension NotificationCell.CellKind {
     var cell: NotificationCell.Type {
         switch self {
         case .main: NotificationCell.MainCell.self
-
         case .progress: NotificationCell.ProgressCell.self
         case .separator: NotificationCell.SeparatorCell.self
         case .unsupported: NotificationCell.UnsupportedCell.self
