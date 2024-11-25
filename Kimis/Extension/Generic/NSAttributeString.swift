@@ -10,7 +10,7 @@ import UIKit
 
 extension NSAttributedString {
     func fixup(_ width: CGFloat) -> CGFloat {
-        width.nextUp
+        ceil(width)
     }
 
     func measureWidth() -> CGFloat {

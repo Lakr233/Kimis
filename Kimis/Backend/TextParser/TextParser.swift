@@ -126,13 +126,17 @@ extension TextParser {
     }
 
     func attributeFullFill(_ string: NSMutableAttributedString) {
+        lazy var supposeToUseFont = getFont(size: size.base, weight: weight.base)
         for idx in 0 ..< string.length {
             let attrs = string.attributes(at: idx, effectiveRange: nil)
             if !attrs.keys.contains(.foregroundColor) {
                 string.addAttributes([.foregroundColor: color.text], range: NSRange(location: idx, length: 1))
             }
             if !attrs.keys.contains(.font) {
-                string.addAttributes([.font: getFont(size: size.base, weight: weight.base)], range: NSRange(location: idx, length: 1))
+                string.addAttributes([.font: supposeToUseFont], range: NSRange(location: idx, length: 1))
+            }
+            if !attrs.keys.contains(.originalFont) {
+                string.addAttributes([.originalFont: supposeToUseFont], range: NSRange(location: idx, length: 1))
             }
             if !attrs.keys.contains(.paragraphStyle) {
                 string.addAttributes([.paragraphStyle: paragraphStyle], range: NSRange(location: idx, length: 1))
@@ -166,6 +170,7 @@ extension TextParser {
 
 extension NSAttributedString.Key {
     static let coreTextRunDelegate = NSAttributedString.Key(rawValue: kCTRunDelegateAttributeName as String)
+    static let originalFont = NSAttributedString.Key(rawValue: "NSOriginalFont")
 }
 
 extension String {
