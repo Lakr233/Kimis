@@ -77,7 +77,7 @@ extension EmojiPickerView {
                 .sorted(by: \.emoji)
                 .map { EmojiElement(emoji: $0) }
             let section = EmojiSection(
-                sectionTitle: key.isEmpty ? "Ungrounded" : key,
+                sectionTitle: key.isEmpty ? "Ungrouped" : key,
                 emojis: elements
             )
             dataSource.append(section)
