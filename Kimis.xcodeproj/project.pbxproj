@@ -1937,7 +1937,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/KimisDebug.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 165;
+				CURRENT_PROJECT_VERSION = 166;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_ENHANCED_SECURITY = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1964,7 +1964,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.kimis.inhouse.lakr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1986,7 +1986,7 @@
 				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 165;
+				CURRENT_PROJECT_VERSION = 166;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_ENHANCED_SECURITY = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -2013,7 +2013,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.17;
+				MARKETING_VERSION = 1.18;
 				PRODUCT_BUNDLE_IDENTIFIER = as.wiki.qaq.kimis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
