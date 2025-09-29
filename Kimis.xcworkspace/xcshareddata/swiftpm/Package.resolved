@@ -14,8 +14,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/bugsnag/bugsnag-cocoa",
       "state" : {
-        "revision" : "2f373f21b965f1b13d7070662e2d35f46c17d975",
-        "version" : "6.27.2"
+        "revision" : "1f991e92a6e3993c2763d071781d895ca4075a90",
+        "version" : "6.34.0"
+      }
+    },
+    {
+      "identity" : "chidorimenu",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Lakr233/ChidoriMenu",
+      "state" : {
+        "revision" : "27a1a96565fa934da56abb3a926318d5bee70e4d",
+        "version" : "4.0.0"
       }
     },
     {
@@ -24,7 +33,7 @@
       "location" : "https://github.com/Wevah/IDNA-Cocoa.git",
       "state" : {
         "branch" : "master",
-        "revision" : "96de66e18f27edd40e41321f63637fbf2a83eb41"
+        "revision" : "9991ef177410a03867ceaca32b4125a7c849fe10"
       }
     },
     {
@@ -59,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",
       "state" : {
-        "revision" : "633996a807442ec28df9d33b0f88ce57a0e2fdbf",
-        "version" : "5.17.0"
+        "revision" : "34cf2423a2c4088d06a3b08655603b5bc3eeeb3a",
+        "version" : "5.21.2"
       }
     },
     {
@@ -68,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SnapKit/SnapKit.git",
       "state" : {
-        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
-        "version" : "5.6.0"
+        "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
+        "version" : "5.7.1"
       }
     },
     {
@@ -86,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/stephencelis/SQLite.swift.git",
       "state" : {
-        "revision" : "7a2e3cd27de56f6d396e84f63beefd0267b55ccb",
-        "version" : "0.14.1"
+        "revision" : "392dd6058624d9f6c5b4c769d165ddd8c7293394",
+        "version" : "0.15.4"
       }
     },
     {
@@ -97,6 +106,15 @@
       "state" : {
         "revision" : "6025828b6c05fbf5529616a70c702f7425899fe5",
         "version" : "1.5.1"
+      }
+    },
+    {
+      "identity" : "swift-toolchain-sqlite",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/swiftlang/swift-toolchain-sqlite",
+      "state" : {
+        "revision" : "b626d3002773b1a1304166643e7f118f724b2132",
+        "version" : "1.0.4"
       }
     },
     {
@@ -113,8 +131,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwifterSwift/SwifterSwift",
       "state" : {
-        "revision" : "933f27d8e7fa0bf8200a5d6235e0de383b801126",
-        "version" : "5.3.0"
+        "revision" : "5d948a15446bddb6c367bc7e7100cfcbaa0e9b57",
+        "version" : "8.0.0"
       }
     }
   ],

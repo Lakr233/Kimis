@@ -10,7 +10,7 @@ import UIKit
 private var accentColorCache: UIColor?
 
 extension UIColor {
-    static var accent: UIColor {
+    static var myAccent: UIColor {
         if let cache = accentColorCache {
             return cache
         }

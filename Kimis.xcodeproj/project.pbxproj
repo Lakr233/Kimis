@@ -46,10 +46,6 @@
 		503809AD2977B7B3004C9438 /* FollowingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503809AC2977B7B3004C9438 /* FollowingController.swift */; };
 		503809AF2977BA46004C9438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503809AE2977BA46004C9438 /* ViewController.swift */; };
 		503809B12977D27E004C9438 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503809B02977D27E004C9438 /* CGPoint.swift */; };
-		503A833C2AB40DE500D240D3 /* ChidoriMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A83382AB40DE500D240D3 /* ChidoriMenu.swift */; };
-		503A833D2AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A83392AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift */; };
-		503A833E2AB40DE500D240D3 /* ChidoriAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A833A2AB40DE500D240D3 /* ChidoriAnimationController.swift */; };
-		503A833F2AB40DE500D240D3 /* ChidoriPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503A833B2AB40DE500D240D3 /* ChidoriPresentationController.swift */; };
 		50443F862927B9190077523F /* Source in Frameworks */ = {isa = PBXBuildFile; productRef = 50443F852927B9190077523F /* Source */; };
 		50443F8A2927D4E10077523F /* NoteCell+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50443F892927D4E10077523F /* NoteCell+Context.swift */; };
 		50443F8F2927D5050077523F /* NotePreviewSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50443F8E2927D5050077523F /* NotePreviewSimple.swift */; };
@@ -258,6 +254,7 @@
 		50E8DFD5297B19C600657910 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFD4297B19C600657910 /* PaddedTextField.swift */; };
 		50E8DFD8297B433100657910 /* LicenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8DFD7297B433100657910 /* LicenseController.swift */; };
 		50E8DFDC297B43C500657910 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 50E8DFDB297B43C500657910 /* LICENSE */; };
+		50F922B82E8AD95200D1E2C1 /* ChidoriMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 50F922B72E8AD95200D1E2C1 /* ChidoriMenu */; };
 		50FAC1F32A651B4000125B2A /* ReactionStrip+BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FAC1F22A651B4000125B2A /* ReactionStrip+BaseView.swift */; };
 		50FD825B29757AC300738C27 /* TextParser+RegEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FD825A29757AC300738C27 /* TextParser+RegEx.swift */; };
 		50FE1B1229336250000CE139 /* HashtagNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FE1B1129336250000CE139 /* HashtagNoteController.swift */; };
@@ -309,10 +306,6 @@
 		503809AC2977B7B3004C9438 /* FollowingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingController.swift; sourceTree = "<group>"; };
 		503809AE2977BA46004C9438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		503809B02977D27E004C9438 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
-		503A83382AB40DE500D240D3 /* ChidoriMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriMenu.swift; sourceTree = "<group>"; };
-		503A83392AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriMenuTableViewCell.swift; sourceTree = "<group>"; };
-		503A833A2AB40DE500D240D3 /* ChidoriAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriAnimationController.swift; sourceTree = "<group>"; };
-		503A833B2AB40DE500D240D3 /* ChidoriPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChidoriPresentationController.swift; sourceTree = "<group>"; };
 		50443F892927D4E10077523F /* NoteCell+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteCell+Context.swift"; sourceTree = "<group>"; };
 		50443F8E2927D5050077523F /* NotePreviewSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePreviewSimple.swift; sourceTree = "<group>"; };
 		50443F902927D78A0077523F /* NotePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePreview.swift; sourceTree = "<group>"; };
@@ -539,6 +532,7 @@
 				5011D503293B477C0088173F /* IDNA in Frameworks */,
 				505318F6297EAC07005E30DE /* KeychainAccess in Frameworks */,
 				50443F862927B9190077523F /* Source in Frameworks */,
+				50F922B82E8AD95200D1E2C1 /* ChidoriMenu in Frameworks */,
 				50BED21729277E0600C9D7E2 /* MorphingLabel in Frameworks */,
 				50A4EC90297E14D600F9E0A3 /* Bugsnag in Frameworks */,
 				50BED22029277EC200C9D7E2 /* SDWebImage in Frameworks */,
@@ -645,17 +639,6 @@
 				503809AC2977B7B3004C9438 /* FollowingController.swift */,
 			);
 			path = FollowingController;
-			sourceTree = "<group>";
-		};
-		503A83372AB40DDB00D240D3 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				503A83382AB40DE500D240D3 /* ChidoriMenu.swift */,
-				503A83392AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift */,
-				503A833B2AB40DE500D240D3 /* ChidoriPresentationController.swift */,
-				503A833A2AB40DE500D240D3 /* ChidoriAnimationController.swift */,
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 		50443F8B2927D4E60077523F /* Abstract */ = {
@@ -1061,7 +1044,6 @@
 		50BED14829277D0D00C9D7E2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				503A83372AB40DDB00D240D3 /* Menu */,
 				50BED15E29277D0E00C9D7E2 /* Generic */,
 				508FE990292B43E8005D1933 /* Module */,
 				50BED14929277D0D00C9D7E2 /* Property */,
@@ -1504,6 +1486,7 @@
 				5011D502293B477C0088173F /* IDNA */,
 				50A4EC8F297E14D600F9E0A3 /* Bugsnag */,
 				505318F5297EAC07005E30DE /* KeychainAccess */,
+				50F922B72E8AD95200D1E2C1 /* ChidoriMenu */,
 			);
 			productName = Kimis;
 			productReference = 50BED13029277CDE00C9D7E2 /* Kimis.app */;
@@ -1517,7 +1500,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					50BED12F29277CDE00C9D7E2 = {
 						CreatedOnToolsVersion = 14.1;
@@ -1544,6 +1527,7 @@
 				5011D501293B477C0088173F /* XCRemoteSwiftPackageReference "IDNA-Cocoa" */,
 				50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				505318F4297EAC07005E30DE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				50F922B62E8AD95200D1E2C1 /* XCRemoteSwiftPackageReference "ChidoriMenu" */,
 			);
 			productRefGroup = 50BED13129277CDE00C9D7E2 /* Products */;
 			projectDirPath = "";
@@ -1685,7 +1669,6 @@
 				503809AB2977B7AC004C9438 /* FollowerController.swift in Sources */,
 				50BED1C029277D0E00C9D7E2 /* UIImage+Fluent.swift in Sources */,
 				50BED1DB29277D0E00C9D7E2 /* NoteCell+Full.swift in Sources */,
-				503A833F2AB40DE500D240D3 /* ChidoriPresentationController.swift in Sources */,
 				50126257292F78D6002E1636 /* Collection.swift in Sources */,
 				5045198F296C21F7009D613D /* AttachmentDrivePicker+Cell.swift in Sources */,
 				50BED1D829277D0E00C9D7E2 /* NoteCell+MoreHeader.swift in Sources */,
@@ -1693,7 +1676,6 @@
 				504519A5296D55EC009D613D /* Toolbar+Picture.swift in Sources */,
 				504519A7296D55EC009D613D /* Toolbar+Poll.swift in Sources */,
 				50BED1FA29277D0E00C9D7E2 /* SceneDelegate.swift in Sources */,
-				503A833D2AB40DE500D240D3 /* ChidoriMenuTableViewCell.swift in Sources */,
 				50BED1BD29277D0E00C9D7E2 /* UIImage+BlurHash.swift in Sources */,
 				504E87D629377B4E00BDE03C /* NotificationCell+Kind.swift in Sources */,
 				50E8DFD8297B433100657910 /* LicenseController.swift in Sources */,
@@ -1787,11 +1769,9 @@
 				505826242935004700E72238 /* UserViewController+Scroll.swift in Sources */,
 				50FF63EC2969A46700DBB4CA /* UIButton.swift in Sources */,
 				50443F8A2927D4E10077523F /* NoteCell+Context.swift in Sources */,
-				503A833C2AB40DE500D240D3 /* ChidoriMenu.swift in Sources */,
 				50BED1BF29277D0E00C9D7E2 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				5069EBB2295EDD3100677A3F /* SmallUsersListController.swift in Sources */,
 				50BED1C229277D0E00C9D7E2 /* TextView.swift in Sources */,
-				503A833E2AB40DE500D240D3 /* ChidoriAnimationController.swift in Sources */,
 				5065E4E429352B22001C540C /* TextParser+Email.swift in Sources */,
 				50BED20329277D0E00C9D7E2 /* TextParser+Body.swift in Sources */,
 				50CEBEBC2A6A455900484FD8 /* UserSimpleBannerView.swift in Sources */,
@@ -1829,6 +1809,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1859,8 +1840,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1880,6 +1863,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1889,6 +1873,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1919,8 +1904,10 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 964G86XT2P;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1933,6 +1920,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -1942,6 +1930,7 @@
 		50BED14529277CDF00C9D7E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -1949,11 +1938,20 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 165;
-				DEVELOPMENT_TEAM = 6CMYQQFFT8;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_ENHANCED_SECURITY = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_POINTER_AUTHENTICATION = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kimis/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kimis;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We will take photo with this permission when you asked to do, and we will attach picture to your post or request when possible.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We will take video or record audio with this post when you reuqested.";
@@ -1967,7 +1965,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.17;
-				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.kimis.inhouse;
+				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.kimis.inhouse.lakr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
@@ -1981,6 +1979,7 @@
 		50BED14629277CDF00C9D7E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -1988,11 +1987,20 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 165;
-				DEVELOPMENT_TEAM = 6CMYQQFFT8;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_ENHANCED_SECURITY = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_POINTER_AUTHENTICATION = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kimis/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kimis;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We will take photo with this permission when you asked to do, and we will attach picture to your post or request when possible.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We will take video or record audio with this post when you reuqested.";
@@ -2117,8 +2125,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
 			requirement = {
-				kind = exactVersion;
-				version = 6.5.11;
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.11;
 			};
 		};
 		50BED2242927802700C9D7E2 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
@@ -2128,6 +2136,14 @@
 				kind = versionRange;
 				maximumVersion = 999.999.999;
 				minimumVersion = 0.0.0;
+			};
+		};
+		50F922B62E8AD95200D1E2C1 /* XCRemoteSwiftPackageReference "ChidoriMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lakr233/ChidoriMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -2186,6 +2202,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 50BED2242927802700C9D7E2 /* XCRemoteSwiftPackageReference "SPIndicator" */;
 			productName = SPIndicator;
+		};
+		50F922B72E8AD95200D1E2C1 /* ChidoriMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 50F922B62E8AD95200D1E2C1 /* XCRemoteSwiftPackageReference "ChidoriMenu" */;
+			productName = ChidoriMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
