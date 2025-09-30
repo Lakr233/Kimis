@@ -57,7 +57,7 @@ extension NotificationTableView: UITableViewDelegate, UITableViewDataSource {
     var itemCount: Int {
         notifications
             .map(\.kind)
-            .filter { value in
+            .count(where: { value in
                 switch value {
                 case .main: true
 //                case .note: return true
@@ -68,8 +68,7 @@ extension NotificationTableView: UITableViewDelegate, UITableViewDataSource {
 //                case .vote: return true
                 default: false
                 }
-            }
-            .count
+            })
     }
 
     func tableView(_: UITableView, viewForFooterInSection _: Int) -> UIView? {

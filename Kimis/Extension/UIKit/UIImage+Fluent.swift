@@ -71,8 +71,7 @@ extension UIImage {
         case person_filled = "ic_fluent_person_24_filled"
     }
 
-    private
-    convenience init?(fluent: FluentIcon) {
+    private convenience init?(fluent: FluentIcon) {
         self.init(named: fluent.rawValue)
     }
 

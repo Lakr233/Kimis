@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import QuickLook
 import UIKit
 
@@ -21,7 +21,7 @@ extension AttachUploadController {
         let previewThumbnail = UIImageView()
         let titleView = UILabel()
         let subtitleView = UILabel()
-        let progressLabel = LTMorphingLabel()
+        let progressLabel = GlyphixTextLabel()
         let progressBackground = UIView()
 
         var request: UploadRequest?
@@ -76,8 +76,7 @@ extension AttachUploadController {
                 make.edges.equalTo(previewHolder)
             }
 
-            progressLabel.morphingEffect = .evaporate
-            progressLabel.textAlignment = .right
+            progressLabel.textAlignment = .leading
             progressLabel.textColor = .accent
             progressLabel.font = .monospacedSystemFont(ofSize: 14, weight: .regular)
             progressLabel.snp.makeConstraints { make in

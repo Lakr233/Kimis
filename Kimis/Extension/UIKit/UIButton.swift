@@ -5,8 +5,8 @@
 //  Created by Lakr Aream on 2023/1/7.
 //
 
-import UIKit
 import ChidoriMenu
+import UIKit
 
 class TapAreaEnlargedButton: UIButton {
     override func point(inside point: CGPoint, with _: UIEvent?) -> Bool {

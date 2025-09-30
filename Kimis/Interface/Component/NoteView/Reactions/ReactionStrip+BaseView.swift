@@ -129,7 +129,7 @@ extension ReactionStrip {
 //            if guesture.state == .began { postLongPress() }
         }
 
-        public func contextMenuInteraction(_: UIContextMenuInteraction, configurationForMenuAtLocation _: CGPoint) -> UIContextMenuConfiguration? {
+        func contextMenuInteraction(_: UIContextMenuInteraction, configurationForMenuAtLocation _: CGPoint) -> UIContextMenuConfiguration? {
             postLongPress()
             return nil
         }

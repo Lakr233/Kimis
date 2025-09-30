@@ -56,7 +56,7 @@ public class Note: Codable, Identifiable, Hashable, Equatable {
 
         public var isInteractive: Bool {
             if multiple {
-                let votedCount = choices.map(\.isVoted).filter { $0 }.count
+                let votedCount = choices.map(\.isVoted).count(where: { $0 })
                 if votedCount == choices.count { return false }
             } else {
                 for choice in choices where choice.isVoted {

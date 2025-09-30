@@ -10,18 +10,18 @@ import Source
 import UIKit
 
 class NotificationTableView: TableView {
-    @Published public var scrollLocation: CGPoint = .zero
+    @Published var scrollLocation: CGPoint = .zero
 
-    @Published public var layoutWidth: CGFloat = 0
-    public let refreshCaller = CurrentValueSubject<Bool, Never>(true)
+    @Published var layoutWidth: CGFloat = 0
+    let refreshCaller = CurrentValueSubject<Bool, Never>(true)
 
-    public let renderQueue = DispatchQueue(label: "wiki.qaq.notifications.render")
+    let renderQueue = DispatchQueue(label: "wiki.qaq.notifications.render")
     var renderTicket = UUID()
 
-    public internal(set) var notifications: [NotificationCell.Context] = []
+    internal(set) var notifications: [NotificationCell.Context] = []
     let progressIndicator = ProgressFooterView()
 
-    public var onSelect: ((_ notification: RemoteNotification) -> Void)?
+    var onSelect: ((_ notification: RemoteNotification) -> Void)?
 
     override init() {
         super.init()

@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import UIKit
 
 extension TimelineTableView {
@@ -76,7 +76,7 @@ extension NoteTableView {
         }()
 
         let icon = UIImageView()
-        let label = LTMorphingLabel()
+        let label = GlyphixTextLabel()
         let button = UIButton()
 
         private var _realCount: Int = 0
@@ -122,7 +122,6 @@ extension NoteTableView {
             label.font = .monospacedDigitSystemFont(ofSize: 14, weight: .regular)
             label.textColor = .accent
             label.textAlignment = .center
-            label.morphingEffect = .evaporate
             label.snp.makeConstraints { make in
                 make.right.equalToSuperview().offset(-8)
                 make.left.equalTo(icon.snp.right).offset(0)

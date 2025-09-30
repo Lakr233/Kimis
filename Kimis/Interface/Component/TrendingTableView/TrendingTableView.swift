@@ -10,7 +10,7 @@ import Module
 import UIKit
 
 class TrendingTableView: TableView {
-    public private(set) var _source: [Trending] = []
+    private(set) var _source: [Trending] = []
     let progressView = ProgressFooterView()
 
     override init() {

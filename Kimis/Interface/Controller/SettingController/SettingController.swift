@@ -233,18 +233,18 @@ class SettingController: ViewController {
             }),
         ]))
         result.append(.init(title: "Misc", elements: [
-            .init {
-                let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Access In Browser"
-                cell.textLabel?.textColor = .accent
-                return cell
-            } action: { tableView in
-                if let nav = tableView.parentViewController?.navigationController {
-                    nav.pushViewController(MisskeySafariController())
-                } else {
-                    tableView.parentViewController?.present(MisskeySafariController(), animated: true)
-                }
-            },
+            //            .init {
+//                let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+//                cell.textLabel?.text = "Access In Browser"
+//                cell.textLabel?.textColor = .accent
+//                return cell
+//            } action: { tableView in
+//                if let nav = tableView.parentViewController?.navigationController {
+//                    nav.pushViewController(MisskeySafariController())
+//                } else {
+//                    tableView.parentViewController?.present(MisskeySafariController(), animated: true)
+//                }
+//            },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
                 cell.textLabel?.text = "Clear Cache"

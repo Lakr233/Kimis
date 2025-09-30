@@ -28,6 +28,24 @@
       }
     },
     {
+      "identity" : "choreographer",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/unixzii/Choreographer",
+      "state" : {
+        "revision" : "fa8cf25b0a16c499b299d357c1a64db6760a83ef",
+        "version" : "0.1.0"
+      }
+    },
+    {
+      "identity" : "glyphixtextfx",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ktiays/GlyphixTextFx/",
+      "state" : {
+        "revision" : "e1d0aa71c1849363a1bbef061d3d92f10481e62c",
+        "version" : "2.3.6"
+      }
+    },
+    {
       "identity" : "idna-cocoa",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Wevah/IDNA-Cocoa.git",
@@ -55,12 +73,12 @@
       }
     },
     {
-      "identity" : "ltmorphinglabel",
+      "identity" : "respring",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/lexrus/LTMorphingLabel",
+      "location" : "https://github.com/ktiays/Respring",
       "state" : {
-        "revision" : "cbde73b207ac5cfcde289a09685ad0e62b75dc04",
-        "version" : "0.9.3"
+        "revision" : "5efa8274a25dc44e418b3695f9fcfea9ef771087",
+        "version" : "1.0.0"
       }
     },
     {
@@ -133,6 +151,15 @@
       "state" : {
         "revision" : "5d948a15446bddb6c367bc7e7100cfcbaa0e9b57",
         "version" : "8.0.0"
+      }
+    },
+    {
+      "identity" : "with",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ktiays/With",
+      "state" : {
+        "revision" : "d8788e5c3733f5b8f12582487f508e6f9617e7ab",
+        "version" : "2.1.0"
       }
     }
   ],

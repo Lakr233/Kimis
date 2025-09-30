@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import Source
 import UIKit
 

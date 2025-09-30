@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import UIKit
 
 // attach a customized view to the right of the navigation bar
@@ -76,11 +76,10 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
 
     let titleContainer: UIView = .init()
 
-    let titleLabel: LTMorphingLabel = {
-        let view = LTMorphingLabel()
+    let titleLabel: GlyphixTextLabel = {
+        let view = GlyphixTextLabel()
         view.text = "Misskey"
-        view.morphingEffect = .scale
-        view.textAlignment = .left
+        view.textAlignment = .leading
         view.textColor = .systemBlackAndWhite
         view.font = .systemFont(ofSize: 20, weight: .semibold)
         return view
@@ -110,11 +109,6 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
 
         platformSetup()
         view.clipsToBounds = true
-
-        titleLabel.morphingEnabled = false
-        withMainActor(delay: 0.5) {
-            self.titleLabel.morphingEnabled = true
-        }
 
         addChildViewController(associatedNavigationController, toContainerView: view)
         associatedNavigationController.delegate = self

@@ -45,7 +45,7 @@ extension PostEditorToolbarView {
             toolEnabled: @escaping (Post) -> Bool
         ) {
             self.post = post
-            self.toolMenu = toolMenu.compactMap { $0 }
+            self.toolMenu = toolMenu.compactMap(\.self)
             self.toolIcon = toolIcon
             self.toolEnabled = toolEnabled
 

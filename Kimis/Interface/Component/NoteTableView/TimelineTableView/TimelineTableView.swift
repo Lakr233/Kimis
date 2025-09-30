@@ -30,7 +30,7 @@ class TimelineTableView: NoteTableView {
         set { assertionFailure() }
     }
 
-    public var guider: NewItemGuider?
+    var guider: NewItemGuider?
 
     init() {
         super.init(option: .init(useBuiltinRender: false))

@@ -85,12 +85,12 @@ extension UserViewController.ProfileView.ProfileButton {
 
     // there is no need to call stop animate since the reload is in progress!
     static let buttons: [ButtonDescriber] = [
-        .init(title: "Edit Profile") { _, _, view, _ in
-            let editor = ProfileEditorController()
-            view?.parentViewController?.present(next: editor)
-        } qualification: { source, profile in
-            source?.user.userId == profile.userId
-        },
+        //        .init(title: "Edit Profile") { _, _, view, _ in
+//            let editor = ProfileEditorController()
+//            view?.parentViewController?.present(next: editor)
+//        } qualification: { source, profile in
+//            source?.user.userId == profile.userId
+//        },
 
         // 三选一
         .init(title: "Pending") { source, profile, referencedView, progress in

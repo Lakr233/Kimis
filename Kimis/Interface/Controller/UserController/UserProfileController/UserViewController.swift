@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import Source
 import UIKit
 
@@ -73,7 +73,7 @@ class UserViewController: ViewController, RouterDatable {
     }
 
     let titleView = UIView()
-    let titleTextView = LTMorphingLabel()
+    let titleTextView = GlyphixTextLabel()
 
     init() {
         super.init(nibName: nil, bundle: nil)

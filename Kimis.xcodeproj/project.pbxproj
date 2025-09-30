@@ -101,6 +101,7 @@
 		5065E4E2293524BA001C540C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065E4E1293524BA001C540C /* SearchController.swift */; };
 		5065E4E429352B22001C540C /* TextParser+Email.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065E4E329352B22001C540C /* TextParser+Email.swift */; };
 		5065E4E62935BA22001C540C /* UserViewController+LLNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5065E4E52935BA22001C540C /* UserViewController+LLNav.swift */; };
+		5066F6962E8BD63300857C1E /* GlyphixTextFx in Frameworks */ = {isa = PBXBuildFile; productRef = 5066F6952E8BD63300857C1E /* GlyphixTextFx */; };
 		5069EBAE295ED53200677A3F /* UsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBAD295ED53200677A3F /* UsersListController.swift */; };
 		5069EBB2295EDD3100677A3F /* SmallUsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBB1295EDD3100677A3F /* SmallUsersListController.swift */; };
 		5069EBB4295EDD3500677A3F /* LargeUsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5069EBB3295EDD3500677A3F /* LargeUsersListController.swift */; };
@@ -229,7 +230,6 @@
 		50BED20929277D0E00C9D7E2 /* Enumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BED1B429277D0E00C9D7E2 /* Enumerator.swift */; };
 		50BED20A29277D0E00C9D7E2 /* TextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BED1B529277D0E00C9D7E2 /* TextParser.swift */; };
 		50BED21429277D7800C9D7E2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED21329277D7800C9D7E2 /* SnapKit */; };
-		50BED21729277E0600C9D7E2 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED21629277E0600C9D7E2 /* MorphingLabel */; };
 		50BED21A29277E2F00C9D7E2 /* SubviewAttachingTextView in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED21929277E2F00C9D7E2 /* SubviewAttachingTextView */; };
 		50BED21D29277E6500C9D7E2 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED21C29277E6500C9D7E2 /* SwifterSwift */; };
 		50BED22029277EC200C9D7E2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED21F29277EC200C9D7E2 /* SDWebImage */; };
@@ -533,9 +533,9 @@
 				505318F6297EAC07005E30DE /* KeychainAccess in Frameworks */,
 				50443F862927B9190077523F /* Source in Frameworks */,
 				50F922B82E8AD95200D1E2C1 /* ChidoriMenu in Frameworks */,
-				50BED21729277E0600C9D7E2 /* MorphingLabel in Frameworks */,
 				50A4EC90297E14D600F9E0A3 /* Bugsnag in Frameworks */,
 				50BED22029277EC200C9D7E2 /* SDWebImage in Frameworks */,
+				5066F6962E8BD63300857C1E /* GlyphixTextFx in Frameworks */,
 				50BED2262927802700C9D7E2 /* SPIndicator in Frameworks */,
 				50BED21D29277E6500C9D7E2 /* SwifterSwift in Frameworks */,
 			);
@@ -1476,7 +1476,6 @@
 			name = Kimis;
 			packageProductDependencies = (
 				50BED21329277D7800C9D7E2 /* SnapKit */,
-				50BED21629277E0600C9D7E2 /* MorphingLabel */,
 				50BED21929277E2F00C9D7E2 /* SubviewAttachingTextView */,
 				50BED21C29277E6500C9D7E2 /* SwifterSwift */,
 				50BED21F29277EC200C9D7E2 /* SDWebImage */,
@@ -1487,6 +1486,7 @@
 				50A4EC8F297E14D600F9E0A3 /* Bugsnag */,
 				505318F5297EAC07005E30DE /* KeychainAccess */,
 				50F922B72E8AD95200D1E2C1 /* ChidoriMenu */,
+				5066F6952E8BD63300857C1E /* GlyphixTextFx */,
 			);
 			productName = Kimis;
 			productReference = 50BED13029277CDE00C9D7E2 /* Kimis.app */;
@@ -1518,7 +1518,6 @@
 			mainGroup = 50BED12729277CDE00C9D7E2;
 			packageReferences = (
 				50BED21229277D7800C9D7E2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				50BED21529277E0600C9D7E2 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */,
 				50BED21829277E2F00C9D7E2 /* XCRemoteSwiftPackageReference "SubviewAttachingTextView" */,
 				50BED21B29277E6500C9D7E2 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 				50BED21E29277EC200C9D7E2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
@@ -1528,6 +1527,7 @@
 				50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				505318F4297EAC07005E30DE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				50F922B62E8AD95200D1E2C1 /* XCRemoteSwiftPackageReference "ChidoriMenu" */,
+				5066F6942E8BD63300857C1E /* XCRemoteSwiftPackageReference "GlyphixTextFx" */,
 			);
 			productRefGroup = 50BED13129277CDE00C9D7E2 /* Products */;
 			projectDirPath = "";
@@ -1935,9 +1935,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Kimis/KimisDebug.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 166;
+				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_ENHANCED_SECURITY = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -1965,7 +1966,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.18;
-				PRODUCT_BUNDLE_IDENTIFIER = wiki.qaq.kimis.inhouse.lakr;
+				PRODUCT_BUNDLE_IDENTIFIER = as.wiki.qaq.kimis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
@@ -1987,6 +1988,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 166;
+				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_ENHANCED_SECURITY = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
@@ -2067,6 +2069,14 @@
 				minimumVersion = 0.0.0;
 			};
 		};
+		5066F6942E8BD63300857C1E /* XCRemoteSwiftPackageReference "GlyphixTextFx" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ktiays/GlyphixTextFx/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.6;
+			};
+		};
 		50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bugsnag/bugsnag-cocoa";
@@ -2079,15 +2089,6 @@
 		50BED21229277D7800C9D7E2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = versionRange;
-				maximumVersion = 999.999.999;
-				minimumVersion = 0.0.0;
-			};
-		};
-		50BED21529277E0600C9D7E2 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lexrus/LTMorphingLabel";
 			requirement = {
 				kind = versionRange;
 				maximumVersion = 999.999.999;
@@ -2163,6 +2164,11 @@
 			package = 505318F4297EAC07005E30DE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
+		5066F6952E8BD63300857C1E /* GlyphixTextFx */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5066F6942E8BD63300857C1E /* XCRemoteSwiftPackageReference "GlyphixTextFx" */;
+			productName = GlyphixTextFx;
+		};
 		50A4EC8F297E14D600F9E0A3 /* Bugsnag */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */;
@@ -2172,11 +2178,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 50BED21229277D7800C9D7E2 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		50BED21629277E0600C9D7E2 /* MorphingLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 50BED21529277E0600C9D7E2 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */;
-			productName = MorphingLabel;
 		};
 		50BED21929277E2F00C9D7E2 /* SubviewAttachingTextView */ = {
 			isa = XCSwiftPackageProductDependency;

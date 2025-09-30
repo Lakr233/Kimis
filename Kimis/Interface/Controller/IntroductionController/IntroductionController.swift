@@ -5,7 +5,7 @@
 //  Created by Lakr Aream on 2022/10/31.
 //
 
-import MorphingLabel
+import GlyphixTextFx
 import SnapKit
 import UIKit
 

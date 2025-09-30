@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import Source
 import UIKit
 
@@ -25,7 +25,7 @@ class PostEditorView: UIView, UITextViewDelegate {
     private let spacing: CGFloat
     private let placeholder = TextView.noneInteractive()
     private let visibilityButton = UIButton()
-    private let textLimitLabel = LTMorphingLabel()
+    private let textLimitLabel = GlyphixTextLabel()
     private let mainTextEditor = TextView(editable: true, selectable: true, disableLink: true)
     private let pollEditor: PostEditorPollView
     private let attachmentsEditor: PostEditorAttachmentView
@@ -69,7 +69,6 @@ class PostEditorView: UIView, UITextViewDelegate {
         mainTextEditor.font = textParser.getFont()
         textLimitLabel.font = textParser.getMonospacedFont()
         textLimitLabel.textColor = textParser.color.secondary
-        textLimitLabel.morphingEffect = .evaporate
 
         mainTextEditor.inputAccessoryView = toolbar
 

@@ -175,12 +175,12 @@ extension TimelineTableView {
 
             let currentNotes = targetResult
                 .context
-                .filter { !$0.kind.isSupplymentKind }
-                .count
+                .count(where: { !$0.kind.isSupplymentKind })
+
             let previousNotes = previousResult
                 .context
-                .filter { !$0.kind.isSupplymentKind }
-                .count
+                .count(where: { !$0.kind.isSupplymentKind })
+
             let newNotesCount = currentNotes - previousNotes
             if newNotesCount > 0 {
                 guider?.setCountMax(newNotesCount, appending: true)
@@ -202,6 +202,6 @@ extension TimelineTableView {
             result.append(group)
             result.append([.init(kind: .separator)])
         }
-        return result.flatMap { $0 }
+        return result.flatMap(\.self)
     }
 }

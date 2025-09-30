@@ -154,7 +154,7 @@ extension TextParser {
 
     static func connect(strings: [NSMutableAttributedString?], separator: String?) -> NSMutableAttributedString {
         let builder = strings
-            .compactMap { $0 }
+            .compactMap(\.self)
             .filter { $0.length > 0 }
         let ans = NSMutableAttributedString()
         for (idx, string) in builder.enumerated() {

@@ -121,7 +121,7 @@ public extension UserProfile {
             isBlocking: userDetails.isBlocking ?? false,
             isBlocked: userDetails.isBlocked ?? false,
             isMuted: userDetails.isMuted ?? false,
-            mutedWords: userDetails.mutedWords?.flatMap { $0 } ?? []
+            mutedWords: userDetails.mutedWords?.flatMap(\.self) ?? []
         )
     }
 }

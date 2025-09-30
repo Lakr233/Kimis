@@ -65,7 +65,7 @@ class NoteSearchResultController: ViewController {
             NoteCell.Context(kind: .main, noteId: $0),
             NoteCell.Context(kind: .separator),
         ] }
-        .flatMap { $0 }
+        .flatMap(\.self)
         tableView.updatedSource.send(context)
     }
 

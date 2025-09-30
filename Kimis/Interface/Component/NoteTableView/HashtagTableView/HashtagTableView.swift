@@ -13,7 +13,7 @@ class HashtagTableView: NoteTableView {
     let hashtag: String
 
     let updateFetchRequest = CurrentValueSubject<Bool, Never>(true)
-    @Published public private(set) var hashtagNoteList = [NoteID]() // keep it sorted!
+    @Published private(set) var hashtagNoteList = [NoteID]() // keep it sorted!
 
     private var fetcherTicket: UUID?
 

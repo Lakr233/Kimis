@@ -6,7 +6,7 @@
 //
 
 import Combine
-import MorphingLabel
+import GlyphixTextFx
 import Source
 import UIKit
 
@@ -23,7 +23,7 @@ extension PostEditorToolbarView {
 
             createButtonsForEmoji(),
             createButtonsForUser(),
-        ].flatMap { $0 }
+        ].flatMap(\.self)
     }
 }
 
@@ -35,7 +35,7 @@ class PostEditorToolbarView: UIView {
     let sep = UIView()
     let stackView = UIStackView()
     let scrollView = UIScrollView()
-    let textLengthLimitLabel = LTMorphingLabel()
+    let textLengthLimitLabel = GlyphixTextLabel()
 
     var toolButtons: [ToolItemButton] = []
 
@@ -57,10 +57,8 @@ class PostEditorToolbarView: UIView {
 
         textLengthLimitLabel.font = .monospacedSystemFont(ofSize: 14, weight: .regular)
         textLengthLimitLabel.numberOfLines = 1
-        textLengthLimitLabel.adjustsFontSizeToFitWidth = true
-        textLengthLimitLabel.minimumScaleFactor = 0.1
-        textLengthLimitLabel.morphingEffect = .evaporate
-        textLengthLimitLabel.textAlignment = .right
+        textLengthLimitLabel.textAlignment = .trailing
+        textLengthLimitLabel.isBlurEffectEnabled = true
         addSubview(textLengthLimitLabel)
         textLengthLimitLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-Self.spacing)

@@ -10,24 +10,24 @@ import Source
 import UIKit
 
 class NoteTableView: TableView {
-    @Published public var displayingCells: Set<NoteID> = []
-    @Published public var scrollLocation: CGPoint = .zero
+    @Published var displayingCells: Set<NoteID> = []
+    @Published var scrollLocation: CGPoint = .zero
 
-    @Published public var layoutWidth: CGFloat = 0
-    public let updatedSource = CurrentValueSubject<[NoteCell.Context], Never>([])
-    public let refreshCaller = CurrentValueSubject<Bool, Never>(true)
+    @Published var layoutWidth: CGFloat = 0
+    let updatedSource = CurrentValueSubject<[NoteCell.Context], Never>([])
+    let refreshCaller = CurrentValueSubject<Bool, Never>(true)
 
-    public let renderQueue = DispatchQueue(label: "wiki.qaq.timeline.render")
+    let renderQueue = DispatchQueue(label: "wiki.qaq.timeline.render")
     var renderTicket = UUID()
 
-    public var context: [NoteCell.Context] = []
+    var context: [NoteCell.Context] = []
     let progressIndicator = ProgressFooterView()
-    @Published public var footerProgressWorkingJobs = 0 {
+    @Published var footerProgressWorkingJobs = 0 {
         didSet { if footerProgressWorkingJobs < 0 { footerProgressWorkingJobs = 0 } }
     }
 
     let dataUpdateLock = NSLock()
-    public var onSelect: ((_ note: NoteID) -> Void)?
+    var onSelect: ((_ note: NoteID) -> Void)?
 
     struct Option {
         let useBuiltinRender: Bool
