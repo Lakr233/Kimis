@@ -7,8 +7,8 @@
 	<key>com.apple.security.hardened-process.dyld-ro</key>
 	<true/>
 	<key>com.apple.security.hardened-process.enhanced-security-version</key>
-	<integer>1</integer>
+	<true/>
 	<key>com.apple.security.hardened-process.platform-restrictions</key>
-	<integer>2</integer>
+	<true/>
 </dict>
 </plist>
