@@ -8,8 +8,6 @@
 	<true/>
 	<key>com.apple.security.hardened-process.enhanced-security-version</key>
 	<integer>1</integer>
-	<key>com.apple.security.hardened-process.hardened-heap</key>
-	<true/>
 	<key>com.apple.security.hardened-process.platform-restrictions</key>
 	<integer>2</integer>
 </dict>

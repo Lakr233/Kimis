@@ -34,12 +34,5 @@
 		<string>fetch</string>
 		<string>processing</string>
 	</array>
-	<key>bugsnag</key>
-	<dict>
-		<key>apiKey</key>
-		<string>a6bc0d580ede942fa1ca76205bb38e77</string>
-		<key>matcher</key>
-		<string>as.wiki.qaq.kimis</string>
-	</dict>
 </dict>
 </plist>

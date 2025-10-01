@@ -18,7 +18,7 @@ class NotificationTableView: TableView {
     let renderQueue = DispatchQueue(label: "wiki.qaq.notifications.render")
     var renderTicket = UUID()
 
-    internal(set) var notifications: [NotificationCell.Context] = []
+    var notifications: [NotificationCell.Context] = []
     let progressIndicator = ProgressFooterView()
 
     var onSelect: ((_ notification: RemoteNotification) -> Void)?

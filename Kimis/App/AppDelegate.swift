@@ -7,7 +7,6 @@
 
 import AVKit
 import BackgroundTasks
-import Bugsnag
 import IQKeyboardManagerSwift
 import SPIndicator
 import UIKit
@@ -22,17 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("[*] request notification permission result \(result) \(error?.localizedDescription ?? "nil")")
         }
         UNUserNotificationCenter.current().delegate = self
-        #if !DEBUG
-            if let metadata = Bundle.main.infoDictionary?["bugsnag"] as? [String: Any],
-               let matcher = metadata["matcher"] as? String
-            {
-                if bundleIdentifier.lowercased() == matcher.lowercased() {
-                    Bugsnag.start()
-                } else {
-                    print("[*] diag requires bundle identifier to match \(matcher)")
-                }
-            }
-        #endif
         return true
     }
 

@@ -10,15 +10,6 @@
       }
     },
     {
-      "identity" : "bugsnag-cocoa",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/bugsnag/bugsnag-cocoa",
-      "state" : {
-        "revision" : "1f991e92a6e3993c2763d071781d895ca4075a90",
-        "version" : "6.34.0"
-      }
-    },
-    {
       "identity" : "chidorimenu",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Lakr233/ChidoriMenu",

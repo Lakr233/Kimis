@@ -17,12 +17,16 @@ let package = Package(
         .package(url: "https://github.com/stephencelis/SQLite.swift.git", allAvailable),
         .package(url: "https://github.com/malcommac/SwiftDate.git", allAvailable),
         .package(url: "https://github.com/marksands/BetterCodable.git", allAvailable),
+        .package(url: "https://github.com/SwifterSwift/SwifterSwift", allAvailable),
     ],
     targets: [
         .target(name: "Source", dependencies: ["Network", "Storage"]),
 
         // requesting data goes into
-        .target(name: "Network", dependencies: ["ModuleBridge"]),
+        .target(name: "Network", dependencies: [
+            "ModuleBridge",
+            "SwifterSwift",
+        ]),
 
         // save data and load from database goes into
         .target(name: "Storage", dependencies: [

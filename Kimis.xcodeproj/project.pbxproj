@@ -128,7 +128,6 @@
 		50A2F3752934923400DE9464 /* UserViewController+Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A2F3742934923400DE9464 /* UserViewController+Notes.swift */; };
 		50A2F3772934985600DE9464 /* UserViewController+SegmentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A2F3762934985600DE9464 /* UserViewController+SegmentButton.swift */; };
 		50A2F3792934B4B400DE9464 /* NoteCell+Pinned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A2F3782934B4B400DE9464 /* NoteCell+Pinned.swift */; };
-		50A4EC90297E14D600F9E0A3 /* Bugsnag in Frameworks */ = {isa = PBXBuildFile; productRef = 50A4EC8F297E14D600F9E0A3 /* Bugsnag */; };
 		50AFDFE129305E8300BEC741 /* NoteOperationStrip+Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDFE029305E8300BEC741 /* NoteOperationStrip+Reply.swift */; };
 		50AFDFE329305E8B00BEC741 /* NoteOperationStrip+Renote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDFE229305E8B00BEC741 /* NoteOperationStrip+Renote.swift */; };
 		50AFDFE529305E9200BEC741 /* NoteOperationStrip+Reaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AFDFE429305E9200BEC741 /* NoteOperationStrip+Reaction.swift */; };
@@ -369,7 +368,6 @@
 		5069EBC4295EEAD100677A3F /* UserPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreview.swift; sourceTree = "<group>"; };
 		5080C6A3297EC3B300F73CCD /* Launcher.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launcher.storyboard; sourceTree = "<group>"; };
 		50831AAA296AB77F002A166A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		508AC67329E8EBF100342409 /* KimisDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KimisDebug.entitlements; sourceTree = "<group>"; };
 		508FC8292962C16F00B032D8 /* PostEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostEditorView.swift; sourceTree = "<group>"; };
 		508FC82B296328AD00B032D8 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		508FC82D296329F900B032D8 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
@@ -533,7 +531,6 @@
 				505318F6297EAC07005E30DE /* KeychainAccess in Frameworks */,
 				50443F862927B9190077523F /* Source in Frameworks */,
 				50F922B82E8AD95200D1E2C1 /* ChidoriMenu in Frameworks */,
-				50A4EC90297E14D600F9E0A3 /* Bugsnag in Frameworks */,
 				50BED22029277EC200C9D7E2 /* SDWebImage in Frameworks */,
 				5066F6962E8BD63300857C1E /* GlyphixTextFx in Frameworks */,
 				50BED2262927802700C9D7E2 /* SPIndicator in Frameworks */,
@@ -1031,7 +1028,6 @@
 			children = (
 				50BED14129277CDF00C9D7E2 /* Info.plist */,
 				50BED14729277D0D00C9D7E2 /* Kimis.entitlements */,
-				508AC67329E8EBF100342409 /* KimisDebug.entitlements */,
 				50BED19C29277D0E00C9D7E2 /* App */,
 				50BED16A29277D0E00C9D7E2 /* Interface */,
 				50BED1A129277D0E00C9D7E2 /* Backend */,
@@ -1483,7 +1479,6 @@
 				50BED2252927802700C9D7E2 /* SPIndicator */,
 				50443F852927B9190077523F /* Source */,
 				5011D502293B477C0088173F /* IDNA */,
-				50A4EC8F297E14D600F9E0A3 /* Bugsnag */,
 				505318F5297EAC07005E30DE /* KeychainAccess */,
 				50F922B72E8AD95200D1E2C1 /* ChidoriMenu */,
 				5066F6952E8BD63300857C1E /* GlyphixTextFx */,
@@ -1524,7 +1519,6 @@
 				50BED22129277FE100C9D7E2 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				50BED2242927802700C9D7E2 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 				5011D501293B477C0088173F /* XCRemoteSwiftPackageReference "IDNA-Cocoa" */,
-				50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */,
 				505318F4297EAC07005E30DE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				50F922B62E8AD95200D1E2C1 /* XCRemoteSwiftPackageReference "ChidoriMenu" */,
 				5066F6942E8BD63300857C1E /* XCRemoteSwiftPackageReference "GlyphixTextFx" */,
@@ -1845,7 +1839,8 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 964G86XT2P;
-				ENABLE_POINTER_AUTHENTICATION = NO;
+				ENABLE_ENHANCED_SECURITY = YES;
+				ENABLE_POINTER_AUTHENTICATION = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1914,8 +1909,9 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 964G86XT2P;
+				ENABLE_ENHANCED_SECURITY = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_POINTER_AUTHENTICATION = NO;
+				ENABLE_POINTER_AUTHENTICATION = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1940,26 +1936,28 @@
 		50BED14529277CDF00C9D7E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					x86_64,
-					arm64,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = Kimis/KimisDebug.entitlements;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_ENHANCED_SECURITY = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_POINTER_AUTHENTICATION = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
 				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
 				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1978,13 +1976,20 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.18;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = as.wiki.qaq.kimis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1993,26 +1998,29 @@
 		50BED14629277CDF00C9D7E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					x86_64,
-					arm64,
-				);
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				AUTOMATION_APPLE_EVENTS = NO;
 				CODE_SIGN_ENTITLEMENTS = Kimis/Kimis.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 167;
+				CURRENT_PROJECT_VERSION = 180;
 				DEVELOPMENT_TEAM = 6CMYQQFFT8;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_ENHANCED_SECURITY = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_INCOMING_NETWORK_CONNECTIONS = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_POINTER_AUTHENTICATION = YES;
 				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
 				ENABLE_RESOURCE_ACCESS_CAMERA = YES;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
 				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -2031,14 +2039,21 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.18;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = as.wiki.qaq.kimis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2091,15 +2106,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.3.6;
-			};
-		};
-		50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/bugsnag/bugsnag-cocoa";
-			requirement = {
-				kind = versionRange;
-				maximumVersion = 999.999.999;
-				minimumVersion = 0.0.0;
 			};
 		};
 		50BED21229277D7800C9D7E2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -2184,11 +2190,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5066F6942E8BD63300857C1E /* XCRemoteSwiftPackageReference "GlyphixTextFx" */;
 			productName = GlyphixTextFx;
-		};
-		50A4EC8F297E14D600F9E0A3 /* Bugsnag */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 50A4EC8E297E14D600F9E0A3 /* XCRemoteSwiftPackageReference "bugsnag-cocoa" */;
-			productName = Bugsnag;
 		};
 		50BED21329277D7800C9D7E2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
