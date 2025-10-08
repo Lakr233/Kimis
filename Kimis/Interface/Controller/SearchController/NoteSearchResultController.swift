@@ -43,7 +43,7 @@ class NoteSearchResultController: ViewController {
             make.edges.equalToSuperview()
         }
 
-        title = "🔍 \(searchKey)"
+        title = L10n.text("🔍 %@", searchKey)
         let indicator = UIActivityIndicatorView()
         indicators.append(indicator)
         navigationItem.rightBarButtonItem = .init(customView: indicator)

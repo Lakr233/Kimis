@@ -52,7 +52,7 @@ class ImagePreviewController: QLPreviewController, QLPreviewControllerDataSource
             .appendingPathExtension(image.sd_imageFormat.possiblePathExtension)
         try? data.write(to: tempLocation, options: .atomic)
         guard FileManager.default.fileExists(atPath: tempLocation.path) else {
-            presentError("Unable to Load Data")
+            presentError(L10n.text("Unable to Load Data"))
             return
         }
         targetLocation = tempLocation

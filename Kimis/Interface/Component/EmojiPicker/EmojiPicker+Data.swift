@@ -50,7 +50,7 @@ extension EmojiPickerView {
             }
         }
         if !recent.isEmpty {
-            let section = EmojiSection(sectionTitle: "Recent Used", emojis: recent)
+            let section = EmojiSection(sectionTitle: L10n.text("Recent Used"), emojis: recent)
             dataSource.append(section)
         }
 
@@ -62,7 +62,7 @@ extension EmojiPickerView {
             for key in build.keys.sorted() {
                 guard let section = build[key] else { continue }
                 dataSource.append(.init(
-                    sectionTitle: key.isEmpty ? "Instance Emoji" : key,
+                    sectionTitle: key.isEmpty ? L10n.text("Instance Emoji") : key,
                     emojis: section.sorted { a, b in a.emoji.emoji < b.emoji.emoji }
                 ))
             }
@@ -77,7 +77,7 @@ extension EmojiPickerView {
                 .sorted(by: \.emoji)
                 .map { EmojiElement(emoji: $0) }
             let section = EmojiSection(
-                sectionTitle: key.isEmpty ? "Ungrouped" : key,
+                sectionTitle: key.isEmpty ? L10n.text("Ungrouped") : key,
                 emojis: elements
             )
             dataSource.append(section)

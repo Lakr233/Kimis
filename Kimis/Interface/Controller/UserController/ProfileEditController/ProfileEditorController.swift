@@ -30,7 +30,7 @@ class ProfileEditorController: UINavigationController {
 private class _ProfileEditorController: MisskeySafariController {
     override init() {
         super.init()
-        title = "Edit Profile"
+        title = L10n.text("Edit Profile")
     }
 
     override func load() {
@@ -46,9 +46,9 @@ private class _ProfileEditorController: MisskeySafariController {
     @objc override func doneTapped() {
         dismiss(animated: true)
         DispatchQueue.global().async {
-            presentMessage("Updating Account Info")
+            presentMessage(L10n.text("Updating Account Info"))
             self.source?.populateUserInfo(forceUpdate: true)
-            presentMessage("Account Info Updated")
+            presentMessage(L10n.text("Account Info Updated"))
         }
     }
 }

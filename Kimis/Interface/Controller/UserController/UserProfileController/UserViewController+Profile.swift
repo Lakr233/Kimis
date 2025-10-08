@@ -54,9 +54,9 @@ extension UserViewController {
         let segmentStack = UIStackView()
         let separator = UIView()
 
-        let segmentNoteButton = SegmentButton(title: "Note")
-        let segmentRepliesButton = SegmentButton(title: "w/ Replies")
-        let segmentMediaButton = SegmentButton(title: "Media")
+        let segmentNoteButton = SegmentButton(title: L10n.text("Note"))
+        let segmentRepliesButton = SegmentButton(title: L10n.text("w/ Replies"))
+        let segmentMediaButton = SegmentButton(title: L10n.text("Media"))
 
         let progressView = UIActivityIndicatorView()
         let failureIcon = UIImageView()
@@ -86,7 +86,7 @@ extension UserViewController {
             failureIcon.contentMode = .scaleAspectFit
             failureIcon.tintColor = .systemBlackAndWhite
 
-            failureHint.text = "Unknown/Network Error Occurred"
+            failureHint.text = L10n.text("Unknown/Network Error Occurred")
             failureHint.minimumScaleFactor = 0.5
             failureHint.numberOfLines = 1
             failureHint.textColor = .systemBlackAndWhite
@@ -98,7 +98,7 @@ extension UserViewController {
                 .foregroundColor: UIColor.accent,
                 .underlineStyle: NSUnderlineStyle.single.rawValue,
             ]
-            let text = NSMutableAttributedString(string: "Retry", attributes: underline)
+            let text = NSMutableAttributedString(string: L10n.text("Retry"), attributes: underline)
             retryButton.setAttributedTitle(text, for: .normal)
 
             avatarImageView.layer.borderWidth = 2

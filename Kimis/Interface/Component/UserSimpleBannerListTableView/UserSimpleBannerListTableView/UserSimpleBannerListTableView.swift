@@ -102,9 +102,9 @@ class UserSimpleBannerListTableView: TableView, UITableViewDelegate, UITableView
             return nil
         }
         if _source.count > 0 {
-            footer.set(title: "\(_source.count) users(s)")
+            footer.set(title: L10n.text("%d users(s)", _source.count))
         } else {
-            footer.set(title: "No User Data")
+            footer.set(title: L10n.text("No User Data"))
         }
         return footer
     }

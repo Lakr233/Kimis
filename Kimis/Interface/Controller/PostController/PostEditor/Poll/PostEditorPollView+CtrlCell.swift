@@ -165,10 +165,10 @@ extension PostEditorPollView {
                 let formatter = DateComponentsFormatter()
                 formatter.unitsStyle = .abbreviated
                 formatter.allowedUnits = [.day, .hour, .minute]
-                let str = formatter.string(from: date.timeIntervalSinceNow) ?? "Unknown"
+                let str = formatter.string(from: date.timeIntervalSinceNow) ?? L10n.text("Unknown")
                 dateButton.setTitle(str, for: .normal)
             } else {
-                dateButton.setTitle("Long Term", for: .normal)
+                dateButton.setTitle(L10n.text("Long Term"), for: .normal)
             }
         }
 
@@ -178,7 +178,7 @@ extension PostEditorPollView {
                 if post.poll?.choices.count ?? 0 < 10 {
                     post.poll?.choices.append("")
                 } else {
-                    presentError("Can not add more")
+                    presentError(L10n.text("Can not add more"))
                 }
             }
         }
@@ -212,11 +212,11 @@ extension PostEditorPollView.PollEditorControlCell {
 
             var describe: String {
                 let interval = rawValue
-                if interval <= 0 { return "Long Term" }
+                if interval <= 0 { return L10n.text("Long Term") }
                 let formatter = DateComponentsFormatter()
                 formatter.unitsStyle = .abbreviated
                 formatter.allowedUnits = [.day, .hour, .minute]
-                return formatter.string(from: TimeInterval(interval)) ?? "Unknown"
+                return formatter.string(from: TimeInterval(interval)) ?? L10n.text("Unknown")
             }
         }
 
@@ -268,10 +268,10 @@ extension PostEditorPollView.PollEditorControlCell {
             guard let post = getPost?() else { return nil }
             return .init(identifier: nil, previewProvider: nil) { _ in
                 UIMenu(children: [
-                    UIAction(title: "Single Choice", image: UIImage(systemName: "1.circle")) { _ in
+                    UIAction(title: L10n.text("Single Choice"), image: UIImage(systemName: "1.circle")) { _ in
                         post.poll?.multiple = false
                     },
-                    UIAction(title: "Multiple Choice", image: UIImage(systemName: "list.bullet")) { _ in
+                    UIAction(title: L10n.text("Multiple Choice"), image: UIImage(systemName: "list.bullet")) { _ in
                         post.poll?.multiple = true
                     },
                 ])

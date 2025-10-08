@@ -23,7 +23,7 @@ class UsersListController: ViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
 
-        title = "Users"
+        title = L10n.text("Users")
 
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in

@@ -27,16 +27,16 @@ extension NoteOperationStrip {
         shareItems.append(activityItemMetadata)
 
         let copyText = Activity(
-            title: "Copy Text",
+            title: L10n.text("Copy Text"),
             image: UIImage(systemName: "doc.on.doc")
         ) { _ in
             UIPasteboard.general.string = note.text
-            presentMessage("Copied")
+            presentMessage(L10n.text("Copied"))
         }
         shareActivities.append(copyText)
 
         let openInBrowser = Activity(
-            title: "Open In Browser",
+            title: L10n.text("Open In Browser"),
             image: UIImage(systemName: "safari")
         ) { _ in
             guard let url = source.notes.retain(noteId)?.url
@@ -46,20 +46,20 @@ extension NoteOperationStrip {
         }
         shareActivities.append(openInBrowser)
         let copyLink = Activity(
-            title: "Copy Link",
+            title: L10n.text("Copy Link"),
             image: UIImage(systemName: "doc.on.doc")
         ) { _ in
             guard let url = source.notes.retain(noteId)?.url
                 ?? URL(string: "https://\(source.user.host)/notes/\(noteId)")
             else { return }
             UIPasteboard.general.string = url.absoluteString
-            presentMessage("Copied")
+            presentMessage(L10n.text("Copied"))
         }
         shareActivities.append(copyLink)
 
         if activityItemMetadata.url?.host?.lowercased() != source.user.host.lowercased() {
             let openInBrowserWithUserInstance = Activity(
-                title: "Open In Browser (\(source.user.host))",
+                title: L10n.text("Open In Browser (%@)", source.user.host),
                 image: UIImage(systemName: "safari")
             ) { _ in
                 guard let url = URL(string: "https://\(source.user.host)/notes/\(noteId)") else {
@@ -69,24 +69,24 @@ extension NoteOperationStrip {
             }
             shareActivities.append(openInBrowserWithUserInstance)
             let copyLinkWithUserInstance = Activity(
-                title: "Copy Link (\(source.user.host))",
+                title: L10n.text("Copy Link (%@)", source.user.host),
                 image: UIImage(systemName: "doc.on.doc")
             ) { _ in
                 guard let url = URL(string: "https://\(source.user.host)/notes/\(noteId)") else {
                     return
                 }
                 UIPasteboard.general.string = url.absoluteString
-                presentMessage("Copied")
+                presentMessage(L10n.text("Copied"))
             }
             shareActivities.append(copyLinkWithUserInstance)
         }
 
         let copyUsername = Activity(
-            title: "Copy Username (\(user.absoluteUsername))",
+            title: L10n.text("Copy Username (%@)", user.absoluteUsername),
             image: UIImage(systemName: "doc.on.doc")
         ) { _ in
             UIPasteboard.general.string = user.absoluteUsername
-            presentMessage("Copied")
+            presentMessage(L10n.text("Copied"))
         }
         shareActivities.append(copyUsername)
 

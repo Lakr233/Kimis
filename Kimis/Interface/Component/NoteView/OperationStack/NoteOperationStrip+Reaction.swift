@@ -38,7 +38,7 @@ extension NoteOperationStrip {
         startProgressIndicator()
         DispatchQueue.global().async {
             let ret = source.req.requestNoteReaction(reactionIdentifier: emojiOrDelete, forNote: note)
-            if ret == nil { presentError("Unable to update") }
+            if ret == nil { presentError(L10n.text("Unable to update")) }
             withMainActor { [weak self] in self?.updateDataSource() }
         }
     }

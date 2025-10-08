@@ -87,7 +87,7 @@ class AttachmentDrivePicker: ViewController {
         }
         navigationItem.leftBarButtonItems = [
             .init(
-                title: "Cancel",
+                title: L10n.text("Cancel"),
                 style: .plain,
                 target: self,
                 action: #selector(cancelButtonTapped)
@@ -95,7 +95,7 @@ class AttachmentDrivePicker: ViewController {
         ]
         navigationItem.rightBarButtonItems = [
             .init(
-                title: "Done",
+                title: L10n.text("Done"),
                 style: .done,
                 target: self,
                 action: #selector(doneButtonTapped)
@@ -106,7 +106,7 @@ class AttachmentDrivePicker: ViewController {
 
     func updateTitle() {
         if selection.isEmpty {
-            title = "Drive File"
+            title = L10n.text("Drive File")
         } else {
             title = "Drive File - (\(selection.count))"
         }
@@ -130,11 +130,11 @@ class AttachmentDrivePicker: ViewController {
             dismiss()
             return
         }
-        let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to go back?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Go Back", style: .destructive, handler: { _ in
+        let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to go back?"), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L10n.text("Go Back"), style: .destructive, handler: { _ in
             self.dismiss()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
         present(alert, animated: true)
     }
 

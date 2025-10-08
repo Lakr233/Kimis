@@ -16,7 +16,7 @@ class NotificationController: ViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Notification"
+        title = L10n.text("Notification")
     }
 
     @available(*, unavailable)
@@ -75,6 +75,6 @@ class NotificationController: ViewController {
 extension NotificationController {
     @objc func markNewestAsRead() {
         source?.notifications.readAll()
-        presentMessage("Marked All Read")
+        presentMessage(L10n.text("Marked All Read"))
     }
 }

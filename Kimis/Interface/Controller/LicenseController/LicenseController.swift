@@ -12,14 +12,14 @@ class LicenseController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "License"
+        title = L10n.text("License")
 
         if let url = Bundle.main.url(forResource: "LICENSE", withExtension: nil),
            let str = try? String(contentsOfFile: url.path)
         {
             textView.text = str
         } else {
-            textView.text = "License file unavailable, check git repo for details."
+            textView.text = L10n.text("License file unavailable, check git repo for details.")
         }
 
         textView.textColor = .systemBlackAndWhite

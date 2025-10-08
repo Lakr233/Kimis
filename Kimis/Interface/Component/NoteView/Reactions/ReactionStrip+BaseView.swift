@@ -95,7 +95,7 @@ extension ReactionStrip {
                             forNote: reactionElement.noteId
                         )
                     } else {
-                        presentError("This reaction is not available")
+                        presentError(L10n.text("This reaction is not available"))
                     }
                 } else if let textEmoji = reactionElement.text {
                     _ = source.req.requestNoteReaction(
@@ -103,7 +103,7 @@ extension ReactionStrip {
                         forNote: reactionElement.noteId
                     )
                 } else {
-                    presentError("Unable to find this reaction")
+                    presentError(L10n.text("Unable to find this reaction"))
                 }
             }
         }

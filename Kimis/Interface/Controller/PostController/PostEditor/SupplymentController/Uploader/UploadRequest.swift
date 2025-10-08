@@ -106,10 +106,10 @@ extension AttachUploadController.UploadRequest {
 extension AttachUploadController.UploadRequest.Status {
     var title: String {
         switch self {
-        case .pending: "Pending"
-        case .uploading: "Uploading"
-        case .done: "Uploaded"
-        case .failed: "Failed"
+        case .pending: L10n.text("Pending")
+        case .uploading: L10n.text("Uploading")
+        case .done: L10n.text("Uploaded")
+        case .failed: L10n.text("Failed")
         }
     }
 

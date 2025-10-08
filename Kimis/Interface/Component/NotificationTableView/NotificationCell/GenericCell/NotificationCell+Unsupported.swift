@@ -29,12 +29,12 @@ extension NotificationCell {
 
         override func prepareForReuse() {
             super.prepareForReuse()
-            title.text = "Unsupported Notification"
+            title.text = L10n.text("Unsupported Notification")
         }
 
         override func load(_ context: NotificationCell.Context) {
             super.load(context)
-            title.text = "Unsupported Notification \(context.notification?.type.rawValue ?? "(undefined)")"
+            title.text = L10n.text("Unsupported Notification %@", context.notification?.type.rawValue ?? "(undefined)")
         }
     }
 }

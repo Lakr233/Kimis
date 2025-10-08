@@ -124,7 +124,7 @@ class NoteViewController: ViewController, RouterDatable {
             DispatchQueue.global().async {
                 let updated = self.source?.req.requestNote(withID: self.noteId) != nil
                 if !updated {
-                    presentError("Unable to load this note")
+                    presentError(L10n.text("Unable to load this note"))
                 }
             }
         } else if canFetch {
@@ -135,7 +135,7 @@ class NoteViewController: ViewController, RouterDatable {
                 }
             }
         } else {
-            presentError("Broken Note Data")
+            presentError(L10n.text("Broken Note Data"))
         }
     }
 

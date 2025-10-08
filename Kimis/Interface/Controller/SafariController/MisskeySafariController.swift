@@ -91,7 +91,7 @@ class MisskeySafariController: ViewController, WKNavigationDelegate {
             make.height.equalTo(2)
         }
         navigationItem.rightBarButtonItems = [
-            .init(title: "Done", style: .done, target: self, action: #selector(doneTapped)),
+            .init(title: L10n.text("Done"), style: .done, target: self, action: #selector(doneTapped)),
         ]
     }
 

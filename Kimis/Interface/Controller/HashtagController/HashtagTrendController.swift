@@ -15,7 +15,7 @@ class HashtagTrendController: ViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Trending"
+        title = L10n.text("Trending")
     }
 
     @available(*, unavailable)
@@ -43,7 +43,7 @@ class HashtagTrendController: ViewController {
         }
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.5) { [weak self] in
             self?.source?.trending.populateTrending()
-            presentMessage("Trending Hashtag Updated")
+            presentMessage(L10n.text("Trending Hashtag Updated"))
         }
     }
 }
