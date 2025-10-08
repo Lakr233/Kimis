@@ -6,7 +6,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[主机] 例如：misskey.io（不是用户名）"
+            "value" : "[主机] 例如：misskey.io (不是用户名)"
           }
         }
       }
@@ -16,7 +16,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "[https] 是必需的，用于安全原因"
+            "value" : "[https] 为必填项，出于安全考虑"
           }
         }
       }
@@ -46,7 +46,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d 条笔记"
+            "value" : "%d 条动态"
           }
         }
       }
@@ -146,7 +146,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "接受此关注者？"
+            "value" : "接受此关注请求？"
           }
         }
       }
@@ -246,7 +246,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您确定要删除此笔记吗？所有回复或转帖（包含此笔记）也将被删除。"
+            "value" : "确定要删除这条动态吗？所有回复或转推都将被一并删除。"
           }
         }
       }
@@ -296,7 +296,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您确定要举报此笔记吗？"
+            "value" : "您确定要举报这条动态吗？"
           }
         }
       }
@@ -356,7 +356,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "笔记数据损坏"
+            "value" : "动态数据损坏"
           }
         }
       }
@@ -586,7 +586,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "云端文件"
+            "value" : "云盘文件"
           }
         }
       }
@@ -616,7 +616,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您需要了解的一切信息。"
+            "value" : "关于万物的万事通。"
           }
         }
       }
@@ -706,7 +706,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "关注 %d"
+            "value" : "正在关注 %d"
           }
         }
       }
@@ -796,7 +796,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "初始设置已完成！恭喜！"
+            "value" : "初始设置完成！恭喜！"
           }
         }
       }
@@ -866,7 +866,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "许可证文件不可用，请查看 git 仓库获取详细信息。"
+            "value" : "许可证文件不可用，请查看 Git 仓库以获取详细信息。"
           }
         }
       }
@@ -936,7 +936,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "由 @Lakr233 用爱制作"
+            "value" : "由 @Lakr233 倾情打造"
           }
         }
       }
@@ -1056,7 +1056,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "笔记"
+            "value" : "动态"
           }
         }
       }
@@ -1066,7 +1066,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "笔记 %d"
+            "value" : "动态 %d"
           }
         }
       }
@@ -1076,7 +1076,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本地和远程服务器上的笔记。"
+            "value" : "来自本地和远程服务器的动态。"
           }
         }
       }
@@ -1086,7 +1086,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您服务器上的笔记。"
+            "value" : "来自您所在服务器的动态。"
           }
         }
       }
@@ -1146,7 +1146,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "请在那里使用您的用户名和密码登录，并使用 Misskey OAuth 授权此会话。"
+            "value" : "请在打开的页面中使用您的用户名和密码登录，并授权此应用。"
           }
         }
       }
@@ -1246,7 +1246,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "转帖"
+            "value" : "转推"
           }
         }
       }
@@ -1356,7 +1356,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "正在发送帖子"
+            "value" : "正在发送动态"
           }
         }
       }
@@ -1436,7 +1436,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "此反应不可用"
+            "value" : "此回应不可用"
           }
         }
       }
@@ -1476,7 +1476,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法找到此反应"
+            "value" : "未能找到此回应"
           }
         }
       }
@@ -1506,7 +1506,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "无法加载此笔记"
+            "value" : "无法加载此动态"
           }
         }
       }
@@ -1756,7 +1756,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您有 %d 条笔记"
+            "value" : "您有 %d 条动态"
           }
         }
       }
@@ -1766,7 +1766,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您已全部设置完成！"
+            "value" : "一切就绪！"
           }
         }
       }
@@ -1776,7 +1776,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "您的主时间线概览，包含您关注的人的帖子。"
+            "value" : "您的主时间线一览，包含您关注的人发布的动态。"
           }
         }
       }
