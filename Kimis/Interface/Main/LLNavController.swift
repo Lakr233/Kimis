@@ -78,7 +78,7 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
 
     let titleLabel: GlyphixTextLabel = {
         let view = GlyphixTextLabel()
-        view.text = "Misskey"
+        view.text = L10n.text("Misskey")
         view.textAlignment = .leading
         view.textColor = .systemBlackAndWhite
         view.font = .systemFont(ofSize: 20, weight: .semibold)

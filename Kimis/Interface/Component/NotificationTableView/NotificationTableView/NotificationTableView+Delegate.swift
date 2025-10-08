@@ -79,9 +79,9 @@ extension NotificationTableView: UITableViewDelegate, UITableViewDataSource {
         }
         let count = itemCount
         if count > 0 {
-            footer.set(title: "\(count) notification(s)")
+            footer.set(title: L10n.text("%d notification(s)", count))
         } else {
-            footer.set(title: "🥲 Nothing Here")
+            footer.set(title: L10n.text("🥲 Nothing Here"))
         }
         return footer
     }

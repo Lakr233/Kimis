@@ -37,7 +37,7 @@ class FollowingController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Following"
+        title = L10n.text("Following")
 
         tableView.refreshControl = refreshControl
         view.addSubview(tableView)

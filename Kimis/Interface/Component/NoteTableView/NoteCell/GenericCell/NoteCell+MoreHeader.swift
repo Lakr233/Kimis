@@ -28,7 +28,7 @@ extension NoteCell {
             icon.tintColor = .accent
             icon.contentMode = .scaleAspectFit
             icon.image = UIImage.fluent(.arrow_collapse_all_filled)
-            label.text = "Load More Replies"
+            label.text = L10n.text("Load More Replies")
             label.textColor = .accent
             label.textAlignment = .left
             label.numberOfLines = 1

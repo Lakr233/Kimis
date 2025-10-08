@@ -64,7 +64,7 @@ extension TrendingTableView {
 
         func load(_ trending: Trending) {
             title.text = trending.tag
-            subtitle.text = "\(trending.usersCount) user(s)"
+            subtitle.text = L10n.text("%d user(s)", trending.usersCount)
         }
     }
 }

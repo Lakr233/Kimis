@@ -1,0 +1,270 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
+    },
+    "%@ notification(s)" : {
+
+    },
+    "👉\nSwitch Endpoint" : {
+
+    },
+    "🔍 %@" : {
+
+    },
+    "🥲 Nothing Here" : {
+
+    },
+    "Account" : {
+
+    },
+    "All Set" : {
+
+    },
+    "App Version: %@" : {
+
+    },
+    "Application" : {
+
+    },
+    "Are you sure about it?" : {
+
+    },
+    "Are you sure you want to sign out?" : {
+
+    },
+    "Bookmark" : {
+
+    },
+    "Broken Note Data" : {
+
+    },
+    "Cache Cleared" : {
+
+    },
+    "Can not add more" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Clear Cache" : {
+
+    },
+    "Collections" : {
+
+    },
+    "Contact Maintainer" : {
+
+    },
+    "Copied" : {
+
+    },
+    "Discard" : {
+
+    },
+    "Discover" : {
+
+    },
+    "Done" : {
+
+    },
+    "Edit Profile" : {
+
+    },
+    "Error" : {
+
+    },
+    "Everything you need to know about everything." : {
+
+    },
+    "File Too Large" : {
+
+    },
+    "Follower" : {
+
+    },
+    "Following" : {
+
+    },
+    "Get Source Code" : {
+
+    },
+    "Global" : {
+
+    },
+    "Home" : {
+
+    },
+    "Hybrid" : {
+
+    },
+    "Initial setup completed! Congregations!" : {
+
+    },
+    "Instance" : {
+
+    },
+    "Instance Metadata Updated" : {
+
+    },
+    "License" : {
+
+    },
+    "License file unavailable, check git repo for details." : {
+
+    },
+    "Local" : {
+
+    },
+    "Long Term" : {
+
+    },
+    "Marked All Read" : {
+
+    },
+    "Media" : {
+
+    },
+    "Misc" : {
+
+    },
+    "Misskey" : {
+
+    },
+    "Misskey is an open source, decentralized social media platform." : {
+
+    },
+    "Multiple Choice" : {
+
+    },
+    "Next" : {
+
+    },
+    "Not available on this instance" : {
+
+    },
+    "Note" : {
+
+    },
+    "Notes on local and remote servers." : {
+
+    },
+    "Notes on your server." : {
+
+    },
+    "Notification" : {
+
+    },
+    "Open Instance's Policy" : {
+
+    },
+    "Popular Hashtags" : {
+
+    },
+    "Popular Users" : {
+
+    },
+    "Post" : {
+
+    },
+    "Renote" : {
+
+    },
+    "Reply" : {
+
+    },
+    "Reply to %@" : {
+
+    },
+    "Report Problem" : {
+
+    },
+    "Retry" : {
+
+    },
+    "Search" : {
+
+    },
+    "Search Anything" : {
+
+    },
+    "Send" : {
+
+    },
+    "Sending Post" : {
+
+    },
+    "Setting" : {
+
+    },
+    "Sign Out" : {
+
+    },
+    "Single Choice" : {
+
+    },
+    "Thanks" : {
+
+    },
+    "Timeline" : {
+
+    },
+    "Trending" : {
+
+    },
+    "Trending Hashtag Updated" : {
+
+    },
+    "Unable to load file" : {
+
+    },
+    "Unable to load this note" : {
+
+    },
+    "Unable to send, please try again later" : {
+
+    },
+    "Unknown" : {
+
+    },
+    "Unknown/Network Error Occurred" : {
+
+    },
+    "Unsupported Format" : {
+
+    },
+    "Update Metadata" : {
+
+    },
+    "Updating Instance Metadata" : {
+
+    },
+    "Upload Failed" : {
+
+    },
+    "Users" : {
+
+    },
+    "Version: %@" : {
+
+    },
+    "w/ Replies" : {
+
+    },
+    "Welcome" : {
+
+    },
+    "Welcome to Misskey" : {
+
+    },
+    "You're all set!" : {
+
+    },
+    "Your main timeline at a glance, with posts from the people you follow." : {
+
+    }
+  },
+  "version" : "1.1"
+}

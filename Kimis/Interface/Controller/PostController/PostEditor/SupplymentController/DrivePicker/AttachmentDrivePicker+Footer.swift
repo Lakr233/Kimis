@@ -39,7 +39,7 @@ extension AttachmentDrivePicker {
             button.layer.cornerRadius = IH.contentCornerRadius
             button.backgroundColor = .accent.withAlphaComponent(0.1)
             addSubview(button)
-            button.setTitle("Load More", for: .normal)
+            button.setTitle(L10n.text("Load More"), for: .normal)
             button.setTitleColor(.accent, for: .normal)
             button.titleLabel?.font = .systemFont(ofSize: 16, weight: .bold)
             button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)

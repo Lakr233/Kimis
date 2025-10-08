@@ -27,8 +27,8 @@ class DiscoverSearchController: ViewController {
     }
 
     static let sections: [DiscoverSection] = [
-        .init(title: "Collections", elements: [
-            .init(title: "Bookmark", icon: "bookmark.fill", action: { anchor in
+        .init(title: L10n.text("Collections"), elements: [
+            .init(title: L10n.text("Bookmark"), icon: "bookmark.fill", action: { anchor in
                 if let nav = anchor.navigationController {
                     nav.pushViewController(BookmarkController(), animated: true)
                 } else {
@@ -36,15 +36,15 @@ class DiscoverSearchController: ViewController {
                 }
             }),
         ]),
-        .init(title: "Trending", elements: [
-            .init(title: "Popular Hashtags", icon: "number", action: { anchor in
+        .init(title: L10n.text("Trending"), elements: [
+            .init(title: L10n.text("Popular Hashtags"), icon: "number", action: { anchor in
                 if let nav = anchor.navigationController {
                     nav.pushViewController(HashtagTrendController(), animated: true)
                 } else {
                     anchor.present(next: HashtagTrendController())
                 }
             }),
-            .init(title: "Popular Users", icon: "person.2.fill", action: { anchor in
+            .init(title: L10n.text("Popular Users"), icon: "person.2.fill", action: { anchor in
                 if let nav = anchor.navigationController {
                     nav.pushViewController(SmallUsersListController(), animated: true)
                 } else {
@@ -56,7 +56,7 @@ class DiscoverSearchController: ViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Discover"
+        title = L10n.text("Discover")
     }
 
     @available(*, unavailable)

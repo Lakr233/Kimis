@@ -33,9 +33,9 @@ extension TrendingTableView: UITableViewDelegate, UITableViewDataSource {
             return nil
         }
         if _source.count > 0 {
-            footer.set(title: "\(_source.count) trending hashtag(s)")
+            footer.set(title: L10n.text("%d trending hashtag(s)", _source.count))
         } else {
-            footer.set(title: "No Trending Data")
+            footer.set(title: L10n.text("No Trending Data"))
         }
         return footer
     }

@@ -21,7 +21,7 @@ class SearchController: ViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Search"
+        title = L10n.text("Search")
     }
 
     @available(*, unavailable)
@@ -44,7 +44,7 @@ class SearchController: ViewController {
         searchBarContainer.layer.cornerRadius = IH.contentCornerRadius
         searchBarContainer.clipsToBounds = true
 
-        searchBar.placeholder = "Search Anything"
+        searchBar.placeholder = L10n.text("Search Anything")
         searchBar.backgroundColor = .clear
         searchBar.backgroundImage = .init()
         searchBar.snp.makeConstraints { make in

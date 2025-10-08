@@ -34,7 +34,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let labelWelcome: UILabel = {
         let ret = UILabel()
-        ret.text = "Login"
+        ret.text = L10n.text("Login")
         ret.textAlignment = .center
         ret.font = .systemFont(ofSize: 24, weight: .semibold)
         ret.textColor = UIColor(light: .black, dark: .white)
@@ -47,7 +47,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         ret.autocapitalizationType = .none
         ret.autocorrectionType = .no
         ret.textContentType = .URL
-        ret.placeholder = "[Host] eg: misskey.io (not username)"
+        ret.placeholder = L10n.text("[Host] eg: misskey.io (not username)")
         ret.textColor = .accent
         ret.returnKeyType = .done
         ret.layer.cornerRadius = 8
@@ -57,7 +57,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let labelLoginHint: UILabel = {
         let ret = UILabel()
-        ret.text = "Host Address"
+        ret.text = L10n.text("Host Address")
         ret.textColor = .gray
         ret.font = .systemFont(ofSize: 16, weight: .semibold)
         ret.textAlignment = .left
@@ -66,7 +66,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let labelHTTPSNotice: UILabel = {
         let ret = UILabel()
-        ret.text = "[https] is required and used for security reason"
+        ret.text = L10n.text("[https] is required and used for security reason")
         ret.textColor = .gray
         ret.font = .systemFont(ofSize: 12, weight: .regular)
         ret.textAlignment = .center
@@ -75,7 +75,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let buttonLearnMore: UIButton = {
         let ret = UIButton()
-        ret.setTitle("Get One", for: .normal)
+        ret.setTitle(L10n.text("Get One"), for: .normal)
         ret.setTitleColor(.accent, for: .normal)
         ret.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         return ret
@@ -100,7 +100,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let buttonAcknowledge: UIButton = {
         let ret = UIButton()
-        ret.setTitle("Made with love by @Lakr233", for: .normal)
+        ret.setTitle(L10n.text("Made with love by @Lakr233"), for: .normal)
         ret.titleLabel?.font = .systemFont(ofSize: 12, weight: .semibold)
         ret.setTitleColor(.systemGray3, for: .normal)
         return ret
@@ -115,7 +115,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     let buttonCancel: UIButton = {
         let button = UIButton()
-        button.setTitle("Cancel Login", for: .normal)
+        button.setTitle(L10n.text("Cancel Login"), for: .normal)
         button.setTitleColor(.systemPink, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 16, weight: .semibold)
         button.alpha = 0
@@ -143,7 +143,12 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         buttonLearnMore.addTarget(self, action: #selector(openLearnMore), for: .touchUpInside)
         buttonCancel.addTarget(self, action: #selector(cancelLogin), for: .touchUpInside)
 
-        navigationItem.leftBarButtonItem = .init(title: "Cancel", style: .plain, target: self, action: #selector(dismissController))
+        navigationItem.leftBarButtonItem = .init(
+            title: L10n.text("Cancel"),
+            style: .plain,
+            target: self,
+            action: #selector(dismissController)
+        )
     }
 
     @objc func dismissController() {
@@ -271,24 +276,24 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         guard !inputUrl.contains("/"),
               let host = URL(string: "https://" + inputUrl)?.host
         else {
-            presentError("Invalid Host")
+            presentError(L10n.text("Invalid Host"))
             return
         }
         guard let challenge = LoginChallenge(host: host) else {
-            presentError("Invalid Request")
+            presentError(L10n.text("Invalid Request"))
             assertionFailure() // checked host before
             return
         }
 
         let alert = UIAlertController(
-            title: "You are connecting to\nhttps://\(challenge.requestHost)",
-            message: "Please sign in with your username and password there, and authorize this session with Misskey OAuth.",
+            title: L10n.text("You are connecting to\nhttps://%@", challenge.requestHost),
+            message: L10n.text("Please sign in with your username and password there, and authorize this session with Misskey OAuth."),
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { [weak self] _ in
+        alert.addAction(UIAlertAction(title: L10n.text("Continue"), style: .default, handler: { [weak self] _ in
             self?.processedToLogin(withSession: challenge)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
         present(alert, animated: true)
     }
 
@@ -327,7 +332,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
                     Account.shared.activate(receiptID: receipt.id)
                     self.dismiss(animated: true)
                 } else {
-                    presentError("Login Challenge Failed")
+                    presentError(L10n.text("Login Challenge Failed"))
                 }
             }
         }

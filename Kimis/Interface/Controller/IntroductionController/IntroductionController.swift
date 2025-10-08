@@ -140,7 +140,7 @@ private class WelcomeController: WelcomeStackController {
         view.backgroundColor = .clear
         view.textContainerInset = .zero
         view.isEditable = false
-        view.text = "Welcome to Misskey"
+        view.text = L10n.text("Welcome to Misskey")
         view.textColor = .systemBlackAndWhite
         view.font = .systemFont(ofSize: 24, weight: .semibold)
         view.textAlignment = .center
@@ -156,7 +156,7 @@ private class WelcomeController: WelcomeStackController {
         view.backgroundColor = .clear
         view.textContainerInset = .zero
         view.isEditable = false
-        view.text = "Misskey is an open source, decentralized social media platform."
+        view.text = L10n.text("Misskey is an open source, decentralized social media platform.")
         view.font = .systemFont(ofSize: 16, weight: .regular)
         view.textColor = .systemBlackAndWhite.withAlphaComponent(0.75)
         view.textAlignment = .center
@@ -170,10 +170,10 @@ private class WelcomeController: WelcomeStackController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Welcome"
+        title = L10n.text("Welcome")
         disableNavTitle()
 
-        nextButton.setTitle("Next", for: .normal)
+        nextButton.setTitle(L10n.text("Next"), for: .normal)
         nextButton.tapped {
             self.navigationController?.pushViewController(self.nextController, animated: true)
         }
@@ -214,7 +214,7 @@ private class FinalController: WelcomeStackController {
         view.backgroundColor = .clear
         view.textContainerInset = .zero
         view.isEditable = false
-        view.text = "You're all set!"
+        view.text = L10n.text("You're all set!")
         view.textColor = .systemBlackAndWhite
         view.font = .systemFont(ofSize: 24, weight: .semibold)
         view.textAlignment = .center
@@ -230,7 +230,7 @@ private class FinalController: WelcomeStackController {
         view.backgroundColor = .clear
         view.textContainerInset = .zero
         view.isEditable = false
-        view.text = "Initial setup completed! Congregations!"
+        view.text = L10n.text("Initial setup completed! Congregations!")
         view.font = .systemFont(ofSize: 16, weight: .regular)
         view.textColor = .systemBlackAndWhite.withAlphaComponent(0.75)
         view.textAlignment = .center
@@ -251,7 +251,7 @@ private class FinalController: WelcomeStackController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "All Set"
+        title = L10n.text("All Set")
         disableNavTitle()
 
         view.addSubview(confettiView)
@@ -260,7 +260,7 @@ private class FinalController: WelcomeStackController {
             make.edges.equalToSuperview()
         }
 
-        nextButton.setTitle("Done", for: .normal)
+        nextButton.setTitle(L10n.text("Done"), for: .normal)
         nextButton.tapped {
             AppConfig.current.introductionCompleted = true
             self.navigationController?.dismiss(animated: true)

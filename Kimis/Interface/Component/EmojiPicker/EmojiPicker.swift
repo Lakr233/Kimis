@@ -61,7 +61,7 @@ class EmojiPickerView: UIView, UISearchBarDelegate {
 
         searchBar.backgroundColor = .clear
         searchBar.backgroundImage = UIImage()
-        searchBar.placeholder = "Search Emoji"
+        searchBar.placeholder = L10n.text("Search Emoji")
         searchBar.searchTextField.autocorrectionType = .no
         searchBar.searchTextField.autocapitalizationType = .none
         searchBar.delegate = self

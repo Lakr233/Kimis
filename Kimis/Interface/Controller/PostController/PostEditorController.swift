@@ -15,9 +15,9 @@ private let stubContext = NoteCell.Context(kind: .main)
 
 class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteractionDelegate {
     var _title: String {
-        if renoteId != nil { return "Renote" }
-        if replyId != nil { return "Reply" }
-        return "Post"
+        if renoteId != nil { return L10n.text("Renote") }
+        if replyId != nil { return L10n.text("Reply") }
+        return L10n.text("Post")
     }
 
     var renoteId: NoteID?
@@ -71,7 +71,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
 
         navigationItem.leftBarButtonItems = [
             .init(
-                title: "Cancel",
+                title: L10n.text("Cancel"),
                 style: .plain,
                 target: self,
                 action: #selector(cancelButtonTapped)
@@ -79,7 +79,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         ]
         navigationItem.rightBarButtonItems = [
             .init(
-                title: "Send",
+                title: L10n.text("Send"),
                 style: .done,
                 target: self,
                 action: #selector(sendButtonTapped)
@@ -115,16 +115,16 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         }
 
         if renoteId != nil {
-            editor.placeholderText = "Renote"
+            editor.placeholderText = L10n.text("Renote")
         }
         if let replyId, let initialNote = source?.notes.retain(replyId) {
             defer { toolbar.updateIcons() }
-            editor.placeholderText = "Reply"
+            editor.placeholderText = L10n.text("Reply")
             if let initialVis = Post.Visibility(rawValue: initialNote.visibility) {
                 post.visibility = initialVis
             }
             if let user = source?.users.retain(initialNote.userId) {
-                editor.placeholderText = "Reply to \(textParser.trimToPlainText(from: user.name))"
+                editor.placeholderText = L10n.text("Reply to %@", textParser.trimToPlainText(from: user.name))
             }
             var replyingTo = [String]()
             var note: Note? = initialNote
@@ -342,11 +342,11 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         if editor.post == .init() {
             dismiss(animated: true)
         } else {
-            let alert = UIAlertController(title: "Discard", message: "Are you sure about it?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Discard", style: .destructive, handler: { [weak self] _ in
+            let alert = UIAlertController(title: L10n.text("Discard"), message: L10n.text("Are you sure about it?"), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: L10n.text("Discard"), style: .destructive, handler: { [weak self] _ in
                 self?.dismiss(animated: true)
             }))
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
             present(alert, animated: true)
         }
     }
@@ -357,7 +357,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         let renote = renoteId
         let reply = replyId
 
-        let alert = UIAlertController(title: "✈️", message: "Sending Post", preferredStyle: .alert)
+        let alert = UIAlertController(title: "✈️", message: L10n.text("Sending Post"), preferredStyle: .alert)
         present(alert, animated: true)
         DispatchQueue.global().async {
             let result = source.req.requestNoteCreate(forPost: post, renote: renote, reply: reply)
@@ -374,8 +374,8 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
                     if result != nil {
                         self.dismiss(animated: true)
                     } else {
-                        let alert = UIAlertController(title: "Error", message: "Unable to send, please try again later", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Done", style: .cancel))
+                        let alert = UIAlertController(title: L10n.text("Error"), message: L10n.text("Unable to send, please try again later"), preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: L10n.text("Done"), style: .cancel))
                         self.present(alert, animated: true)
                     }
                 }
@@ -448,7 +448,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         DispatchQueue.global().async {
             group.wait()
             guard !urls.isEmpty else {
-                presentError("Unable to load file")
+                presentError(L10n.text("Unable to load file"))
                 return
             }
             print("[*] drop files\n", urls.map(\.path).joined(separator: "\n"))

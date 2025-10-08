@@ -131,8 +131,12 @@ extension PollView {
             backgroundColor = .clear
             withUIKitAnimation { self.backgroundColor = Self.defaultBackgroundColor }
 
-            let alert = UIAlertController(title: "Vote", message: "Are you sure you want to vote for \(element.text)?", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [weak self] _ in
+            let alert = UIAlertController(
+                title: L10n.text("Vote"),
+                message: L10n.text("Are you sure you want to vote for %@?", element.text),
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: L10n.text("Yes"), style: .default, handler: { [weak self] _ in
                 print("[*] vote note \(noteId) idx \(idx)")
                 self?.isVoting = true
                 DispatchQueue.global().async {
@@ -142,7 +146,7 @@ extension PollView {
                     }
                 }
             }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel))
+            alert.addAction(UIAlertAction(title: L10n.text("No"), style: .cancel))
             parentViewController?.present(alert, animated: true)
         }
     }

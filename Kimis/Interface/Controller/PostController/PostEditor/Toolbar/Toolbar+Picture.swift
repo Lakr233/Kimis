@@ -66,8 +66,8 @@ extension PostEditorToolbarView: PHPickerViewControllerDelegate, UIImagePickerCo
             DispatchQueue.global().async {
                 var progressAlert: UIAlertController?
                 if !resolveCompleted { withMainActor {
-                    let alert = UIAlertController(title: "⏳", message: "Exporting selected items", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                    let alert = UIAlertController(title: "⏳", message: L10n.text("Exporting selected items"), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel) { _ in
                         resolveCanceled = true
                     })
                     self.parentViewController?.present(alert, animated: true)
@@ -121,7 +121,7 @@ extension PostEditorToolbarView: PHPickerViewControllerDelegate, UIImagePickerCo
                 objectSem.wait()
             }
             if !resolveCanceled, urls.count != results.count {
-                presentError("\(urls.count - results.count) item(s) failed to load")
+                presentError(L10n.text("%d item(s) failed to load", urls.count - results.count))
             }
         }
     }

@@ -30,7 +30,7 @@ class AttachUploadController: ViewController {
 
         super.init(nibName: nil, bundle: nil)
 
-        title = "Upload"
+        title = L10n.text("Upload")
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -51,7 +51,7 @@ class AttachUploadController: ViewController {
         }
         tableView.reloadData()
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelUpload))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: L10n.text("Cancel"), style: .plain, target: self, action: #selector(cancelUpload))
 
         for request in requests {
             request.updated
@@ -74,14 +74,14 @@ class AttachUploadController: ViewController {
 
     @objc func cancelUpload() {
         isQuerying = true
-        let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to cancel upload?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel Upload", style: .destructive, handler: { _ in
+        let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to cancel upload?"), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L10n.text("Cancel Upload"), style: .destructive, handler: { _ in
             self.canceled = true
             self.cleanUp()
             self.dismiss(animated: true)
             self.isQuerying = false
         }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { _ in
+        alert.addAction(UIAlertAction(title: L10n.text("No"), style: .cancel, handler: { _ in
             self.isQuerying = false
         }))
         present(alert, animated: true)

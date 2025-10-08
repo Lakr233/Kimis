@@ -28,7 +28,7 @@ class SensitiveContentCoverView: UIView {
 
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Sensitive Content"
+        label.text = L10n.text("Sensitive Content")
         label.textColor = .systemBlackAndWhite
         label.font = .rounded(ofSize: CGFloat(AppConfig.current.defaultNoteFontSize), weight: .regular)
         label.numberOfLines = 2
@@ -51,7 +51,7 @@ class SensitiveContentCoverView: UIView {
             .foregroundColor: UIColor.accent,
             .underlineStyle: NSUnderlineStyle.single.rawValue,
         ]
-        let text = NSMutableAttributedString(string: "Unlock", attributes: underline)
+        let text = NSMutableAttributedString(string: L10n.text("Unlock"), attributes: underline)
         button.setAttributedTitle(text, for: .normal)
         button.addTarget(self, action: #selector(hide), for: .touchUpInside)
     }

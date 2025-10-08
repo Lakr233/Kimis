@@ -20,7 +20,7 @@ class TimelineController: ViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Timeline"
+        title = L10n.text("Timeline")
     }
 
     @available(*, unavailable)

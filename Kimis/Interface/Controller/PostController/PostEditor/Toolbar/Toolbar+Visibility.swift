@@ -10,13 +10,13 @@ import UIKit
 extension PostEditorToolbarView {
     func createButtonsForVisibility() -> [ToolItemButton] { [
         ToolItemButton(post: post, toolMenu: [
-            .init(icon: .fluent(.globe_person_filled), text: "Public", action: { post, _ in
+            .init(icon: .fluent(.globe_person_filled), text: L10n.text("Public"), action: { post, _ in
                 post.visibility = .public
             }),
-            .init(icon: .fluent(.checkbox_person_filled), text: "Followers", action: { post, _ in
+            .init(icon: .fluent(.checkbox_person_filled), text: L10n.text("Followers"), action: { post, _ in
                 post.visibility = .followers
             }),
-            .init(icon: .fluent(.home_person_filled), text: "Local", action: { post, _ in
+            .init(icon: .fluent(.home_person_filled), text: L10n.text("Local"), action: { post, _ in
                 post.visibility = .home
             }),
             // TODO: mail to target

@@ -44,7 +44,7 @@ class SettingController: ViewController {
 
     init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Setting"
+        title = L10n.text("Setting")
     }
 
     @available(*, unavailable)
@@ -100,60 +100,62 @@ class SettingController: ViewController {
 
     func prepareNewDataSource() {
         var result = [TableSection]()
-        result.append(.init(title: "Account", elements: [
+        result.append(.init(title: L10n.text("Account"), elements: [
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
                 cell.textLabel?.text = Account.shared.source?.user.absoluteUsername
                 return cell
             } action: { _ in
                 UIPasteboard.general.string = Account.shared.source?.user.absoluteUsername
-                presentMessage("Copied")
+                presentMessage(L10n.text("Copied"))
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "\(Account.shared.source?.user.userId ?? "Unknown")"
+                let unknown = L10n.text("Unknown")
+                cell.textLabel?.text = L10n.text("%@", Account.shared.source?.user.userId ?? unknown)
                 return cell
             } action: { _ in
                 UIPasteboard.general.string = Account.shared.source?.user.userId
-                presentMessage("Copied")
+                presentMessage(L10n.text("Copied"))
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Sign Out"
+                cell.textLabel?.text = L10n.text("Sign Out")
                 cell.textLabel?.textColor = .systemPink
                 return cell
             } action: { tableView in
-                let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to sign out?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive) { _ in
+                let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to sign out?"), preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: L10n.text("Sign Out"), style: .destructive) { _ in
                     if let id = Account.shared.source?.receiptId {
                         Account.shared.delete(receiptID: id)
                     }
                     Account.shared.deactivateCurrent()
                 })
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                 tableView.parentViewController?.present(alert, animated: true)
             },
         ]))
-        result.append(.init(title: "Instance", elements: [
+        result.append(.init(title: L10n.text("Instance"), elements: [
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
                 cell.textLabel?.text = Account.shared.source?.instance.name
                 return cell
             } action: { _ in
                 UIPasteboard.general.string = Account.shared.source?.instance.name
-                presentMessage("Copied")
+                presentMessage(L10n.text("Copied"))
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Version: \(Account.shared.source?.instance.version ?? "Unknown")"
+                let unknown = L10n.text("Unknown")
+                cell.textLabel?.text = L10n.text("Version: %@", Account.shared.source?.instance.version ?? unknown)
                 return cell
             } action: { _ in
                 UIPasteboard.general.string = Account.shared.source?.instance.version
-                presentMessage("Copied")
+                presentMessage(L10n.text("Copied"))
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Contact Maintainer"
+                cell.textLabel?.text = L10n.text("Contact Maintainer")
                 cell.textLabel?.textColor = .accent
                 return cell
             } action: { _ in
@@ -161,14 +163,14 @@ class SettingController: ViewController {
                       str.isValidEmail,
                       let url = URL(string: "mailto:\(str)")
                 else {
-                    presentError("Not available on this instance")
+                    presentError(L10n.text("Not available on this instance"))
                     return
                 }
                 UIApplication.shared.open(url)
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Open Instance's Policy"
+                cell.textLabel?.text = L10n.text("Open Instance's Policy")
                 cell.textLabel?.textColor = .accent
                 return cell
             } action: { _ in
@@ -176,36 +178,36 @@ class SettingController: ViewController {
                       let url = URL(string: str),
                       url.scheme?.lowercased().hasPrefix("http") ?? false
                 else {
-                    presentError("Not available on this instance")
+                    presentError(L10n.text("Not available on this instance"))
                     return
                 }
                 UIApplication.shared.open(url)
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Update Metadata"
+                cell.textLabel?.text = L10n.text("Update Metadata")
                 cell.textLabel?.textColor = .accent
                 return cell
             } action: { _ in
-                presentMessage("Updating Instance Metadata")
+                presentMessage(L10n.text("Updating Instance Metadata"))
                 DispatchQueue.global().async {
                     Account.shared.source?.populateInstanceInfo(forceUpdate: true)
-                    presentMessage("Instance Metadata Updated")
+                    presentMessage(L10n.text("Instance Metadata Updated"))
                 }
             },
         ]))
-        result.append(.init(title: "Application", elements: [
+        result.append(.init(title: L10n.text("Application"), elements: [
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "App Version: \(appVersion)"
+                cell.textLabel?.text = L10n.text("App Version: %@", appVersion)
                 return cell
             } action: { _ in
                 UIPasteboard.general.string = appVersion
-                presentMessage("Copied")
+                presentMessage(L10n.text("Copied"))
             },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "License"
+                cell.textLabel?.text = L10n.text("License")
                 cell.textLabel?.textColor = .accent
                 return cell
             } action: { tableView in
@@ -217,7 +219,7 @@ class SettingController: ViewController {
             },
             .init(configure: {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Get Source Code"
+                cell.textLabel?.text = L10n.text("Get Source Code")
                 cell.textLabel?.textColor = .accent
                 return cell
             }, action: { _ in
@@ -225,14 +227,14 @@ class SettingController: ViewController {
             }),
             .init(configure: {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Report Problem"
+                cell.textLabel?.text = L10n.text("Report Problem")
                 cell.textLabel?.textColor = .accent
                 return cell
             }, action: { _ in
                 UIApplication.shared.open(issueUrl)
             }),
         ]))
-        result.append(.init(title: "Misc", elements: [
+        result.append(.init(title: L10n.text("Misc"), elements: [
             //            .init {
 //                let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
 //                cell.textLabel?.text = "Access In Browser"
@@ -247,7 +249,7 @@ class SettingController: ViewController {
 //            },
             .init {
                 let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-                cell.textLabel?.text = "Clear Cache"
+                cell.textLabel?.text = L10n.text("Clear Cache")
                 cell.textLabel?.textColor = .accent
                 return cell
             } action: { _ in
@@ -255,10 +257,10 @@ class SettingController: ViewController {
                 SDImageCache.shared.clearDisk()
                 try? FileManager.default.removeItem(at: temporaryDirectory)
                 try? FileManager.default.createDirectory(at: temporaryDirectory, withIntermediateDirectories: true)
-                presentMessage("Cache Cleared")
+                presentMessage(L10n.text("Cache Cleared"))
             },
         ]))
-        result.append(.init(title: "Thanks", elements:
+        result.append(.init(title: L10n.text("Thanks"), elements:
             thanks.map { item -> TableSection.TableElement in
                 .init {
                     let cell = UITableViewCell(style: .default, reuseIdentifier: nil)

@@ -13,7 +13,7 @@ extension NoteCell {
         override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             icon.image = .fluent(.arrow_maximize_vertical_filled)
-            label.text = "Expend Collapsed Replies"
+            label.text = L10n.text("Expend Collapsed Replies")
         }
 
         override func layoutSubviews() {

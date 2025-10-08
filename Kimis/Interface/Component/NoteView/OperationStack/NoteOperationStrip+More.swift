@@ -73,8 +73,8 @@ extension NoteOperationStrip {
             var actions = [[UIAction]]()
             if noteState.isFavorited {
                 actions.append([
-                    UIAction(title: "Remove Favorited", image: .init(systemName: "trash")) { [weak self] _ in
-                        let alert = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                    UIAction(title: L10n.text("Remove Favorited"), image: .init(systemName: "trash")) { [weak self] _ in
+                        let alert = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                         DispatchQueue.global().async {
                             defer { withMainActor {
                                 alert.dismiss(animated: true)
@@ -86,8 +86,8 @@ extension NoteOperationStrip {
                 ])
             } else {
                 actions.append([
-                    UIAction(title: "Add Favorite", image: .init(systemName: "star")) { [weak self] _ in
-                        let alert = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                    UIAction(title: L10n.text("Add Favorite"), image: .init(systemName: "star")) { [weak self] _ in
+                        let alert = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                         DispatchQueue.global().async {
                             defer { withMainActor {
                                 alert.dismiss(animated: true)
@@ -100,11 +100,11 @@ extension NoteOperationStrip {
             }
             if note.userId != source.user.userId {
                 actions.append([
-                    UIAction(title: "Report Abuse", image: .init(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
-                        let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to report this note?", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Report", style: .destructive, handler: { _ in
+                    UIAction(title: L10n.text("Report Abuse"), image: .init(systemName: "exclamationmark.bubble"), attributes: .destructive) { [weak self] _ in
+                        let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to report this note?"), preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: L10n.text("Report"), style: .destructive, handler: { _ in
                             alert.dismiss(animated: true) {
-                                let alert = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                                let alert = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                                 DispatchQueue.global().async {
                                     defer { withMainActor {
                                         alert.dismiss(animated: true)
@@ -114,18 +114,22 @@ extension NoteOperationStrip {
                                 self?.anchor?.parentViewController?.present(alert, animated: true)
                             }
                         }))
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                        alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                         self?.anchor?.parentViewController?.present(alert, animated: true)
                     },
                 ])
             }
             if note.userId == source.user.userId {
                 actions.append([
-                    UIAction(title: "Delete", image: .init(systemName: "trash"), attributes: .destructive) { [weak self] _ in
-                        let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to delete this note? All reply or renote with/within this note will also be deleted.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                    UIAction(title: L10n.text("Delete"), image: .init(systemName: "trash"), attributes: .destructive) { [weak self] _ in
+                        let alert = UIAlertController(
+                            title: "⚠️",
+                            message: L10n.text("Are you sure you want to delete this note? All reply or renote with/within this note will also be deleted."),
+                            preferredStyle: .alert
+                        )
+                        alert.addAction(UIAlertAction(title: L10n.text("Delete"), style: .destructive, handler: { _ in
                             alert.dismiss(animated: true) {
-                                let alert = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                                let alert = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                                 DispatchQueue.global().async {
                                     defer { withMainActor {
                                         alert.dismiss(animated: true)
@@ -135,7 +139,7 @@ extension NoteOperationStrip {
                                 self?.anchor?.parentViewController?.present(alert, animated: true)
                             }
                         }))
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                        alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                         self?.anchor?.parentViewController?.present(alert, animated: true)
                     },
                 ])

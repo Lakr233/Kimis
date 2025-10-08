@@ -34,7 +34,7 @@ class EndpointSwitchPopover: ViewController, UIPopoverPresentationControllerDele
         }
     }
 
-    let titleLabel = UILabel(text: "👉\nSwitch Endpoint")
+    let titleLabel = UILabel(text: L10n.text("👉\nSwitch Endpoint"))
     let stackView = UIStackView()
 
     let inset = UIEdgeInsets(inset: 14)
@@ -193,19 +193,19 @@ private extension TimelineSource.Endpoint {
 
     var title: String {
         switch self {
-        case .home: "Home"
-        case .local: "Local"
-        case .hybrid: "Hybrid"
-        case .global: "Global"
+        case .home: L10n.text("Home")
+        case .local: L10n.text("Local")
+        case .hybrid: L10n.text("Hybrid")
+        case .global: L10n.text("Global")
         }
     }
 
     var explanation: String {
         switch self {
-        case .home: "Your main timeline at a glance, with posts from the people you follow."
-        case .local: "Notes on your server."
-        case .hybrid: "Notes on local and remote servers."
-        case .global: "Everything you need to know about everything."
+        case .home: L10n.text("Your main timeline at a glance, with posts from the people you follow.")
+        case .local: L10n.text("Notes on your server.")
+        case .hybrid: L10n.text("Notes on local and remote servers.")
+        case .global: L10n.text("Everything you need to know about everything.")
         }
     }
 }

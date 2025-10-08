@@ -15,11 +15,11 @@ extension PostEditorToolbarView {
                     let poll = Post.Poll(expiresAt: nil, choices: ["", ""], multiple: false)
                     post.poll = poll // set once
                 } else {
-                    let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to remove poll?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in
+                    let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to remove poll?"), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.text("Remove"), style: .destructive, handler: { _ in
                         post.poll = nil
                     }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel, handler: nil))
                     anchor.parentViewController?.present(alert, animated: true)
                 }
             }),

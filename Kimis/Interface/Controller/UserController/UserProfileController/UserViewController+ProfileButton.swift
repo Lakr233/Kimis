@@ -93,8 +93,8 @@ extension UserViewController.ProfileView.ProfileButton {
 //        },
 
         // 三选一
-        .init(title: "Pending") { source, profile, referencedView, progress in
-            presentConfirmation(message: "Cancel follow request?", onConfim: {
+        .init(title: L10n.text("Pending")) { source, profile, referencedView, progress in
+            presentConfirmation(message: L10n.text("Cancel follow request?"), onConfim: {
                 progress.startAnimate()
                 DispatchQueue.global().async {
                     source?.req.requestFollowCancel(userId: profile.userId)
@@ -104,8 +104,8 @@ extension UserViewController.ProfileView.ProfileButton {
         } qualification: { _, profile in
             profile.hasPendingFollowRequestFromYou
         },
-        .init(title: "Following", action: { source, profile, referencedView, progress in
-            presentConfirmation(message: "Unfollow this user?", onConfim: {
+        .init(title: L10n.text("Following"), action: { source, profile, referencedView, progress in
+            presentConfirmation(message: L10n.text("Unfollow this user?"), onConfim: {
                 progress.startAnimate()
                 DispatchQueue.global().async {
                     source?.req.requestFollowDelete(userId: profile.userId)
@@ -116,7 +116,7 @@ extension UserViewController.ProfileView.ProfileButton {
             source?.user.userId != profile.userId &&
                 profile.isFollowing
         }),
-        .init(title: "Follow", action: { source, profile, _, progress in
+        .init(title: L10n.text("Follow"), action: { source, profile, _, progress in
             progress.startAnimate()
             DispatchQueue.global().async {
                 source?.req.requestFollow(userId: profile.userId)
@@ -128,8 +128,8 @@ extension UserViewController.ProfileView.ProfileButton {
                 && !profile.hasPendingFollowRequestFromYou
         }),
 
-        .init(title: "Accept") { source, profile, referencedView, progress in
-            presentConfirmation(message: "Accept this follower?", onConfim: {
+        .init(title: L10n.text("Accept")) { source, profile, referencedView, progress in
+            presentConfirmation(message: L10n.text("Accept this follower?"), onConfim: {
                 progress.startAnimate()
                 DispatchQueue.global().async {
                     source?.req.requestFollowerApprove(userId: profile.userId)
@@ -247,12 +247,12 @@ extension UserViewController.ProfileView.ProfileButton {
 
         static let menu: [[UserMenuAction]] = [
             [
-                UserMenuAction(title: "Refresh", image: "arrow.clockwise", action: { source, profile, _ in
+                UserMenuAction(title: L10n.text("Refresh"), image: "arrow.clockwise", action: { source, profile, _ in
                     if profile.absoluteUsername.lowercased() == source.user.absoluteUsername.lowercased() {
-                        presentMessage("Updating Account Info")
+                        presentMessage(L10n.text("Updating Account Info"))
                         DispatchQueue.global().async {
                             source.populateUserInfo(forceUpdate: true)
-                            presentMessage("Account Info Updated")
+                            presentMessage(L10n.text("Account Info Updated"))
                         }
                     } else {
                         UserViewController.reload(userId: profile.userId)
@@ -262,14 +262,14 @@ extension UserViewController.ProfileView.ProfileButton {
             [
                 UserMenuAction(
                     title: { _, profile in
-                        "Notes \(profile.notesCount)"
+                        L10n.text("Notes %d", profile.notesCount)
                     }, image: "number", action: { _, profile, _ in
-                        presentMessage("You have \(profile.notesCount) notes")
+                        presentMessage(L10n.text("You have %d notes", profile.notesCount))
                     }, qualification: { _, _ in true }
                 ),
                 UserMenuAction(
                     title: { _, profile in
-                        "Following \(profile.followingCount)"
+                        L10n.text("Following %d", profile.followingCount)
                     }, image: "person", action: { _, profile, anchor in
                         let controller = FollowingController(userId: profile.userId)
                         anchor.parentViewController?.present(next: controller)
@@ -277,7 +277,7 @@ extension UserViewController.ProfileView.ProfileButton {
                 ),
                 UserMenuAction(
                     title: { _, profile in
-                        "Followed By \(profile.followersCount)"
+                        L10n.text("Followed By %d", profile.followersCount)
                     }, image: "person", action: { _, profile, anchor in
                         let controller = FollowerController(userId: profile.userId)
                         anchor.parentViewController?.present(next: controller)
@@ -285,36 +285,36 @@ extension UserViewController.ProfileView.ProfileButton {
                 ),
             ],
             [
-                UserMenuAction(title: "Copy Name", image: "doc.on.doc") { _, profile, _ in
+                UserMenuAction(title: L10n.text("Copy Name"), image: "doc.on.doc") { _, profile, _ in
                     UIPasteboard.general.string = profile.name
-                    presentMessage("Copied")
+                    presentMessage(L10n.text("Copied"))
                 } qualification: { _, _ in
                     true
                 },
-                UserMenuAction(title: "Copy Username", image: "doc.on.doc") { _, profile, _ in
+                UserMenuAction(title: L10n.text("Copy Username"), image: "doc.on.doc") { _, profile, _ in
                     UIPasteboard.general.string = profile.absoluteUsername
-                    presentMessage("Copied")
+                    presentMessage(L10n.text("Copied"))
                 } qualification: { _, _ in
                     true
                 },
-                UserMenuAction(title: "Copy Description", image: "doc.on.doc") { _, profile, _ in
+                UserMenuAction(title: L10n.text("Copy Description"), image: "doc.on.doc") { _, profile, _ in
                     UIPasteboard.general.string = profile.description
-                    presentMessage("Copied")
+                    presentMessage(L10n.text("Copied"))
                 } qualification: { _, _ in
                     true
                 },
-                UserMenuAction(title: "Open In Browser", image: "safari") { source, profile, _ in
+                UserMenuAction(title: L10n.text("Open In Browser"), image: "safari") { source, profile, _ in
                     UIApplication.shared.open(source.host.appendingPathComponent(profile.absoluteUsername))
                 } qualification: { _, _ in
                     true
                 },
             ],
             [
-                UserMenuAction(title: "Block", image: "hand.raised", attributes: [.destructive]) { source, profile, anchor in
+                UserMenuAction(title: L10n.text("Block"), image: "hand.raised", attributes: [.destructive]) { source, profile, anchor in
                     let name = TextParser().trimToPlainText(from: profile.name)
-                    let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to block \(name)?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Block", style: .destructive, handler: { _ in
-                        let progress = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to block %@?", name), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.text("Block"), style: .destructive, handler: { _ in
+                        let progress = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                         anchor.parentViewController?.present(progress, animated: true)
                         DispatchQueue.global().async {
                             defer { withMainActor {
@@ -324,16 +324,16 @@ extension UserViewController.ProfileView.ProfileButton {
                             let ret = source.req.requestForBlockUser(userId: profile.userId)
                         }
                     }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                     anchor.parentViewController?.present(alert, animated: true)
                 } qualification: { source, profile in
                     !profile.isBlocking && profile.absoluteUsername.lowercased() != source.user.absoluteUsername.lowercased()
                 },
-                UserMenuAction(title: "Unblock", image: "lock.slash", attributes: [.destructive]) { source, profile, anchor in
+                UserMenuAction(title: L10n.text("Unblock"), image: "lock.slash", attributes: [.destructive]) { source, profile, anchor in
                     let name = TextParser().trimToPlainText(from: profile.name)
-                    let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to unblock \(name)?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Unblock", style: .destructive, handler: { _ in
-                        let progress = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to unblock %@?", name), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.text("Unblock"), style: .destructive, handler: { _ in
+                        let progress = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                         anchor.parentViewController?.present(progress, animated: true)
                         DispatchQueue.global().async {
                             defer { withMainActor {
@@ -343,16 +343,16 @@ extension UserViewController.ProfileView.ProfileButton {
                             let ret = source.req.requestForUnblockUser(userId: profile.userId)
                         }
                     }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                     anchor.parentViewController?.present(alert, animated: true)
                 } qualification: { source, profile in
                     profile.isBlocking && profile.absoluteUsername.lowercased() != source.user.absoluteUsername.lowercased()
                 },
-                UserMenuAction(title: "Remove Follower", image: "star.slash", attributes: [.destructive]) { source, profile, anchor in
+                UserMenuAction(title: L10n.text("Remove Follower"), image: "star.slash", attributes: [.destructive]) { source, profile, anchor in
                     let name = TextParser().trimToPlainText(from: profile.name)
-                    let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to remove \(name)?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Remove", style: .destructive, handler: { _ in
-                        let progress = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to remove %@?", name), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.text("Remove"), style: .destructive, handler: { _ in
+                        let progress = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                         anchor.parentViewController?.present(progress, animated: true)
                         DispatchQueue.global().async {
                             defer { withMainActor {
@@ -362,16 +362,16 @@ extension UserViewController.ProfileView.ProfileButton {
                             source.req.requestFollowerInvalidate(userId: profile.userId)
                         }
                     }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                     anchor.parentViewController?.present(alert, animated: true)
                 } qualification: { source, profile in
                     profile.isFollowed && profile.absoluteUsername.lowercased() != source.user.absoluteUsername.lowercased()
                 },
-                UserMenuAction(title: "Report", image: "exclamationmark.bubble", attributes: [.destructive]) { source, profile, anchor in
+                UserMenuAction(title: L10n.text("Report"), image: "exclamationmark.bubble", attributes: [.destructive]) { source, profile, anchor in
                     let name = TextParser().trimToPlainText(from: profile.name)
-                    let alert = UIAlertController(title: "⚠️", message: "Are you sure you want to report \(name)?", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Report", style: .destructive, handler: { _ in
-                        let progress = UIAlertController(title: "⏳", message: "Sending Request", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "⚠️", message: L10n.text("Are you sure you want to report %@?", name), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: L10n.text("Report"), style: .destructive, handler: { _ in
+                        let progress = UIAlertController(title: "⏳", message: L10n.text("Sending Request"), preferredStyle: .alert)
                         anchor.parentViewController?.present(progress, animated: true)
                         DispatchQueue.global().async {
                             defer { withMainActor {
@@ -381,7 +381,7 @@ extension UserViewController.ProfileView.ProfileButton {
                             source.req.requestReportUser(userId: profile.userId)
                         }
                     }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    alert.addAction(UIAlertAction(title: L10n.text("Cancel"), style: .cancel))
                     anchor.parentViewController?.present(alert, animated: true)
                 } qualification: { source, profile in
                     profile.absoluteUsername.lowercased() != source.user.absoluteUsername.lowercased()
