@@ -11,7 +11,7 @@ public enum L10n {
     public struct Key: ExpressibleByStringLiteral, Hashable, Sendable {
         public let raw: String
         public init(_ raw: String) { self.raw = raw }
-        public init(stringLiteral value: String) { self.raw = value }
+        public init(stringLiteral value: String) { raw = value }
     }
 
     public enum Common {
@@ -29,22 +29,21 @@ public enum L10n {
         let tableName = table
         let bundle = Bundle.main
 
-        let format: String
-        if #available(iOS 15.0, *) {
+        let format: String = if #available(iOS 15.0, *) {
             // 注意：此处用的是变量 key.raw，**不指望它被提取**；
             // 提取交给锚点文件解决。
             if let tableName {
-                format = String(localized: .init(key.raw),
-                                table: tableName,
-                                bundle: bundle)
+                String(localized: .init(key.raw),
+                       table: tableName,
+                       bundle: bundle)
             } else {
-                format = String(localized: .init(key.raw),
-                                bundle: bundle)
+                String(localized: .init(key.raw),
+                       bundle: bundle)
             }
         } else {
-            format = bundle.localizedString(forKey: key.raw,
-                                            value: nil,
-                                            table: tableName)
+            bundle.localizedString(forKey: key.raw,
+                                   value: nil,
+                                   table: tableName)
         }
 
         guard args.isEmpty == false else { return format }

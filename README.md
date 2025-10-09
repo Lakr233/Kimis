@@ -23,7 +23,7 @@ Kimis is a client for [Misskey](https://github.com/misskey-dev/misskey) built wi
 - [x] supports dark mode
 - [ ] supports multiple accounts
 - [ ] ~~chat support~~ (was removed from Misskey)
-- [ ] i18n (currently English only)
+- [x] i18n (currently supported languages: English, Japanese, Chinese)
 
 Previously, Kimis supports all instance from Misskey 12+, but due to the change of emoji API, Kimis now only supports Misskey 13+. You can still login to Misskey 12+ instance, but you will not be able to see emoji.
 
@@ -33,7 +33,7 @@ Previously, Kimis supports all instance from Misskey 12+, but due to the change 
 
 ## 🧑‍⚖️ License
 
-[Kimis License](./LICENSE) 
+[Kimis License](./LICENSE)
 
 TLDR:
 
