@@ -8,6 +8,12 @@
             "state" : "translated",
             "value" : "[主机] 例如：misskey.io (不是用户名)"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[ホスト] 例：misskey.io（ユーザー名ではありません）"
+          }
         }
       }
     },
@@ -18,12 +24,24 @@
             "state" : "translated",
             "value" : "[https] 为必填项，出于安全考虑"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "[https] はセキュリティ上の理由で必須です"
+          }
         }
       }
     },
     "%@" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@"
@@ -38,6 +56,12 @@
             "state" : "translated",
             "value" : "%d 个项目加载失败"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 個のアイテムの読み込みに失敗しました"
+          }
         }
       }
     },
@@ -47,6 +71,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%d 条动态"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 件のノート"
           }
         }
       }
@@ -58,6 +88,12 @@
             "state" : "translated",
             "value" : "%d 条通知"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 件の通知"
+          }
         }
       }
     },
@@ -67,6 +103,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%d 个热门话题"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 個の人気ハッシュタグ"
           }
         }
       }
@@ -78,6 +120,12 @@
             "state" : "translated",
             "value" : "%d 个用户"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 人のユーザー"
+          }
         }
       }
     },
@@ -88,12 +136,24 @@
             "state" : "translated",
             "value" : "%d 个用户"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 人のユーザー"
+          }
         }
       }
     },
     "👉" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "👉"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "👉"
@@ -108,12 +168,24 @@
             "state" : "translated",
             "value" : "👉\n切换端点"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "👉\nエンドポイントを切り替え"
+          }
         }
       }
     },
     "🔍 %@" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🔍 %@"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "🔍 %@"
@@ -128,6 +200,12 @@
             "state" : "translated",
             "value" : "🥲 这里什么都没有"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🥲 ここには何もありません"
+          }
         }
       }
     },
@@ -137,6 +215,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "接受"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "承諾"
           }
         }
       }
@@ -148,6 +232,12 @@
             "state" : "translated",
             "value" : "接受此关注请求？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォロワーを承諾しますか？"
+          }
         }
       }
     },
@@ -157,6 +247,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "账户"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウント"
           }
         }
       }
@@ -168,6 +264,12 @@
             "state" : "translated",
             "value" : "账户信息已更新"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウント情報が更新されました"
+          }
         }
       }
     },
@@ -177,6 +279,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "添加收藏"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入りに追加"
           }
         }
       }
@@ -188,6 +296,12 @@
             "state" : "translated",
             "value" : "全部完成"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて完了"
+          }
         }
       }
     },
@@ -197,6 +311,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "应用版本：%@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリバージョン：%@"
           }
         }
       }
@@ -208,6 +328,12 @@
             "state" : "translated",
             "value" : "应用"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリケーション"
+          }
         }
       }
     },
@@ -217,6 +343,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您确定要这样做吗？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本当に実行しますか？"
           }
         }
       }
@@ -228,6 +360,12 @@
             "state" : "translated",
             "value" : "您确定要屏蔽 %@ 吗？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ をブロックしてもよろしいですか？"
+          }
         }
       }
     },
@@ -237,6 +375,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您确定要取消上传吗？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップロードをキャンセルしてもよろしいですか？"
           }
         }
       }
@@ -248,6 +392,12 @@
             "state" : "translated",
             "value" : "确定要删除这条动态吗？所有回复或转推都将被一并删除。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このノートを削除してもよろしいですか？このノートへのすべての返信またはリノートも削除されます。"
+          }
         }
       }
     },
@@ -257,6 +407,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您确定要返回吗？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "戻ってもよろしいですか？"
           }
         }
       }
@@ -268,6 +424,12 @@
             "state" : "translated",
             "value" : "您确定要移除 %@ 吗？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ を削除してもよろしいですか？"
+          }
         }
       }
     },
@@ -277,6 +439,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您确定要移除投票吗？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投票を削除してもよろしいですか？"
           }
         }
       }
@@ -288,6 +456,12 @@
             "state" : "translated",
             "value" : "您确定要举报 %@ 吗？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ を報告してもよろしいですか？"
+          }
         }
       }
     },
@@ -297,6 +471,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您确定要举报这条动态吗？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このノートを報告してもよろしいですか？"
           }
         }
       }
@@ -308,6 +488,12 @@
             "state" : "translated",
             "value" : "您确定要退出登录吗？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サインアウトしてもよろしいですか？"
+          }
         }
       }
     },
@@ -317,6 +503,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您确定要取消屏蔽 %@ 吗？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ のブロックを解除してもよろしいですか？"
           }
         }
       }
@@ -328,6 +520,12 @@
             "state" : "translated",
             "value" : "您确定要投票给 %@ 吗？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ に投票してもよろしいですか？"
+          }
         }
       }
     },
@@ -337,6 +535,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "屏蔽"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブロック"
           }
         }
       }
@@ -348,6 +552,12 @@
             "state" : "translated",
             "value" : "书签"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブックマーク"
+          }
         }
       }
     },
@@ -357,6 +567,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "动态数据损坏"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノートデータが破損しています"
           }
         }
       }
@@ -368,6 +584,12 @@
             "state" : "translated",
             "value" : "缓存已清除"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャッシュがクリアされました"
+          }
         }
       }
     },
@@ -377,6 +599,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法添加更多"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "これ以上追加できません"
           }
         }
       }
@@ -388,6 +616,12 @@
             "state" : "translated",
             "value" : "取消"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
+          }
         }
       }
     },
@@ -397,6 +631,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消关注请求？"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォローリクエストをキャンセルしますか？"
           }
         }
       }
@@ -408,6 +648,12 @@
             "state" : "translated",
             "value" : "取消登录"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ログインをキャンセル"
+          }
         }
       }
     },
@@ -417,6 +663,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消上传"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップロードをキャンセル"
           }
         }
       }
@@ -428,6 +680,12 @@
             "state" : "translated",
             "value" : "清除缓存"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャッシュをクリア"
+          }
         }
       }
     },
@@ -437,6 +695,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "收藏"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コレクション"
           }
         }
       }
@@ -448,6 +712,12 @@
             "state" : "translated",
             "value" : "联系维护者"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メンテナーに連絡"
+          }
         }
       }
     },
@@ -457,6 +727,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "继续"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "続ける"
           }
         }
       }
@@ -468,6 +744,12 @@
             "state" : "translated",
             "value" : "已复制"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コピーしました"
+          }
         }
       }
     },
@@ -477,6 +759,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制描述"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "説明をコピー"
           }
         }
       }
@@ -488,6 +776,12 @@
             "state" : "translated",
             "value" : "复制链接"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リンクをコピー"
+          }
         }
       }
     },
@@ -497,6 +791,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制链接 (%@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リンクをコピー (%@)"
           }
         }
       }
@@ -508,6 +808,12 @@
             "state" : "translated",
             "value" : "复制名称"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "名前をコピー"
+          }
         }
       }
     },
@@ -517,6 +823,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制文本"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "テキストをコピー"
           }
         }
       }
@@ -528,6 +840,12 @@
             "state" : "translated",
             "value" : "复制用户名"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー名をコピー"
+          }
         }
       }
     },
@@ -537,6 +855,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "复制用户名 (%@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー名をコピー (%@)"
           }
         }
       }
@@ -548,6 +872,12 @@
             "state" : "translated",
             "value" : "删除"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
+          }
         }
       }
     },
@@ -557,6 +887,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "丢弃"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "破棄"
           }
         }
       }
@@ -568,6 +904,12 @@
             "state" : "translated",
             "value" : "发现"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "発見"
+          }
         }
       }
     },
@@ -577,6 +919,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "完成"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
           }
         }
       }
@@ -588,6 +936,12 @@
             "state" : "translated",
             "value" : "云盘文件"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ドライブファイル"
+          }
         }
       }
     },
@@ -597,6 +951,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "编辑个人资料"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロフィールを編集"
           }
         }
       }
@@ -608,6 +968,12 @@
             "state" : "translated",
             "value" : "错误"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エラー"
+          }
         }
       }
     },
@@ -617,6 +983,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关于万物的万事通。"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべてについて知っておくべきすべてのこと。"
           }
         }
       }
@@ -628,6 +1000,12 @@
             "state" : "translated",
             "value" : "展开折叠的回复"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "折りたたまれた返信を展開"
+          }
         }
       }
     },
@@ -637,6 +1015,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在导出选中的项目"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選択した項目をエクスポート中"
           }
         }
       }
@@ -648,6 +1032,12 @@
             "state" : "translated",
             "value" : "失败"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "失敗"
+          }
         }
       }
     },
@@ -657,6 +1047,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关注"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォロー"
           }
         }
       }
@@ -668,6 +1064,12 @@
             "state" : "translated",
             "value" : "被 %d 人关注"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 人にフォローされています"
+          }
         }
       }
     },
@@ -677,6 +1079,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "粉丝"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォロワー"
           }
         }
       }
@@ -688,6 +1096,12 @@
             "state" : "translated",
             "value" : "粉丝"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォロワー"
+          }
         }
       }
     },
@@ -697,6 +1111,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "关注"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォロー中"
           }
         }
       }
@@ -708,6 +1128,12 @@
             "state" : "translated",
             "value" : "正在关注 %d"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 人をフォロー中"
+          }
         }
       }
     },
@@ -717,6 +1143,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "获取一个"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1つ取得"
           }
         }
       }
@@ -728,6 +1160,12 @@
             "state" : "translated",
             "value" : "获取源代码"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ソースコードを取得"
+          }
         }
       }
     },
@@ -737,6 +1175,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "全局"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "グローバル"
           }
         }
       }
@@ -748,6 +1192,12 @@
             "state" : "translated",
             "value" : "返回"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "戻る"
+          }
         }
       }
     },
@@ -757,6 +1207,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "首页"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホーム"
           }
         }
       }
@@ -768,12 +1224,24 @@
             "state" : "translated",
             "value" : "主机地址"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ホストアドレス"
+          }
         }
       }
     },
     "https://%@" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "https://%@"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "https://%@"
@@ -788,6 +1256,12 @@
             "state" : "translated",
             "value" : "混合"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ハイブリッド"
+          }
         }
       }
     },
@@ -797,6 +1271,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "初始设置完成！恭喜！"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "初期設定が完了しました！おめでとうございます！"
           }
         }
       }
@@ -808,6 +1288,12 @@
             "state" : "translated",
             "value" : "实例"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インスタンス"
+          }
         }
       }
     },
@@ -817,6 +1303,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "实例表情"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インスタンス絵文字"
           }
         }
       }
@@ -828,6 +1320,12 @@
             "state" : "translated",
             "value" : "实例元数据已更新"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インスタンスのメタデータが更新されました"
+          }
         }
       }
     },
@@ -837,6 +1335,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无效主机"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無効なホスト"
           }
         }
       }
@@ -848,6 +1352,12 @@
             "state" : "translated",
             "value" : "无效请求"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無効なリクエスト"
+          }
         }
       }
     },
@@ -857,6 +1367,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "许可证"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライセンス"
           }
         }
       }
@@ -868,6 +1384,12 @@
             "state" : "translated",
             "value" : "许可证文件不可用，请查看 Git 仓库以获取详细信息。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライセンスファイルが利用できません。詳細についてはgitリポジトリを確認してください。"
+          }
         }
       }
     },
@@ -877,6 +1399,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "加载更多"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "さらに読み込む"
           }
         }
       }
@@ -888,6 +1416,12 @@
             "state" : "translated",
             "value" : "加载更多回复"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "さらに返信を読み込む"
+          }
         }
       }
     },
@@ -897,6 +1431,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "本地"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカル"
           }
         }
       }
@@ -908,6 +1448,12 @@
             "state" : "translated",
             "value" : "登录"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ログイン"
+          }
         }
       }
     },
@@ -917,6 +1463,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "登录挑战失败"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ログインチャレンジに失敗しました"
           }
         }
       }
@@ -928,6 +1480,12 @@
             "state" : "translated",
             "value" : "长期"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "長期"
+          }
         }
       }
     },
@@ -937,6 +1495,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "由 @Lakr233 倾情打造"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "@Lakr233 が愛を込めて作成"
           }
         }
       }
@@ -948,6 +1512,12 @@
             "state" : "translated",
             "value" : "全部标记为已读"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて既読にしました"
+          }
         }
       }
     },
@@ -957,6 +1527,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "媒体"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メディア"
           }
         }
       }
@@ -968,12 +1544,24 @@
             "state" : "translated",
             "value" : "杂项"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "その他"
+          }
         }
       }
     },
     "Misskey" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Misskey"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Misskey"
@@ -988,6 +1576,12 @@
             "state" : "translated",
             "value" : "Misskey 是一个开源的、去中心化的社交媒体平台。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Misskeyは、オープンソースの分散型ソーシャルメディアプラットフォームです。"
+          }
         }
       }
     },
@@ -997,6 +1591,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "多选"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複数選択"
           }
         }
       }
@@ -1008,6 +1608,12 @@
             "state" : "translated",
             "value" : "下一步"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "次へ"
+          }
         }
       }
     },
@@ -1017,6 +1623,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "否"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いいえ"
           }
         }
       }
@@ -1028,6 +1640,12 @@
             "state" : "translated",
             "value" : "无趋势数据"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレンドデータがありません"
+          }
         }
       }
     },
@@ -1037,6 +1655,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无用户数据"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザーデータがありません"
           }
         }
       }
@@ -1048,6 +1672,12 @@
             "state" : "translated",
             "value" : "此实例上不可用"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このインスタンスでは利用できません"
+          }
         }
       }
     },
@@ -1057,6 +1687,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "动态"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノート"
           }
         }
       }
@@ -1068,6 +1704,12 @@
             "state" : "translated",
             "value" : "动态 %d"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ノート %d"
+          }
         }
       }
     },
@@ -1077,6 +1719,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "来自本地和远程服务器的动态。"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカルおよびリモートサーバー上のノート。"
           }
         }
       }
@@ -1088,12 +1736,24 @@
             "state" : "translated",
             "value" : "来自您所在服务器的动态。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたのサーバー上のノート。"
+          }
         }
       }
     },
     "Notification" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "通知"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "通知"
@@ -1108,6 +1768,12 @@
             "state" : "translated",
             "value" : "在浏览器中打开"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブラウザで開く"
+          }
         }
       }
     },
@@ -1117,6 +1783,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "在浏览器中打开 (%@)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブラウザで開く (%@)"
           }
         }
       }
@@ -1128,6 +1800,12 @@
             "state" : "translated",
             "value" : "打开实例政策"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インスタンスのポリシーを開く"
+          }
         }
       }
     },
@@ -1137,6 +1815,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "待处理"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保留中"
           }
         }
       }
@@ -1148,6 +1832,12 @@
             "state" : "translated",
             "value" : "请在打开的页面中使用您的用户名和密码登录，并授权此应用。"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "そこでユーザー名とパスワードでサインインし、Misskey OAuthでこのセッションを承認してください。"
+          }
         }
       }
     },
@@ -1157,6 +1847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "热门话题"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "人気のハッシュタグ"
           }
         }
       }
@@ -1168,6 +1864,12 @@
             "state" : "translated",
             "value" : "热门用户"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "人気のユーザー"
+          }
         }
       }
     },
@@ -1177,6 +1879,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "发布"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投稿"
           }
         }
       }
@@ -1188,12 +1896,24 @@
             "state" : "translated",
             "value" : "公开"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "公開"
+          }
         }
       }
     },
     "Recent Used" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近使用"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "最近使用"
@@ -1208,6 +1928,12 @@
             "state" : "translated",
             "value" : "刷新"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新"
+          }
         }
       }
     },
@@ -1217,6 +1943,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移除"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "削除"
           }
         }
       }
@@ -1228,6 +1960,12 @@
             "state" : "translated",
             "value" : "移除收藏"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入りから削除"
+          }
         }
       }
     },
@@ -1237,6 +1975,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "移除粉丝"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォロワーを削除"
           }
         }
       }
@@ -1248,6 +1992,12 @@
             "state" : "translated",
             "value" : "转推"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リノート"
+          }
         }
       }
     },
@@ -1257,6 +2007,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "回复"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返信"
           }
         }
       }
@@ -1268,6 +2024,12 @@
             "state" : "translated",
             "value" : "回复 %@"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ に返信"
+          }
         }
       }
     },
@@ -1277,6 +2039,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "举报"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "報告"
           }
         }
       }
@@ -1288,6 +2056,12 @@
             "state" : "translated",
             "value" : "举报滥用"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不正利用を報告"
+          }
         }
       }
     },
@@ -1297,6 +2071,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "报告问题"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "問題を報告"
           }
         }
       }
@@ -1308,6 +2088,12 @@
             "state" : "translated",
             "value" : "重试"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "再試行"
+          }
         }
       }
     },
@@ -1317,6 +2103,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜索"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索"
           }
         }
       }
@@ -1328,6 +2120,12 @@
             "state" : "translated",
             "value" : "搜索任何内容"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "何かを検索"
+          }
         }
       }
     },
@@ -1337,6 +2135,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜索表情"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "絵文字を検索"
           }
         }
       }
@@ -1348,6 +2152,12 @@
             "state" : "translated",
             "value" : "发送"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "送信"
+          }
         }
       }
     },
@@ -1357,6 +2167,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在发送动态"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投稿を送信中"
           }
         }
       }
@@ -1368,6 +2184,12 @@
             "state" : "translated",
             "value" : "正在发送请求"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リクエストを送信中"
+          }
         }
       }
     },
@@ -1377,6 +2199,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "敏感内容"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "センシティブなコンテンツ"
           }
         }
       }
@@ -1388,6 +2216,12 @@
             "state" : "translated",
             "value" : "设置"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
+          }
         }
       }
     },
@@ -1397,6 +2231,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "退出登录"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サインアウト"
           }
         }
       }
@@ -1408,6 +2248,12 @@
             "state" : "translated",
             "value" : "单选"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "単一選択"
+          }
         }
       }
     },
@@ -1417,6 +2263,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "切换端点"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "エンドポイントを切り替え"
           }
         }
       }
@@ -1428,6 +2280,12 @@
             "state" : "translated",
             "value" : "谢谢"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ありがとう"
+          }
         }
       }
     },
@@ -1437,6 +2295,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此回应不可用"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このリアクションは利用できません"
           }
         }
       }
@@ -1448,6 +2312,12 @@
             "state" : "translated",
             "value" : "时间线"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タイムライン"
+          }
         }
       }
     },
@@ -1457,6 +2327,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "趋势"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレンド"
           }
         }
       }
@@ -1468,6 +2344,12 @@
             "state" : "translated",
             "value" : "热门话题已更新"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "トレンドハッシュタグが更新されました"
+          }
         }
       }
     },
@@ -1477,6 +2359,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未能找到此回应"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このリアクションが見つかりません"
           }
         }
       }
@@ -1488,6 +2376,12 @@
             "state" : "translated",
             "value" : "无法加载数据"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データを読み込めません"
+          }
         }
       }
     },
@@ -1497,6 +2391,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法加载文件"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルを読み込めません"
           }
         }
       }
@@ -1508,6 +2408,12 @@
             "state" : "translated",
             "value" : "无法加载此动态"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このノートを読み込めません"
+          }
         }
       }
     },
@@ -1517,6 +2423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "无法发送，请稍后重试"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "送信できません。後でもう一度お試しください"
           }
         }
       }
@@ -1528,6 +2440,12 @@
             "state" : "translated",
             "value" : "无法更新"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新できません"
+          }
         }
       }
     },
@@ -1537,6 +2455,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "取消屏蔽"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブロック解除"
           }
         }
       }
@@ -1548,6 +2472,12 @@
             "state" : "translated",
             "value" : "取消关注此用户？"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このユーザーのフォローを解除しますか？"
+          }
         }
       }
     },
@@ -1557,6 +2487,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "未分组"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未分類"
           }
         }
       }
@@ -1568,6 +2504,12 @@
             "state" : "translated",
             "value" : "未知"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不明"
+          }
         }
       }
     },
@@ -1577,6 +2519,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "发生未知/网络错误"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "不明/ネットワークエラーが発生しました"
           }
         }
       }
@@ -1588,6 +2536,12 @@
             "state" : "translated",
             "value" : "解锁"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ロック解除"
+          }
         }
       }
     },
@@ -1597,6 +2551,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不支持的通知"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サポートされていない通知"
           }
         }
       }
@@ -1608,6 +2568,12 @@
             "state" : "translated",
             "value" : "不支持的通知 %@"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サポートされていない通知 %@"
+          }
         }
       }
     },
@@ -1617,6 +2583,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更新元数据"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メタデータを更新"
           }
         }
       }
@@ -1628,6 +2600,12 @@
             "state" : "translated",
             "value" : "正在更新账户信息"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アカウント情報を更新中"
+          }
         }
       }
     },
@@ -1637,6 +2615,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在更新实例元数据"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "インスタンスのメタデータを更新中"
           }
         }
       }
@@ -1648,6 +2632,12 @@
             "state" : "translated",
             "value" : "上传"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップロード"
+          }
         }
       }
     },
@@ -1657,6 +2647,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "已上传"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップロード済み"
           }
         }
       }
@@ -1668,6 +2664,12 @@
             "state" : "translated",
             "value" : "正在上传"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アップロード中"
+          }
         }
       }
     },
@@ -1677,6 +2679,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "用户"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ユーザー"
           }
         }
       }
@@ -1688,12 +2696,24 @@
             "state" : "translated",
             "value" : "版本：%@"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン：%@"
+          }
         }
       }
     },
     "Vote" : {
       "localizations" : {
         "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "投票"
+          }
+        },
+        "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "投票"
@@ -1708,6 +2728,12 @@
             "state" : "translated",
             "value" : "包含回复"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "返信を含む"
+          }
         }
       }
     },
@@ -1717,6 +2743,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "欢迎"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ようこそ"
           }
         }
       }
@@ -1728,6 +2760,12 @@
             "state" : "translated",
             "value" : "欢迎使用 Misskey"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Misskeyへようこそ"
+          }
         }
       }
     },
@@ -1737,6 +2775,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "是"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "はい"
           }
         }
       }
@@ -1748,6 +2792,12 @@
             "state" : "translated",
             "value" : "您正在连接到"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "接続先："
+          }
         }
       }
     },
@@ -1757,6 +2807,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您有 %d 条动态"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d 件のノートがあります"
           }
         }
       }
@@ -1768,6 +2824,12 @@
             "state" : "translated",
             "value" : "一切就绪！"
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべて完了しました！"
+          }
         }
       }
     },
@@ -1777,6 +2839,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您的主时间线一览，包含您关注的人发布的动态。"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォローしているユーザーの投稿を含む、メインタイムラインの概要です。"
           }
         }
       }
