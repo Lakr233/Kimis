@@ -111,9 +111,10 @@ extension TextParser {
     func compileUserDescriptionSimple(with profile: UserProfile) -> NSMutableAttributedString {
         var desc = profile.description
             .trimmingCharacters(in: .whitespacesAndNewlines)
-//        while desc.contains("\n\n") {
-//            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
-//        }
+        desc = desc.replacingOccurrences(of: "\u{034F}", with: "")
+        while desc.contains("\n\n") {
+            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
+        }
         if desc.isEmpty { desc = "This user did not provide a self introduction." }
         let items: [NSMutableAttributedString] = [
             NSMutableAttributedString(string: "\(desc)"),
@@ -130,9 +131,10 @@ extension TextParser {
         // Description
         var desc = profile.description
             .trimmingCharacters(in: .whitespacesAndNewlines)
-//        while desc.contains("\n\n") {
-//            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
-//        }
+        desc = desc.replacingOccurrences(of: "\u{034F}", with: "")
+        while desc.contains("\n\n") {
+            desc = desc.replacingOccurrences(of: "\n\n", with: "\n")
+        }
         if desc.isEmpty, profile.fields.isEmpty {
             desc = "This user did not provide a self introduction."
         }

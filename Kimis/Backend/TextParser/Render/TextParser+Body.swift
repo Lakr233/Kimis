@@ -18,6 +18,7 @@ extension TextParser {
             texts.append("\(cw)")
         }
         var content = note.text
+        content = content.replacingOccurrences(of: "\u{034F}", with: "")
         while removeDuplicatedNewLines, content.contains("\n\n") {
             content = content.replacingOccurrences(of: "\n\n", with: "\n")
         }
