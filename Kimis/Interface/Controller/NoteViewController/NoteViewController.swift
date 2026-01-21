@@ -64,7 +64,7 @@ class NoteViewController: ViewController, RouterDatable {
             self,
             selector: #selector(updateAfterSent),
             name: .postSent,
-            object: nil
+            object: nil,
         )
     }
 
@@ -149,7 +149,7 @@ class NoteViewController: ViewController, RouterDatable {
                     trim: val.0.0,
                     chain: val.0.1,
                     main: val.0.2,
-                    replies: val.0.3
+                    replies: val.0.3,
                 )
                 if val.1.contains(.head) {
                     if firstBuild.first?.kind == .moreHeader { firstBuild.removeFirst() }
@@ -206,7 +206,7 @@ class NoteViewController: ViewController, RouterDatable {
             let ctx = NoteCell.Context(
                 kind: .main,
                 noteId: $0,
-                connectors: [.up, .down]
+                connectors: [.up, .down],
             )
             ctx.disablePaddingAfter = true
             return ctx
@@ -227,7 +227,7 @@ class NoteViewController: ViewController, RouterDatable {
             let ctx = NoteCell.Context(
                 kind: .replyPadded,
                 noteId: $0,
-                connectors: [.attach, .pass]
+                connectors: [.attach, .pass],
             )
             ctx.disablePaddingAfter = true
             return ctx

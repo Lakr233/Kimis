@@ -94,7 +94,7 @@ public class Post: Equatable, Hashable {
         cw: String? = nil,
         localOnly: Bool = false,
         visibility: Visibility = .public,
-        visibleUserIds: [UserID] = []
+        visibleUserIds: [UserID] = [],
     ) {
         self.text = text
         self.attachments = attachments

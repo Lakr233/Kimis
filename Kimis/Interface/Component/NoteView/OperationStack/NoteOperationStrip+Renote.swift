@@ -14,7 +14,7 @@ extension NoteOperationStrip {
         ControllerRouting.pushing(
             tag: .post,
             referencer: self,
-            associatedData: PostController.PostContext(renote: noteId, reply: nil)
+            associatedData: PostController.PostContext(renote: noteId, reply: nil),
         )
     }
 }

@@ -25,7 +25,7 @@ public extension RemoteNotification {
             type: type,
             userId: notification.userId,
             noteId: notification.note?.id,
-            reaction: notification.reaction
+            reaction: notification.reaction,
         )
     }
 }

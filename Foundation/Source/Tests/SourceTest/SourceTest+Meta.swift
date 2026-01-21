@@ -16,7 +16,7 @@ extension SourceTest {
                 print(
                     """
                     [+] validated endpoint \(endpoint.rawValue): \(info.method.rawValue) -> \(info.path)
-                    """
+                    """,
                 )
             } else {
                 brokenEndpoint.append(endpoint.rawValue)

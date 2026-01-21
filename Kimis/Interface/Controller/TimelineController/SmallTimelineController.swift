@@ -54,7 +54,7 @@ class SmallTimelineController: TimelineController {
             x: bounds.width - postButtonSize.width - postButtonPadding - view.safeAreaInsets.right,
             y: bounds.height - postButtonSize.height - postButtonPadding - view.safeAreaInsets.bottom,
             width: postButtonSize.width,
-            height: postButtonSize.height
+            height: postButtonSize.height,
         )
     }
 

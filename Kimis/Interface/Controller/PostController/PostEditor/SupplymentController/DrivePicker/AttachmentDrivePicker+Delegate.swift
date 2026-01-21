@@ -19,12 +19,12 @@ extension AttachmentDrivePicker: UIScrollViewDelegate, UICollectionViewDelegate,
                 UICollectionViewCell? in
                 let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: AttachmentCell.cellId,
-                    for: indexPath
+                    for: indexPath,
                 ) as! AttachmentCell
                 cell.load(attach)
                 cell.setSelection(self?.selection.contains(attach) ?? false)
                 return cell
-            }
+            },
         )
         dataSource.supplementaryViewProvider = { [weak self] collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionFooter else {
@@ -33,7 +33,7 @@ extension AttachmentDrivePicker: UIScrollViewDelegate, UICollectionViewDelegate,
             let view = collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: LoadMoreFooterButton.cellId,
-                for: indexPath
+                for: indexPath,
             ) as? LoadMoreFooterButton
             view?.picker = self
             return view

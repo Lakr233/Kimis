@@ -26,7 +26,7 @@ let documentsDirectory = availableDirectories[0]
 try? FileManager.default.createDirectory(
     at: documentsDirectory,
     withIntermediateDirectories: true,
-    attributes: nil
+    attributes: nil,
 )
 
 print("Document Dir: \(documentsDirectory.path)")
@@ -37,7 +37,7 @@ try? FileManager.default.removeItem(at: temporaryDirectory)
 try? FileManager.default.createDirectory(
     at: documentsDirectory,
     withIntermediateDirectories: true,
-    attributes: nil
+    attributes: nil,
 )
 
 print("Temp Dir: \(temporaryDirectory.path)")
@@ -49,5 +49,5 @@ _ = UIApplicationMain(
     CommandLine.argc,
     CommandLine.unsafeArgv,
     nil,
-    NSStringFromClass(AppDelegate.self)
+    NSStringFromClass(AppDelegate.self),
 )

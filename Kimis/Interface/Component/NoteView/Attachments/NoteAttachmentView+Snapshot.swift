@@ -157,7 +157,7 @@ extension NoteAttachmentView.Snapshot {
                     x: CGFloat(x) * (eachWidth + spacing),
                     y: CGFloat(y) * (eachHeight + spacing),
                     width: eachWidth,
-                    height: eachHeight
+                    height: eachHeight,
                 )
             }
         }

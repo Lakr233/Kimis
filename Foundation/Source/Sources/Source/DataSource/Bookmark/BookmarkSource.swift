@@ -31,7 +31,7 @@ public class BookmarkSource: ObservableObject {
         ctx = context
         dataSource = context.properties.readProperty(
             fromKey: .bookmark,
-            defaultValue: [NoteID]()
+            defaultValue: [NoteID](),
         )
         if dataSource.count > kMaxBookmarkCount {
             dataSource.removeLast(dataSource.count - kMaxBookmarkCount)

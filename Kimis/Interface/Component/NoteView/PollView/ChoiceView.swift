@@ -72,7 +72,7 @@ extension PollView {
                     x: 0,
                     y: 0,
                     width: bounds.width * snapshot.element.percent,
-                    height: bounds.height
+                    height: bounds.height,
                 )
             } else {
                 iconView.frame = .zero
@@ -134,7 +134,7 @@ extension PollView {
             let alert = UIAlertController(
                 title: L10n.text("Vote"),
                 message: L10n.text("Are you sure you want to vote for %@?", element.text),
-                preferredStyle: .alert
+                preferredStyle: .alert,
             )
             alert.addAction(UIAlertAction(title: L10n.text("Yes"), style: .default, handler: { [weak self] _ in
                 print("[*] vote note \(noteId) idx \(idx)")

@@ -113,7 +113,7 @@ extension SourceTest {
                 previewBlurHash: nil,
                 preferredWidth: nil,
                 preferredHeight: nil,
-                isSensitive: false
+                isSensitive: false,
             ),
         ]
 
@@ -150,13 +150,13 @@ extension SourceTest {
                                 cw: nil,
                                 localOnly: Bool.random(),
                                 visibility: nextVis(),
-                                visibleUserIds: []
+                                visibleUserIds: [],
                             )
                             if let attachment { post.attachments = [attachment] }
                             let testItem = TestPost(
                                 post: post,
                                 renote: renote,
-                                reply: reply
+                                reply: reply,
                             )
                             ans.append(testItem)
                         }
@@ -270,19 +270,19 @@ extension SourceTest {
             anchorA = source.network.requestForNoteCreate(
                 with: NMPost.converting(Post(text: "anchorA"))!,
                 renoteId: nil,
-                replyId: nil
+                replyId: nil,
             )?.result
             sleep(3)
             anchorB = source.network.requestForNoteCreate(
                 with: NMPost.converting(Post(text: "anchorB"))!,
                 renoteId: nil,
-                replyId: nil
+                replyId: nil,
             )?.result
             sleep(3)
             anchorC = source.network.requestForNoteCreate(
                 with: NMPost.converting(Post(text: "anchorC"))!,
                 renoteId: nil,
-                replyId: nil
+                replyId: nil,
             )?.result
         }
         guard let anchorA, let anchorB, let anchorC else {
@@ -298,7 +298,7 @@ extension SourceTest {
                     sinceDate: nil,
                     untilDate: nil,
                     sinceId: nil,
-                    untilId: nil
+                    untilId: nil,
                 )
                 unwrapOrFail(fetch)
                 unwrapOrFail(fetch.result) { notes in
@@ -317,7 +317,7 @@ extension SourceTest {
                     sinceDate: nil,
                     untilDate: nil,
                     sinceId: sid,
-                    untilId: uid
+                    untilId: uid,
                 )
                 unwrapOrFail(fetch)
                 unwrapOrFail(fetch.result) { notes in
@@ -348,7 +348,7 @@ extension SourceTest {
                     sinceDate: sdate.addingTimeInterval(1),
                     untilDate: udate.addingTimeInterval(-1),
                     sinceId: nil,
-                    untilId: nil
+                    untilId: nil,
                 )
                 unwrapOrFail(fetch)
                 unwrapOrFail(fetch.result) { notes in
@@ -363,7 +363,7 @@ extension SourceTest {
                     sinceDate: sdate.addingTimeInterval(1),
                     untilDate: udate.addingTimeInterval(-1),
                     sinceId: sid,
-                    untilId: uid
+                    untilId: uid,
                 )
                 unwrapOrFail(fetch)
                 unwrapOrFail(fetch.result) { notes in
@@ -381,7 +381,7 @@ extension SourceTest {
             let replyNote = source.network.requestForNoteCreate(
                 with: NMPost.converting(post)!,
                 renoteId: nil,
-                replyId: nid
+                replyId: nid,
             )?.result
             guard let replyNote else {
                 XCTFail("failed to create note")
@@ -407,7 +407,7 @@ extension SourceTest {
             let ans = source.network.requestForNoteCreate(
                 with: NMPost.converting(post)!,
                 renoteId: nil,
-                replyId: nil
+                replyId: nil,
             )?.result
             guard let ans else {
                 XCTFail("failed to create note")

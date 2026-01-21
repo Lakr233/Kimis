@@ -20,7 +20,7 @@ extension NotificationTableView {
                 .removeDuplicates()
                 .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global()),
             refreshCaller
-                .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global())
+                .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global()),
         )
         .receive(on: DispatchQueue.main)
         .sink { [weak self] value in
@@ -32,7 +32,7 @@ extension NotificationTableView {
                     target: value.0,
                     readAllBefore: value.1,
                     width: value.2,
-                    ticket: ticket
+                    ticket: ticket,
                 )
             }
         }

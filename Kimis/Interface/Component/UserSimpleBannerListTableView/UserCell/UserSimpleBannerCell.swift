@@ -42,7 +42,7 @@ class UserSimpleBannerCell: TableViewCell {
             x: paddingInset,
             y: 0,
             width: width - 2 * paddingInset,
-            height: bounds.height
+            height: bounds.height,
         )
         preview.frame = container.bounds
     }

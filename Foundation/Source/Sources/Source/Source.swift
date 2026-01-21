@@ -102,12 +102,12 @@ public class Source: ObservableObject, Identifiable, Equatable {
         notes = KVStorage(
             dbConnection: database,
             validating: Note(noteId: "__0xaa55__"),
-            updating: notesChange
+            updating: notesChange,
         )
         users = KVStorage(
             dbConnection: database,
             validating: User(userId: "__0xaa55__"),
-            updating: nil
+            updating: nil,
         )
 
         let propertiesLocation = storage

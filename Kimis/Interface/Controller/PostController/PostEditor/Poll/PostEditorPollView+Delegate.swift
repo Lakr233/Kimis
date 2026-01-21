@@ -18,7 +18,7 @@ extension PostEditorPollView: UITableViewDelegate {
                 if let idx = binder.index {
                     let cell = tableView.dequeueReusableCell(
                         withIdentifier: PollEditorCell.cellId,
-                        for: indexPath
+                        for: indexPath,
                     ) as! PollEditorCell
                     cell.bind(post: binder.post, index: idx)
                     cell.spacing = binder.spacing
@@ -26,13 +26,13 @@ extension PostEditorPollView: UITableViewDelegate {
                 } else {
                     let cell = tableView.dequeueReusableCell(
                         withIdentifier: PollEditorControlCell.cellId,
-                        for: indexPath
+                        for: indexPath,
                     ) as! PollEditorControlCell
                     cell.bind(post: binder.post)
                     cell.spacing = binder.spacing
                     return cell
                 }
-            }
+            },
         )
         return dataSource
     }

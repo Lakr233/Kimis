@@ -50,7 +50,7 @@ public extension Source.NetworkWrapper {
             offset: offset,
             origin: origin,
             state: state,
-            hostname: hostname
+            hostname: hostname,
         )
         ctx.spider.spidering(result.extracted)
         ctx.spider.spidering(result.result)
@@ -89,7 +89,7 @@ public extension Source.NetworkWrapper {
             userId: userId,
             limit: limit,
             untilId: untilId,
-            sinceId: sinceId
+            sinceId: sinceId,
         )
         ctx.spider.spidering(result)
         return result.compactMap {
@@ -104,7 +104,7 @@ public extension Source.NetworkWrapper {
             userId: userId,
             limit: limit,
             untilId: untilId,
-            sinceId: sinceId
+            sinceId: sinceId,
         )
         ctx.spider.spidering(result)
         return result.compactMap {

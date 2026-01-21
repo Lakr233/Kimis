@@ -215,7 +215,7 @@ extension NotePreviewSimple.Snapshot {
             x: spacing,
             y: spacing,
             width: 24,
-            height: 24
+            height: 24,
         )
 
         let userTextRect: CGRect
@@ -229,14 +229,14 @@ extension NotePreviewSimple.Snapshot {
                 x: avatarRect.maxX + spacing,
                 y: avatarRect.minY,
                 width: userTextWidth,
-                height: userTextHeight
+                height: userTextHeight,
             )
         } else {
             userTextRect = CGRect(
                 x: avatarRect.maxX + spacing,
                 y: avatarRect.minY + (avatarRect.height - userTextHeight) / 2,
                 width: userTextWidth,
-                height: userTextHeight
+                height: userTextHeight,
             )
         }
 
@@ -249,7 +249,7 @@ extension NotePreviewSimple.Snapshot {
             x: spacing,
             y: max(userTextRect.maxY, avatarRect.maxY) + spacing,
             width: contentWidth,
-            height: mainTextHeight > 0 && mainText.length > 0 ? mainTextHeight : -spacing
+            height: mainTextHeight > 0 && mainText.length > 0 ? mainTextHeight : -spacing,
         )
 
         let pollViewRect: CGRect
@@ -260,21 +260,21 @@ extension NotePreviewSimple.Snapshot {
                 textParser: textParser,
                 poll: poll,
                 noteId: targetNote.noteId,
-                spacing: spacing
+                spacing: spacing,
             )
             pollViewSnapshot = snapshot
             pollViewRect = .init(
                 x: spacing,
                 y: mainTextRect.origin.y + mainTextRect.size.height + spacing,
                 width: contentWidth,
-                height: snapshot.height > 0 ? snapshot.height : -spacing
+                height: snapshot.height > 0 ? snapshot.height : -spacing,
             )
         } else {
             pollViewRect = .init(
                 x: spacing,
                 y: mainTextRect.origin.y + mainTextRect.size.height + spacing,
                 width: contentWidth,
-                height: -spacing
+                height: -spacing,
             )
         }
 
@@ -285,14 +285,14 @@ extension NotePreviewSimple.Snapshot {
             x: 0,
             y: pollViewRect.origin.y + pollViewRect.size.height + spacing,
             width: width,
-            height: attachmentHeight > 0 ? attachmentHeight : -spacing
+            height: attachmentHeight > 0 ? attachmentHeight : -spacing,
         )
 
         var renoteHintRect: CGRect = .zero
         let finalHeight: CGFloat
 
         let renoteHintText = textParser.compileRenoteHint(
-            withRenote: context?.source?.notes.retain(targetNote.renoteId)
+            withRenote: context?.source?.notes.retain(targetNote.renoteId),
         )
         if renoteHintText.length > 0 {
             let renoteHintHeight = renoteHintText
@@ -301,7 +301,7 @@ extension NotePreviewSimple.Snapshot {
                 x: spacing,
                 y: attachmentsRect.origin.y + attachmentsRect.size.height + spacing,
                 width: contentWidth,
-                height: renoteHintText.length > 0 ? renoteHintHeight : -spacing
+                height: renoteHintText.length > 0 ? renoteHintHeight : -spacing,
             )
             finalHeight = renoteHintRect.origin.y + renoteHintRect.size.height + spacing
         } else {

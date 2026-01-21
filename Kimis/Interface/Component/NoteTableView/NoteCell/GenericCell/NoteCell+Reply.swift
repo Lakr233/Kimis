@@ -122,7 +122,7 @@ extension NoteCell.ReplyCell.Snapshot {
             x: padding,
             y: padding,
             width: contentWidth,
-            height: noteSnapshot.height
+            height: noteSnapshot.height,
         )
         let height = noteSnapshot.height + padding + (context.disablePaddingAfter ? 0 : padding)
 
@@ -132,13 +132,13 @@ extension NoteCell.ReplyCell.Snapshot {
             x: connectorX,
             y: 0,
             width: IH.connectorWidth,
-            height: padding + noteSnapshot.avatarRect.minY - 4
+            height: padding + noteSnapshot.avatarRect.minY - 4,
         )
         let connectorDownFrame = CGRect(
             x: connectorX,
             y: padding + noteSnapshot.avatarRect.maxY + 4,
             width: IH.connectorWidth,
-            height: height - (padding + noteSnapshot.avatarRect.maxY + 4) + 1
+            height: height - (padding + noteSnapshot.avatarRect.maxY + 4) + 1,
         )
 
         self.width = width

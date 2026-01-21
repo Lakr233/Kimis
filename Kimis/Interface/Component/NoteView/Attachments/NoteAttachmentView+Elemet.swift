@@ -44,7 +44,7 @@ extension NoteAttachmentView {
                 contentSize: attachment.contentSize,
                 previewSize: previewSize,
                 previewBlur: attachment.previewBlurHash,
-                sensitive: attachment.isSensitive
+                sensitive: attachment.isSensitive,
             )
         }
     }

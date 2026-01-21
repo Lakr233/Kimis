@@ -42,7 +42,7 @@ public extension NMPost {
             cw: cw,
             localOnly: post.localOnly,
             visibility: post.visibility.rawValue,
-            visibleUserIds: users
+            visibleUserIds: users,
         )
     }
 }

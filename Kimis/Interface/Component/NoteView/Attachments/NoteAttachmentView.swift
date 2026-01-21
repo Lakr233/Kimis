@@ -82,7 +82,7 @@ class NoteAttachmentView: UIView {
             x: bounds.width - moreLabelSize.width - moreLabelPadding,
             y: bounds.height - moreLabelSize.height - moreLabelPadding,
             width: moreLabelSize.width,
-            height: moreLabelSize.height
+            height: moreLabelSize.height,
         )
         var moreLabelCornerRadius = layer.cornerRadius - moreLabelPadding
         if moreLabelCornerRadius < 0 { moreLabelCornerRadius = 4 }

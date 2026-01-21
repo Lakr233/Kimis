@@ -26,7 +26,7 @@ extension NoteCell {
                 x: padding + avatarSize + NotePreview.verticalSpacing,
                 y: 0,
                 width: 200,
-                height: bounds.height
+                height: bounds.height,
             )
             let fontSize = CGFloat(AppConfig.current.defaultNoteFontSize)
                 + IH.preferredFontSizeOffset(usingWidth: bounds.width - 2 * padding)

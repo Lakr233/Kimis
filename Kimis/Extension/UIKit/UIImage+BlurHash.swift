@@ -104,7 +104,7 @@ private func decodeAC(_ value: Int, maximumValue: Float) -> (Float, Float, Float
     let rgb = (
         signPow((Float(quantR) - 9) / 9, 2) * maximumValue,
         signPow((Float(quantG) - 9) / 9, 2) * maximumValue,
-        signPow((Float(quantB) - 9) / 9, 2) * maximumValue
+        signPow((Float(quantB) - 9) / 9, 2) * maximumValue,
     )
 
     return rgb

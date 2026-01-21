@@ -37,8 +37,8 @@ public extension Note {
                     text: $0.text,
                     votes: $0.votes,
                     isVoted: $0.isVoted,
-                    percent: totalVote > 0 ? Double($0.votes) / totalVote : 0
-                ) }
+                    percent: totalVote > 0 ? Double($0.votes) / totalVote : 0,
+                ) },
             )
         }
         return .init(
@@ -57,7 +57,7 @@ public extension Note {
             replyId: note.replyId,
             tags: note.tags ?? [],
             mentions: note.mentions ?? [],
-            poll: poll
+            poll: poll,
         )
     }
 }

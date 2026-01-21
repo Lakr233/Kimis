@@ -21,6 +21,6 @@ extension User {
         isAdmin: false,
         isBot: false,
         isModerator: false,
-        isCat: false
+        isCat: false,
     )
 }

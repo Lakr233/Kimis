@@ -26,7 +26,7 @@ public struct AES {
 
         guard let fallbackAES = AES(
             key: "00393F5A-BB66-4671-A925-480F288BB48F",
-            iv: "079B10D5-E1AD-4BD4-BC27-7D85F9634B6A"
+            iv: "079B10D5-E1AD-4BD4-BC27-7D85F9634B6A",
         ) else {
             fatalError()
         }

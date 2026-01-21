@@ -11,7 +11,7 @@ import UIKit
 
 private let placeholder = UIImage(
     color: .gray.withAlphaComponent(0.5),
-    size: .init(width: 50, height: 50)
+    size: .init(width: 50, height: 50),
 )
 .withRoundedCorners(radius: 8)
 

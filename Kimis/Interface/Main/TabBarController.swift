@@ -32,27 +32,27 @@ class TabBarController: UITabBarController {
             // idx: 0
             Self.createTabPage(
                 withImage: UIImage.fluent(.home_filled),
-                withController: SmallTimelineController()
+                withController: SmallTimelineController(),
             ),
             // idx: 1
             Self.createTabPage(
                 withImage: UIImage.fluent(.search_filled),
-                withController: DiscoverSearchController()
+                withController: DiscoverSearchController(),
             ),
             // idx: 2
             Self.createTabPage(
                 withImage: UIImage.fluent(.person_filled),
-                withController: CurrentUserViewController()
+                withController: CurrentUserViewController(),
             ),
             // idx: 3
             Self.createTabPage(
                 withImage: UIImage.fluent(.alert_filled),
-                withController: SmallNotificationController()
+                withController: SmallNotificationController(),
             ),
             // idx: 4
             Self.createTabPage(
                 withImage: UIImage.fluent(.settings_filled),
-                withController: SettingController()
+                withController: SettingController(),
             ),
         ]
 
@@ -118,7 +118,7 @@ class TabBarController: UITabBarController {
 
     private static func createTabPage(
         withImage icon: UIImage,
-        withController controller: UIViewController
+        withController controller: UIViewController,
     ) -> UIViewController {
         let navigator = NoTitleNavController()
         navigator.platformSetup()
@@ -127,7 +127,7 @@ class TabBarController: UITabBarController {
         navigator.tabBarItem = .init(
             title: "", // title,
             image: icon,
-            tag: (controller.title ?? UUID().uuidString).hashValue
+            tag: (controller.title ?? UUID().uuidString).hashValue,
         )
         return navigator
     }

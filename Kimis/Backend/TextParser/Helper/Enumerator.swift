@@ -30,7 +30,7 @@ extension TextParser {
                             accept tail: \(currentTail)
                             sub_string of request: \(string.attributedSubstring(from: buildRange).string)
                             request ignored
-                        """
+                        """,
                     )
                 #endif
                 continue
@@ -76,7 +76,7 @@ extension TextParser {
     func matchWithRegex(
         withinString string: NSMutableAttributedString,
         matching regex: RegEx,
-        options: NSRegularExpression.Options = [.anchorsMatchLines]
+        options: NSRegularExpression.Options = [.anchorsMatchLines],
     ) -> [NSTextCheckingResult] {
         guard let regexObject = try? NSRegularExpression(pattern: regex.rawValue, options: options) else {
             return []
@@ -103,7 +103,7 @@ extension TextParser {
                     >>>
                     \(metaString)
                     <<<
-                    """
+                    """,
                 )
             }
         #endif
@@ -122,7 +122,7 @@ extension TextParser {
         withinString string: NSMutableAttributedString,
         matching regex: RegEx,
         options: NSRegularExpression.Options = [.anchorsMatchLines],
-        operating: ModifyStringBlock
+        operating: ModifyStringBlock,
     ) {
         let matchingResult = matchWithRegex(withinString: string, matching: regex, options: options)
         guard !matchingResult.isEmpty else { return }

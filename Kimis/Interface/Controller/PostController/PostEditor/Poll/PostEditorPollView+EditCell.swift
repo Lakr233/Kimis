@@ -65,7 +65,7 @@ extension PostEditorPollView {
                 top: textInset,
                 left: textInset,
                 bottom: textInset,
-                right: textInset
+                right: textInset,
             )
             textView.isScrollEnabled = false
             textView.font = .systemFont(ofSize: 16)

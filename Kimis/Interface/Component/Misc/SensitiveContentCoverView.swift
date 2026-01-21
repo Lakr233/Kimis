@@ -71,7 +71,7 @@ class SensitiveContentCoverView: UIView {
             x: bounds.width / 2 - Self.iconSize.width / 2,
             y: bounds.height / 2 - Self.iconSize.height / 2 - 20,
             width: Self.iconSize.width,
-            height: Self.iconSize.height
+            height: Self.iconSize.height,
         )
         let labelWidth = bounds.width - 10
         label.frame = CGRect(x: (bounds.width - labelWidth) / 2, y: icon.frame.maxY + 2, width: labelWidth, height: 24)

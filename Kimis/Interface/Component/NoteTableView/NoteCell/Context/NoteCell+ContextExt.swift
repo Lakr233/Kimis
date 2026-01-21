@@ -11,7 +11,7 @@ extension NoteCell.Context {
     convenience init(
         kind: NoteCell.CellKind,
         noteId: String? = nil,
-        connectors: (_ connector: inout Set<ConnectorDirection>) -> Void
+        connectors: (_ connector: inout Set<ConnectorDirection>) -> Void,
     ) {
         var build: Set<ConnectorDirection> = []
         connectors(&build)
@@ -45,7 +45,7 @@ extension NoteCell.Context {
                     url: url,
                     count: value,
                     highlight: note.userReaction == key,
-                    representReaction: name
+                    representReaction: name,
                 ))
             } else {
                 buildReactions.append(.init(
@@ -53,7 +53,7 @@ extension NoteCell.Context {
                     text: key,
                     url: nil,
                     count: value,
-                    highlight: note.userReaction == key
+                    highlight: note.userReaction == key,
                 ))
             }
         }

@@ -188,7 +188,7 @@ public extension Network {
         var request = URLRequest(
             url: url,
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 8
+            timeoutInterval: 8,
         )
         request.httpMethod = info.method.rawValue
         injectBodyForPost(for: &request, with: ["i": credential])
@@ -222,7 +222,7 @@ public extension Network {
     }
 
     func cleaningJsonObjectByDeletingSpecialEmptyKeyValue(
-        object: inout [AnyHashable: Any?]
+        object: inout [AnyHashable: Any?],
     ) {
         var result = [AnyHashable: Any?]()
         for (key, value) in object {
@@ -241,14 +241,14 @@ public extension Network {
         with request: URLRequest,
         with session: URLSession = .newEphemeral(),
         setTask: (URLSessionDataTask) -> Void = { _ in },
-        completion: @escaping (Data) -> Void
+        completion: @escaping (Data) -> Void,
     ) {
         var request = request
         if request.httpMethod?.uppercased() == "POST",
            let origJsonData = request.httpBody,
            var object = try? JSONSerialization.jsonObject(
                with: origJsonData,
-               options: .fragmentsAllowed
+               options: .fragmentsAllowed,
            ) as? [AnyHashable: Any?]
         {
             cleaningJsonObjectByDeletingSpecialEmptyKeyValue(object: &object)

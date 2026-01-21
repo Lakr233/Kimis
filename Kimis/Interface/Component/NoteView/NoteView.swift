@@ -275,7 +275,7 @@ extension NoteView.Snapshot {
             x: avatarRect.maxX - tintIconSize,
             y: avatarRect.maxY - tintIconSize,
             width: tintIconSize,
-            height: tintIconSize
+            height: tintIconSize,
         )
 
         let note = context.source?.notes.retain(context.noteId) ?? .missingDataHolder
@@ -290,14 +290,14 @@ extension NoteView.Snapshot {
                 x: userTextX,
                 y: avatarRect.minY,
                 width: userTextWidth,
-                height: userTextHeight
+                height: userTextHeight,
             )
         } else {
             CGRect(
                 x: userTextX,
                 y: avatarRect.minY + (avatarRect.height - userTextHeight) / 2,
                 width: userTextWidth,
-                height: userTextHeight
+                height: userTextHeight,
             )
         }
 
@@ -311,7 +311,7 @@ extension NoteView.Snapshot {
             x: 0,
             y: contentStart,
             width: width,
-            height: mainText.length > 0 ? mainTextFittingSize : -verticalSpacing
+            height: mainText.length > 0 ? mainTextFittingSize : -verticalSpacing,
         )
 
         var voteSnapshot: PollView.Snapshot?
@@ -322,21 +322,21 @@ extension NoteView.Snapshot {
                 textParser: textParser,
                 poll: vote,
                 noteId: note.noteId,
-                spacing: verticalSpacing / 2
+                spacing: verticalSpacing / 2,
             )
             voteSnapshot = snapshot
             pollViewRect = CGRect(
                 x: 0,
                 y: mainTextViewRect.origin.y + mainTextViewRect.size.height + verticalSpacing,
                 width: width,
-                height: snapshot.height > 0 ? snapshot.height : -verticalSpacing
+                height: snapshot.height > 0 ? snapshot.height : -verticalSpacing,
             )
         } else {
             pollViewRect = CGRect(
                 x: 0,
                 y: mainTextViewRect.origin.y + mainTextViewRect.size.height + verticalSpacing,
                 width: width,
-                height: -verticalSpacing
+                height: -verticalSpacing,
             )
         }
 
@@ -347,7 +347,7 @@ extension NoteView.Snapshot {
             x: 0,
             y: pollViewRect.origin.y + pollViewRect.size.height + verticalSpacing,
             width: width,
-            height: attachmentHeight > 0 ? attachmentHeight : -verticalSpacing
+            height: attachmentHeight > 0 ? attachmentHeight : -verticalSpacing,
         )
 
         let renoteParser: TextParser = {
@@ -364,7 +364,7 @@ extension NoteView.Snapshot {
             x: 0,
             y: attachmentRect.origin.y + attachmentRect.size.height + verticalSpacing,
             width: width,
-            height: renoteHeight > 0 ? renoteHeight : -verticalSpacing
+            height: renoteHeight > 0 ? renoteHeight : -verticalSpacing,
         )
 
         let footerText = textParser.compileNoteFooter(withNote: note)
@@ -374,7 +374,7 @@ extension NoteView.Snapshot {
             x: 0,
             y: renoteRect.origin.y + renoteRect.size.height + verticalSpacing,
             width: width,
-            height: footerTextSize
+            height: footerTextSize,
         )
 
         let reactionElements = NoteCell.Context.createReactionStripElemetns(withNote: note, source: context.source)
@@ -384,28 +384,28 @@ extension NoteView.Snapshot {
             x: 0,
             y: footerTextRect.maxY + verticalSpacing,
             width: width,
-            height: reactionHeight > 0 ? reactionHeight : -verticalSpacing
+            height: reactionHeight > 0 ? reactionHeight : -verticalSpacing,
         )
 
         let operationSepUpRect = CGRect(
             x: 0,
             y: reactionRect.origin.y + reactionRect.size.height + verticalSpacing,
             width: width,
-            height: 1
+            height: 1,
         )
 
         let operationRect = CGRect(
             x: 0,
             y: operationSepUpRect.maxY + verticalSpacing / 2,
             width: width,
-            height: NoteOperationStrip.contentHeight
+            height: NoteOperationStrip.contentHeight,
         )
 
         let operationSepDownRect = CGRect(
             x: 0,
             y: operationRect.maxY + verticalSpacing / 2,
             width: width,
-            height: 1
+            height: 1,
         )
 
         self.width = width

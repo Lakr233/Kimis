@@ -21,7 +21,7 @@ extension TimelineTableView {
             $layoutWidth
                 .filter { $0 > 0 }
                 .removeDuplicates(),
-            refreshCaller
+            refreshCaller,
         )
         .debounce(for: .seconds(0.1), scheduler: _dataBuildQueue)
         .receive(on: _dataBuildQueue)

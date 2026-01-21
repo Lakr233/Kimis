@@ -32,7 +32,7 @@ extension ReactionStrip {
                 x: -padding,
                 y: -padding,
                 width: sourceView.frame.width + padding * 2,
-                height: sourceView.frame.height + padding * 2
+                height: sourceView.frame.height + padding * 2,
             )
             popoverPresentationController?.permittedArrowDirections = .any
             view.addSubview(contentView)
@@ -64,7 +64,7 @@ extension ReactionStrip {
 
         func adaptivePresentationStyle(
             for _: UIPresentationController,
-            traitCollection _: UITraitCollection
+            traitCollection _: UITraitCollection,
         ) -> UIModalPresentationStyle {
             .none
         }
@@ -85,7 +85,7 @@ extension ReactionStrip {
             DispatchQueue.global().async {
                 let userList = source.req.requestNoteReactionUserList(
                     reactionIdentifier: reactionIdentifier,
-                    forNote: noteId
+                    forNote: noteId,
                 )
                 DispatchQueue.main.async {
                     self.tableView.users = userList.compactMap { .converting($0) }

@@ -88,11 +88,11 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
     @DefaultButton(icon: {
         let configure = UIImage.SymbolConfiguration(
             pointSize: 24,
-            weight: .semibold
+            weight: .semibold,
         )
         return UIImage(
             systemName: "arrow.left",
-            withConfiguration: configure
+            withConfiguration: configure,
         )
     }())
     var backButton: UIButton
@@ -251,7 +251,7 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
             transparentBackground: false,
             accentColor: .systemBlackAndWhite,
             backButtonWidth: 0,
-            titleInset: 0
+            titleInset: 0,
         )
     }
 
@@ -379,14 +379,14 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
         func performMacCatalystWindowDrag() {
             guard let nsApp = (
                 (NSClassFromString("NSApplication") as? NSObject.Type)?
-                    .value(forKey: "sharedApplication") as? NSObject
+                    .value(forKey: "sharedApplication") as? NSObject,
             ),
                 let currentEvent = nsApp.value(forKey: "currentEvent") as? NSObject,
                 let nsWindow = currentEvent.value(forKey: "window") as? NSObject
             else { return }
             nsWindow.perform(
                 NSSelectorFromString("performWindowDragWithEvent:"),
-                with: currentEvent
+                with: currentEvent,
             )
         }
     }

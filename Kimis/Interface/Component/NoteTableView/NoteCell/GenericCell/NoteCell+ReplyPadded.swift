@@ -140,7 +140,7 @@ extension NoteCell.ReplyPaddedCell.Snapshot {
             x: rightShift + padding,
             y: padding,
             width: contentWidth,
-            height: noteSnapshot.height
+            height: noteSnapshot.height,
         )
         let height = noteSnapshot.height + padding + (context.disablePaddingAfter ? 0 : padding)
 
@@ -148,13 +148,13 @@ extension NoteCell.ReplyPaddedCell.Snapshot {
             x: rightShift + padding + avatarSize / 2 - IH.connectorWidth / 2,
             y: 0,
             width: IH.connectorWidth,
-            height: padding + noteSnapshot.avatarRect.minY - 4
+            height: padding + noteSnapshot.avatarRect.minY - 4,
         )
         let connectorDownFrame = CGRect(
             x: padding + rightShift + avatarSize / 2 - IH.connectorWidth / 2,
             y: padding + noteSnapshot.avatarRect.maxY + 4,
             width: IH.connectorWidth,
-            height: height - (padding + noteSnapshot.avatarRect.maxY + 4) + 1
+            height: height - (padding + noteSnapshot.avatarRect.maxY + 4) + 1,
         )
 
         let connectorX = padding + (NotePreview.defaultAvatarSize + IH.preferredAvatarSizeOffset(usingWidth: width)) / 2 - IH.connectorWidth / 2
@@ -162,13 +162,13 @@ extension NoteCell.ReplyPaddedCell.Snapshot {
             x: connectorX,
             y: 0,
             width: IH.connectorWidth,
-            height: height + 1
+            height: height + 1,
         )
         let connectorAttachRect = CGRect(
             x: connectorX,
             y: 0,
             width: previewRect.minX - connectorX,
-            height: padding + noteSnapshot.avatarRect.midY + IH.connectorWidth / 2
+            height: padding + noteSnapshot.avatarRect.midY + IH.connectorWidth / 2,
         )
 
         self.width = width

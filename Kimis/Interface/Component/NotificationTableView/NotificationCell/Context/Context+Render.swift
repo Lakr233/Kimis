@@ -18,7 +18,7 @@ extension NotificationCell.Context {
                 let snapshot = NotificationCell.MainCell.Snapshot(
                     usingWidth: containerWidth,
                     rendering: notification,
-                    source: source
+                    source: source,
                 )
                 cellHeight = snapshot.height
                 self.snapshot = snapshot

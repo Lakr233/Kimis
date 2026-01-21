@@ -42,7 +42,7 @@ class ProgressFooterView: UIView {
             x: bounds.width / 2 - indicatorSize.width / 2,
             y: 20,
             width: indicatorSize.width,
-            height: indicatorSize.height
+            height: indicatorSize.height,
         )
     }
 }

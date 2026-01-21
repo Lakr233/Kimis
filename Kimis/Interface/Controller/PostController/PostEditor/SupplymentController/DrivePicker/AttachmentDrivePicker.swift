@@ -38,7 +38,7 @@ class AttachmentDrivePicker: ViewController {
 
         let layout = AlignedCollectionViewFlowLayout(
             horizontalAlignment: .justified,
-            verticalAlignment: .center
+            verticalAlignment: .center,
         )
         collectionView = .init(frame: .zero, collectionViewLayout: layout)
 
@@ -54,7 +54,7 @@ class AttachmentDrivePicker: ViewController {
         collectionView.register(
             LoadMoreFooterButton.self,
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-            withReuseIdentifier: LoadMoreFooterButton.cellId
+            withReuseIdentifier: LoadMoreFooterButton.cellId,
         )
 
         $loading
@@ -90,7 +90,7 @@ class AttachmentDrivePicker: ViewController {
                 title: L10n.text("Cancel"),
                 style: .plain,
                 target: self,
-                action: #selector(cancelButtonTapped)
+                action: #selector(cancelButtonTapped),
             ),
         ]
         navigationItem.rightBarButtonItems = [
@@ -98,7 +98,7 @@ class AttachmentDrivePicker: ViewController {
                 title: L10n.text("Done"),
                 style: .done,
                 target: self,
-                action: #selector(doneButtonTapped)
+                action: #selector(doneButtonTapped),
             ),
             .init(customView: indicator),
         ]

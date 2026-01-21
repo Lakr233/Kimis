@@ -51,7 +51,7 @@ extension NoteTableView {
                 width: \(width)
                 items: \(target.count)
                 time: \(Int(abs(renderBegin.timeIntervalSinceNow) * 1000))ms
-            """
+            """,
         )
     }
 

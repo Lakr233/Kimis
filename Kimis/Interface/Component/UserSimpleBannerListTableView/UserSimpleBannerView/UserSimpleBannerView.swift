@@ -63,7 +63,7 @@ class UserSimpleBannerView: UIView {
         }
         avatarView.loadImage(with: .init(
             url: snapshot.user.avatarUrl,
-            blurHash: snapshot.user.avatarBlurhash
+            blurHash: snapshot.user.avatarBlurhash,
         ))
         usernameTextView.attributedText = snapshot.username
         userDescTextView.attributedText = snapshot.userDesc
@@ -144,7 +144,7 @@ extension UserSimpleBannerView.Snapshot {
             x: 0, // paddings on the x-axis are handled in UserCell.swift
             y: padding,
             width: avatarSize,
-            height: avatarSize
+            height: avatarSize,
         )
         let contentAlign = avatarFrame.maxX + padding
         let contentWidth = width - contentAlign
@@ -155,7 +155,7 @@ extension UserSimpleBannerView.Snapshot {
             x: contentAlign,
             y: avatarFrame.minY,
             width: contentWidth,
-            height: nameHeight
+            height: nameHeight,
         )
 
         let descHeight = userDescText
@@ -164,7 +164,7 @@ extension UserSimpleBannerView.Snapshot {
             x: contentAlign,
             y: usernameTextFrame.maxY + spacing,
             width: contentWidth,
-            height: descHeight
+            height: descHeight,
         )
 
         let height = max(avatarFrame.maxY, userDescTextFrame.maxY) + padding

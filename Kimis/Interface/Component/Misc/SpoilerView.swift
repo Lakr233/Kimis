@@ -12,7 +12,7 @@ class SpoilerView: UIView {
     private let emitterLayer: CAEmitterLayer
 
     private let blurBackground = UIVisualEffectView(
-        effect: UIBlurEffect(style: .systemThinMaterialDark)
+        effect: UIBlurEffect(style: .systemThinMaterialDark),
     )
     private let emitterView = UIView()
 
@@ -91,7 +91,7 @@ class SpoilerView: UIView {
         emitter.color = color
         emitter.contents = Self.createCGImage(
             withColor: color,
-            withSize: CGSize(width: 2, height: 2)
+            withSize: CGSize(width: 2, height: 2),
         )
     }
 
@@ -148,11 +148,11 @@ class SpoilerView: UIView {
         let size = sqrt(pow(view.bounds.width, 2) + pow(view.bounds.height, 2)) * 1.1
         let finalRectPath = UIBezierPath(rect: CGRect(
             center: view.bounds.center,
-            size: CGSize(width: size, height: size)
+            size: CGSize(width: size, height: size),
         ))
         let finalCircle = UIBezierPath(ovalIn: CGRect(
             center: view.bounds.center,
-            size: CGSize(width: size, height: size)
+            size: CGSize(width: size, height: size),
         ))
         finalRectPath.append(finalCircle)
 
@@ -189,7 +189,7 @@ class SpoilerView: UIView {
 extension SpoilerView {
     static func createCGImage(
         withColor color: CGColor = CGColor(gray: 0.5, alpha: 1),
-        withSize size: CGSize = CGSize(width: 1, height: 1)
+        withSize size: CGSize = CGSize(width: 1, height: 1),
     ) -> CGImage {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
@@ -208,16 +208,16 @@ extension SpoilerView {
             "CA", "Emitter", "Behavior",
         ].joined(separator: "")) as! NSObject.Type
         let behaviorWithType = behaviorClass.method(
-            for: NSSelectorFromString(selector)
+            for: NSSelectorFromString(selector),
         )!
         let castedBehaviorWithType = unsafeBitCast(
             behaviorWithType,
-            to: (@convention(c) (Any?, Selector, Any?) -> NSObject).self
+            to: (@convention(c) (Any?, Selector, Any?) -> NSObject).self,
         )
         return castedBehaviorWithType(
             behaviorClass,
             NSSelectorFromString(selector),
-            type
+            type,
         )
     }
 }

@@ -59,17 +59,17 @@ public extension TimelineSource {
                 case .append:
                     dataSource = .init(
                         orderEqualAndBefore: patch.order,
-                        nodes: orig + patch.nodes
+                        nodes: orig + patch.nodes,
                     )
                 case .insert:
                     dataSource = .init(
                         orderEqualAndBefore: patch.order,
-                        nodes: patch.nodes + orig
+                        nodes: patch.nodes + orig,
                     )
                 case .replace:
                     dataSource = .init(
                         orderEqualAndBefore: patch.order,
-                        nodes: patch.nodes
+                        nodes: patch.nodes,
                     )
                 }
             }

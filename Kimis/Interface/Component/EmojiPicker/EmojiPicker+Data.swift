@@ -63,7 +63,7 @@ extension EmojiPickerView {
                 guard let section = build[key] else { continue }
                 dataSource.append(.init(
                     sectionTitle: key.isEmpty ? L10n.text("Instance Emoji") : key,
-                    emojis: section.sorted { a, b in a.emoji.emoji < b.emoji.emoji }
+                    emojis: section.sorted { a, b in a.emoji.emoji < b.emoji.emoji },
                 ))
             }
         }
@@ -78,7 +78,7 @@ extension EmojiPickerView {
                 .map { EmojiElement(emoji: $0) }
             let section = EmojiSection(
                 sectionTitle: key.isEmpty ? L10n.text("Ungrouped") : key,
-                emojis: elements
+                emojis: elements,
             )
             dataSource.append(section)
         }
@@ -149,7 +149,7 @@ extension EmojiPickerView: UICollectionViewDataSource, UICollectionViewDelegate,
         let cell = collectionView
             .dequeueReusableCell(
                 withReuseIdentifier: EmojiPickerCell.cellId,
-                for: indexPath
+                for: indexPath,
             ) as? EmojiPickerCell
             ?? .init()
 
@@ -179,7 +179,7 @@ extension EmojiPickerView: UICollectionViewDataSource, UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableSupplementaryView(
             ofKind: kind,
             withReuseIdentifier: EmojiPickerSectionHeader.headerId,
-            for: indexPath
+            for: indexPath,
         ) as? EmojiPickerSectionHeader
             ?? EmojiPickerSectionHeader()
 

@@ -26,7 +26,7 @@ class PostEditorAttachmentView: UIView {
 
         let layout = AlignedCollectionViewFlowLayout(
             horizontalAlignment: .left,
-            verticalAlignment: .center
+            verticalAlignment: .center,
         )
         self.spacing = spacing
         layout.minimumLineSpacing = spacing

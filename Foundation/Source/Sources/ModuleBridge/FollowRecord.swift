@@ -23,7 +23,7 @@ public extension FollowRecord {
             followee: followee,
             follower: follower,
             followeeId: record.followeeId,
-            followerId: record.followerId
+            followerId: record.followerId,
         )
     }
 }

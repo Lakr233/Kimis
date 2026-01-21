@@ -76,7 +76,7 @@ public extension Network {
         let session = URLSession(
             configuration: .ephemeral,
             delegate: sendProgressDelegate,
-            delegateQueue: nil
+            delegateQueue: nil,
         )
         var responseData: Data?
         makeRequest(with: request, with: session, setTask: setTask) { data in

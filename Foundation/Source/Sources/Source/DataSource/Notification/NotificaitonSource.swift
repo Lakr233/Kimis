@@ -50,11 +50,11 @@ public class NotificationSource: ObservableObject {
         ctx = context
         dataSource = context.properties.readProperty(
             fromKey: .notification,
-            defaultValue: [RemoteNotification]()
+            defaultValue: [RemoteNotification](),
         )
         readDate = context.properties.readProperty(
             fromKey: .notificationRead,
-            defaultValue: Date(timeIntervalSince1970: 0)
+            defaultValue: Date(timeIntervalSince1970: 0),
         )
         if dataSource.count > kMaxNotificationCount {
             dataSource.removeLast(dataSource.count - kMaxNotificationCount)

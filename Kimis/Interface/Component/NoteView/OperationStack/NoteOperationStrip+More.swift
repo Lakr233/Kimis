@@ -125,7 +125,7 @@ extension NoteOperationStrip {
                         let alert = UIAlertController(
                             title: "⚠️",
                             message: L10n.text("Are you sure you want to delete this note? All reply or renote with/within this note will also be deleted."),
-                            preferredStyle: .alert
+                            preferredStyle: .alert,
                         )
                         alert.addAction(UIAlertAction(title: L10n.text("Delete"), style: .destructive, handler: { _ in
                             alert.dismiss(animated: true) {

@@ -31,7 +31,7 @@ extension TimelineTableView {
             let upstream = source.timeline.obtainDataSource()
             let compile = PatchReuslt(
                 order: upstream.orderEqualAndBefore,
-                context: Self.translate(rawNodes: upstream.nodes)
+                context: Self.translate(rawNodes: upstream.nodes),
             )
             reloadWithRenderOnly(source: compile, usingWidth: width)
         } else {
@@ -44,7 +44,7 @@ extension TimelineTableView {
                     kApplyPatchAndRenderWithReload(
                         transactionApplyTo: &rollingBuild,
                         tableViewWidth: width,
-                        patch: patch
+                        patch: patch,
                     )
                 }
             }
@@ -54,7 +54,7 @@ extension TimelineTableView {
     private func kApplyPatchAndRenderWithReload(
         transactionApplyTo patchContainer: inout PatchReuslt,
         tableViewWidth width: CGFloat,
-        patch: TimelineSource.Patch
+        patch: TimelineSource.Patch,
     ) {
         assert(DispatchQueue.isCurrent(_dataBuildQueue))
 
@@ -66,19 +66,19 @@ extension TimelineTableView {
         case .replace:
             patchContainer = .init(
                 order: patch.order,
-                context: ctx
+                context: ctx,
             )
             resetToTop = true
         case .insert:
             patchContainer = .init(
                 order: patch.order,
-                context: ctx + patchContainer.context
+                context: ctx + patchContainer.context,
             )
             insertContentHeight = true
         case .append:
             patchContainer = .init(
                 order: patch.order,
-                context: patchContainer.context + ctx
+                context: patchContainer.context + ctx,
             )
         }
 
@@ -93,7 +93,7 @@ extension TimelineTableView {
             self.applyDataSource(
                 result,
                 insertContentHeight: insertContentHeight,
-                resetToTop: resetToTop
+                resetToTop: resetToTop,
             )
         }
         DispatchQueue.main.asyncAndWait(execute: item)

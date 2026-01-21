@@ -55,7 +55,7 @@ class EmojiProvider {
                 aliases: [],
                 tags: [],
                 unicodeVersion: nil,
-                iosVersion: nil
+                iosVersion: nil,
             )
             build.append(emoji)
         }

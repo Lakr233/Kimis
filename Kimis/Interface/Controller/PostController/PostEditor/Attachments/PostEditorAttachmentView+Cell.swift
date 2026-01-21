@@ -90,7 +90,7 @@ extension PostEditorAttachmentView {
         func load(_ attachment: Attachment, atIndexPath indexPath: IndexPath, editOnPost post: Post) {
             self.attachment = attachment
             self.indexPath = indexPath
-            self.representedPost = post
+            representedPost = post
             if attachment.isSensitive {
                 sensitiveIcon.isHidden = false
                 sensitiveBackground.isHidden = false
@@ -101,7 +101,7 @@ extension PostEditorAttachmentView {
         }
 
         func createMenu() -> UIMenu? {
-            guard let indexPath, let post = self.representedPost else {
+            guard let indexPath, let post = representedPost else {
                 return nil
             }
             var menus: [UIAction] = []
@@ -117,15 +117,15 @@ extension PostEditorAttachmentView {
             menus.append(
                 UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive, handler: { _ in
                     post.attachments.remove(at: indexPath.row)
-                })
+                }),
             )
             return UIMenu(children: menus)
         }
 
         func updateAttachment(isSensitive: Bool) {
-            guard let source = self.source,
-                  let post = self.representedPost,
-                  let attachment = self.attachment
+            guard let source,
+                  let post = representedPost,
+                  let attachment
             else { return }
             let alert = UIAlertController(title: "⏳", message: "Updating this attachment", preferredStyle: .alert)
             parentViewController?.present(alert, animated: true)
@@ -135,7 +135,7 @@ extension PostEditorAttachmentView {
                 } }
                 guard let result = source.req.requestDriveFileUpdate(
                     fileId: attachment.attachId,
-                    isSensitive: isSensitive
+                    isSensitive: isSensitive,
                 ) else { return }
                 post.attachments = post.attachments.map { attach in
                     if attach.attachId == result.attachId {
@@ -160,7 +160,7 @@ extension PostEditorAttachmentView {
         func contextMenuInteraction(_: UIContextMenuInteraction, previewForHighlightingMenuWithConfiguration _: UIContextMenuConfiguration) -> UITargetedPreview? {
             let parameters = UIPreviewParameters()
             parameters.backgroundColor = .platformBackground
-            let preview = UITargetedPreview(view: self.preview, parameters: parameters)
+            let preview = UITargetedPreview(view: preview, parameters: parameters)
             return preview
         }
 

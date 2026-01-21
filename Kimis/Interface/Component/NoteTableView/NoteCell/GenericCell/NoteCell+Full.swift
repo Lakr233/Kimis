@@ -106,7 +106,7 @@ extension NoteCell.FullCell.Snapshot {
             x: padding,
             y: padding,
             width: contentWidth,
-            height: noteSnapshot.height
+            height: noteSnapshot.height,
         )
         let height = noteSnapshot.height + padding * 2
 
@@ -116,7 +116,7 @@ extension NoteCell.FullCell.Snapshot {
             x: connectorX,
             y: 0,
             width: IH.connectorWidth,
-            height: padding - 4
+            height: padding - 4,
         )
 
         self.width = width

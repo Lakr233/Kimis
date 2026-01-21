@@ -28,7 +28,7 @@ class SearchDelegate: NSObject, UISearchBarDelegate {
             ControllerRouting.pushing(
                 tag: .user,
                 referencer: anchor,
-                associatedData: key
+                associatedData: key,
             )
             return
         }

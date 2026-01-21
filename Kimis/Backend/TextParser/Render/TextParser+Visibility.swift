@@ -14,7 +14,7 @@ extension TextParser {
         let attachment = ImageAttachment(
             image: .fluent(.lock_open_filled),
             size: CGSize(width: size, height: size),
-            tintColor: color.highlight
+            tintColor: color.highlight,
         )
         return NSMutableAttributedString(attachment: attachment)
     }
@@ -24,7 +24,7 @@ extension TextParser {
         let attachment = ImageAttachment(
             image: .fluent(.shield_checkmark_filled),
             size: CGSize(width: size, height: size),
-            tintColor: color.highlight
+            tintColor: color.highlight,
         )
         return NSMutableAttributedString(attachment: attachment)
     }

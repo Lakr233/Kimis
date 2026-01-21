@@ -73,7 +73,7 @@ extension NotificationTableView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, viewForFooterInSection _: Int) -> UIView? {
         guard let footer = dequeueReusableHeaderFooterView(
-            withIdentifier: FooterCountView.identifier
+            withIdentifier: FooterCountView.identifier,
         ) as? FooterCountView else {
             return nil
         }

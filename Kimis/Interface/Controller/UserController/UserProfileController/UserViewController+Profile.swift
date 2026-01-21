@@ -155,7 +155,7 @@ extension UserViewController.ProfileView {
             x: 0,
             y: -(75 + bannerImageViewExtraHeight),
             width: bounds.width,
-            height: Self.bannerImageHeight + bannerImageViewExtraHeight
+            height: Self.bannerImageHeight + bannerImageViewExtraHeight,
         )
         bannerImageBlur.frame = bannerImageView.frame
 
@@ -163,14 +163,14 @@ extension UserViewController.ProfileView {
             x: contentLeftAlignment,
             y: bannerImageView.frame.maxY - Self.avatarSize.height / 2,
             width: Self.avatarSize.width,
-            height: Self.avatarSize.height
+            height: Self.avatarSize.height,
         )
 
         buttonStack.frame = CGRect(
             x: avatarImageView.frame.maxX + padding,
             y: bannerImageView.frame.maxY,
             width: contentWidth - padding - avatarImageView.frame.width,
-            height: avatarImageView.frame.height / 2
+            height: avatarImageView.frame.height / 2,
         )
 
         let userTextHeight = userTextView
@@ -180,7 +180,7 @@ extension UserViewController.ProfileView {
             x: contentLeftAlignment,
             y: avatarImageView.frame.maxY + verticalSpacing,
             width: contentWidth,
-            height: userTextView.attributedText.length > 0 ? userTextHeight : 100
+            height: userTextView.attributedText.length > 0 ? userTextHeight : 100,
         )
 
         let mainTextHeight = mainTextView
@@ -190,28 +190,28 @@ extension UserViewController.ProfileView {
             x: contentLeftAlignment,
             y: userTextView.frame.maxY + verticalSpacing,
             width: contentWidth,
-            height: mainTextView.attributedText.length > 0 ? mainTextHeight : 100
+            height: mainTextView.attributedText.length > 0 ? mainTextHeight : 100,
         )
 
         segmentStack.frame = CGRect(
             x: contentLeftAlignment,
             y: mainTextView.frame.maxY + verticalSpacing,
             width: contentWidth,
-            height: SegmentButton.height
+            height: SegmentButton.height,
         )
 
         separator.frame = CGRect(
             x: 0,
             y: segmentStack.frame.maxY + verticalSpacing,
             width: bounds.width,
-            height: 0.5
+            height: 0.5,
         )
 
         let contentRect = CGRect(
             x: contentLeftAlignment,
             y: mainTextView.frame.minY,
             width: contentWidth,
-            height: segmentStack.frame.maxY - mainTextView.frame.minY
+            height: segmentStack.frame.maxY - mainTextView.frame.minY,
         )
 
         let failureHintHeight = failureHint
@@ -221,7 +221,7 @@ extension UserViewController.ProfileView {
             x: contentLeftAlignment,
             y: contentRect.midY - failureHintHeight / 2,
             width: contentWidth,
-            height: failureHintHeight
+            height: failureHintHeight,
         )
 
         let failureIconSize = CGSize(width: 24, height: 24)
@@ -229,7 +229,7 @@ extension UserViewController.ProfileView {
             x: failureHint.frame.midX - failureIconSize.width / 2,
             y: failureHint.frame.minY - verticalSpacing - failureIconSize.height,
             width: failureIconSize.width,
-            height: failureIconSize.height
+            height: failureIconSize.height,
         )
 
         let progressViewSize = progressView.intrinsicContentSize
@@ -237,7 +237,7 @@ extension UserViewController.ProfileView {
             x: contentRect.midX - progressViewSize.width / 2,
             y: failureHint.frame.midY - progressViewSize.height / 2,
             width: progressViewSize.width,
-            height: progressViewSize.height
+            height: progressViewSize.height,
         )
 
         let retryButtonSize = retryButton
@@ -246,7 +246,7 @@ extension UserViewController.ProfileView {
             x: contentRect.midX - retryButtonSize.width / 2,
             y: failureHint.frame.maxY + verticalSpacing,
             width: retryButtonSize.width,
-            height: retryButtonSize.height
+            height: retryButtonSize.height,
         )
 
         contentHeight = separator.frame.maxY.rounded()
@@ -304,7 +304,7 @@ extension UserViewController.ProfileView {
             bannerImageView.loadImage(with: .init(
                 url: profile.avatarUrl,
                 blurHash: profile.avatarBlurhash,
-                sensitive: false
+                sensitive: false,
             ))
             bannerImageBlur.alpha = 1
             bannerImageBlur.isHidden = false
@@ -312,7 +312,7 @@ extension UserViewController.ProfileView {
             bannerImageView.loadImage(with: .init(
                 url: profile.bannerUrl,
                 blurHash: profile.bannerBlurhash,
-                sensitive: false
+                sensitive: false,
             ))
             bannerImageBlur.alpha = 0
             bannerImageBlur.isHidden = true
@@ -321,7 +321,7 @@ extension UserViewController.ProfileView {
         avatarImageView.loadImage(with: .init(
             url: profile.avatarUrl,
             blurHash: profile.avatarBlurhash,
-            sensitive: false
+            sensitive: false,
         ))
 
         renderText(usingWidth: boundsWidth)

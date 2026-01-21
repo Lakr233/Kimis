@@ -41,7 +41,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(
         _: UNUserNotificationCenter,
         willPresent _: UNNotification,
-        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void,
     ) {
         completionHandler(.banner)
     }
@@ -55,7 +55,7 @@ extension AppDelegate {
     private func prepareAppTaskForNotifications() {
         BGTaskScheduler.shared.register(
             forTaskWithIdentifier: AppTask.fetchNotifications.rawValue,
-            using: AppTask.queue
+            using: AppTask.queue,
         ) { task in
             AppTask.scheduleFetchNotifications()
             AppTask.handleFetchNotifications(task: task as! BGAppRefreshTask)

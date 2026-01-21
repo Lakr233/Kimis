@@ -24,7 +24,7 @@ public extension Network {
         sinceDate: Date?,
         untilDate: Date?,
         sinceId: String?,
-        untilId: String?
+        untilId: String?,
     ) -> NoteFetchResult<[NMNote]> {
         var request: URLRequest
         switch endpoint {

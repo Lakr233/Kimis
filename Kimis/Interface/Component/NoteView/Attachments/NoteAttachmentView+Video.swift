@@ -23,12 +23,12 @@ extension NoteAttachmentView.Preview {
         let openFullButton = BlurButton(
             systemIcon: "arrow.up.left.and.arrow.down.right",
             tintColor: .white,
-            effect: UIBlurEffect(style: .systemMaterialDark)
+            effect: UIBlurEffect(style: .systemMaterialDark),
         )
         let openSafariButton = BlurButton(
             systemIcon: "safari",
             tintColor: .white,
-            effect: UIBlurEffect(style: .systemMaterialDark)
+            effect: UIBlurEffect(style: .systemMaterialDark),
         )
         let loadingIndicator = UIActivityIndicatorView()
         let mainButton = UIButton()
@@ -47,12 +47,12 @@ extension NoteAttachmentView.Preview {
             openFullButton.button.addTarget(
                 self,
                 action: #selector(presentPlayer),
-                for: .touchUpInside
+                for: .touchUpInside,
             )
             openSafariButton.button.addTarget(
                 self,
                 action: #selector(openInSafari),
-                for: .touchUpInside
+                for: .touchUpInside,
             )
             mainButton.addTarget(self, action: #selector(toggleOverlay), for: .touchUpInside)
 
@@ -77,13 +77,13 @@ extension NoteAttachmentView.Preview {
 
             openFullButton.frame = CGRect(
                 x: buttonInset, y: buttonInset,
-                width: 40, height: 30
+                width: 40, height: 30,
             )
             openFullButton.layer.cornerRadius = buttonRadius
 
             openSafariButton.frame = CGRect(
                 x: bounds.width - buttonInset - 40, y: buttonInset,
-                width: 40, height: 30
+                width: 40, height: 30,
             )
             openSafariButton.layer.cornerRadius = buttonRadius
         }
@@ -155,13 +155,13 @@ private final class VideoPreviewLoopedPlayerView: UIView {
             self,
             selector: #selector(pause),
             name: UIApplication.didEnterBackgroundNotification,
-            object: nil
+            object: nil,
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(play),
             name: UIApplication.willEnterForegroundNotification,
-            object: nil
+            object: nil,
         )
     }
 

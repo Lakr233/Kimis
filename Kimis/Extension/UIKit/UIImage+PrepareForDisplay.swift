@@ -13,11 +13,11 @@ extension UIImage {
         assert(!Thread.isMainThread)
         if sd_isDecoded { return self }
         if #available(iOS 15.0, *) {
-            return self.preparingForDisplay()
+            return preparingForDisplay()
         }
         #if targetEnvironment(macCatalyst)
             if #available(macCatalyst 15.0, *) {
-                return self.preparingForDisplay()
+                return preparingForDisplay()
             }
         #endif
 

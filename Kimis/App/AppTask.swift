@@ -81,7 +81,7 @@ private extension AppTask {
                     \(content.title)
                     \(content.subtitle)
                     \(content.threadIdentifier)
-                """
+                """,
             )
             if let userAvatar = user.avatarUrl,
                let avatarUrl = URL(string: userAvatar),

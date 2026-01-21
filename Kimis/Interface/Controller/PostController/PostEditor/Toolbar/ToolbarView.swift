@@ -120,7 +120,7 @@ class PostEditorToolbarView: UIView {
         layoutIfNeeded()
         scrollView.contentSize = CGSize(
             width: stackView.frame.width,
-            height: 0
+            height: 0,
         )
     }
 

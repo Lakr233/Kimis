@@ -13,7 +13,7 @@ private func SPIndicatorPresent(
     preset: SPIndicatorIconPreset,
     haptic: SPIndicatorHaptic,
     from presentSide: SPIndicatorPresentSide = .top,
-    completion: (() -> Void)? = nil
+    completion: (() -> Void)? = nil,
 ) {
     let alertView = SPIndicatorView(title: title, message: nil, preset: preset)
     alertView.presentSide = presentSide
@@ -28,7 +28,7 @@ func presentMessage(_ message: String) {
             preset: .done,
             haptic: .success,
             from: .top,
-            completion: nil
+            completion: nil,
         )
     }
 }
@@ -59,7 +59,7 @@ func presentError(_ error: String) {
             preset: .error,
             haptic: .error,
             from: .top,
-            completion: nil
+            completion: nil,
         )
     }
 }
@@ -96,7 +96,7 @@ func withUIKitAnimation(duration: Double = 0.5, _ calling: @escaping () -> Void,
         delay: 0,
         usingSpringWithDamping: 1,
         initialSpringVelocity: 0.8,
-        options: .curveEaseInOut
+        options: .curveEaseInOut,
     ) {
         calling()
     } completion: { _ in

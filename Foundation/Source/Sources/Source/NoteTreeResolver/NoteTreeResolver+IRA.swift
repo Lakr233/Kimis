@@ -29,7 +29,7 @@ extension NoteTreeResolver {
                 [IRA]
                     Father: \(father)
                     Children: \(children.joined(separator: " < "))
-                """
+                """,
             )
         }
 

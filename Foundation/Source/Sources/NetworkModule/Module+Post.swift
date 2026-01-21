@@ -36,7 +36,7 @@ public struct NMPost: Codable {
         cw: String?,
         localOnly: Bool = false,
         visibility: String = "public",
-        visibleUserIds: [String]?
+        visibleUserIds: [String]?,
     ) {
         self.text = text
         self.fileIds = fileIds

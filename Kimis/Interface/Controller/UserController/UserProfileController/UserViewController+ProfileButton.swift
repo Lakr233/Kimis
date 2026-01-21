@@ -63,7 +63,7 @@ extension UserViewController.ProfileView {
                     x: anchor - width,
                     y: bounds.maxY - buttonHeight,
                     width: width,
-                    height: buttonHeight
+                    height: buttonHeight,
                 )
                 anchor -= (button.frame.width + spacing)
             }
@@ -232,7 +232,7 @@ extension UserViewController.ProfileView.ProfileButton {
                     image: image,
                     attributes: attributes,
                     action: action,
-                    qualification: qualification
+                    qualification: qualification,
                 )
             }
 
@@ -265,7 +265,7 @@ extension UserViewController.ProfileView.ProfileButton {
                         L10n.text("Notes %d", profile.notesCount)
                     }, image: "number", action: { _, profile, _ in
                         presentMessage(L10n.text("You have %d notes", profile.notesCount))
-                    }, qualification: { _, _ in true }
+                    }, qualification: { _, _ in true },
                 ),
                 UserMenuAction(
                     title: { _, profile in
@@ -273,7 +273,7 @@ extension UserViewController.ProfileView.ProfileButton {
                     }, image: "person", action: { _, profile, anchor in
                         let controller = FollowingController(userId: profile.userId)
                         anchor.parentViewController?.present(next: controller)
-                    }, qualification: { _, _ in true }
+                    }, qualification: { _, _ in true },
                 ),
                 UserMenuAction(
                     title: { _, profile in
@@ -281,7 +281,7 @@ extension UserViewController.ProfileView.ProfileButton {
                     }, image: "person", action: { _, profile, anchor in
                         let controller = FollowerController(userId: profile.userId)
                         anchor.parentViewController?.present(next: controller)
-                    }, qualification: { _, _ in true }
+                    }, qualification: { _, _ in true },
                 ),
             ],
             [
@@ -429,7 +429,7 @@ extension UserViewController.ProfileView.ProfileButton {
                             UIAction(
                                 title: desc.title(source, profile),
                                 image: UIImage(systemName: desc.image),
-                                attributes: desc.attributes
+                                attributes: desc.attributes,
                             ) { _ in
                                 desc.action(source, profile, self)
                             }

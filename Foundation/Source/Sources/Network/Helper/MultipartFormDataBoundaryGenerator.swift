@@ -53,8 +53,8 @@ enum MultipartFormDataBoundaryGenerator {
         Data(
             MultipartFormDataBoundaryGenerator.boundary(
                 forBoundaryType: boundaryType,
-                boundaryKey: boundaryKey
-            ).utf8
+                boundaryKey: boundaryKey,
+            ).utf8,
         )
     }
 }

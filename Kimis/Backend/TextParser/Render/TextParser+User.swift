@@ -17,7 +17,7 @@ extension TextParser {
                 attributes: [
                     .font: getFont(size: size.title, weight: weight.title),
                     .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
-                ]
+                ],
             ),
             NSMutableAttributedString(
                 string: user.absoluteUsername,
@@ -25,7 +25,7 @@ extension TextParser {
                     .foregroundColor: color.secondary,
                     .font: getFont(size: size.base, weight: weight.base),
                     .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
-                ]
+                ],
             ),
         ]
         let ans = connect(strings: strings, separator: lineBreak ? "\n" : " ")
@@ -44,7 +44,7 @@ extension TextParser {
                 attributes: [
                     .font: getFont(size: size.title, weight: weight.title),
                     .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
-                ]
+                ],
             ),
             NSMutableAttributedString(
                 string: user.absoluteUsername,
@@ -52,7 +52,7 @@ extension TextParser {
                     .font: getFont(size: size.title, weight: weight.base),
                     .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
                     .foregroundColor: color.secondary,
-                ]
+                ],
             ),
         ]
         let ans = connect(strings: strings, separator: lineBreak ? "\n" : " ")
@@ -69,7 +69,7 @@ extension TextParser {
                     attributes: [
                         .font: getFont(size: size.title + largeOffset, weight: weight.title),
                         .link: "username://\(profile.absoluteUsername.base64Encoded ?? "")",
-                    ]
+                    ],
                 ),
                 !profile.publiclyVisible || profile.isLocked ? createRestrictedVisibilityHint(size: size.title + largeOffset) : .init(),
                 profile.isAdmin || profile.isModerator ? createAdminHint(size: size.title + largeOffset) : .init(),
@@ -81,14 +81,14 @@ extension TextParser {
                         .foregroundColor: color.secondary,
                         .font: getFont(size: size.base, weight: weight.base),
                         .link: "username://\(profile.absoluteUsername.base64Encoded ?? "")",
-                    ]
+                    ],
                 ),
                 profile.isFollowed ? NSMutableAttributedString(
                     string: "『 Follows You 』".noLineBreak(),
                     attributes: [
                         .foregroundColor: color.secondary,
                         .font: getFont(size: size.base, weight: weight.base),
-                    ]
+                    ],
                 ) : .init(),
             ],
         ]
@@ -208,8 +208,8 @@ extension TextParser {
         if let url = URL(string: user.avatarUrl) {
             strings.append(
                 NSMutableAttributedString(
-                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size.base, height: size.base), cornerRadius: 8)
-                )
+                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size.base, height: size.base), cornerRadius: 8),
+                ),
             )
         }
         strings.append(
@@ -218,8 +218,8 @@ extension TextParser {
                 attributes: [
                     .font: getFont(size: size.base, weight: weight.base),
                     .link: "username://\(user.absoluteUsername.base64Encoded ?? "")",
-                ]
-            )
+                ],
+            ),
         )
         let ans = connect(strings: strings, separator: " ")
         decodingIDNAIfNeeded(modifyingStringInPlace: ans)

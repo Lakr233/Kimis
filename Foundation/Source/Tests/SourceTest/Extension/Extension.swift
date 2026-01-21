@@ -32,7 +32,7 @@ func requestAndWait(url: String, allowFailure: Bool = false, data: Data? = nil, 
         var request = URLRequest(
             url: url,
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 10
+            timeoutInterval: 10,
         )
         request.httpMethod = method
         if let data {

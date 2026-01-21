@@ -35,7 +35,7 @@ public extension User {
             isAdmin: user.isAdmin ?? false,
             isBot: user.isBot ?? false,
             isModerator: user.isModerator ?? false,
-            isCat: user.isCat ?? false
+            isCat: user.isCat ?? false,
         )
     }
 
@@ -50,7 +50,7 @@ public extension User {
             isAdmin: profile.isAdmin,
             isBot: profile.isBot,
             isModerator: profile.isModerator,
-            isCat: profile.isCat
+            isCat: profile.isCat,
         )
     }
 }
@@ -68,7 +68,7 @@ public extension UserProfile {
             isAdmin: user.isAdmin,
             isModerator: user.isModerator,
             isBot: user.isBot,
-            isCat: user.isCat
+            isCat: user.isCat,
         )
     }
 
@@ -121,7 +121,7 @@ public extension UserProfile {
             isBlocking: userDetails.isBlocking ?? false,
             isBlocked: userDetails.isBlocked ?? false,
             isMuted: userDetails.isMuted ?? false,
-            mutedWords: userDetails.mutedWords?.flatMap(\.self) ?? []
+            mutedWords: userDetails.mutedWords?.flatMap(\.self) ?? [],
         )
     }
 }

@@ -23,7 +23,7 @@ class FooterCountView: UITableViewHeaderFooterView {
 
         label.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(
-                UIEdgeInsets(horizontal: 12, vertical: 0)
+                UIEdgeInsets(horizontal: 12, vertical: 0),
             )
         }
     }

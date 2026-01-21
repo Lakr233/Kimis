@@ -327,21 +327,21 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: 0,
             width: contentWidth,
-            height: previewReasonHeight > 0 ? previewReasonHeight : -verticalSpacing
+            height: previewReasonHeight > 0 ? previewReasonHeight : -verticalSpacing,
         )
         let previewReasonIconSize = max(0, previewResaonRect.size.height)
         let previewReasonIconRect = CGRect(
             x: contentLeftAlign - horizontalSpacing - previewReasonIconSize,
             y: previewResaonRect.origin.y,
             width: previewReasonIconSize,
-            height: previewReasonIconSize
+            height: previewReasonIconSize,
         )
 
         let avatarRect = CGRect(
             x: 0,
             y: previewResaonRect.origin.y + previewResaonRect.size.height + verticalSpacing,
             width: avatarSize,
-            height: avatarSize
+            height: avatarSize,
         )
 
         let tintIconSize: CGFloat = avatarSize / 3
@@ -349,14 +349,14 @@ extension NotePreview.Snapshot {
             x: avatarRect.maxX - tintIconSize,
             y: avatarRect.maxY - tintIconSize,
             width: tintIconSize,
-            height: tintIconSize
+            height: tintIconSize,
         )
 
         let pinnedIconRect = CGRect(
             x: avatarRect.maxX - tintIconSize,
             y: avatarRect.minY,
             width: tintIconSize,
-            height: tintIconSize
+            height: tintIconSize,
         )
 
         let userText = textParser.compileUserHeader(with: user, lineBreak: false)
@@ -366,7 +366,7 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: avatarRect.minY,
             width: contentWidth,
-            height: userTextHeight
+            height: userTextHeight,
         )
 
         let mainText = textParser.compileNoteBody(withNote: note)
@@ -376,7 +376,7 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: userTextRect.maxY + verticalSpacing,
             width: contentWidth,
-            height: mainTextHeight > 0 ? mainTextHeight : -verticalSpacing
+            height: mainTextHeight > 0 ? mainTextHeight : -verticalSpacing,
         )
 
         var voteSnapshot: PollView.Snapshot?
@@ -387,21 +387,21 @@ extension NotePreview.Snapshot {
                 textParser: textParser,
                 poll: vote,
                 noteId: note.noteId,
-                spacing: verticalSpacing
+                spacing: verticalSpacing,
             )
             voteSnapshot = snapshot
             pollViewRect = CGRect(
                 x: contentLeftAlign,
                 y: mainTextViewRect.origin.y + mainTextViewRect.size.height + verticalSpacing,
                 width: contentWidth,
-                height: snapshot.height > 0 ? snapshot.height : -verticalSpacing
+                height: snapshot.height > 0 ? snapshot.height : -verticalSpacing,
             )
         } else {
             pollViewRect = CGRect(
                 x: contentLeftAlign,
                 y: mainTextViewRect.origin.y + mainTextViewRect.size.height + verticalSpacing,
                 width: contentWidth,
-                height: -verticalSpacing
+                height: -verticalSpacing,
             )
         }
 
@@ -412,7 +412,7 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: pollViewRect.origin.y + pollViewRect.size.height + verticalSpacing,
             width: contentWidth,
-            height: attachmentHeight > 0 ? attachmentHeight : -verticalSpacing
+            height: attachmentHeight > 0 ? attachmentHeight : -verticalSpacing,
         )
 
         let renoteSnapshot = NotePreviewSimple.Snapshot(usingWidth: contentWidth, target: note.renoteId, context: context, textParser: textParser)
@@ -421,7 +421,7 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: attachmentRect.origin.y + attachmentRect.size.height + verticalSpacing,
             width: contentWidth,
-            height: renoteHeight > 0 ? renoteHeight : -verticalSpacing
+            height: renoteHeight > 0 ? renoteHeight : -verticalSpacing,
         )
 
         let footerText = textParser.compileNoteFooter(withNote: note)
@@ -431,7 +431,7 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: renoteRect.origin.y + renoteRect.size.height + verticalSpacing,
             width: contentWidth,
-            height: footerTextSize
+            height: footerTextSize,
         )
 
         let reactionElements = NoteCell.Context.createReactionStripElemetns(withNote: note, source: context.source)
@@ -441,7 +441,7 @@ extension NotePreview.Snapshot {
             x: contentLeftAlign,
             y: footerTextRect.maxY + verticalSpacing,
             width: contentWidth,
-            height: reactionHeight > 0 ? reactionHeight : -verticalSpacing
+            height: reactionHeight > 0 ? reactionHeight : -verticalSpacing,
         )
 
         let operationRect = if context.disableOperationStrip {
@@ -449,14 +449,14 @@ extension NotePreview.Snapshot {
                 x: contentLeftAlign,
                 y: reactionRect.origin.y + reactionRect.size.height,
                 width: contentWidth,
-                height: 0
+                height: 0,
             )
         } else {
             CGRect(
                 x: contentLeftAlign,
                 y: reactionRect.origin.y + reactionRect.size.height + verticalSpacing,
                 width: contentWidth,
-                height: NoteOperationStrip.contentHeight
+                height: NoteOperationStrip.contentHeight,
             )
         }
 

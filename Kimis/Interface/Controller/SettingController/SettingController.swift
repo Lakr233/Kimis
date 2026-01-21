@@ -19,19 +19,19 @@ private struct Thanks {
 private let thanks: [Thanks] = [
     .init(
         name: "@Lakr233 @twitter.com",
-        url: URL(string: "https://twitter.com/Lakr233")
+        url: URL(string: "https://twitter.com/Lakr233"),
     ),
     .init(
         name: "@Lakr233 @github.com",
-        url: URL(string: "https://github.com/Lakr233")
+        url: URL(string: "https://github.com/Lakr233"),
     ),
     .init(
         name: "@unixzii @twitter.com",
-        url: URL(string: "https://twitter.com/unixzii")
+        url: URL(string: "https://twitter.com/unixzii"),
     ),
     .init(
         name: "@NekoyueW @twitter.com",
-        url: URL(string: "https://twitter.com/NekoyueW")
+        url: URL(string: "https://twitter.com/NekoyueW"),
     ),
 ]
 

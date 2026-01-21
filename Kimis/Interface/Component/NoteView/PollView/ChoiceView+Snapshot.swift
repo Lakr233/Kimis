@@ -87,7 +87,7 @@ extension PollView.ChoiceView.Snapshot {
             x: horizontalPadding,
             y: verticalPadding,
             width: iconSize,
-            height: iconSize
+            height: iconSize,
         )
 
         let countText = textParser.finalize(NSMutableAttributedString(string: "x\(element.votes)", attributes: [
@@ -101,14 +101,14 @@ extension PollView.ChoiceView.Snapshot {
                 x: width - horizontalPadding - countTextWidth,
                 y: verticalPadding + (iconSize - countTextHeight) / 2,
                 width: countTextWidth,
-                height: countTextHeight
+                height: countTextHeight,
             )
         } else {
             CGRect(
                 x: width - horizontalPadding - countTextWidth,
                 y: verticalPadding,
                 width: countTextWidth,
-                height: countTextHeight
+                height: countTextHeight,
             )
         }
 
@@ -120,14 +120,14 @@ extension PollView.ChoiceView.Snapshot {
                 x: iconRect.maxX + horizontalPadding,
                 y: verticalPadding + (iconSize - textHeight) / 2,
                 width: textWidth,
-                height: textHeight
+                height: textHeight,
             )
         } else {
             CGRect(
                 x: iconRect.maxX + horizontalPadding,
                 y: verticalPadding,
                 width: textWidth,
-                height: textHeight
+                height: textHeight,
             )
         }
 
@@ -138,20 +138,20 @@ extension PollView.ChoiceView.Snapshot {
             x: textRect.origin.x,
             y: (height - textRect.size.height) / 2,
             width: textRect.size.width,
-            height: textRect.size.height
+            height: textRect.size.height,
         )
         let finalIconHeight = max(iconSize, textRect.size.height)
         iconRect = CGRect(
             x: iconRect.origin.x,
             y: (height - finalIconHeight) / 2,
             width: iconSize,
-            height: finalIconHeight
+            height: finalIconHeight,
         )
         countTextRect = CGRect(
             x: countTextRect.origin.x,
             y: (height - countTextRect.size.height) / 2,
             width: countTextRect.size.width,
-            height: countTextRect.size.height
+            height: countTextRect.size.height,
         )
 
         self.width = width

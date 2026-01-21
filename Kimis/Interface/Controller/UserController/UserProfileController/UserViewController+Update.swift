@@ -56,7 +56,7 @@ extension UserViewController {
             let notes = self.source?.req.requestForUserNotes(
                 userHandler: profile.userId,
                 type: type,
-                untilId: self.notesList.last
+                untilId: self.notesList.last,
             )
             guard let notes else { return }
             var filter = Set<NoteID>(self.notesList)

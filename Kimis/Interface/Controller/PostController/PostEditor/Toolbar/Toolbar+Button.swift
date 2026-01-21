@@ -15,7 +15,7 @@ extension PostEditorToolbarView {
     class ToolItemButton: UIButton {
         typealias PostEditAction = (
             _ post: Post,
-            _ anchor: UIView
+            _ anchor: UIView,
         ) -> Void
 
         struct MenuItem {
@@ -42,7 +42,7 @@ extension PostEditorToolbarView {
             post: Post,
             toolMenu: [MenuItem?],
             toolIcon: @escaping (Post) -> (UIImage),
-            toolEnabled: @escaping (Post) -> Bool
+            toolEnabled: @escaping (Post) -> Bool,
         ) {
             self.post = post
             self.toolMenu = toolMenu.compactMap(\.self)
@@ -105,7 +105,7 @@ extension PostEditorToolbarView {
             let menu = UIMenu(children: actions)
             return UIContextMenuConfiguration(
                 identifier: nil,
-                previewProvider: nil
+                previewProvider: nil,
             ) { _ in menu }
         }
     }

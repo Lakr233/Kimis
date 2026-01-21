@@ -106,7 +106,7 @@ public class TimelineSource: ObservableObject {
                 order: order,
                 nodes: currentDataSource.nodes.filter { node in
                     !node.representedNotes().contains(noteId)
-                }
+                },
             ))
         }
     }

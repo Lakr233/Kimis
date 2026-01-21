@@ -28,7 +28,7 @@ extension NoteOperationStrip {
 
         let copyText = Activity(
             title: L10n.text("Copy Text"),
-            image: UIImage(systemName: "doc.on.doc")
+            image: UIImage(systemName: "doc.on.doc"),
         ) { _ in
             UIPasteboard.general.string = note.text
             presentMessage(L10n.text("Copied"))
@@ -37,7 +37,7 @@ extension NoteOperationStrip {
 
         let openInBrowser = Activity(
             title: L10n.text("Open In Browser"),
-            image: UIImage(systemName: "safari")
+            image: UIImage(systemName: "safari"),
         ) { _ in
             guard let url = source.notes.retain(noteId)?.url
                 ?? URL(string: "https://\(source.user.host)/notes/\(noteId)")
@@ -47,7 +47,7 @@ extension NoteOperationStrip {
         shareActivities.append(openInBrowser)
         let copyLink = Activity(
             title: L10n.text("Copy Link"),
-            image: UIImage(systemName: "doc.on.doc")
+            image: UIImage(systemName: "doc.on.doc"),
         ) { _ in
             guard let url = source.notes.retain(noteId)?.url
                 ?? URL(string: "https://\(source.user.host)/notes/\(noteId)")
@@ -60,7 +60,7 @@ extension NoteOperationStrip {
         if activityItemMetadata.url?.host?.lowercased() != source.user.host.lowercased() {
             let openInBrowserWithUserInstance = Activity(
                 title: L10n.text("Open In Browser (%@)", source.user.host),
-                image: UIImage(systemName: "safari")
+                image: UIImage(systemName: "safari"),
             ) { _ in
                 guard let url = URL(string: "https://\(source.user.host)/notes/\(noteId)") else {
                     return
@@ -70,7 +70,7 @@ extension NoteOperationStrip {
             shareActivities.append(openInBrowserWithUserInstance)
             let copyLinkWithUserInstance = Activity(
                 title: L10n.text("Copy Link (%@)", source.user.host),
-                image: UIImage(systemName: "doc.on.doc")
+                image: UIImage(systemName: "doc.on.doc"),
             ) { _ in
                 guard let url = URL(string: "https://\(source.user.host)/notes/\(noteId)") else {
                     return
@@ -83,7 +83,7 @@ extension NoteOperationStrip {
 
         let copyUsername = Activity(
             title: L10n.text("Copy Username (%@)", user.absoluteUsername),
-            image: UIImage(systemName: "doc.on.doc")
+            image: UIImage(systemName: "doc.on.doc"),
         ) { _ in
             UIPasteboard.general.string = user.absoluteUsername
             presentMessage(L10n.text("Copied"))
@@ -92,7 +92,7 @@ extension NoteOperationStrip {
 
         let activityVC = UIActivityViewController(
             activityItems: shareItems,
-            applicationActivities: shareActivities
+            applicationActivities: shareActivities,
         )
         if let popoverController = activityVC.popoverPresentationController {
             popoverController.sourceView = shareButton
@@ -101,7 +101,7 @@ extension NoteOperationStrip {
                 x: shareButton.bounds.midX,
                 y: shareButton.bounds.midY,
                 width: .zero,
-                height: .zero
+                height: .zero,
             )
         }
         parentViewController?.present(activityVC, animated: true)

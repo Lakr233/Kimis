@@ -27,7 +27,7 @@ extension NoteCell {
                 x: (bounds.width - size.width) / 2,
                 y: (bounds.height - size.height) / 2,
                 width: size.width,
-                height: size.height
+                height: size.height,
             )
         }
     }

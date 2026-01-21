@@ -29,7 +29,7 @@ extension ReactionStrip {
             url: URL? = nil,
             count: Int,
             highlight: Bool,
-            representReaction: String? = nil
+            representReaction: String? = nil,
         ) {
             self.noteId = noteId
             self.text = text

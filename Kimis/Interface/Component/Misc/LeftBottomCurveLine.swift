@@ -44,7 +44,7 @@ class LeftBottomCurveLine: UIView {
         path.addCurve(
             to: CGPoint(x: lineRadius + centerOffset, y: rect.height - centerOffset),
             controlPoint1: leftBottom,
-            controlPoint2: leftBottom
+            controlPoint2: leftBottom,
         )
         path.addLine(to: CGPoint(x: rect.width, y: rect.height - centerOffset))
         path.lineWidth = lineWidth

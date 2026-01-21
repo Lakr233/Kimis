@@ -52,7 +52,7 @@ extension PostEditorPollView {
                 top: textInset,
                 left: textInset,
                 bottom: textInset,
-                right: textInset
+                right: textInset,
             )
             heightMeasureTextView.isScrollEnabled = false
             heightMeasureTextView.font = .systemFont(ofSize: 16)

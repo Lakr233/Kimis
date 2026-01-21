@@ -76,7 +76,7 @@ extension ReactionStrip.Snapshot {
                 yAnchor: &yAnchor,
                 width: width,
                 size: ReactionStrip.elementSize,
-                spacing: ReactionStrip.spacing
+                spacing: ReactionStrip.spacing,
             )
             rects.append(rect)
         }
@@ -87,7 +87,7 @@ extension ReactionStrip.Snapshot {
                 yAnchor: &yAnchor,
                 width: width,
                 size: ReactionStrip.elementSize,
-                spacing: ReactionStrip.spacing
+                spacing: ReactionStrip.spacing,
             )
             rects.append(rect)
         }
@@ -105,7 +105,7 @@ extension ReactionStrip.Snapshot {
             x: xAnchor,
             y: yAnchor,
             width: size.width,
-            height: size.height
+            height: size.height,
         )
         if rect.maxX > width {
             if xAnchor == 0 { return CGRect.zero }

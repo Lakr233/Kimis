@@ -25,7 +25,7 @@ extension SourceTest {
             let item = source.network.requestDriveFileCreate(
                 asset: url,
                 setTask: { _ in },
-                setProgress: { _ in }
+                setProgress: { _ in },
             )
             guard let item else {
                 XCTFail("failed to create drive file")
@@ -45,7 +45,7 @@ extension SourceTest {
             let uploadAgain = source.network.requestDriveFileCreate(
                 asset: url,
                 setTask: { _ in },
-                setProgress: { _ in }
+                setProgress: { _ in },
             )
             XCTAssert(uploadAgain?.id == item.id)
 
@@ -54,7 +54,7 @@ extension SourceTest {
                 folderId: nil,
                 name: "123456.jpg",
                 isSensitive: true,
-                comment: "comment"
+                comment: "comment",
             )
             guard let updatedFile else {
                 XCTFail("failed to update drive file")
@@ -77,7 +77,7 @@ extension SourceTest {
                 folderId: nil,
                 name: "654321.jpg",
                 isSensitive: false,
-                comment: "tnemmoc"
+                comment: "tnemmoc",
             )
             guard let updatedFile2 else {
                 XCTFail("failed to update drive file")

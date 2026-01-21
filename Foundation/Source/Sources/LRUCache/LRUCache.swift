@@ -73,7 +73,7 @@ public final class LRUCache<Key: Hashable, Value> {
     public init(
         totalCostLimit: Int = .max,
         countLimit: Int = .max,
-        notificationCenter: NotificationCenter = .default
+        notificationCenter: NotificationCenter = .default,
     ) {
         self.totalCostLimit = totalCostLimit
         self.countLimit = countLimit
@@ -82,7 +82,7 @@ public final class LRUCache<Key: Hashable, Value> {
         token = notificationCenter.addObserver(
             forName: LRUCacheMemoryWarningNotification,
             object: nil,
-            queue: nil
+            queue: nil,
         ) { [weak self] _ in
             self?.removeAllValues()
         }
@@ -136,7 +136,7 @@ public extension LRUCache {
             let container = Container(
                 value: value,
                 cost: cost,
-                key: key
+                key: key,
             )
             values[key] = container
             append(container)

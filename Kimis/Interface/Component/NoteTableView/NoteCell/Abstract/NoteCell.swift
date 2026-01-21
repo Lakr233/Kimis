@@ -33,7 +33,7 @@ class NoteCell: TableViewCell {
             x: paddingInset,
             y: 0,
             width: width,
-            height: bounds.height
+            height: bounds.height,
         )
     }
 

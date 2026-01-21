@@ -25,7 +25,7 @@ public extension Attachment {
             previewBlurHash: object.blurhash ?? "",
             preferredWidth: object.properties?.width,
             preferredHeight: object.properties?.height,
-            isSensitive: object.isSensitive
+            isSensitive: object.isSensitive,
         )
     }
 }

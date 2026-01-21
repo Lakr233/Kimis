@@ -14,7 +14,7 @@ public extension Trending {
         Trending(
             tag: object.tag,
             chart: object.chart,
-            usersCount: object.usersCount
+            usersCount: object.usersCount,
         )
     }
 }

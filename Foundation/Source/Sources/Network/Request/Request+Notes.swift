@@ -144,7 +144,7 @@ public extension Network {
         }
         guard let responseData else { return nil }
         guard let firstDecode = (
-            try? JSONSerialization.jsonObject(with: responseData)
+            try? JSONSerialization.jsonObject(with: responseData),
         ) as? [[String: Any]] else { return nil }
         let list = firstDecode.compactMap { $0["user"] }
         return list.compactMap { element in // get key inside user
@@ -156,7 +156,7 @@ public extension Network {
     /// - Parameter noteId: id
     /// - Returns: replies and extracted notes for cache
     func requestForReplies(
-        toNoteWithId noteId: String
+        toNoteWithId noteId: String,
     ) -> NoteFetchResult<[NMNote]> {
         var request = prepareRequest(for: .notes_replies)
         injectBodyForPost(for: &request, with: ["noteId": noteId])

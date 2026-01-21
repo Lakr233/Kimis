@@ -95,14 +95,14 @@ extension NoteAttachmentView {
                 x: (bounds.width - size.width) / 2,
                 y: (bounds.height - size.height) / 2,
                 width: size.width,
-                height: size.height
+                height: size.height,
             )
             let labelHeight = bounds.height - attachmentIconView.frame.maxY
             label.frame = CGRect(
                 x: 0,
                 y: attachmentIconView.frame.maxY,
                 width: bounds.width,
-                height: labelHeight
+                height: labelHeight,
             )
             .inset(by: .init(horizontal: 8, vertical: 8))
             label.isHidden = previewOption.disableFilename
@@ -130,7 +130,7 @@ extension NoteAttachmentView {
                 imageView.loadImage(with: .init(
                     url: element.url.absoluteString,
                     blurHash: element.previewBlur,
-                    sensitive: element.sensitive && !previewOption.disableSensitiveMask
+                    sensitive: element.sensitive && !previewOption.disableSensitiveMask,
                 ))
                 return
             }

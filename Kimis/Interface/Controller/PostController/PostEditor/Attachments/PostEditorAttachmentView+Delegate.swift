@@ -19,7 +19,7 @@ extension PostEditorAttachmentView: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: AttachmentCell.cellId,
-            for: indexPath
+            for: indexPath,
         ) as! AttachmentCell
         if let attach = post.attachments[safe: indexPath.row] {
             cell.load(attach, atIndexPath: indexPath, editOnPost: post)

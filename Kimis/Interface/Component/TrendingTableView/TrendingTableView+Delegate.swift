@@ -16,7 +16,7 @@ extension TrendingTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: ItemCell.identifier,
-            for: indexPath
+            for: indexPath,
         ) as? ItemCell else {
             assertionFailure()
             return .init()
@@ -28,7 +28,7 @@ extension TrendingTableView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, viewForFooterInSection _: Int) -> UIView? {
         guard let footer = dequeueReusableHeaderFooterView(
-            withIdentifier: FooterCountView.identifier
+            withIdentifier: FooterCountView.identifier,
         ) as? FooterCountView else {
             return nil
         }

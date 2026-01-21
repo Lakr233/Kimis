@@ -32,7 +32,7 @@ extension NoteCell {
         init(
             kind: NoteCell.CellKind,
             noteId: String? = nil,
-            connectors: Set<ConnectorDirection> = []
+            connectors: Set<ConnectorDirection> = [],
         ) {
 //            assert(!Thread.isMainThread || kind.isSupplymentKind)
             self.kind = kind

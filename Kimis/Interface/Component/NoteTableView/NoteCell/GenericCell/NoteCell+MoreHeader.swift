@@ -68,20 +68,20 @@ extension NoteCell {
                 x: padding + avatarSize / 2 - IH.connectorWidth / 2,
                 y: bounds.midY - IH.connectorWidth / 2,
                 width: IH.connectorWidth,
-                height: IH.connectorWidth
+                height: IH.connectorWidth,
             )
             connectorBall.layer.cornerRadius = IH.connectorWidth / 2
             connectorUp.frame = CGRect(
                 x: padding + avatarSize / 2 - IH.connectorWidth / 2,
                 y: 0,
                 width: IH.connectorWidth,
-                height: connectorBall.frame.minY - 4
+                height: connectorBall.frame.minY - 4,
             )
             connectorDown.frame = CGRect(
                 x: padding + avatarSize / 2 - IH.connectorWidth / 2,
                 y: connectorBall.frame.maxY + 4,
                 width: IH.connectorWidth,
-                height: bounds.height - connectorBall.frame.maxY - 4 + 1
+                height: bounds.height - connectorBall.frame.maxY - 4 + 1,
             )
 
             let iconSize = CGSize(width: 16, height: 16)
@@ -89,7 +89,7 @@ extension NoteCell {
                 x: padding + avatarSize - iconSize.width,
                 y: bounds.midY - iconSize.height / 2,
                 width: iconSize.width,
-                height: iconSize.height
+                height: iconSize.height,
             )
 
             let horizontalSpacing = padding
@@ -97,7 +97,7 @@ extension NoteCell {
                 x: padding + avatarSize + horizontalSpacing,
                 y: 0,
                 width: 200,
-                height: bounds.height
+                height: bounds.height,
             )
         }
     }

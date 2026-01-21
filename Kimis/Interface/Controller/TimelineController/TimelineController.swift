@@ -66,7 +66,7 @@ class TimelineController: ViewController {
             x: bounds.width - guiderSize.width - IH.preferredPadding(usingWidth: bounds.width) - view.safeAreaInsets.right,
             y: IH.preferredPadding(usingWidth: bounds.width) + view.safeAreaInsets.top,
             width: guiderSize.width,
-            height: guiderSize.height
+            height: guiderSize.height,
         )
     }
 

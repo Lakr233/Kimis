@@ -50,5 +50,5 @@ let package = Package(
         .testTarget(name: "SourceTest", dependencies: [
             "Source",
         ]),
-    ]
+    ],
 )

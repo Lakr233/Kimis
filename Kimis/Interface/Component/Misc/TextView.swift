@@ -122,7 +122,7 @@ extension UITextView {
                     location \(selection.location) length \(selection.length)
                     selection end at \(selection.location + selection.length)
                     attr text length \(attributedText.length)
-                """
+                """,
             )
             return
         }

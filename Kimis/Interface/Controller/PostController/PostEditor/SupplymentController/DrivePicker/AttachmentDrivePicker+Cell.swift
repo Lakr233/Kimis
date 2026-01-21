@@ -69,14 +69,14 @@ extension AttachmentDrivePicker {
                 x: bounds.height - hintSize - spacing,
                 y: bounds.width - hintSize - spacing,
                 width: hintSize,
-                height: hintSize
+                height: hintSize,
             )
 
             selectionHint.frame = CGRect(
                 x: bounds.height - hintSize - spacing,
                 y: spacing,
                 width: hintSize,
-                height: hintSize
+                height: hintSize,
             )
         }
 

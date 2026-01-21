@@ -54,26 +54,26 @@ extension NoteCell {
                 x: padding + rightShift + smallerAvatarSize / 2 - ballSize / 2,
                 y: bounds.midY - ballSize / 2,
                 width: ballSize,
-                height: ballSize
+                height: ballSize,
             )
             connectorBall.layer.cornerRadius = ballSize / 2
             connectorDown.frame = CGRect(
                 x: connectorBall.frame.midX - IH.connectorWidth / 2,
                 y: connectorBall.frame.maxY + 4,
                 width: IH.connectorWidth,
-                height: bounds.height - connectorBall.frame.maxY - 4 + 1
+                height: bounds.height - connectorBall.frame.maxY - 4 + 1,
             )
             connectorPass.frame = CGRect(
                 x: padding + avatarSize / 2 - IH.connectorWidth / 2,
                 y: 0,
                 width: IH.connectorWidth,
-                height: bounds.height + 1
+                height: bounds.height + 1,
             )
             connectorAttach.frame = CGRect(
                 x: padding + avatarSize / 2 - IH.connectorWidth / 2,
                 y: 0,
                 width: connectorBall.frame.minX - 4 - connectorPass.frame.minX,
-                height: bounds.height / 2 + IH.connectorWidth / 2
+                height: bounds.height / 2 + IH.connectorWidth / 2,
             )
         }
     }

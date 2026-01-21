@@ -40,7 +40,7 @@ public extension TimelineSource {
             endpoint: endpoint.rawValue,
             IR: requestIR,
             notes: Set<NoteID>(dataSource.nodes.flatMap { $0.representedNotes() }),
-            anchor: .init(dataset: requestIR, ctx: ctx)
+            anchor: .init(dataset: requestIR, ctx: ctx),
         )
         return ans
     }
@@ -73,7 +73,7 @@ extension TimelineSource {
         private func workItemRequestUpdate() {
             let downloadResult = base.ctx.req.requestTimeline(
                 endpoint: base.endpoint,
-                untilId: direction == .older ? base.anchor?.oldest.id : NoteID?.none
+                untilId: direction == .older ? base.anchor?.oldest.id : NoteID?.none,
             )
             guard !downloadResult.isEmpty, !isCancelled else { return }
 
@@ -275,7 +275,7 @@ extension TimelineSource {
 
             self.init(
                 oldest: .init(id: oldestFeedID, date: oldestFeedDate),
-                newest: .init(id: newestFeedID, date: newestFeedDate)
+                newest: .init(id: newestFeedID, date: newestFeedDate),
             )
         }
 

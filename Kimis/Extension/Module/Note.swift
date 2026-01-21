@@ -17,6 +17,6 @@ extension Note {
         date: .init(timeIntervalSince1970: 0),
         text: "This note is not available at this time.",
         visibility: "public",
-        userId: "__missing_note_user_id__"
+        userId: "__missing_note_user_id__",
     )
 }

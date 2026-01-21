@@ -29,7 +29,7 @@ extension UIButton {
             if let menuInteraction = interaction as? UIContextMenuInteraction,
                let menuConfig = menuInteraction.delegate?.contextMenuInteraction(
                    menuInteraction,
-                   configurationForMenuAtLocation: .zero
+                   configurationForMenuAtLocation: .zero,
                ),
                let menu = menuConfig.retrieveMenu()
             {
@@ -38,7 +38,7 @@ extension UIButton {
         }
         if let menuConfig = contextMenuInteraction(
             .init(delegate: JustGiveMeMenu.shared),
-            configurationForMenuAtLocation: .zero
+            configurationForMenuAtLocation: .zero,
         ), let menu = menuConfig.retrieveMenu() {
             return menu
         }

@@ -87,14 +87,14 @@ extension PollView.Snapshot {
                 interactive: interactive,
                 noteId: noteId,
                 index: idx,
-                textParser: textParser
+                textParser: textParser,
             )
             elementsSnapshot.append(snapshot)
             elementsRect.append(.init(
                 x: 0,
                 y: currentAnchor,
                 width: width,
-                height: snapshot.height
+                height: snapshot.height,
             ))
             currentAnchor += snapshot.height + spacing
             voteButtonHeight = min(voteButtonHeight, snapshot.height)
@@ -105,7 +105,7 @@ extension PollView.Snapshot {
             x: 0,
             y: 0,
             width: width,
-            height: currentAnchor
+            height: currentAnchor,
         )
 
         let footerText = textParser.compileVoteFooter(withPoll: poll)
@@ -114,7 +114,7 @@ extension PollView.Snapshot {
             x: 0,
             y: currentAnchor + spacing,
             width: width,
-            height: footerTextHeight
+            height: footerTextHeight,
         )
 
         self.width = width

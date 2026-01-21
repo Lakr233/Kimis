@@ -61,7 +61,7 @@ extension SourceTest {
                 requestHost: challengePrefab.requestHost,
                 requestURL: loginUrl,
                 requestSession: challengePrefab.requestSession,
-                requestRecipeCheck: checkRequest
+                requestRecipeCheck: checkRequest,
             )
         }
 
@@ -80,7 +80,7 @@ extension SourceTest {
                 url: "\(scheme)://\(host):\(port)/api/signin-flow",
                 allowFailure: false,
                 data: payload,
-                method: "POST"
+                method: "POST",
             ) { data in
                 guard let data,
                       let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
@@ -110,7 +110,7 @@ extension SourceTest {
                 url: "\(scheme)://\(host):\(port)/api/miauth/gen-token",
                 allowFailure: false,
                 data: payload,
-                method: "POST"
+                method: "POST",
             ) { _ in }
         }
 
@@ -127,7 +127,7 @@ extension SourceTest {
         return Source(
             withLoginChallengeRecipe: receipt,
             baseEndpoint: URL(string: "\(scheme)://\(host):\(port)")!,
-            storageLocation: store
+            storageLocation: store,
         )
     }
 }

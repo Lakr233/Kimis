@@ -113,42 +113,42 @@ private class SideBarControlPanelView: UIView {
             .init(
                 target: { LLSplitController(
                     left: LLNavController(rootViewController: LargeTimelineController()),
-                    right: LLNavController(rootViewController: HashtagTrendController())
+                    right: LLNavController(rootViewController: HashtagTrendController()),
                 ) },
-                image: .fluent(.home_filled)
+                image: .fluent(.home_filled),
             ),
             .init(
                 target: { LLSplitController(
                     left: LLNavController(rootViewController: SearchController()),
-                    right: LLNavController(rootViewController: LargeUsersListController())
+                    right: LLNavController(rootViewController: LargeUsersListController()),
                 ) },
-                image: .fluent(.search_filled)
+                image: .fluent(.search_filled),
             ),
             .init(
                 target: { LLSplitController(
                     left: LLNavController(rootViewController: LargeNotificationController()),
-                    right: LLNavController(rootViewController: HashtagTrendController())
+                    right: LLNavController(rootViewController: HashtagTrendController()),
                 ) },
                 image: .fluent(.alert_filled),
-                badgePublisher: Account.shared.source?.notifications.$badge
+                badgePublisher: Account.shared.source?.notifications.$badge,
             ),
             .init(
                 target: { LLSplitController(
                     left: LLNavController(rootViewController: BookmarkController()),
-                    right: LLNavController(rootViewController: HashtagTrendController())
+                    right: LLNavController(rootViewController: HashtagTrendController()),
                 ) },
-                image: .fluent(.bookmark_filled)
+                image: .fluent(.bookmark_filled),
             ),
             .init(
                 target: { LLSplitController(
                     left: LLNavController(rootViewController: CurrentUserViewController()),
-                    right: LLNavController(rootViewController: HashtagTrendController())
+                    right: LLNavController(rootViewController: HashtagTrendController()),
                 ) },
-                displayingView: AccountAvatarView()
+                displayingView: AccountAvatarView(),
             ),
             .init(
                 target: { LLNavController(rootViewController: SettingController()) },
-                image: .fluent(.settings_filled)
+                image: .fluent(.settings_filled),
             ),
         ]
 
@@ -262,7 +262,7 @@ private extension SideBarControlPanelView {
         convenience init(
             target: @escaping () -> (UIViewController),
             image: UIImage,
-            badgePublisher: Published<Bool>.Publisher? = nil
+            badgePublisher: Published<Bool>.Publisher? = nil,
         ) {
             let imageView = UIImageView()
             imageView.image = image

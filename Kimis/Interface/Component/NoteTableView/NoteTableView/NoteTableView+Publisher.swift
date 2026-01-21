@@ -18,7 +18,7 @@ extension NoteTableView {
                 .removeDuplicates()
                 .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global()),
             refreshCaller
-                .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global())
+                .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global()),
         )
         .receive(on: DispatchQueue.main)
         .sink { [weak self] value in
@@ -29,7 +29,7 @@ extension NoteTableView {
                 self.requestRenderUpdateReload(
                     target: value.0,
                     width: value.1,
-                    ticket: ticket
+                    ticket: ticket,
                 )
             }
         }

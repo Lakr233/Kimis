@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             _ = try AVAudioSession.sharedInstance().setCategory(
                 .playback,
                 mode: .default,
-                options: .mixWithOthers
+                options: .mixWithOthers,
             )
         } catch {
             print(error.localizedDescription)

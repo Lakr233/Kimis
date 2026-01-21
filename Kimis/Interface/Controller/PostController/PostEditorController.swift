@@ -74,7 +74,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
                 title: L10n.text("Cancel"),
                 style: .plain,
                 target: self,
-                action: #selector(cancelButtonTapped)
+                action: #selector(cancelButtonTapped),
             ),
         ]
         navigationItem.rightBarButtonItems = [
@@ -82,7 +82,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
                 title: L10n.text("Send"),
                 style: .done,
                 target: self,
-                action: #selector(sendButtonTapped)
+                action: #selector(sendButtonTapped),
             ),
         ]
 
@@ -179,13 +179,13 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
             self,
             selector: #selector(keyboardWillShow(notification:)),
             name: UIResponder.keyboardWillShowNotification,
-            object: nil
+            object: nil,
         )
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(notification:)),
             name: UIResponder.keyboardWillHideNotification,
-            object: nil
+            object: nil,
         )
     }
 
@@ -239,7 +239,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
             x: padding,
             y: heightAnchor + spacing,
             width: avatarSize,
-            height: avatarSize
+            height: avatarSize,
         )
         heightAnchor = userAvatar.frame.maxY + spacing
 
@@ -248,7 +248,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
             x: userAvatar.frame.maxX - tintIconSize,
             y: userAvatar.frame.maxY - tintIconSize,
             width: tintIconSize,
-            height: tintIconSize
+            height: tintIconSize,
         )
         avatarHintBackground.frame = avatarHint.frame.inset(by: UIEdgeInsets(inset: 4))
         avatarHintBackground.layer.cornerRadius = avatarHintBackground.frame.width / 2
@@ -260,7 +260,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
             x: contentAlign,
             y: userAvatar.frame.minY,
             width: contentWidth,
-            height: userTitle.attributedText.measureHeight(usingWidth: contentWidth)
+            height: userTitle.attributedText.measureHeight(usingWidth: contentWidth),
         )
         heightAnchor = userTitle.frame.maxY
 
@@ -268,7 +268,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
             x: contentAlign,
             y: heightAnchor + spacing,
             width: contentWidth,
-            height: editor.editorHeight
+            height: editor.editorHeight,
         )
         heightAnchor = editor.frame.maxY + spacing
 
@@ -278,7 +278,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
                     usingWidth: contentWidth,
                     target: renoteId,
                     context: stubContext, // weak var context will get this released
-                    textParser: textParser
+                    textParser: textParser,
                 )
             }
             // notes may change
@@ -290,7 +290,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
                 x: contentAlign,
                 y: heightAnchor,
                 width: contentWidth,
-                height: height
+                height: height,
             )
             heightAnchor = renotePreview.frame.maxY + spacing
         } else {
@@ -428,7 +428,7 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
         for provider in items.map(\.itemProvider) {
             group.enter()
             provider.loadFileRepresentation(
-                forTypeIdentifier: UTType.item.identifier
+                forTypeIdentifier: UTType.item.identifier,
             ) { url, _ in
                 lock.lock()
                 defer { lock.unlock() }

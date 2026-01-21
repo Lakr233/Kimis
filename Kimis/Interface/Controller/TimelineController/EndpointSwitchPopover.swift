@@ -23,7 +23,7 @@ class EndpointSwitchPopover: ViewController, UIPopoverPresentationControllerDele
             x: -padding,
             y: -padding,
             width: sourceView.frame.width + padding * 2,
-            height: sourceView.frame.height + padding * 2
+            height: sourceView.frame.height + padding * 2,
         )
         popoverPresentationController?.permittedArrowDirections = .any
         view.addSubview(contentView)
@@ -70,7 +70,7 @@ class EndpointSwitchPopover: ViewController, UIPopoverPresentationControllerDele
 
     func adaptivePresentationStyle(
         for _: UIPresentationController,
-        traitCollection _: UITraitCollection
+        traitCollection _: UITraitCollection,
     ) -> UIModalPresentationStyle {
         .none
     }

@@ -50,7 +50,7 @@ extension TextParser {
     func compileVoteFooter(withPoll vote: Note.Poll) -> NSMutableAttributedString {
         var connectors: [String] = []
         connectors.append(
-            "\(vote.multiple ? "Multiple" : "Single") Vote"
+            "\(vote.multiple ? "Multiple" : "Single") Vote",
         )
         if let expire = vote.expiresAt {
             connectors.append("Expire " + compile(date: expire))

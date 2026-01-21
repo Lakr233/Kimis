@@ -46,7 +46,7 @@ extension NoteNode {
                 let ctx = NoteCell.Context(
                     kind: .replyPadded,
                     noteId: firstReply,
-                    connectors: [.attach, .pass]
+                    connectors: [.attach, .pass],
                 )
                 return ctx
             }
@@ -55,7 +55,7 @@ extension NoteNode {
                 repliesCtx[0] = .init(
                     kind: .reply,
                     noteId: repliesCtx[0].noteId,
-                    connectors: repliesCtx[0].connectors
+                    connectors: repliesCtx[0].connectors,
                 )
             } else if repliesCtx.count >= 3 {
                 // 有太多的回复 大概率是关注的 po 主回复了一堆人 实测两条已经很顶了 所以加一层处理
@@ -116,7 +116,7 @@ extension NoteNode {
             NoteCell.Context(
                 kind: .reply,
                 noteId: $0,
-                connectors: [.up, .down]
+                connectors: [.up, .down],
             )
         })
 
@@ -127,7 +127,7 @@ extension NoteNode {
                 let context = NoteCell.Context(
                     kind: .replyPadded,
                     noteId: note,
-                    connectors: [.attach, .pass]
+                    connectors: [.attach, .pass],
                 )
                 context.disableOperationStrip = true
                 context.disablePreviewReason = true

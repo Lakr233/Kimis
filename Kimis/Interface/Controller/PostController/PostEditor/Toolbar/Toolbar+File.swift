@@ -14,7 +14,7 @@ extension PostEditorToolbarView {
             .init(action: { _, anchor in
                 let controller = UIDocumentPickerViewController(
                     forOpeningContentTypes: [UTType.item],
-                    asCopy: true
+                    asCopy: true,
                 )
                 controller.prepareModalSheet(style: .formSheet)
                 controller.allowsMultipleSelection = true

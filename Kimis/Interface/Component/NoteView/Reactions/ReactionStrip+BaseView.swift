@@ -62,13 +62,13 @@ extension ReactionStrip {
                 x: 0,
                 y: 0,
                 width: contentView.bounds.width / 2,
-                height: contentView.bounds.height
+                height: contentView.bounds.height,
             ).inset(by: .init(inset: 4))
             countView.frame = CGRect(
                 x: contentView.bounds.width / 2,
                 y: 0,
                 width: contentView.bounds.width / 2,
-                height: contentView.bounds.height
+                height: contentView.bounds.height,
             )
         }
 
@@ -92,7 +92,7 @@ extension ReactionStrip {
                     if lookup {
                         _ = source.req.requestNoteReaction(
                             reactionIdentifier: ":\(representReaction):",
-                            forNote: reactionElement.noteId
+                            forNote: reactionElement.noteId,
                         )
                     } else {
                         presentError(L10n.text("This reaction is not available"))
@@ -100,7 +100,7 @@ extension ReactionStrip {
                 } else if let textEmoji = reactionElement.text {
                     _ = source.req.requestNoteReaction(
                         reactionIdentifier: textEmoji,
-                        forNote: reactionElement.noteId
+                        forNote: reactionElement.noteId,
                     )
                 } else {
                     presentError(L10n.text("Unable to find this reaction"))

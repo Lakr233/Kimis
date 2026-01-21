@@ -33,7 +33,7 @@ public struct NMNotification: Codable {
 
         public init(from decoder: Decoder) throws {
             self = try NotificationType(
-                rawValue: decoder.singleValueContainer().decode(RawValue.self)
+                rawValue: decoder.singleValueContainer().decode(RawValue.self),
             ) ?? .unknown
         }
     }

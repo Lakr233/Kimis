@@ -40,7 +40,7 @@ class PostEditorView: UIView, UITextViewDelegate {
     init(
         post: Post,
         spacing: CGFloat,
-        textParser: TextParser
+        textParser: TextParser,
     ) {
         self.post = post
         self.textParser = textParser
@@ -116,20 +116,20 @@ class PostEditorView: UIView, UITextViewDelegate {
             NSMutableAttributedString(string: "AA55", attributes: [
                 .font: mainTextEditor.font ?? .systemFont(ofSize: 0),
             ]).measureHeight(usingWidth: .infinity),
-            mainTextEditor.attributedText.measureHeight(usingWidth: width)
+            mainTextEditor.attributedText.measureHeight(usingWidth: width),
         )
         mainTextEditor.frame = CGRect(
             x: 0, y: heightAnchor,
-            width: width, height: textHeight
+            width: width, height: textHeight,
         )
         let holderHeight = placeholder.attributedText.measureHeight(
-            usingWidth: width, lineLimit: 1
+            usingWidth: width, lineLimit: 1,
         )
         placeholder.frame = CGRect(
             x: 0,
             y: heightAnchor + textHeight - holderHeight,
             width: width,
-            height: holderHeight
+            height: holderHeight,
         )
         placeholder.isHidden = mainTextEditor.attributedText.length > 0
         heightAnchor = mainTextEditor.frame.maxY
@@ -138,7 +138,7 @@ class PostEditorView: UIView, UITextViewDelegate {
             x: 0,
             y: heightAnchor + spacing,
             width: width,
-            height: pollEditor.contentSize.height
+            height: pollEditor.contentSize.height,
         )
         if pollEditor.contentSize.height <= 0 {
             pollEditor.isHidden = true
@@ -151,7 +151,7 @@ class PostEditorView: UIView, UITextViewDelegate {
             x: 0,
             y: heightAnchor + spacing,
             width: width,
-            height: attachmentsEditor.contentSize.height
+            height: attachmentsEditor.contentSize.height,
         )
         if attachmentsEditor.contentSize.height <= 0 {
             attachmentsEditor.isHidden = true

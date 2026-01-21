@@ -22,12 +22,12 @@ extension TextParser {
             if let defaultHost, defaultHost.lowercased() != source?.host.host?.lowercased() {
                 let url = endpoint.appendingPathComponent("\(emoji)@\(defaultHost).webp")
                 return NSMutableAttributedString(
-                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size, height: size))
+                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size, height: size)),
                 )
             } else {
                 let url = endpoint.appendingPathComponent("\(emoji).webp")
                 return NSMutableAttributedString(
-                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size, height: size))
+                    attachment: RemoteImageAttachment(url: url, size: CGSize(width: size, height: size)),
                 )
             }
         }

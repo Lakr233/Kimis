@@ -30,7 +30,7 @@ class SourceTest: XCTestCase {
             secured: false,
             username: testAccount,
             password: testPassword,
-            store: temp
+            store: temp,
         ) else {
             XCTFail("login failed")
             return

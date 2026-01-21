@@ -33,7 +33,7 @@ public extension Instance {
             maintainerName: object.maintainerName ?? "",
             maintainerEmail: object.maintainerEmail ?? "",
             features: featureSet,
-            maxNoteTextLength: object.maxNoteTextLength ?? 3000
+            maxNoteTextLength: object.maxNoteTextLength ?? 3000,
         )
     }
 }

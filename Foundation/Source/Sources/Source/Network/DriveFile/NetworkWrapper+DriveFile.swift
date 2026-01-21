@@ -20,7 +20,7 @@ public extension Source.NetworkWrapper {
     func requestDriveFileCreate(
         asset: URL,
         setTask: ((URLSessionDataTask) -> Void)? = nil,
-        setProgress: ((Double) -> Void)? = nil
+        setProgress: ((Double) -> Void)? = nil,
     ) -> Attachment? {
         guard let ctx else { return nil }
         let result = ctx.network.requestDriveFileCreate(asset: asset) { task in
@@ -38,7 +38,7 @@ public extension Source.NetworkWrapper {
         fileId: String,
         name: String? = nil,
         isSensitive: Bool? = nil,
-        comment: String? = nil
+        comment: String? = nil,
     ) -> Attachment? {
         guard let ctx else { return nil }
         let result = ctx.network.requestDriveFileUpdate(
@@ -46,7 +46,7 @@ public extension Source.NetworkWrapper {
             folderId: nil,
             name: name,
             isSensitive: isSensitive,
-            comment: comment
+            comment: comment,
         )
         if let file = result {
             return .converting(file)

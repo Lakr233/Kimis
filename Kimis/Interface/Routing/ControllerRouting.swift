@@ -37,7 +37,7 @@ enum ControllerRouting {
         ControllerRouting.pushing(
             tag: tag,
             referencer: referencer?.parentViewController,
-            associatedData: associatedData
+            associatedData: associatedData,
         )
     }
 

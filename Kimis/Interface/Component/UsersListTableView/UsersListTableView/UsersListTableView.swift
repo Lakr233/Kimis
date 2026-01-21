@@ -43,7 +43,7 @@ class UsersListTableView: TableView, UITableViewDelegate, UITableViewDataSource,
                 .removeDuplicates()
                 .filter { $0 > 0 }
                 .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global()),
-            refreshCaller
+            refreshCaller,
         )
         .debounce(for: .seconds(0.1), scheduler: DispatchQueue.global())
         .receive(on: renderQueue)
@@ -97,7 +97,7 @@ class UsersListTableView: TableView, UITableViewDelegate, UITableViewDataSource,
 
     func tableView(_: UITableView, viewForFooterInSection _: Int) -> UIView? {
         guard let footer = dequeueReusableHeaderFooterView(
-            withIdentifier: FooterCountView.identifier
+            withIdentifier: FooterCountView.identifier,
         ) as? FooterCountView else {
             return nil
         }

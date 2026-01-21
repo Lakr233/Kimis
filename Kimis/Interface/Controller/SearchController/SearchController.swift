@@ -94,14 +94,14 @@ class SearchController: ViewController {
         let padding = IH.preferredPadding(usingWidth: bounds.width)
         let searchBarWidth = IH.containerWidth(
             usingWidth: bounds.width - 2 * padding,
-            maxWidth: 500
+            maxWidth: 500,
         )
         searchBarContainer.frame = CGRect(
             center: bounds.center,
             size: CGSize(
                 width: searchBarWidth,
-                height: searchBar.intrinsicContentSize.height
-            )
+                height: searchBar.intrinsicContentSize.height,
+            ),
         )
 
         circle.layer.cornerRadius = circle.frame.width / 2

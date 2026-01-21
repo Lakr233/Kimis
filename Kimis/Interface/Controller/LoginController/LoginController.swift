@@ -88,11 +88,11 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         let largeConfig = UIImage.SymbolConfiguration(
             pointSize: 32,
             weight: .bold,
-            scale: .large
+            scale: .large,
         )
         let img = UIImage(
             systemName: "arrow.right.circle.fill",
-            withConfiguration: largeConfig
+            withConfiguration: largeConfig,
         )
         button.setImage(img, for: .normal)
         return button
@@ -147,7 +147,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             title: L10n.text("Cancel"),
             style: .plain,
             target: self,
-            action: #selector(dismissController)
+            action: #selector(dismissController),
         )
     }
 
@@ -288,7 +288,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         let alert = UIAlertController(
             title: L10n.text("You are connecting to\nhttps://%@", challenge.requestHost),
             message: L10n.text("Please sign in with your username and password there, and authorize this session with Misskey OAuth."),
-            preferredStyle: .alert
+            preferredStyle: .alert,
         )
         alert.addAction(UIAlertAction(title: L10n.text("Continue"), style: .default, handler: { [weak self] _ in
             self?.processedToLogin(withSession: challenge)
@@ -366,7 +366,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     func challengeCheck(
         with request: LoginChallenge,
-        completion: @escaping (LoginChallengeReceipt?) -> Void
+        completion: @escaping (LoginChallengeReceipt?) -> Void,
     ) {
         DispatchQueue.global().async {
             completion(request.check())
@@ -389,7 +389,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         UIApplication.shared.open(
             URL(string: "https://github.com/Lakr233/Kimis")!,
             options: [:],
-            completionHandler: nil
+            completionHandler: nil,
         )
     }
 
@@ -398,7 +398,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         UIApplication.shared.open(
             URL(string: "https://github.com/misskey-dev/misskey")!,
             options: [:],
-            completionHandler: nil
+            completionHandler: nil,
         )
     }
 }

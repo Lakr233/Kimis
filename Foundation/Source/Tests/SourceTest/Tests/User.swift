@@ -277,7 +277,7 @@ extension SourceTest {
                 url: url.absoluteString,
                 allowFailure: false,
                 data: #"{"username":"\#(testAccount)","password":"\#(testPassword)"}"#.data(using: .utf8),
-                method: "POST"
+                method: "POST",
             ) { data in
                 guard let data else {
                     XCTFail("failed to get json data")
@@ -306,7 +306,7 @@ extension SourceTest {
                 url: url.absoluteString,
                 allowFailure: false,
                 data: "{\"i\":\"\(token)\"}".data(using: .utf8),
-                method: "POST"
+                method: "POST",
             ) { data in
                 guard let data, let str = String(data: data, encoding: .utf8) else {
                     XCTFail("failed to get json str")

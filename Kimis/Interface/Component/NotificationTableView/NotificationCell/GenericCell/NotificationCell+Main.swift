@@ -231,7 +231,7 @@ extension NotificationCell.MainCell.Snapshot {
             x: padding,
             y: padding,
             width: tintSize.width,
-            height: tintSize.height
+            height: tintSize.height,
         )
 
         let contentAlignment = actionImageRect.maxX + horizontalSpacing
@@ -248,13 +248,13 @@ extension NotificationCell.MainCell.Snapshot {
         avatarImage = MKImageView.Request(
             url: user.avatarUrl,
             blurHash: user.avatarBlurHash,
-            sensitive: false
+            sensitive: false,
         )
         avatarViewRect = CGRect(
             x: contentAlignment,
             y: actionImageRect.minX,
             width: avatarSize.width,
-            height: avatarSize.height
+            height: avatarSize.height,
         )
         let titleWidth = contentWidth - avatarViewRect.width - horizontalSpacing
 
@@ -262,7 +262,7 @@ extension NotificationCell.MainCell.Snapshot {
         var titleHeight: CGFloat = 0
         titleHeight = titleText.measureHeight(
             usingWidth: titleWidth,
-            lineLimit: NotificationCell.MainCell.titleLineLimit
+            lineLimit: NotificationCell.MainCell.titleLineLimit,
         )
 
         if titleHeight > avatarViewRect.height {
@@ -270,20 +270,20 @@ extension NotificationCell.MainCell.Snapshot {
                 x: avatarViewRect.maxX + horizontalSpacing,
                 y: avatarViewRect.minY,
                 width: titleWidth,
-                height: titleHeight
+                height: titleHeight,
             )
             avatarViewRect = CGRect(
                 x: avatarViewRect.minX,
                 y: avatarViewRect.minY + (titleViewRect.height - avatarViewRect.height) / 2,
                 width: avatarViewRect.size.width,
-                height: avatarViewRect.size.height
+                height: avatarViewRect.size.height,
             )
         } else {
             titleViewRect = CGRect(
                 x: avatarViewRect.maxX + horizontalSpacing,
                 y: avatarViewRect.midY - titleHeight / 2,
                 width: titleWidth,
-                height: titleHeight
+                height: titleHeight,
             )
         }
         contentStart = max(avatarViewRect.maxY, titleViewRect.maxY) + verticalSpacing
@@ -316,7 +316,7 @@ extension NotificationCell.MainCell.Snapshot {
             x: contentAlignment,
             y: contentStart,
             width: contentWidth,
-            height: mainTextHeigh
+            height: mainTextHeigh,
         )
 
         let footerText = textParser.compileDateFooter(withDate: notification.createdAt)
@@ -326,7 +326,7 @@ extension NotificationCell.MainCell.Snapshot {
             x: contentAlignment,
             y: mainTextRect.maxY + verticalSpacing,
             width: contentWidth,
-            height: footerTextHeight
+            height: footerTextHeight,
         )
 
         let unreadSize: CGFloat = 12
@@ -334,7 +334,7 @@ extension NotificationCell.MainCell.Snapshot {
             x: actionImageRect.center.x - unreadSize / 2,
             y: actionImageRect.maxY + verticalSpacing,
             width: unreadSize,
-            height: unreadSize
+            height: unreadSize,
         )
 
         let cellHeight = max(footerTextRect.maxY, actionImageRect.maxY) + padding

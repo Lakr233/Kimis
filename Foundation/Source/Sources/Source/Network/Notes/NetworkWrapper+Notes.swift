@@ -39,7 +39,7 @@ public extension Source.NetworkWrapper {
         endpoint: String,
         limit: Int = 50,
         sinceId: String? = nil,
-        untilId: String? = nil
+        untilId: String? = nil,
     ) -> [NoteID] {
         guard let ctx else { return [] }
         let result = ctx.network.requestForUserTimeline(
@@ -48,7 +48,7 @@ public extension Source.NetworkWrapper {
             sinceDate: nil,
             untilDate: nil,
             sinceId: sinceId,
-            untilId: untilId
+            untilId: untilId,
         )
         ctx.spider.spidering(result.extracted)
         ctx.spider.spidering(result.result)
@@ -58,13 +58,13 @@ public extension Source.NetworkWrapper {
     func requestNoteSearch(
         query: String,
         limit: Int = 20,
-        untilId: NoteID? = nil
+        untilId: NoteID? = nil,
     ) -> [NoteID] {
         guard let ctx else { return [] }
         let result = ctx.network.requestForNoteSearch(
             query: query,
             limit: limit,
-            untilId: untilId
+            untilId: untilId,
         )
         ctx.spider.spidering(result.extracted)
         ctx.spider.spidering(result.result)
@@ -139,7 +139,7 @@ public extension Source.NetworkWrapper {
             sinceId: nil,
             untilId: untilId,
             sinceDate: nil,
-            untilDate: nil
+            untilDate: nil,
         )
         ctx.spider.spidering(result.extracted)
         ctx.spider.spidering(result.result)
@@ -163,7 +163,7 @@ public extension Source.NetworkWrapper {
         guard let result = ctx.network.requestForNoteCreate(
             with: postData,
             renoteId: renote,
-            replyId: reply
+            replyId: reply,
         ) else {
             return nil
         }

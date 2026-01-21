@@ -50,7 +50,7 @@ extension UIViewController {
                 .windowScene?
                 .statusBarManager?
                 .statusBarFrame
-                .height ?? 0.0
+                .height ?? 0.0,
         ) + (
             navigationController?
                 .navigationBar

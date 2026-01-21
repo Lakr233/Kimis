@@ -29,7 +29,7 @@ class MisskeySafariController: ViewController, WKNavigationDelegate {
         let tokenInjectorScript = WKUserScript(
             source: tokenInjector,
             injectionTime: .atDocumentStart,
-            forMainFrameOnly: false
+            forMainFrameOnly: false,
         )
         contentController.addUserScript(tokenInjectorScript)
 
@@ -52,7 +52,7 @@ class MisskeySafariController: ViewController, WKNavigationDelegate {
         let langOverrideScript = WKUserScript(
             source: langOverride,
             injectionTime: .atDocumentStart,
-            forMainFrameOnly: false
+            forMainFrameOnly: false,
         )
         contentController.addUserScript(langOverrideScript)
 

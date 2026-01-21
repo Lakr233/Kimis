@@ -123,7 +123,7 @@ class NoteOperationStrip: UIView {
                 x: CGFloat(idx) * (buttonSize.width + spaceDistribute),
                 y: 0,
                 width: buttonSize.width,
-                height: buttonSize.height
+                height: buttonSize.height,
             )
         }
 

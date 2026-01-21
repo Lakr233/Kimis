@@ -101,7 +101,7 @@ class FollowerController: ViewController {
             } }
             let items = source.req.requestForUserFollowers(
                 userId: userId,
-                untilId: untilId
+                untilId: untilId,
             )
             var build = curr + items
             build.removeDuplicates()

@@ -181,13 +181,13 @@ extension AttachUploadController {
         func preparerThumbnail(
             for request: UploadRequest,
             size: CGSize = .init(width: 256, height: 256),
-            scale: CGFloat = 1.0
+            scale: CGFloat = 1.0,
         ) {
             let previewRequest = QLThumbnailGenerator.Request(
                 fileAt: request.assetFile,
                 size: size,
                 scale: scale,
-                representationTypes: .thumbnail
+                representationTypes: .thumbnail,
             )
             QLThumbnailGenerator.shared.generateRepresentations(for: previewRequest) { thumbnail, _, error in
                 withMainActor { [weak self] in

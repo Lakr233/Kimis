@@ -100,7 +100,7 @@ public struct LoginChallenge {
         var checkerRequest = URLRequest(
             url: receiptURL,
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 10
+            timeoutInterval: 10,
         )
         checkerRequest.httpMethod = "POST"
         checkerRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -149,7 +149,7 @@ public struct LoginChallenge {
             username: user,
             host: requestHost,
             token: token,
-            challenge: requestSession
+            challenge: requestSession,
         )
     }
 }
