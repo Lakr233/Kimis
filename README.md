@@ -54,3 +54,6 @@ Made with ❤️ by [@Lakr233](https://twitter.com/@Lakr233) and his friends [@u
 ---
 
 Copyright © 2023 Lakr Aream & Kimis Team. All Rights Reserved.
+## Sponsor
+
+[LookInside](https://lookinside-app.com/) helps you inspect a running iOS or macOS app UI from your Mac.

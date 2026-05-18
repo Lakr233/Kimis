@@ -18,6 +18,7 @@
 		50BED22329277FE100C9D7E2 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED22229277FE100C9D7E2 /* IQKeyboardManagerSwift */; };
 		50BED2262927802700C9D7E2 /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 50BED2252927802700C9D7E2 /* SPIndicator */; };
 		50F922B82E8AD95200D1E2C1 /* ChidoriMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 50F922B72E8AD95200D1E2C1 /* ChidoriMenu */; };
+		F53594A5EE654E2D2AE8B776 /* LookInsideServer in Frameworks */ = {isa = PBXBuildFile; productRef = 3BB89EA3C6192F7FC865CAF5 /* LookInsideServer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +27,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		501F79D52F2085C3008BDE3F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		501F79D52F2085C3008BDE3F /* Exceptions for "Kimis" folder in "Kimis" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -36,7 +37,18 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		501F78DA2F2085C2008BDE3F /* Kimis */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (501F79D52F2085C3008BDE3F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Kimis; sourceTree = "<group>"; };
+		501F78DA2F2085C2008BDE3F /* Kimis */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				501F79D52F2085C3008BDE3F /* Exceptions for "Kimis" folder in "Kimis" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Kimis;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +67,7 @@
 				5066F6962E8BD63300857C1E /* GlyphixTextFx in Frameworks */,
 				50BED2262927802700C9D7E2 /* SPIndicator in Frameworks */,
 				50BED21D29277E6500C9D7E2 /* SwifterSwift in Frameworks */,
+				F53594A5EE654E2D2AE8B776 /* LookInsideServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +130,7 @@
 				505318F5297EAC07005E30DE /* KeychainAccess */,
 				50F922B72E8AD95200D1E2C1 /* ChidoriMenu */,
 				5066F6952E8BD63300857C1E /* GlyphixTextFx */,
+				3BB89EA3C6192F7FC865CAF5 /* LookInsideServer */,
 			);
 			productName = Kimis;
 			productReference = 50BED13029277CDE00C9D7E2 /* Kimis.app */;
@@ -159,6 +173,7 @@
 				505318F4297EAC07005E30DE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				50F922B62E8AD95200D1E2C1 /* XCRemoteSwiftPackageReference "ChidoriMenu" */,
 				5066F6942E8BD63300857C1E /* XCRemoteSwiftPackageReference "GlyphixTextFx" */,
+				75BCFF91A92E6145C346C5FC /* XCRemoteSwiftPackageReference "LookInside-Release" */,
 			);
 			productRefGroup = 50BED13129277CDE00C9D7E2 /* Products */;
 			projectDirPath = "";
@@ -416,6 +431,10 @@
 				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
 				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
 				ENABLE_USER_SELECTED_FILES = readwrite;
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"$(inherited)",
+					"LookInsideServer*",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Kimis/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Kimis;
@@ -562,9 +581,22 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		75BCFF91A92E6145C346C5FC /* XCRemoteSwiftPackageReference "LookInside-Release" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LookInsideApp/LookInside-Release.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3BB89EA3C6192F7FC865CAF5 /* LookInsideServer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75BCFF91A92E6145C346C5FC /* XCRemoteSwiftPackageReference "LookInside-Release" */;
+			productName = LookInsideServer;
+		};
 		5011D502293B477C0088173F /* IDNA */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5011D501293B477C0088173F /* XCRemoteSwiftPackageReference "IDNA-Cocoa" */;
