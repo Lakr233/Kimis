@@ -50,10 +50,10 @@ Thanks to all of my friends who helped me test Kimis, and thanks to all of the c
 
 Made with ❤️ by [@Lakr233](https://twitter.com/@Lakr233) and his friends [@unixzii](https://twitter.com/@unixzii) [@NekoyueW](https://twitter.com/@NekoyueW).
 
+## Sponsor
+
+[LookInside](https://lookinside-app.com/) helps you inspect a running iOS or macOS app UI from your Mac.
 
 ---
 
 Copyright © 2023 Lakr Aream & Kimis Team. All Rights Reserved.
-## Sponsor
-
-[LookInside](https://lookinside-app.com/) helps you inspect a running iOS or macOS app UI from your Mac.
