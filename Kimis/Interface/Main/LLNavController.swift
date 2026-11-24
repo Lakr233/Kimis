@@ -125,7 +125,7 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
 
         blurBackground.snp.makeConstraints { make in
             make.left.right.top.equalToSuperview()
-            make.height.equalTo(titleLineHeight)
+            make.bottom.equalTo(titleContainer)
         }
         blurBackgroundColor.snp.makeConstraints { make in
             make.edges.equalTo(blurBackground)
@@ -140,7 +140,9 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
         }
 
         titleContainer.snp.makeConstraints { make in
-            make.edges.equalTo(blurBackground)
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(titleLineHeight)
         }
 
         titleLabel.snp.makeConstraints { make in
@@ -190,26 +192,6 @@ class LLNavController: ViewController, UINavigationControllerDelegate {
         case .dark: blurBackground.effect = UIBlurEffect(style: .dark)
         case .unspecified: fallthrough
         @unknown default: blurBackground.alpha = 0
-        }
-
-        updateTitleHeight()
-    }
-
-    private var statusBarHeight: CGFloat = 0
-
-    func updateTitleHeight() {
-        let height = view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        if statusBarHeight == height { return }
-        statusBarHeight = height
-        debugPrint("[UI] using status bar height \(height)")
-        let fullHeight = titleLineHeight + height
-        blurBackground.snp.remakeConstraints { make in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(fullHeight)
-        }
-        titleContainer.snp.remakeConstraints { make in
-            make.left.right.bottom.equalTo(blurBackground)
-            make.top.equalToSuperview().inset(height)
         }
     }
 

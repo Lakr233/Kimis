@@ -172,12 +172,12 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         let padding: Double = 32
         let spacing: CGFloat = 16
         icon.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+            x.centerX.equalTo(view.safeAreaLayoutGuide)
             x.width.height.equalTo(50)
         }
         labelWelcome.snp.makeConstraints { x in
-            x.left.equalToSuperview().offset(padding)
-            x.right.equalToSuperview().offset(-padding)
+            x.left.equalTo(view.safeAreaLayoutGuide).offset(padding)
+            x.right.equalTo(view.safeAreaLayoutGuide).offset(-padding)
             x.top.equalTo(icon.snp.bottom).offset(spacing)
         }
         labelLoginHint.snp.makeConstraints { x in
@@ -191,11 +191,13 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             x.height.equalTo(20)
         }
         textFieldInputHost.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+            x.centerX.equalTo(view.safeAreaLayoutGuide)
             x.height.equalTo(40)
-            x.width.equalTo(300)
+            x.width.lessThanOrEqualTo(kTextFieldMaxWidth)
+            x.width.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-40) // padding
+            x.width.equalTo(kTextFieldMaxWidth).priority(.high)
             x.top.equalTo(labelLoginHint.snp.bottom).offset(spacing)
-            x.centerY.equalToSuperview()
+            x.centerY.equalTo(view.safeAreaLayoutGuide)
         }
         labelHTTPSNotice.snp.makeConstraints { x in
             x.left.equalTo(textFieldInputHost.snp.left)
@@ -203,7 +205,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             x.height.equalTo(20)
         }
         buttonBeginLogin.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+            x.centerX.equalTo(view.safeAreaLayoutGuide)
             x.height.equalTo(32)
             x.width.equalTo(32)
             x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
@@ -212,27 +214,12 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             x.center.equalTo(buttonBeginLogin.snp.center)
         }
         buttonAcknowledge.snp.makeConstraints { x in
-            x.bottom.equalToSuperview().offset(-20)
-            x.centerX.equalToSuperview()
+            x.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            x.centerX.equalTo(view.safeAreaLayoutGuide)
         }
         buttonCancel.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+            x.centerX.equalTo(view.safeAreaLayoutGuide)
             x.top.equalTo(buttonBeginLogin.snp.bottom).offset(spacing)
-        }
-    }
-
-    var currentSize: CGSize = .init(width: 0, height: 0)
-    var previousLayoutSize: CGSize = .init()
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if previousLayoutSize == view.frame.size {
-            return
-        }
-        var width = view.frame.width - 40 // padding
-        if width > kTextFieldMaxWidth { width = kTextFieldMaxWidth }
-        textFieldInputHost.snp.updateConstraints { make in
-            make.width.equalTo(width)
         }
     }
 

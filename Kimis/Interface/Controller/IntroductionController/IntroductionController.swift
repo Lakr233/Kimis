@@ -112,13 +112,11 @@ private class WelcomeStackController: ViewController {
     private let maxWidth: CGFloat = 650
     private let requiredPadding: CGFloat = 20
     func updateStackFrame() {
-        var width = maxWidth
-        if width > view.frame.width - requiredPadding * 2 {
-            width = view.frame.width - requiredPadding * 2
-        }
         stackView.snp.remakeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalTo(width)
+            make.center.equalTo(view.safeAreaLayoutGuide)
+            make.width.lessThanOrEqualTo(maxWidth)
+            make.width.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-requiredPadding * 2)
+            make.width.equalTo(maxWidth).priority(.high)
         }
     }
 }
