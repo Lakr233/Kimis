@@ -78,15 +78,32 @@ private class NextButton: UIButton {
 }
 
 private class WelcomeStackController: ViewController {
-    private let stackView = UIStackView()
+    // the first view (the illustration) and the rest are stacked in the middle,
+    // and sit on either side of the fold while the device is partially folded
+    private let primaryStack = UIStackView()
+    private let secondaryStack = UIStackView()
+    private let contentGuide = UILayoutGuide()
+    private let foldRegion = FoldRegionView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(stackView)
-        stackView.axis = .vertical
-        stackView.spacing = 20
+        view.addSubview(foldRegion)
+        foldRegion.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        foldRegion.foldDidChange = { [weak self] in
+            self?.updateStackFrame()
+        }
+        view.addLayoutGuide(contentGuide)
+        view.addSubview(primaryStack)
+        view.addSubview(secondaryStack)
+        for stackView in [primaryStack, secondaryStack] {
+            stackView.axis = .vertical
+            stackView.spacing = 20
+        }
         let views = viewsForStack()
-        for view in views {
+        for (index, view) in views.enumerated() {
             let wrapper = UIView()
             wrapper.addSubview(view)
             view.snp.makeConstraints { make in
@@ -94,17 +111,13 @@ private class WelcomeStackController: ViewController {
                 make.height.equalToSuperview()
                 make.width.lessThanOrEqualToSuperview()
             }
-            stackView.addArrangedSubview(wrapper)
+            if index == 0 {
+                primaryStack.addArrangedSubview(wrapper)
+            } else {
+                secondaryStack.addArrangedSubview(wrapper)
+            }
         }
-    }
-
-    private var previousSize: CGSize = .zero
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        if previousSize != view.frame.size {
-            previousSize = view.frame.size
-            updateStackFrame()
-        }
+        updateStackFrame()
     }
 
     func viewsForStack() -> [UIView] { [] }
@@ -112,11 +125,33 @@ private class WelcomeStackController: ViewController {
     private let maxWidth: CGFloat = 650
     private let requiredPadding: CGFloat = 20
     func updateStackFrame() {
-        stackView.snp.remakeConstraints { make in
-            make.center.equalTo(view.safeAreaLayoutGuide)
-            make.width.lessThanOrEqualTo(maxWidth)
-            make.width.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-requiredPadding * 2)
-            make.width.equalTo(maxWidth).priority(.high)
+        guard foldRegion.fold != nil else {
+            contentGuide.snp.remakeConstraints { make in
+                make.center.equalTo(view.safeAreaLayoutGuide)
+                make.width.lessThanOrEqualTo(maxWidth)
+                make.width.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-requiredPadding * 2)
+                make.width.equalTo(maxWidth).priority(.high)
+            }
+            primaryStack.snp.remakeConstraints { make in
+                make.top.left.right.equalTo(contentGuide)
+            }
+            secondaryStack.snp.remakeConstraints { make in
+                make.top.equalTo(primaryStack.snp.bottom).offset(primaryStack.spacing)
+                make.left.right.bottom.equalTo(contentGuide)
+            }
+            return
+        }
+        contentGuide.snp.removeConstraints()
+        for (stackView, region) in [
+            (primaryStack, foldRegion.firstRegion),
+            (secondaryStack, foldRegion.secondRegion),
+        ] {
+            stackView.snp.remakeConstraints { make in
+                make.center.equalTo(region)
+                make.width.lessThanOrEqualTo(maxWidth)
+                make.width.lessThanOrEqualTo(region).offset(-requiredPadding * 2)
+                make.width.equalTo(maxWidth).priority(.high)
+            }
         }
     }
 }

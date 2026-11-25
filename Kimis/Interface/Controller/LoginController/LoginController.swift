@@ -123,6 +123,8 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         return button
     }()
 
+    let foldRegion = FoldRegionView()
+
     var inputUrl: String = ""
     var requestCancel: Bool = false
 
@@ -156,6 +158,13 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
     }
 
     func appendView() {
+        view.addSubview(foldRegion)
+        foldRegion.snp.makeConstraints { x in
+            x.edges.equalToSuperview()
+        }
+        foldRegion.foldDidChange = { [weak self] in
+            self?.setupLayout()
+        }
         view.addSubview(icon)
         view.addSubview(labelWelcome)
         view.addSubview(textFieldInputHost)
@@ -171,54 +180,65 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
     func setupLayout() {
         let padding: Double = 32
         let spacing: CGFloat = 16
-        icon.snp.makeConstraints { x in
-            x.centerX.equalTo(view.safeAreaLayoutGuide)
+        // flat, closed and on other devices both regions are the safe area. partially
+        // folded like a book the title goes left of the fold and the form right of it,
+        // folded like a laptop the title and form go above it, clear of the keyboard
+        let headerRegion = foldRegion.firstRegion
+        let formRegion = foldRegion.fold == .vertical ? foldRegion.secondRegion : foldRegion.firstRegion
+        let footerRegion = foldRegion.fold == .horizontal ? foldRegion.secondRegion : foldRegion.firstRegion
+        icon.snp.remakeConstraints { x in
+            x.centerX.equalTo(headerRegion)
             x.width.height.equalTo(50)
         }
-        labelWelcome.snp.makeConstraints { x in
-            x.left.equalTo(view.safeAreaLayoutGuide).offset(padding)
-            x.right.equalTo(view.safeAreaLayoutGuide).offset(-padding)
+        labelWelcome.snp.remakeConstraints { x in
+            x.left.equalTo(headerRegion).offset(padding)
+            x.right.equalTo(headerRegion).offset(-padding)
             x.top.equalTo(icon.snp.bottom).offset(spacing)
+            if foldRegion.fold == .vertical {
+                x.centerY.equalTo(textFieldInputHost)
+            }
         }
-        labelLoginHint.snp.makeConstraints { x in
+        labelLoginHint.snp.remakeConstraints { x in
             x.left.equalTo(textFieldInputHost.snp.left)
-            x.top.equalTo(labelWelcome.snp.bottom).offset(spacing)
+            if foldRegion.fold != .vertical {
+                x.top.equalTo(labelWelcome.snp.bottom).offset(spacing)
+            }
             x.height.equalTo(20)
         }
-        buttonLearnMore.snp.makeConstraints { x in
+        buttonLearnMore.snp.remakeConstraints { x in
             x.right.equalTo(textFieldInputHost.snp.right)
             x.centerY.equalTo(labelLoginHint.snp.centerY)
             x.height.equalTo(20)
         }
-        textFieldInputHost.snp.makeConstraints { x in
-            x.centerX.equalTo(view.safeAreaLayoutGuide)
+        textFieldInputHost.snp.remakeConstraints { x in
+            x.centerX.equalTo(formRegion)
             x.height.equalTo(40)
             x.width.lessThanOrEqualTo(kTextFieldMaxWidth)
-            x.width.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-40) // padding
+            x.width.lessThanOrEqualTo(formRegion).offset(-40) // padding
             x.width.equalTo(kTextFieldMaxWidth).priority(.high)
             x.top.equalTo(labelLoginHint.snp.bottom).offset(spacing)
-            x.centerY.equalTo(view.safeAreaLayoutGuide)
+            x.centerY.equalTo(formRegion)
         }
-        labelHTTPSNotice.snp.makeConstraints { x in
+        labelHTTPSNotice.snp.remakeConstraints { x in
             x.left.equalTo(textFieldInputHost.snp.left)
             x.top.equalTo(textFieldInputHost.snp.bottom).offset(spacing)
             x.height.equalTo(20)
         }
-        buttonBeginLogin.snp.makeConstraints { x in
-            x.centerX.equalTo(view.safeAreaLayoutGuide)
+        buttonBeginLogin.snp.remakeConstraints { x in
+            x.centerX.equalTo(textFieldInputHost)
             x.height.equalTo(32)
             x.width.equalTo(32)
             x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
         }
-        activityIndicator.snp.makeConstraints { x in
+        activityIndicator.snp.remakeConstraints { x in
             x.center.equalTo(buttonBeginLogin.snp.center)
         }
-        buttonAcknowledge.snp.makeConstraints { x in
-            x.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            x.centerX.equalTo(view.safeAreaLayoutGuide)
+        buttonAcknowledge.snp.remakeConstraints { x in
+            x.bottom.equalTo(footerRegion).offset(-20)
+            x.centerX.equalTo(footerRegion)
         }
-        buttonCancel.snp.makeConstraints { x in
-            x.centerX.equalTo(view.safeAreaLayoutGuide)
+        buttonCancel.snp.remakeConstraints { x in
+            x.centerX.equalTo(textFieldInputHost)
             x.top.equalTo(buttonBeginLogin.snp.bottom).offset(spacing)
         }
     }
