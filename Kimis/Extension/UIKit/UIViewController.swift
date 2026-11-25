@@ -44,19 +44,7 @@ extension UIViewController {
     }
 
     var topBarHeight: CGFloat {
-        (
-            view
-                .window?
-                .windowScene?
-                .statusBarManager?
-                .statusBarFrame
-                .height ?? 0.0,
-        ) + (
-            navigationController?
-                .navigationBar
-                .frame
-                .height ?? 0.0
-        )
+        view.safeAreaInsets.top
     }
 
     func present(next: UIViewController) {

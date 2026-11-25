@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2022/3/31.
 //
 
+import IQKeyboardManagerSwift
 import SafariServices
 import SnapKit
 import Source
@@ -123,8 +124,13 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         return button
     }()
 
+    let foldRegion = FoldRegionView()
+
     var inputUrl: String = ""
     var requestCancel: Bool = false
+    var keyboardVisible: Bool = false
+    // compact height with the keyboard up: the go button sits next to the field
+    var compactKeyboardLayout: Bool = false
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -142,6 +148,15 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         buttonAcknowledge.addTarget(self, action: #selector(openAcknowledge), for: .touchUpInside)
         buttonLearnMore.addTarget(self, action: #selector(openLearnMore), for: .touchUpInside)
         buttonCancel.addTarget(self, action: #selector(cancelLogin), for: .touchUpInside)
+        for name in [UIResponder.keyboardWillShowNotification, UIResponder.keyboardWillHideNotification] {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(keyboardWillChangeVisibility(_:)),
+                name: name,
+                object: nil,
+            )
+        }
+        updateCompactHeightLayout()
 
         navigationItem.leftBarButtonItem = .init(
             title: L10n.text("Cancel"),
@@ -151,11 +166,53 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         )
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateCompactHeightLayout()
+    }
+
+    @objc func keyboardWillChangeVisibility(_ notification: Notification) {
+        keyboardVisible = notification.name == UIResponder.keyboardWillShowNotification
+        updateCompactHeightLayout()
+    }
+
+    // in compact height (iPhone landscape) the keyboard leaves no room above the field,
+    // the keyboard manager pushes the icon, the title and the host label row off the
+    // top or under the cancel button, the go button below the hint ends up under the
+    // keyboard, and the toolbar placeholder would sit on the hint below the field
+    func updateCompactHeightLayout() {
+        let compactHeight = traitCollection.verticalSizeClass == .compact
+        textFieldInputHost.shouldHideToolbarPlaceholder = compactHeight
+        if #available(iOS 26.0, macCatalyst 26.0, *) {
+            // without a title the empty glass capsule would still be drawn
+            textFieldInputHost.keyboardToolbar.titleBarButton.hidesSharedBackground = compactHeight
+        }
+        let compactKeyboard = compactHeight && keyboardVisible
+        guard compactKeyboardLayout != compactKeyboard else { return }
+        compactKeyboardLayout = compactKeyboard
+        setupLayout()
+        let headerAlpha: CGFloat = compactKeyboard ? 0 : 1
+        withUIKitAnimation(duration: 0.25) { [self] in
+            icon.alpha = headerAlpha
+            labelWelcome.alpha = headerAlpha
+            labelLoginHint.alpha = headerAlpha
+            buttonLearnMore.alpha = headerAlpha
+            view.layoutIfNeeded()
+        }
+    }
+
     @objc func dismissController() {
         dismiss(animated: true)
     }
 
     func appendView() {
+        view.addSubview(foldRegion)
+        foldRegion.snp.makeConstraints { x in
+            x.edges.equalToSuperview()
+        }
+        foldRegion.foldDidChange = { [weak self] in
+            self?.setupLayout()
+        }
         view.addSubview(icon)
         view.addSubview(labelWelcome)
         view.addSubview(textFieldInputHost)
@@ -171,68 +228,77 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
     func setupLayout() {
         let padding: Double = 32
         let spacing: CGFloat = 16
-        icon.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+        // flat, closed and on other devices both regions are the safe area. partially
+        // folded like a book the title goes left of the fold and the form right of it,
+        // folded like a laptop the title and form go above it, clear of the keyboard
+        let headerRegion = foldRegion.firstRegion
+        let formRegion = foldRegion.fold == .vertical ? foldRegion.secondRegion : foldRegion.firstRegion
+        let footerRegion = foldRegion.fold == .horizontal ? foldRegion.secondRegion : foldRegion.firstRegion
+        icon.snp.remakeConstraints { x in
+            x.centerX.equalTo(headerRegion)
             x.width.height.equalTo(50)
         }
-        labelWelcome.snp.makeConstraints { x in
-            x.left.equalToSuperview().offset(padding)
-            x.right.equalToSuperview().offset(-padding)
+        labelWelcome.snp.remakeConstraints { x in
+            x.left.equalTo(headerRegion).offset(padding)
+            x.right.equalTo(headerRegion).offset(-padding)
             x.top.equalTo(icon.snp.bottom).offset(spacing)
+            if foldRegion.fold == .vertical {
+                x.centerY.equalTo(textFieldInputHost)
+            }
         }
-        labelLoginHint.snp.makeConstraints { x in
+        labelLoginHint.snp.remakeConstraints { x in
             x.left.equalTo(textFieldInputHost.snp.left)
-            x.top.equalTo(labelWelcome.snp.bottom).offset(spacing)
+            if foldRegion.fold != .vertical {
+                x.top.equalTo(labelWelcome.snp.bottom).offset(spacing)
+            }
             x.height.equalTo(20)
         }
-        buttonLearnMore.snp.makeConstraints { x in
+        buttonLearnMore.snp.remakeConstraints { x in
             x.right.equalTo(textFieldInputHost.snp.right)
             x.centerY.equalTo(labelLoginHint.snp.centerY)
             x.height.equalTo(20)
         }
-        textFieldInputHost.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+        // room for the go button next to the field, reserved on both sides so the pair stays centered
+        let sideButtonInset: CGFloat = compactKeyboardLayout ? (32 + spacing) * 2 : 0
+        textFieldInputHost.snp.remakeConstraints { x in
+            x.centerX.equalTo(formRegion).offset(-sideButtonInset / 4)
             x.height.equalTo(40)
-            x.width.equalTo(300)
+            x.width.lessThanOrEqualTo(kTextFieldMaxWidth)
+            x.width.lessThanOrEqualTo(formRegion).offset(-40 - sideButtonInset) // padding
+            x.width.equalTo(kTextFieldMaxWidth).priority(.high)
             x.top.equalTo(labelLoginHint.snp.bottom).offset(spacing)
-            x.centerY.equalToSuperview()
+            x.centerY.equalTo(formRegion)
         }
-        labelHTTPSNotice.snp.makeConstraints { x in
+        labelHTTPSNotice.snp.remakeConstraints { x in
             x.left.equalTo(textFieldInputHost.snp.left)
             x.top.equalTo(textFieldInputHost.snp.bottom).offset(spacing)
             x.height.equalTo(20)
         }
-        buttonBeginLogin.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
+        buttonBeginLogin.snp.remakeConstraints { x in
             x.height.equalTo(32)
             x.width.equalTo(32)
-            x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
+            if compactKeyboardLayout {
+                x.left.equalTo(textFieldInputHost.snp.right).offset(spacing)
+                x.centerY.equalTo(textFieldInputHost)
+            } else {
+                x.centerX.equalTo(textFieldInputHost)
+                x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
+            }
         }
-        activityIndicator.snp.makeConstraints { x in
+        activityIndicator.snp.remakeConstraints { x in
             x.center.equalTo(buttonBeginLogin.snp.center)
         }
-        buttonAcknowledge.snp.makeConstraints { x in
-            x.bottom.equalToSuperview().offset(-20)
-            x.centerX.equalToSuperview()
+        buttonAcknowledge.snp.remakeConstraints { x in
+            x.bottom.equalTo(footerRegion).offset(-20)
+            x.centerX.equalTo(footerRegion)
         }
-        buttonCancel.snp.makeConstraints { x in
-            x.centerX.equalToSuperview()
-            x.top.equalTo(buttonBeginLogin.snp.bottom).offset(spacing)
-        }
-    }
-
-    var currentSize: CGSize = .init(width: 0, height: 0)
-    var previousLayoutSize: CGSize = .init()
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        if previousLayoutSize == view.frame.size {
-            return
-        }
-        var width = view.frame.width - 40 // padding
-        if width > kTextFieldMaxWidth { width = kTextFieldMaxWidth }
-        textFieldInputHost.snp.updateConstraints { make in
-            make.width.equalTo(width)
+        buttonCancel.snp.remakeConstraints { x in
+            x.centerX.equalTo(textFieldInputHost)
+            if compactKeyboardLayout {
+                x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
+            } else {
+                x.top.equalTo(buttonBeginLogin.snp.bottom).offset(spacing)
+            }
         }
     }
 

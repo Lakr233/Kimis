@@ -111,11 +111,31 @@ class RootController: ViewController {
         }
     }
 
+    var previousHorizontalSizeClass: UIUserInterfaceSizeClass = .unspecified
+    var previousVerticalSizeClass: UIUserInterfaceSizeClass = .unspecified
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass
+            || previousTraitCollection?.verticalSizeClass != traitCollection.verticalSizeClass
+        {
+            view.setNeedsLayout()
+        }
+    }
+
     func buildContentController(forceReload: Bool = false) {
         assert(Thread.isMainThread)
-        if !forceReload, previousLayoutSize == view.frame.size { return }
+        let horizontalSizeClass = traitCollection.horizontalSizeClass
+        let verticalSizeClass = traitCollection.verticalSizeClass
+        if !forceReload,
+           previousLayoutSize == view.frame.size,
+           previousHorizontalSizeClass == horizontalSizeClass,
+           previousVerticalSizeClass == verticalSizeClass
+        { return }
         print("[UI] layout size changed from \(previousLayoutSize) to \(view.frame.size)")
         previousLayoutSize = view.frame.size
+        previousHorizontalSizeClass = horizontalSizeClass
+        previousVerticalSizeClass = verticalSizeClass
         loadController()
     }
 
@@ -164,13 +184,16 @@ class RootController: ViewController {
         #if targetEnvironment(macCatalyst)
             return true
         #else
-            let currentIdiom = UIDevice.current.userInterfaceIdiom
+            let currentIdiom = traitCollection.userInterfaceIdiom
+            // regular in both directions: iPhone Duo inner display, but not a large iPhone in landscape
+            let hasRegularSize = traitCollection.horizontalSizeClass == .regular
+                && traitCollection.verticalSizeClass == .regular
             if #available(iOS 14.0, *) {
-                if !(currentIdiom == .pad || currentIdiom == .mac) {
+                if !(currentIdiom == .pad || currentIdiom == .mac || hasRegularSize) {
                     return false
                 }
             } else {
-                if !(currentIdiom == .pad) {
+                if !(currentIdiom == .pad || hasRegularSize) {
                     return false
                 }
             }

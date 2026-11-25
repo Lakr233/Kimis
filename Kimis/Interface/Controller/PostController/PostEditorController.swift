@@ -214,14 +214,15 @@ class PostEditorController: ViewController, UIScrollViewDelegate, UIDropInteract
     }
 
     func updateFrames() {
-        let bounds = view.bounds // container.frame = view.bounds
-        if bounds.width == 0 { return }
+        let safeAreaInsets = view.safeAreaInsets
+        let bounds = view.bounds.inset(by: UIEdgeInsets(top: 0, left: safeAreaInsets.left, bottom: 0, right: safeAreaInsets.right))
+        if bounds.width <= 0 { return }
 
-        textParser.options.fontSizeOffset = IH.preferredFontSizeOffset(usingWidth: view.bounds.width)
+        textParser.options.fontSizeOffset = IH.preferredFontSizeOffset(usingWidth: bounds.width)
         let toolbarHeight = PostEditorToolbarView.preferredHeight
-            + view.safeAreaInsets.bottom
-        toolbar.frame = CGRect(x: 0, y: bounds.height - toolbarHeight, width: bounds.width, height: toolbarHeight)
-        container.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height - toolbarHeight)
+            + safeAreaInsets.bottom
+        toolbar.frame = CGRect(x: bounds.minX, y: bounds.height - toolbarHeight, width: bounds.width, height: toolbarHeight)
+        container.frame = CGRect(x: bounds.minX, y: 0, width: bounds.width, height: bounds.height - toolbarHeight)
 
         if let profile = Account.shared.source?.user {
             let user = User.converting(profile)
