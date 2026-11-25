@@ -129,6 +129,8 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
     var inputUrl: String = ""
     var requestCancel: Bool = false
     var keyboardVisible: Bool = false
+    // compact height with the keyboard up: the go button sits next to the field
+    var compactKeyboardLayout: Bool = false
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -176,8 +178,8 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     // in compact height (iPhone landscape) the keyboard leaves no room above the field,
     // the keyboard manager pushes the icon, the title and the host label row off the
-    // top or under the cancel button, and the toolbar placeholder would sit on the
-    // hint below the field
+    // top or under the cancel button, the go button below the hint ends up under the
+    // keyboard, and the toolbar placeholder would sit on the hint below the field
     func updateCompactHeightLayout() {
         let compactHeight = traitCollection.verticalSizeClass == .compact
         textFieldInputHost.shouldHideToolbarPlaceholder = compactHeight
@@ -185,13 +187,17 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             // without a title the empty glass capsule would still be drawn
             textFieldInputHost.keyboardToolbar.titleBarButton.hidesSharedBackground = compactHeight
         }
-        let headerAlpha: CGFloat = compactHeight && keyboardVisible ? 0 : 1
-        guard icon.alpha != headerAlpha else { return }
+        let compactKeyboard = compactHeight && keyboardVisible
+        guard compactKeyboardLayout != compactKeyboard else { return }
+        compactKeyboardLayout = compactKeyboard
+        setupLayout()
+        let headerAlpha: CGFloat = compactKeyboard ? 0 : 1
         withUIKitAnimation(duration: 0.25) { [self] in
             icon.alpha = headerAlpha
             labelWelcome.alpha = headerAlpha
             labelLoginHint.alpha = headerAlpha
             buttonLearnMore.alpha = headerAlpha
+            view.layoutIfNeeded()
         }
     }
 
@@ -252,11 +258,13 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             x.centerY.equalTo(labelLoginHint.snp.centerY)
             x.height.equalTo(20)
         }
+        // room for the go button next to the field, reserved on both sides so the pair stays centered
+        let sideButtonInset: CGFloat = compactKeyboardLayout ? (32 + spacing) * 2 : 0
         textFieldInputHost.snp.remakeConstraints { x in
-            x.centerX.equalTo(formRegion)
+            x.centerX.equalTo(formRegion).offset(-sideButtonInset / 4)
             x.height.equalTo(40)
             x.width.lessThanOrEqualTo(kTextFieldMaxWidth)
-            x.width.lessThanOrEqualTo(formRegion).offset(-40) // padding
+            x.width.lessThanOrEqualTo(formRegion).offset(-40 - sideButtonInset) // padding
             x.width.equalTo(kTextFieldMaxWidth).priority(.high)
             x.top.equalTo(labelLoginHint.snp.bottom).offset(spacing)
             x.centerY.equalTo(formRegion)
@@ -267,10 +275,15 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             x.height.equalTo(20)
         }
         buttonBeginLogin.snp.remakeConstraints { x in
-            x.centerX.equalTo(textFieldInputHost)
             x.height.equalTo(32)
             x.width.equalTo(32)
-            x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
+            if compactKeyboardLayout {
+                x.left.equalTo(textFieldInputHost.snp.right).offset(spacing)
+                x.centerY.equalTo(textFieldInputHost)
+            } else {
+                x.centerX.equalTo(textFieldInputHost)
+                x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
+            }
         }
         activityIndicator.snp.remakeConstraints { x in
             x.center.equalTo(buttonBeginLogin.snp.center)
@@ -281,7 +294,11 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         }
         buttonCancel.snp.remakeConstraints { x in
             x.centerX.equalTo(textFieldInputHost)
-            x.top.equalTo(buttonBeginLogin.snp.bottom).offset(spacing)
+            if compactKeyboardLayout {
+                x.top.equalTo(labelHTTPSNotice.snp.bottom).offset(spacing)
+            } else {
+                x.top.equalTo(buttonBeginLogin.snp.bottom).offset(spacing)
+            }
         }
     }
 
