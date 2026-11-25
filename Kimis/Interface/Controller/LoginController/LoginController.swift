@@ -5,6 +5,7 @@
 //  Created by Lakr Aream on 2022/3/31.
 //
 
+import IQKeyboardManagerSwift
 import SafariServices
 import SnapKit
 import Source
@@ -127,6 +128,7 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
 
     var inputUrl: String = ""
     var requestCancel: Bool = false
+    var keyboardVisible: Bool = false
 
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -144,6 +146,15 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
         buttonAcknowledge.addTarget(self, action: #selector(openAcknowledge), for: .touchUpInside)
         buttonLearnMore.addTarget(self, action: #selector(openLearnMore), for: .touchUpInside)
         buttonCancel.addTarget(self, action: #selector(cancelLogin), for: .touchUpInside)
+        for name in [UIResponder.keyboardWillShowNotification, UIResponder.keyboardWillHideNotification] {
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(keyboardWillChangeVisibility(_:)),
+                name: name,
+                object: nil,
+            )
+        }
+        updateCompactHeightLayout()
 
         navigationItem.leftBarButtonItem = .init(
             title: L10n.text("Cancel"),
@@ -151,6 +162,37 @@ private class RealLoginController: ViewController, UITextFieldDelegate {
             target: self,
             action: #selector(dismissController),
         )
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateCompactHeightLayout()
+    }
+
+    @objc func keyboardWillChangeVisibility(_ notification: Notification) {
+        keyboardVisible = notification.name == UIResponder.keyboardWillShowNotification
+        updateCompactHeightLayout()
+    }
+
+    // in compact height (iPhone landscape) the keyboard leaves no room above the field,
+    // the keyboard manager pushes the icon, the title and the host label row off the
+    // top or under the cancel button, and the toolbar placeholder would sit on the
+    // hint below the field
+    func updateCompactHeightLayout() {
+        let compactHeight = traitCollection.verticalSizeClass == .compact
+        textFieldInputHost.shouldHideToolbarPlaceholder = compactHeight
+        if #available(iOS 26.0, macCatalyst 26.0, *) {
+            // without a title the empty glass capsule would still be drawn
+            textFieldInputHost.keyboardToolbar.titleBarButton.hidesSharedBackground = compactHeight
+        }
+        let headerAlpha: CGFloat = compactHeight && keyboardVisible ? 0 : 1
+        guard icon.alpha != headerAlpha else { return }
+        withUIKitAnimation(duration: 0.25) { [self] in
+            icon.alpha = headerAlpha
+            labelWelcome.alpha = headerAlpha
+            labelLoginHint.alpha = headerAlpha
+            buttonLearnMore.alpha = headerAlpha
+        }
     }
 
     @objc func dismissController() {
