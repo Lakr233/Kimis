@@ -131,6 +131,7 @@ private class WelcomeStackController: ViewController {
                 make.width.lessThanOrEqualTo(maxWidth)
                 make.width.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-requiredPadding * 2)
                 make.width.equalTo(maxWidth).priority(.high)
+                make.height.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(-requiredPadding * 2)
             }
             primaryStack.snp.remakeConstraints { make in
                 make.top.left.right.equalTo(contentGuide)
@@ -151,6 +152,7 @@ private class WelcomeStackController: ViewController {
                 make.width.lessThanOrEqualTo(maxWidth)
                 make.width.lessThanOrEqualTo(region).offset(-requiredPadding * 2)
                 make.width.equalTo(maxWidth).priority(.high)
+                make.height.lessThanOrEqualTo(region).offset(-requiredPadding * 2)
             }
         }
     }
@@ -212,9 +214,12 @@ private class WelcomeController: WelcomeStackController {
         }
 
         mainImage.snp.makeConstraints { x in
-            x.height.equalTo(280)
+            // shrinks to keep the stack inside the safe area, e.g. iPhone in landscape
+            x.height.lessThanOrEqualTo(280)
+            x.height.equalTo(280).priority(.medium)
             x.width.equalToSuperview().inset(20).priority(.low)
         }
+        mainImage.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         nextButton.snp.makeConstraints { x in
             x.width.equalTo(200)
             x.height.equalTo(50)
